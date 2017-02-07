@@ -22,7 +22,7 @@ $(".dropdown-button").dropdown();
 <ul id="reserve" class="dropdown-content">
   <li><a href="#!">예약안내</a></li>
   <li><a href="#!">예약현황</a></li>
-  <li><a href="#!">예약문의</a></li>
+  <li><a href="/controller/praha/reserveBoard">예약문의</a></li>
   <li><a href="#!">예약확정</a></li>
 </ul>
 

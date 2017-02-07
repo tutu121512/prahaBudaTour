@@ -19,21 +19,10 @@ public class PrahaContrller {
 	@Autowired
 	private ReserveQuestionService ReserveQuestionService;
 	
-	@RequestMapping("{viewName}/{fileName}")
+	@RequestMapping("{fileName}")
 	public String noneSignUpMove(
-			@PathVariable("viewName") String viewName,
 			@PathVariable("fileName") String fileName){
-		return viewName+"/"+fileName;
-	}
-	
-	@RequestMapping("prahaMain")
-	public String PrahaMain(){
-		try {
-			ReserveQuestionService.ReserveQuestionInsert();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "prahaMain";
+		return fileName;
 	}
 	
 	@RequestMapping("/praha/reserveQuestion")
