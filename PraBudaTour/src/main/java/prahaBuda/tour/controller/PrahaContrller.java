@@ -25,14 +25,14 @@ public class PrahaContrller {
 		return fileName;
 	}
 	
-	@RequestMapping("/praha/reserveQuestion")
+	@RequestMapping("reserveBoard")
 	public String PrahaReserveSelect(BoardDTO boardDto,Model model) throws Exception{
 		
 		List<BoardDTO> selectList =  ReserveQuestionService.ReserveQuestionSelect();
 		model.addAttribute("reserveSelectList", selectList);
 		System.out.println("전송되는 List 갯수 : " +selectList);
 		 
-		return "praha/reserveQuestion";
+		return "reserveBoard";
 	}
 	
 	@RequestMapping("parahaReserveInsert")
