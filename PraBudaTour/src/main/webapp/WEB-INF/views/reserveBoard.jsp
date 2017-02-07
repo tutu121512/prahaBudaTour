@@ -38,7 +38,7 @@
 	<tbody>
 	<c:forEach items="${reserveSelectList}" var="list">
 	<tr>
-		<th>${list.boardSquence}</th>
+		<th>${list.boardSequence}</th>
 		<th>${list.title}</th>
 		<th>${list.writer}</th>
 		<th>${list.boardDate}</th>  

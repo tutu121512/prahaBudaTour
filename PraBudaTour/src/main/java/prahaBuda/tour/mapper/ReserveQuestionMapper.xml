@@ -32,7 +32,11 @@
 	</insert>
 	
 	<select id="ReserveQuestionSelect" resultMap="boardMap" >
-	select * from board where board_state='reserveQuestion'
+	SELECT  rownum as boardSequence,board.writer,board.title,boardDate 
+	from (select rownum,
+	writer,title,board_date as boardDate 
+	from board where board_state='reserveQuestion' and location='P' order by board_date) board
+	order by boardSequence
 	</select>
 	
 </mapper>
