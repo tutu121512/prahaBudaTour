@@ -10,6 +10,7 @@
       <result column="Location" property="location"/>
       <result column="board_sequence" property="boardSequence"/>
       <result column="writer" property="writer"/>
+      <result column="title" property="title"/>
       <result column="content" property="content"/>
       <result column="password" property="password"/>
       <result column="board_date" property="boardDate"/>
