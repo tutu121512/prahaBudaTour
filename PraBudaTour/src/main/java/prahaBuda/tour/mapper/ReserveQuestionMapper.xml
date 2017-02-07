@@ -4,7 +4,35 @@
 
 <mapper namespace="ReserverQuestion">
 
-	<select id="test" resultType="int">
-		select count(empno) from emp 
+<!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
+   <resultMap type="boardDTO" id="boardMap">
+      <result column="board_state" property="boardState"/> 
+      <result column="Location" property="location"/>
+      <result column="board_sequence" property="boardSequence"/>
+      <result column="writer" property="writer"/>
+      <result column="t"src/main/java/prahaBuda/tour/mapper/ReserveQuestionMapper.xml"itle" property="title"/>
+      <result column="content" property="content"/>
+      <result column="password" property="password"/>
+      <result column="board_date" property="boardDate"/>
+      <result column="board_reply" property="boardReply"/>
+      <result column="phone" property="phone" />
+      <result column="kakao_id" property="kakaoId"/>
+      <result column="board_img01" property="boardImg01"/>
+      <result column="board_img02" property="boardImg02"/>
+      <result column="board_img03" property="boardImg03"/>
+      <result column="board_img04" property="boardImg04"/>
+   </resultMap>
+
+
+	<insert id="ReserveQuestionInsert" parameterType="boardDTO" >
+	INSERT INTO Board(board_state,Location,board_sequence,writer,title,content,
+	password,board_date,board_reply,phone,kakao_id,board_img01,board_img02,board_img03,board_img04) 
+	VALUES('reserveQuestion','P',board_sequence.nextVal,#{writer},#{title},#{content},
+	#{password},sysdate,null,#{phone},#{kakaoId},null,null,null,null)
+	</insert>
+	
+	<select id="ReserveQuestionSelect" resultMap="boardMap" >
+	select * from board where board_state='reserveQuestion'
 	</select>
+	
 </mapper>

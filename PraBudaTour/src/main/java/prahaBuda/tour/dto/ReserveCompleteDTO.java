@@ -1,6 +1,7 @@
 package prahaBuda.tour.dto;
 
 public class ReserveCompleteDTO {
+
 	private String  location;	
 	private String  reserveName;
 	private String	roomName;

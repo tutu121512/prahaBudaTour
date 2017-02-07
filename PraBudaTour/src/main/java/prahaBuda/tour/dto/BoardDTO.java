@@ -2,19 +2,28 @@ package prahaBuda.tour.dto;
 
 public class BoardDTO {
 	
+	private String boardState;
 	private String location;
 	private String boardSequence;
 	private String writer;
+	private String title;
 	private String content;
 	private String password;
 	private String boardDate;
-	private String boardAnswer;
-	private String boardState;
+	private String boardReply;
+	private String phone;
+	private String kakaoId;
 	private String boardImg01;
 	private String boardImg02;
 	private String boardImg03;
 	private String boardImg04;
 	
+	public String getBoardState() {
+		return boardState;
+	}
+	public void setBoardState(String boardState) {
+		this.boardState = boardState;
+	}
 	public String getLocation() {
 		return location;
 	}
@@ -32,6 +41,12 @@ public class BoardDTO {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContent() {
 		return content;
@@ -51,17 +66,23 @@ public class BoardDTO {
 	public void setBoardDate(String boardDate) {
 		this.boardDate = boardDate;
 	}
-	public String getBoardAnswer() {
-		return boardAnswer;
+	public String getBoardReply() {
+		return boardReply;
 	}
-	public void setBoardAnswer(String boardAnswer) {
-		this.boardAnswer = boardAnswer;
+	public void setBoardReply(String boardReply) {
+		this.boardReply = boardReply;
 	}
-	public String getBoardState() {
-		return boardState;
+	public String getPhone() {
+		return phone;
 	}
-	public void setBoardState(String boardState) {
-		this.boardState = boardState;
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getKakaoId() {
+		return kakaoId;
+	}
+	public void setKakaoId(String kakaoId) {
+		this.kakaoId = kakaoId;
 	}
 	public String getBoardImg01() {
 		return boardImg01;
@@ -87,4 +108,6 @@ public class BoardDTO {
 	public void setBoardImg04(String boardImg04) {
 		this.boardImg04 = boardImg04;
 	}
+
+	
 }
