@@ -6,14 +6,6 @@
 $(".dropdown-button").dropdown();
 </script>
 
-<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
-
 <ul id="roomShow" class="dropdown-content">
   <li><a href="#!">까르를교</a></li>
   <li><a href="#!">프라하성</a></li>

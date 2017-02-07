@@ -29,7 +29,7 @@ public class PrahaContrller {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "praha/prahaMain";
+		return "prahaMain";
 	}
 	
 	
