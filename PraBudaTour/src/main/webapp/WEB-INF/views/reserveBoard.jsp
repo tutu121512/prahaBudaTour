@@ -4,9 +4,9 @@
 <table class="striped" id="userManageList">
 	<thead>
 		<tr>
-			<th data-field="email">이메일</th>
-			<th data-field="nickName">닉네임</th>
-			<th data-field="phone">전화번호</th>
+			<th data-field="email">제목</th>
+			<th data-field="nickName">작성자</th>
+			<th data-field="phone">작성일자</th>
 			<th data-field="phone">비밀번호</th>
 			<th data-field="cashPoint">T 잔액</th>
 			<th data-field="level">레벨</th>
@@ -18,7 +18,13 @@
 	</thead>
 	
 	<tbody>
-	
+	<c:forEach items="${reserveSelectList}" var="list">
+	<tr>
+		<th>${list.title}</th>
+		<th>${list.writer}</th>
+		<th>${list.boardDate}</th>  
+	</tr>
+	</c:forEach>	
 	</tbody>
 	
 	<tbody>
@@ -26,4 +32,5 @@
 			<th data-field="userState"><input type="button" value="글쓰기"></th>
 		</tr>
 	</tbody>
+	
 </table>
