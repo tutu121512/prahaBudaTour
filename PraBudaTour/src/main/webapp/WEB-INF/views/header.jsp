@@ -36,7 +36,7 @@ $(".dropdown-button").dropdown();
   <div class="nav-wrapper">
 	<img src='<c:url value="/resources/images/logo.jpg"/>' id="logo">
     <ul class="right hide-on-med-and-down">
-	  <li><a href="/" class="brand-logo center">Praha</a></li>
+	  <li><a href="/controller/praha/prahaMain" class="brand-logo center">Praha</a></li>
       <li><a href="sass.html">메인</a></li>
       <li><a class="dropdown-button" href="#" data-activates="roomShow">둘러보기<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#"  data-activates="guide">이용안내<i class="material-icons right">arrow_drop_down</i></a></li>
