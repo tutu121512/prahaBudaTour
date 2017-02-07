@@ -4,7 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import favicon.tour.dto.*;
+import prahaBuda.tour.dto.*;
 
 @Repository
 public class ReserveQuestionDaoImpl implements ReserveQuestionDao {

@@ -1,6 +1,6 @@
 package prahaBuda.tour.service;
 
-import favicon.tour.dto.*;
+import prahaBuda.tour.dto.*;
 
 public interface ReserveQuestionService {
 

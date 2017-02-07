@@ -1,6 +1,6 @@
 package prahaBuda.tour.dao;
 
-import favicon.tour.dto.*;
+import prahaBuda.tour.dto.*;
 
 public interface ReserveQuestionDao {
 

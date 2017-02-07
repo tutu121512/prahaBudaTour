@@ -3,8 +3,8 @@ package prahaBuda.tour.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import favicon.tour.dao.ReserveQuestionDao;
-import favicon.tour.dto.*;
+import prahaBuda.tour.dao.ReserveQuestionDao;
+import prahaBuda.tour.dto.*;
 
 @Service
 public class ReserveQuestionServiceImpl implements ReserveQuestionService {
