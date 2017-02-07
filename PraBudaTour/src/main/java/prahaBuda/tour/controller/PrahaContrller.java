@@ -42,7 +42,7 @@ public class PrahaContrller {
 		List<BoardDTO> selectList =  ReserveQuestionService.ReserveQuestionSelect();
 		model.addAttribute("reserveSelectList", selectList);
 		System.out.println("전송되는 List 갯수 : " +selectList);
-		
+		 
 		return "praha/reserveQuestion";
 	}
 	

@@ -32,7 +32,9 @@
 	</insert>
 	
 	<select id="ReserveQuestionSelect" resultMap="boardMap" >
-	select * from board where board_state='reserveQuestion'
+	select rownum as boardSequence,
+	writer,title,to_char(board_date,'YYYY-MM-DD') as boardDate 
+	from board where board_state='reserveQuestion' order by board_date
 	</select>
 	
 </mapper>
