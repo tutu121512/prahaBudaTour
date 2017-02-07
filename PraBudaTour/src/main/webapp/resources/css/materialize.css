@@ -4070,6 +4070,7 @@ nav .brand-logo {
   font-size: 2.1rem;
   padding: 0;
   white-space: nowrap;
+  font-weight:900;
 }
 
 nav .brand-logo.center {
@@ -7811,7 +7812,9 @@ input[type=range]:focus::-ms-fill-upper {
   left: 0;
 }
 
-
+#logo{
+	margin-top:-16px;
+}
 
 .carousel .carousel-item img {
   width: 100%;
