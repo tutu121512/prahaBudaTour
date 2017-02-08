@@ -7,10 +7,10 @@ $(".dropdown-button").dropdown();
 </script>
 
 <ul id="roomShow" class="dropdown-content">
-  <li><a href="#!">까르를교</a></li>
-  <li><a href="#!">프라하성</a></li>
-  <li><a href="#!">바츨라프</a></li>
-  <li><a href="#!">공용공간</a></li>
+  <li><a href="/controller/praha/karelRoom">까르를교</a></li>
+  <li><a href="/controller/praha/prahaRoom">프라하성</a></li>
+  <li><a href="/controller/praha/bachlRoom">바츨라프</a></li>
+  <li><a href="/controller/praha/publicRoom">공용공간</a></li>
 </ul>
 
 <ul id="guide" class="dropdown-content">
@@ -34,9 +34,9 @@ $(".dropdown-button").dropdown();
 
 <nav>
   <div class="nav-wrapper">
-	<img src='<c:url value="/resources/images/logo.jpg"/>' id="logo">
+	<a href="/controller/praha/prahaMain"><img src='<c:url value="/resources/images/logo.jpg"/>' id="logo"></a>
     <ul class="right hide-on-med-and-down">
-	  <li><a href="/controller/praha/prahaMain" class="brand-logo center">Praha</a></li>
+	  <li><a href="/controller/praha/prahaGreetings">인사말</a></li>
       <li><a class="dropdown-button" href="#" data-activates="roomShow">둘러보기<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#"  data-activates="guide">이용안내<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#"  data-activates="reserve">예 약<i class="material-icons right">arrow_drop_down</i></a></li>
