@@ -21,7 +21,7 @@
 			}
 		</script>
 	</head>
-	<body onresize="parent.resizeTo(1200,800)" onload="parent.resizeTo(1200,800)">
+	<body>
 		<div class="container">	
 			<div id="bl-main" class="bl-main">
 				<section>
