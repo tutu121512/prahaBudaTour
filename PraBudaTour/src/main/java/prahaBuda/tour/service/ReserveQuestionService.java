@@ -8,6 +8,10 @@ public interface ReserveQuestionService {
 
 	public void ReserveQuestionInsert(BoardDTO boardDto) throws Exception;
 	
-	public List<BoardDTO> ReserveQuestionSelect() throws Exception;
+	public List<BoardDTO> ReserveQuestionList(PageDTO pageDto) throws Exception;
+	
+	public int ReserveQuestionPageCount() throws Exception;
+	
+	public PageDTO paging(PageDTO pageDto) throws Exception;
 	
 }

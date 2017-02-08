@@ -17,15 +17,18 @@ public class ReserveQuestionDaoImpl implements ReserveQuestionDao {
 	@Override
 	public void ReserveQuestionInsert(BoardDTO boardDto) throws Exception {
 		
-		int su = sqlSession.insert("ReserverQuestion.ReserveQuestionInsert",boardDto);
-		System.out.println("DB에서 가져온 값 : "  + su);
+		int su = sqlSession.insert("ReserveQuestion.ReserveQuestionInsert",boardDto);
 		System.out.println("Dao 부분 : ReserveQuestionInsert");
 	}
 
 	@Override
-	public List<BoardDTO> ReserveQuestionSelect() throws Exception {
+	public List<BoardDTO> ReserveQuestionList(int curPage) throws Exception {
+		return sqlSession.selectList("ReserveQuestion.ReserveQuestionList",curPage);
+	}
 
-		return sqlSession.selectList("ReserverQuestion.ReserveQuestionSelect");
+	@Override
+	public int ReserveQuestionListCount() throws Exception {
+		return sqlSession.selectOne("ReserveQuestion.ReserveQuestionListCount");
 	}
 
 }

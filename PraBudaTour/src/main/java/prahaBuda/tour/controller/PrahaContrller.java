@@ -26,12 +26,20 @@ public class PrahaContrller {
 	}
 	
 	@RequestMapping("reserveBoard")
-	public String PrahaReserveSelect(BoardDTO boardDto,Model model) throws Exception{
+	public String PrahaReserveSelect(BoardDTO boardDto,Model model,String page) throws Exception{
 		
-		List<BoardDTO> selectList =  ReserveQuestionService.ReserveQuestionSelect();
+		PageDTO pageDto = new PageDTO();
+		if(page == null){
+			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		}else{
+			int curPage = Integer.parseInt(page); //형변환
+			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
+		}
+		
+		
+		List<BoardDTO> selectList =  ReserveQuestionService.ReserveQuestionList(pageDto);
 		model.addAttribute("reserveSelectList", selectList);
-		System.out.println("전송되는 List 갯수 : " +selectList);
-		 
+		model.addAttribute("page",pageDto);
 		return "reserveBoard";
 	}
 	

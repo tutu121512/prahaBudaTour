@@ -4,7 +4,7 @@ public class BoardDTO {
 	
 	private String boardState;
 	private String location;
-	private String boardSequence;
+	private String boardNo;
 	private String writer;
 	private String title;
 	private String content;
@@ -30,11 +30,11 @@ public class BoardDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String getBoardSequence() {
-		return boardSequence;
+	public String getBoardNo() {
+		return boardNo;
 	}
-	public void setBoardSequence(String boardSequence) {
-		this.boardSequence = boardSequence;
+	public void setBoardNo(String boardNo) {
+		this.boardNo = boardNo;
 	}
 	public String getWriter() {
 		return writer;

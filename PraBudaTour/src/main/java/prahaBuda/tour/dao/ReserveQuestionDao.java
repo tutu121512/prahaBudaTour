@@ -8,6 +8,7 @@ public interface ReserveQuestionDao {
 
 	public void ReserveQuestionInsert(BoardDTO boardDto) throws Exception;
 
-	public List<BoardDTO> ReserveQuestionSelect() throws Exception;
+	public List<BoardDTO> ReserveQuestionList(int curPage) throws Exception;
 
+	public int ReserveQuestionListCount() throws Exception;
 }
