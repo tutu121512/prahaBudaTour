@@ -36,6 +36,9 @@
 		}
 	});
 	
+	$("#list").click(function(){
+		location.href="/controller/praha/reserveBoard"
+	});
 	
 	});
 	</script>	    

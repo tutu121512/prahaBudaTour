@@ -44,25 +44,25 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <main>
 	<div class="container">
-		<table class="striped centered" id="userManageList">
+		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
 		<tr>
 			<th data-field=num">글번호</th>
 			<th data-field="email">제목</th>
 			<th data-field="nickName">작성자</th>
 			<th data-field="phone">작성일자</th>
-			<th></th>
+			<th>비고</th>
 		</tr>
 	</thead>
 	
 	<tbody>
 	<c:forEach items="${reserveSelectList}" var="list">
 	<tr name="board">
-		<th>${list.boardNo}</th>
-		<th>${list.title}</th>
-		<th>${list.writer}</th>
-		<th>${list.boardDate}</th> 
-		<th style="width:180px">
+		<td>${list.boardNo}</td>
+		<td>${list.title}</td>
+		<td>${list.writer}</td>
+		<td>${list.boardDate}</td> 
+		<td style="width:180px;">
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
 			<form action="/controller/praha/prahaReservePasswordCheck" method="post">
 			<input type="hidden" name="boardNo" value="${list.boardNo}">
@@ -70,14 +70,14 @@
 			<input type="submit" value="보기">
 			</form>
 			</div>
-		</th>
+		</td>
 	</tr>
 	</c:forEach>	
 
 <!-- ############################### ##################################### -->	
-	<tr align="center">
-	<th colspan="5">
-	<nav aria-label="..."  align="center">
+	<tr>
+	<td colspan="5">
+	<nav aria-label="..."  style="padding-left: 350px;">
 	  <ul class="pagination pagination-lg">
 	    <li class="page-item">
 	      <a class="page-link" href="/controller/praha/reserveBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
@@ -96,7 +96,7 @@
 	    </li>
 	  </ul>
 	</nav>
-	</th>
+	</td>
 	</tr>
 	</tbody>
 	
