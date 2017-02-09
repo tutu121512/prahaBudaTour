@@ -25,7 +25,7 @@
 
 	<main>
 	<div class="container">
-		<h3>Q & A</h3>
+		<h3>Notice</h3>
 		<table class="responsive-table centered bordered">
 			<thead>
 				<tr>
@@ -33,7 +33,6 @@
 					<th data-field="id">Name</th>
 					<th data-field="name">Title</th>
 					<th data-field="price">Date</th>
-					<th data-field="price">State</th>
 				</tr>
 			</thead>
 
@@ -41,44 +40,38 @@
 				<tr>
 					<td>1</td>
 					<td>Name</td>
-					<td>1:1 문의 예시입니다</td>
+					<td>공지사항 예시입니다.</td>
 					<td>2017.02.09</td>
-					<td>Y</td>
 				</tr>
 				<tr>
 					<td>2</td>
 					<td>Name</td>
-					<td>1:1 문의 예시입니다</td>
+					<td>공지사항 예시입니다.</td>
 					<td>2017.02.09</td>
-					<td>N</td>
 				</tr>
 				<tr>
 					<td>3</td>
 					<td>Name</td>
-					<td>1:1 문의 예시입니다</td>
+					<td>공지사항 예시입니다.</td>
 					<td>2017.02.09</td>
-					<td>Y</td>
 				</tr>
 				<tr>
 					<td>4</td>
 					<td>Name</td>
-					<td>1:1 문의 예시입니다</td>
+					<td>공지사항 예시입니다.</td>
 					<td>2017.02.09</td>
-					<td>N</td>
 				</tr>
 				<tr>
 					<td>5</td>
 					<td>Name</td>
-					<td>1:1 문의 예시입니다</td>
+					<td>공지사항 예시입니다.</td>
 					<td>2017.02.09</td>
-					<td>Y</td>
 				</tr>
 				<tr>
 					<td>6</td>
 					<td>Name</td>
-					<td>1:1 문의 예시입니다</td>
+					<td>공지사항 예시입니다.</td>
 					<td>2017.02.09</td>
-					<td>N</td>
 				</tr>
 			</tbody>
 		</table>

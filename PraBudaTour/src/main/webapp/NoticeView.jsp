@@ -25,12 +25,14 @@
 
 	<main>
 	<div class="container">
-		<h3>Q & A</h3>
-		<pre style="border: none; border: 2px solid #000; height: 300px">1:1 문의 예시입니다.</pre>
-		<div style="float:right;">
-			<a class="waves-effect waves-light btn">답변하기</a>
-			<a class="waves-effect waves-light btn">삭제하기</a>
+		<h3>Notice</h3>
+		제목 : <input type="text" readonly="readonly">
+		<pre style="border: none; border: 2px solid #000; height: 300px">글작성 부분입니다.</pre>
+		<div style="float: right">
+			<a class="waves-effect waves-light btn" style="float:right; margin-top:30px; margin-left:20px;">수정하기</a>
+			<a class="waves-effect waves-light btn" style="float:right; margin-top:30px; ">삭제하기</a>
 		</div>
+		<br/>파일 : <input type="file"><br/>
 	</div>
 	</main> 
 

@@ -26,11 +26,10 @@
 	<main>
 	<div class="container">
 		<h3>Q & A</h3>
-		<pre style="border: none; border: 2px solid #000; height: 300px">1:1 문의 예시입니다.</pre>
-		<div style="float:right;">
-			<a class="waves-effect waves-light btn">답변하기</a>
-			<a class="waves-effect waves-light btn">삭제하기</a>
-		</div>
+		제목 : <input type="text">
+		<textarea style="border: none; border: 2px solid #000; height: 300px">글작성 부분입니다.</textarea>
+		<a class="waves-effect waves-light btn" style="float:right; margin-top:30px; ">등록하기</a>
+		<br/><br/>파일 : <input type="file"><br/>
 	</div>
 	</main> 
 
