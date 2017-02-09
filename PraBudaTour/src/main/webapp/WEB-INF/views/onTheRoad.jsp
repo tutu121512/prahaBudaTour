@@ -19,7 +19,7 @@
 	<main>
 		<div class="container">
 			<img alt="까를르교 객실" src='<c:url value="/resources/images/onTheRoad.jpg"/>' style="width:100%;margin-top:10px">
-		</div>
+ 		</div>
 	</main>
 	
 	<jsp:include page="/WEB-INF/views/footer.jsp"/>
