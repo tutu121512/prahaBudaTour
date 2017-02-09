@@ -31,4 +31,20 @@ public class ReserveQuestionDaoImpl implements ReserveQuestionDao {
 		return sqlSession.selectOne("ReserveQuestion.ReserveQuestionListCount");
 	}
 
+	@Override
+	public BoardDTO prahaReservePasswordCheck(BoardDTO boardDto) throws Exception {
+
+		return sqlSession.selectOne("ReserveQuestion.prahaReservePasswordCheck",boardDto);
+	}
+
+	@Override
+	public void prahaReserveDelete(BoardDTO boardDto) throws Exception {
+		sqlSession.delete("ReserveQuestion.prahaReserveDelete",boardDto);
+	}
+
+	@Override
+	public void prahaReserveUpdate(BoardDTO boardDto) throws Exception {
+		sqlSession.update("ReserveQuestion.prahaReserveUpdate",boardDto);		
+	}
+
 }

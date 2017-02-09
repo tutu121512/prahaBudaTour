@@ -36,6 +36,7 @@
 			$(".password").css("display","none");	 	 
 			$(this).find(".password").css("display","block");
 		 });
+		 
 	  });
    </script>
 	</head>
@@ -63,8 +64,11 @@
 		<th>${list.boardDate}</th> 
 		<th style="width:180px">
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
-			<input type="password" maxlength="4" placeholder="비밀번호 4자리" style="width:100px; margin: 0; height: 20px; padding-right: 10px;"/> 
-			<input type="button" value="보기">
+			<form action="/controller/praha/prahaReservePasswordCheck" method="post">
+			<input type="hidden" name="boardNo" value="${list.boardNo}">
+			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:100px; margin: 0; height: 20px; padding-right: 10px;"/> 
+			<input type="submit" value="보기">
+			</form>
 			</div>
 		</th>
 	</tr>

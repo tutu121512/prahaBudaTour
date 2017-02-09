@@ -44,12 +44,50 @@ public class PrahaContrller {
 		return "reserveBoard";
 	}
 	
-	@RequestMapping("parahaReserveInsert")
-	public String ParahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+	@RequestMapping("prahaReserveInsert")
+	public String PrahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		ReserveQuestionService.ReserveQuestionInsert(boardDto);
 		System.out.println("insert성공");
 		
 		return "redirect:/praha/reserveBoard";
 	}
+	
+	@RequestMapping("prahaReservePasswordCheck")
+	public String prahaReservePasswordCheck(BoardDTO boardDto,Model model,RedirectAttributes redirect) throws Exception{
+		String nextpage ="";
+		
+		System.out.println("값 : " + boardDto.getBoardNo() +"  - " + boardDto.getPassword());
+		BoardDTO bDTO =ReserveQuestionService.prahaReservePasswordCheck(boardDto);
+		
+		
+		if(bDTO!=null){
+			model.addAttribute("reserveViewInfo",bDTO);
+			nextpage="reserveView";
+		}else{
+			nextpage="redirect:/praha/reserveBoard";
+		}
+		
+		return nextpage;
+		
+	}
+	
+	@RequestMapping("prahaReserveDelete")
+	public String prahaReserveDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+		
+		ReserveQuestionService.prahaReserveDelete(boardDto);
+		
+		return "redirect:/praha/reserveBoard";
+	}
+	
+	@RequestMapping("prahaReserveUpdate")
+	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+		
+		System.out.println("카카오 " + boardDto.getKakaoId());
+		ReserveQuestionService.prahaReserveUpdate(boardDto);
+		
+		return "redirect:/praha/reserveBoard";
+	}
+	
+	
 }

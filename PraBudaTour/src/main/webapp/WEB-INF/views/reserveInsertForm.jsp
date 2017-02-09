@@ -10,7 +10,6 @@
 	    <!--Let browser know website is optimized for mobile-->
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	    
-	    
 	</head>
 	<body>
 	<!--Import jQuery before materialize.js-->
@@ -20,10 +19,11 @@
 	
 	<main>
 		<div class="container">
-		<form method="post" action="/controller/praha/parahaReserveInsert">
+		<form method="post" action="/controller/praha/prahaReserveInsert">
 			<div id="main_content" style="margin-top: 16px;">
 				<div style="height:148px">
-				<textArea style="margin-left:10px; float:left; height:90%; width:50%" name="content" placeholder="문의 내용을 입력해주세요. 카카오톡 ID를 남겨주시면 연락이 편합니다."></textArea>
+				<textArea style="margin-left:10px; float:left; height:90%; width:50%" name="content"
+				 placeholder="문의 내용을 입력해주세요. 카카오톡 ID를 남겨주시면 연락이 편합니다."></textArea>
 				<input type="submit" style="height: 150px;margin: 10px 0px 0px 10px; width: 70px;">
 				</div>
 				<input type="text" placeholder="writer 이름" name="writer">

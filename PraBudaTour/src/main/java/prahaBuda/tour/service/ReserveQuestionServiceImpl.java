@@ -34,7 +34,6 @@ public class ReserveQuestionServiceImpl implements ReserveQuestionService {
 	}
 	
 
-	//공지사항 테이블에서 전체 row갯수 가져오기
 	@Override
 	public int ReserveQuestionPageCount() throws Exception{
 	
@@ -42,6 +41,11 @@ public class ReserveQuestionServiceImpl implements ReserveQuestionService {
 
 		return noticeCount;
 	}
+	
+	@Override
+	public BoardDTO prahaReservePasswordCheck(BoardDTO boardDto) throws Exception {
+		return ReserveQuestionDao.prahaReservePasswordCheck(boardDto);
+	}	
 	
 	//페이징 
 	@Override
@@ -84,5 +88,16 @@ public class ReserveQuestionServiceImpl implements ReserveQuestionService {
 		pageDto.setNextPage(nextPage);
 		return pageDto;
 
-	}	
+	}
+
+	@Override
+	public void prahaReserveDelete(BoardDTO boardDto) throws Exception {
+
+		ReserveQuestionDao.prahaReserveDelete(boardDto);
+	}
+
+	@Override
+	public void prahaReserveUpdate(BoardDTO boardDto) throws Exception {
+		ReserveQuestionDao.prahaReserveUpdate(boardDto);
+	}
 }

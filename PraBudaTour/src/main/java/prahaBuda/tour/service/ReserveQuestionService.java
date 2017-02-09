@@ -14,4 +14,9 @@ public interface ReserveQuestionService {
 	
 	public PageDTO paging(PageDTO pageDto) throws Exception;
 	
+	public BoardDTO prahaReservePasswordCheck(BoardDTO boardDto) throws Exception;
+	
+	public void prahaReserveDelete(BoardDTO boardDto) throws Exception;
+	
+	public void prahaReserveUpdate(BoardDTO boardDto) throws Exception;
 }
