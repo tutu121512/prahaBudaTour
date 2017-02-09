@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import prahaBuda.tour.service.ReserveQuestionService;
 import prahaBuda.tour.dto.*;
@@ -44,8 +45,11 @@ public class PrahaContrller {
 	}
 	
 	@RequestMapping("parahaReserveInsert")
-	public void ParahaReserveInsert(BoardDTO boardDto) throws Exception{
+	public String ParahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		ReserveQuestionService.ReserveQuestionInsert(boardDto);
+		System.out.println("insert성공");
+		
+		return "redirect:/praha/reserveBoard";
 	}
 }

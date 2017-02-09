@@ -20,7 +20,19 @@
 	
 	<main>
 		<div class="container">
-		
+		<form method="post" action="/controller/praha/parahaReserveInsert">
+			<div id="main_content" style="margin-top: 16px;">
+				<div style="height:148px">
+				<textArea style="margin-left:10px; float:left; height:90%; width:50%" name="content" placeholder="문의 내용을 입력해주세요. 카카오톡 ID를 남겨주시면 연락이 편합니다."></textArea>
+				<input type="submit" style="height: 150px;margin: 10px 0px 0px 10px; width: 70px;">
+				</div>
+				<input type="text" placeholder="writer 이름" name="writer">
+				<input type="text" placeholder="title 입력" name="title">
+				<input type="password" placeholder="password 입력" name="password">
+				<input type="text" placeholder="phone 입력" name="phone">
+				<input type="text" placeholder="KakaoID 입력" name="kakaoId">
+			</div>
+		</form>
 		</div>
 	</main>
 	

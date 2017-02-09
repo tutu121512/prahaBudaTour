@@ -21,44 +21,58 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+ 	 }
 
-  main {
-    flex: 1 0 auto;
-  }
+ 	 main {
+ 	   flex: 1 0 auto;
+ 	 }
 	</style>
-	</head>
-	<body>
 	<!--Import jQuery before materialize.js-->
    <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
    <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
-   
+   <script type="text/javascript">
+	  $(function(){
+		 $("tbody tr[name='board']").click(function(){
+			$(".password").css("display","none");	 	 
+			$(this).find(".password").css("display","block");
+		 });
+	  });
+   </script>
+	</head>
+	<body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <main>
 	<div class="container">
-		<table class="striped" id="userManageList">
+		<table class="striped centered" id="userManageList">
 	<thead>
 		<tr>
 			<th data-field=num">글번호</th>
 			<th data-field="email">제목</th>
 			<th data-field="nickName">작성자</th>
 			<th data-field="phone">작성일자</th>
+			<th></th>
 		</tr>
 	</thead>
 	
 	<tbody>
 	<c:forEach items="${reserveSelectList}" var="list">
-	<tr>
+	<tr name="board">
 		<th>${list.boardNo}</th>
 		<th>${list.title}</th>
 		<th>${list.writer}</th>
-		<th>${list.boardDate}</th>  
+		<th>${list.boardDate}</th> 
+		<th style="width:180px">
+			<div class="password" style="display: none; padding: 0px; margin: 0px;">
+			<input type="password" maxlength="4" placeholder="비밀번호 4자리" style="width:100px; margin: 0; height: 20px; padding-right: 10px;"/> 
+			<input type="button" value="보기">
+			</div>
+		</th>
 	</tr>
 	</c:forEach>	
 
 <!-- ############################### ##################################### -->	
 	<tr align="center">
-	<th colspan="4">
+	<th colspan="5">
 	<nav aria-label="..."  align="center">
 	  <ul class="pagination pagination-lg">
 	    <li class="page-item">
