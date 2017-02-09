@@ -14,13 +14,12 @@ $(".dropdown-button").dropdown();
 </ul>
 
 <ul id="guide" class="dropdown-content">
-  <li><a href="#!">이용금액</a></li>
   <li><a href="#!">이용혜택</a></li>
-  <li><a href="#!">오시는길</a></li>
+  <li><a href="/controller/praha/onTheRoad">오시는길</a></li>
 </ul>
 
 <ul id="reserve" class="dropdown-content">
-  <li><a href="#!">예약안내</a></li>
+  <li><a href="/controller/praha/usePrice">예약안내</a></li>
   <li><a href="#!">예약현황</a></li>
   <li><a href="/controller/praha/reserveBoard">예약문의</a></li>
   <li><a href="#!">예약확정</a></li>
