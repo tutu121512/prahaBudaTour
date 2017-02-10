@@ -14,10 +14,10 @@ import prahaBuda.tour.service.ReserveQuestionService;
 import prahaBuda.tour.dto.*;
 
 @Controller
-@RequestMapping("praha")
-public class PrahaContrller {
+@RequestMapping("admin")
+public class AdminController {
 	
-	@Autowired 
+	@Autowired
 	private ReserveQuestionService ReserveQuestionService;
 	
 	@RequestMapping("{fileName}")
@@ -88,6 +88,8 @@ public class PrahaContrller {
 		
 		return "redirect:/praha/reserveBoard";
 	}
-	
+
+
+		
 	
 }
