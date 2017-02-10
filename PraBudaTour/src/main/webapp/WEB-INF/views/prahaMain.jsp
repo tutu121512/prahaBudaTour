@@ -10,14 +10,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
 	<style>
 	body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
+	    display: flex;
+	    min-height: 100vh;
+	    flex-direction: column;
+	  }
+	
+	  main {
+	    flex: 1 0 auto;
+	  }
 	</style>
 	</head>
 	<body>
