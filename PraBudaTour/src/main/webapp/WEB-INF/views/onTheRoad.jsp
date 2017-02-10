@@ -9,6 +9,11 @@
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
 	    <!--Let browser know website is optimized for mobile-->
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+  #map { height: 400px;
+  		margin-bottom:20px;
+   }
+</style>
 	</head>
 	<body>
 	<!--Import jQuery before materialize.js-->
@@ -19,7 +24,32 @@
 	<main>
 		<div class="container">
 			<img alt="까를르교 객실" src='<c:url value="/resources/images/onTheRoad.jpg"/>' style="width:100%;margin-top:10px">
- 		</div>
+ 		
+ 		
+ 		 <div id="map"></div>
+    <script>
+      function initMap() {
+        var myLatLng = {lat: 50.085762, lng: 14.431693};
+
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatLng,
+          scrollwheel: true,
+          zoom: 16
+        });
+
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+          map: map,
+          position: myLatLng,
+          title: 'Hello World!'
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZX8_-AZGre3u8odCflwzpAiuKzPinswI&callback=initMap"
+    async defer></script>
+    </div>
 	</main>
 	
 	<jsp:include page="/WEB-INF/views/footer.jsp"/>
