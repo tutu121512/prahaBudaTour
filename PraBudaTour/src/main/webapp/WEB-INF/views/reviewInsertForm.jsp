@@ -99,7 +99,7 @@ function fileSize(input) {
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
 		</div>
-		<form method="post" action="/controller/praha/prahaReserveInsert">
+		<form method="post" action="/controller/praha/prahaReserveInsert" enctype="multipart/form-data">
 			<div id="main_content" style="margin-top: 16px;">
 				<div class="row" style="margin-left:12%;margin-top:-25px">
 			        <div class="input-field col s7" style="margin-bottom:-20px">
