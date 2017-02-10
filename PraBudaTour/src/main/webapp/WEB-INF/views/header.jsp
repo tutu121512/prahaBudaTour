@@ -7,28 +7,32 @@ $(".dropdown-button").dropdown();
 </script>
 
 <ul id="roomShow" class="dropdown-content">
-  <li><a href="/controller/praha/karelRoom">까르를교</a></li>
-  <li><a href="/controller/praha/prahaRoom">프라하성</a></li>
-  <li><a href="/controller/praha/bachlRoom">바츨라프</a></li>
-  <li><a href="/controller/praha/publicRoom">공용공간</a></li>
+	<li><a href="#!" style="background-color:#ee6e73;color:white">둘러보기</a></li>
+	<li><a href="/controller/praha/karelRoom">까르를교</a></li>
+	<li><a href="/controller/praha/prahaRoom">프라하성</a></li>
+	<li><a href="/controller/praha/bachlRoom">바츨라프</a></li>
+	<li><a href="/controller/praha/publicRoom">공용공간</a></li>
 </ul>
 
 <ul id="guide" class="dropdown-content">
-  <li><a href="#!">이용혜택</a></li>
-  <li><a href="/controller/praha/onTheRoad">오시는길</a></li>
+	<li><a href="#!" style="background-color:#ee6e73;color:white">이용안내</a></li>
+	<li><a href="#!">이용혜택</a></li>
+	<li><a href="/controller/praha/onTheRoad">오시는길</a></li>
 </ul>
 
 <ul id="reserve" class="dropdown-content">
-  <li><a href="/controller/praha/usePrice">예약안내</a></li>
-  <li><a href="#!">예약현황</a></li>
-  <li><a href="/controller/praha/reserveBoard">예약문의</a></li>
-  <li><a href="#!">예약확정</a></li>
+	<li><a href="#!" style="background-color:#ee6e73;color:white">예약</a></li>
+	<li><a href="/controller/praha/usePrice">예약안내</a></li>
+	<li><a href="/controller/praha/usePrice">예약현황</a></li>
+	<li><a href="/controller/praha/reserveInsertForm">예약문의</a></li>
+	<li><a href="#!">예약확정</a></li>
 </ul>
 
-<ul id="community" class="dropdown-content">
-  <li><a href="#!">공지사항</a></li>
-  <li><a href="#!">자유게시판</a></li>
-  <li><a href="#!">후 기</a></li>
+<ul id="community" class="dropdown-content" style="top:25px!important">
+	<li><a href="#!" style="background-color:#ee6e73;color:white">커뮤니티</a></li>
+	<li><a href="#!">공지사항</a></li>
+	<li><a href="#!">자유게시판</a></li>
+	<li><a href="#!">후 기</a></li>
 </ul>
 
 <nav>

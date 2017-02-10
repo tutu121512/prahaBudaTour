@@ -2868,13 +2868,13 @@ ul.staggered-list li {
 }
 
 footer.page-footer {
-  padding-top: 20px;
-  background-color: #ee6e73;
+  padding-top:7px;
+  background-color:#ee6e73;
 }
 
 footer.page-footer .footer-copyright {
   overflow: hidden;
-  min-height: 50px;
+  min-height:40px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -4209,8 +4209,8 @@ nav .input-field label.active i {
     min-height: 64px;
   }
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 64px;
-    line-height: 64px;
+    height:49px;
+    line-height:52px;
   }
   .navbar-fixed {
     height: 64px;
@@ -4258,7 +4258,7 @@ a {
 
 html {
   line-height: 1.5;
-  font-family: "Roboto", sans-serif;
+  font-family: "배달의민족 주아", sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -4989,7 +4989,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: dimgrey;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -4997,7 +4997,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #ee6e73;
 }
 
 .btn-floating {
@@ -7813,7 +7813,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #logo{
-	margin-top:-16px;
+	margin-top:0px;
 }
 
 .carousel .carousel-item img {
