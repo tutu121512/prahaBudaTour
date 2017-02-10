@@ -56,7 +56,8 @@
 	</thead>
 	
 	<tbody>
-	<c:forEach items="${reserveSelectList}" var="list">
+ <c:forEach items="${reserveSelectList}" var="list">
+
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
 		<td>${list.title}</td>
@@ -72,7 +73,7 @@
 			</div>
 		</td>
 	</tr>
-	</c:forEach>	
+	</c:forEach>	 
 
 <!-- ############################### ##################################### -->	
 	<tr>
@@ -99,6 +100,10 @@
 	</td>
 	</tr>
 	</tbody>
+	
+	
+
+	
 	
 	<tbody>
 		<tr>
