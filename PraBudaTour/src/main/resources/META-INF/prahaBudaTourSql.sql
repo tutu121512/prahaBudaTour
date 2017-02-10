@@ -29,6 +29,12 @@ kakao_id	varchar2(100)
 );
 
 
+CREATE TABLE admin(
+ID varchar2(100),
+PASSWORD varchar2(100)
+)
+INSERT INTO admin(ID,PASSWORD) VALUES('favicontour','min337337')
+
 CREATE SEQUENCE notice_sequence
 INCREMENT BY 1 
 MAXVALUE 9999999999999999999999999999 
