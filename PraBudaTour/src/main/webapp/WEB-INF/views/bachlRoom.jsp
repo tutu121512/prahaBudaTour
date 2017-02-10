@@ -18,7 +18,7 @@
 	
 	<main>
 		<div class="container">
-			<img alt="까를르교 객실" src='<c:url value="/resources/images/bachlRoom.jpg"/>' style="width:100%;margin-top:10px">
+			<img alt="까를르교 객실" src='<c:url value="/resources/images/bachlRoom.jpg"/>' style="width:100%;margin-top:0px">
 		</div>
 	</main>
 	
