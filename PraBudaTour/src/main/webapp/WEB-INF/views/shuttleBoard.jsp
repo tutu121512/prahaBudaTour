@@ -56,7 +56,7 @@
 	</thead>
 	
 	<tbody>
-	<c:forEach items="${reserveSelectList}" var="list">
+	<c:forEach items="${shuttleSelectList}" var="list">
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
 		<td>${list.title}</td>
@@ -80,16 +80,16 @@
 	<nav aria-label="..."  style="padding-left: 350px;">
 	  <ul class="pagination pagination-lg">
 	    <li class="page-item">
-	      <a class="page-link" href="/controller/praha/reserveBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
+	      <a class="page-link" href="/controller/shuttle/praha/shuttleBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
 	        <span aria-hidden="true">&laquo;</span>
 	        <span class="sr-only">Previous</span>
 	      </a>
 	    </li>
 	    <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
-	    <li class="page-item"><a class="page-link" href="/controller/praha/reserveBoard?page=<%=i%>"><%=i %></a></li>
+	    <li class="page-item"><a class="page-link" href="/controller/shuttle/praha/shuttleBoard?page=<%=i%>"><%=i %></a></li>
 	    <%} %>
 	    <li class="page-item">
-	      <a class="page-link" href="/controller/praha/reserveBoard?page=<%=pVO.getNextPage()%>" aria-label="Next">
+	      <a class="page-link" href="/controller/shuttle/praha/shuttleBoard?page=<%=pVO.getNextPage()%>" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>
 	        <span class="sr-only">Next</span>
 	      </a>

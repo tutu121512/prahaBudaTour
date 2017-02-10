@@ -18,7 +18,6 @@ public class ReserveQuestionDaoImpl implements ReserveQuestionDao {
 	public void ReserveQuestionInsert(BoardDTO boardDto) throws Exception {
 		
 		int su = sqlSession.insert("ReserveQuestion.ReserveQuestionInsert",boardDto);
-		System.out.println("Dao 부분 : ReserveQuestionInsert");
 	}
 
 	@Override

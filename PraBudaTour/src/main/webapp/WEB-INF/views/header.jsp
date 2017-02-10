@@ -40,7 +40,7 @@ $(".dropdown-button").dropdown();
       <li><a class="dropdown-button" href="#"  data-activates="guide">이용안내<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#"  data-activates="reserve">예 약<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#"  data-activates="community">커뮤니티<i class="material-icons right">arrow_drop_down</i></a></li>
-      <li><a href="badges.html">셔틀문의</a></li>
+      <li><a href="/controller/shuttle/praha/shuttleBoard">셔틀문의</a></li>
       <li><a href="#">   </a></li>
     </ul>
   </div>

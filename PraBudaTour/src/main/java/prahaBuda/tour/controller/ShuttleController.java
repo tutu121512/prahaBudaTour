@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import prahaBuda.tour.service.ReserveQuestionService;
+import prahaBuda.tour.service.*;
 import prahaBuda.tour.dto.*;
 
 @Controller
-@RequestMapping("praha")
-public class PrahaContrller {
+@RequestMapping("shuttle")
+public class ShuttleController {
 	
 	@Autowired 
-	private ReserveQuestionService ReserveQuestionService;
+	private ShuttleService ShuttleService;
 	
 	@RequestMapping("{fileName}")
 	public String noneSignUpMove(
@@ -26,7 +26,7 @@ public class PrahaContrller {
 		return fileName;
 	}
 	
-	@RequestMapping("reserveBoard")
+	@RequestMapping("praha/shuttleBoard")
 	public String PrahaReserveSelect(BoardDTO boardDto,Model model,String page) throws Exception{
 		
 		PageDTO pageDto = new PageDTO();
@@ -38,55 +38,55 @@ public class PrahaContrller {
 		}
 		
 		
-		List<BoardDTO> selectList =  ReserveQuestionService.ReserveQuestionList(pageDto);
-		model.addAttribute("reserveSelectList", selectList);
+		List<BoardDTO> selectList =  ShuttleService.ShuttleList(pageDto);
+		model.addAttribute("shuttleSelectList", selectList);
 		model.addAttribute("page",pageDto);
-		return "reserveBoard";
+		return "shuttleBoard";
 	}
 	
-	@RequestMapping("prahaReserveInsert")
+	@RequestMapping("praha/ShuttleInsert")
 	public String PrahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		ReserveQuestionService.ReserveQuestionInsert(boardDto);
+		ShuttleService.ShuttleInsert(boardDto);
 		System.out.println("insert성공");
 		
-		return "redirect:/praha/reserveBoard";
+		return "redirect:/shuttle/praha/shuttleBoard";
 	}
 	
-	@RequestMapping("prahaReservePasswordCheck")
+	@RequestMapping("praha/shuttlePasswordCheck")
 	public String prahaReservePasswordCheck(BoardDTO boardDto,Model model,RedirectAttributes redirect) throws Exception{
 		String nextpage ="";
 		
 		System.out.println("값 : " + boardDto.getBoardNo() +"  - " + boardDto.getPassword());
-		BoardDTO bDTO =ReserveQuestionService.prahaReservePasswordCheck(boardDto);
+		BoardDTO bDTO =ShuttleService.ShuttlePasswordCheck(boardDto);
 		
 		
 		if(bDTO!=null){
-			model.addAttribute("reserveViewInfo",bDTO);
-			nextpage="reserveView";
+			model.addAttribute("shuttleViewInfo",bDTO);
+			nextpage="shuttleView";
 		}else{
-			nextpage="redirect:/praha/reserveBoard";
+			nextpage="redirect:/shuttle/praha/shuttleBoard";
 		}
 		
 		return nextpage;
 		
 	}
 	
-	@RequestMapping("prahaReserveDelete")
+	@RequestMapping("praha/ShuttleDelete")
 	public String prahaReserveDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		ReserveQuestionService.prahaReserveDelete(boardDto);
+		ShuttleService.ShuttleDelete(boardDto);
 		
-		return "redirect:/praha/reserveBoard";
+		return "redirect:/shuttle/praha/shuttleBoard";
 	}
 	
-	@RequestMapping("prahaReserveUpdate")
+	@RequestMapping("praha/ShuttleUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		System.out.println("카카오 " + boardDto.getKakaoId());
-		ReserveQuestionService.prahaReserveUpdate(boardDto);
+		ShuttleService.ShuttleUpdate(boardDto);
 		
-		return "redirect:/praha/reserveBoard";
+		return "redirect:/shuttle/praha/shuttleBoard";
 	}
 	
 	
