@@ -71,7 +71,6 @@
 				str += "<input class='file-path validate' type='text' placeholder='이미지 파일을 추가해주세요.'>";
 				str += "</div></div>";
 				$('div.image-file').append(str);
-				
 				str = "<input id='image["+count+"]' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly>"; 
 				$('div.image-file-size').append(str);
 				count++;
@@ -160,7 +159,6 @@
 				<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
 				<div class="row">
 					<div class="input-field col s6 image-file">
-
 						<div class="file-field input-field">
 							<input type="file" name="image[0]">
 							<div class="file-path-wrapper">
@@ -170,8 +168,7 @@
 						</div>
 					</div>
 					<div class="input-field col s6 image-file-size">
-						<input id="image[0]" type="text" class="validate" 
-							placeholder="이미지 크기" readonly>
+						<input id="image[0]" type="text" class="validate" placeholder="이미지 크기" readonly>
 					</div>
 				</div>
 			</div>

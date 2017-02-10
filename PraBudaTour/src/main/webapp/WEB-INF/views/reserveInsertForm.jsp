@@ -25,6 +25,70 @@
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+<script type="text/javascript">
+$(function(){
+	
+	var count = $("input[type=file]").length;
+	$('#thumbnail').on("change", function() {
+		readURL(this);
+		$('#thumbnail-text').hide();
+	});
+	
+	$('.image-file').on("change", "input[type=file]", function() {
+		var size = fileSize(this).toFixed(2)+"KB";
+		var index = "#image\\["+$(this).attr("name").substr(6,1)+"\\]";
+		$(index).val(size);
+	});
+	
+	$('#add').on("click", function() {
+		if(count < 4) {
+			var str = "<div class='file-field input-field'>";
+			str += "<input type='file' name='board_img"+count+"'>";
+			str += "<div class='file-path-wrapper'>";
+			str += "<input class='file-path validate' type='text' placeholder='이미지 파일을 추가해주세요.'>";
+			str += "</div></div>";
+			$('div.image-file').append(str);
+			
+			str = "<input id='board_img"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly>"; 
+			$('div.image-file-size').append(str);
+			count++;
+		}else {
+			Materialize.toast('이미지 파일은 4개까지 올릴 수 있습니다.', 3000, 'rounded');
+	        var width = $("#toast-container").width();
+	        $("#toast-container").css("margin-left", (width*-1)+209);
+		}
+	});
+	
+	$("#delete").on("click", function() {
+		if(count > 0) {
+			$(".image-file").children(":last").remove();
+			$(".image-file-size").children(":last").remove();
+			count--;
+		}
+	});
+});
+
+function readURL(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		
+		reader.onload = function(e) {
+			$('.inner').html("<img id='preview-image' src='"+e.target.result+"'/>");
+		}
+		
+		reader.readAsDataURL(input.files[0]);
+		var fileSize = input.files[0].size/1024;
+		
+		$('#thumbnail-preview').val(fileSize.toFixed(2)+"KB");
+	}
+}
+
+function fileSize(input) {
+	var fileSize = input.files[0].size/1024;
+	
+	return fileSize;
+}
+</script>
 	<jsp:include page="/WEB-INF/views/header.jsp"/>
 	
 	<main>
@@ -74,6 +138,25 @@
 			        <a class="waves-effect waves-light btn">문의</a>
 				</div>
 			</div>
+			<div class="col s6">
+				<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
+				<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
+				<div class="row">
+					<div class="input-field col s6 image-file">
+						<div class="file-field input-field">
+							<input type="file" name="board_img0">
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text"
+									placeholder="이미지 파일을 추가해주세요.">
+							</div>
+						</div>
+					</div>
+						<div class="input-field col s6 image-file-size">
+							<input id="board_img0" type="text" class="validate" placeholder="이미지 크기" readonly>
+						</div>
+				</div>
+			</div>
+			
 		</form>
 		</div>
 	</main>
