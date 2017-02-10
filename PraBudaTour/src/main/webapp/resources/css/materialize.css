@@ -1,3 +1,17 @@
+/* 스크롤링 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-button {
+    background: #ee6e73
+}
+::-webkit-scrollbar-track-piece {
+    background: #ee6f73
+}
+::-webkit-scrollbar-thumb {
+    background: #eee
+}
+
 /*!
  * Materialize v0.98.0 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
@@ -6,8 +20,6 @@
 .materialize-red {
   background-color: #e51c23 !important;
 }
-
-
 
 .materialize-red-text {
   color: #e51c23 !important;

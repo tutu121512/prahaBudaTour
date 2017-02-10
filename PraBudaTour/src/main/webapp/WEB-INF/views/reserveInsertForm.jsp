@@ -49,7 +49,7 @@ $(function(){
 			str += "</div></div>";
 			$('div.image-file').append(str);
 			
-			str = "<div  style='margin-top:15px'><input id='board_img"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly></div>"; 
+			str = "<div  style='margin-top:14px'><input id='board_img"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly></div>"; 
 			$('div.image-file-size').append(str);
 			count++;
 		}else {
@@ -138,25 +138,16 @@ function fileSize(input) {
 			        <a class="waves-effect waves-light btn">문의</a>
 				</div>
 			</div>
-			<div class="col s9" style="margin-right:116px">
+			<div class="col s9" style="margin-left:116px">
 				<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
 				<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
 				<div class="row">
 					<div class="input-field col s6 image-file">
-						<div class="file-field input-field">
-							<input type="file" name="board_img0">
-							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text"
-									placeholder="이미지 파일을 추가해주세요.">
-							</div>
-						</div>
 					</div>
-					<div class="input-field col s3 image-file-size" style="margin-top:29px">
-						<input id="board_img0" type="text" class="validate" placeholder="이미지 크기" readonly>
+					<div class="input-field col s3 image-file-size">
 					</div>
 				</div>
 			</div>
-			
 		</form>
 		</div>
 	</main>
