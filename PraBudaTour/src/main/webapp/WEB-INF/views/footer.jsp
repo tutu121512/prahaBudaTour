@@ -4,10 +4,10 @@
 <footer class="page-footer">
           <div class="container">
             <div class="row">
-			<h6 class="center" style="margin-bottom:-44px; margin-top:-11px;">
+			<h6 class="center" style="margin-bottom:-44px; margin-top:-8px;">
 			<i class="material-icons center" style="color:white; font-size:-webkit-xxx-large;cursor:pointer;" onclick="window.scrollTo(0,0);">keyboard_arrow_up</i></h6>
               <div class="col l6 s12">
-                <p class="grey-text text-lighten-4"><img src='<c:url value="/resources/images/footer.gif"/>' style="width:207%; margin-top:5px"></p>
+                <p class="grey-text text-lighten-4"><img src='<c:url value="/resources/images/footer.gif"/>' style="width:207%;margin-top:5px;margin-bottom:-25px"></p>
               </div>
             </div>
           </div>

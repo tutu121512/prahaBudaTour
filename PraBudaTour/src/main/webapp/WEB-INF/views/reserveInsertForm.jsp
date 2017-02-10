@@ -9,7 +9,17 @@
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
 	    <!--Let browser know website is optimized for mobile-->
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	    
+	    <style>
+	     body {
+		    display: flex;
+		    min-height: 100vh;
+		    flex-direction: column;
+		  }
+		
+		  main {
+		    flex: 1 0 auto;
+		  }
+	    </style>
 	</head>
 	<body>
 	<!--Import jQuery before materialize.js-->
@@ -19,18 +29,50 @@
 	
 	<main>
 		<div class="container">
+		<div class="centered row" style="margin-top:5px;">
+			<img src='<c:url value="/resources/images/edit.png"/>' 
+				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
+		</div>
 		<form method="post" action="/controller/praha/prahaReserveInsert">
 			<div id="main_content" style="margin-top: 16px;">
-				<div style="height:148px">
-				<textArea style="margin-left:10px; float:left; height:90%; width:50%" name="content"
-				 placeholder="문의 내용을 입력해주세요. 카카오톡 ID를 남겨주시면 연락이 편합니다."></textArea>
-				<input type="submit" style="height: 150px;margin: 10px 0px 0px 10px; width: 70px;">
+				<div class="row" style="margin-left:12%;margin-top:-25px">
+			        <div class="input-field col s7" style="margin-bottom:-20px">
+			          <input id="title" name="title" type="password" class="validate">
+			          <label for="title">문의 제목</label>
+			        </div>
+					<div class="input-field col s3" style="margin-bottom:-20px">
+			          <input id="writer" name="writer" type="password" class="validate">
+			          <label for="writer">작성자</label>
+			        </div>
+			    </div>
+				<div class="row" style="margin-left:12%">
+			    <form class="col s12">
+					<div class="row" >
+				        <div class="input-field col s10">
+					        <i class="material-icons prefix">mode_edit</i>
+					        <textarea id="icon_prefix2" class="materialize-textarea" name="content" 
+					        placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다."></textarea>
+					        <label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
+				        </div>
+			    	</div>
+			    </form>
 				</div>
-				<input type="text" placeholder="writer 이름" name="writer">
-				<input type="text" placeholder="title 입력" name="title">
-				<input type="password" placeholder="password 입력" name="password">
-				<input type="text" placeholder="phone 입력" name="phone">
-				<input type="text" placeholder="KakaoID 입력" name="kakaoId">
+				<div class="row" style="margin-left:12%;margin-top:-40px">
+			        <div class="input-field col s3" style="margin-bottom:-20px">
+			          <input id="password" name="password" type="password" class="validate">
+			          <label for="password">Password</label>
+			        </div>
+			        <div class="input-field col s3" style="margin-bottom:-20px">
+			          <input id="phone" name="phone" type="password" class="validate">
+			          <label for="phone">전화번호</label>
+			        </div>
+			        <div class="input-field col s3">
+			          <input id="kakaoId" name="kakaoId" type="password" class="validate">
+			          <label for="kakaoId">카카오톡 아이디</label>
+			        </div>
+			        <a class="waves-effect waves-light btn">문의</a>
+				</div>
 			</div>
 		</form>
 		</div>

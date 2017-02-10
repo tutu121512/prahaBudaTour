@@ -23,7 +23,7 @@
 	</head>
 	<body>
 	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
 	<script>
 	$(document).ready(function(){
