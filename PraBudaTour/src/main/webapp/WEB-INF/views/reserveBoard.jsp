@@ -33,10 +33,12 @@
    <script type="text/javascript">
 	  $(function(){
 		 $("tbody tr[name='board']").click(function(){
+			 alert($("#xmp").text())
+			 alert($("#xmp").html())
 			$(".password").css("display","none");	 	 
 			$(this).find(".password").css("display","block");
 		 });
-		 
+
 	  });
    </script>
 	</head>
@@ -78,7 +80,7 @@
 <!-- ############################### ##################################### -->	
 	<tr>
 	<td colspan="5">
-	<nav aria-label="..."  style="padding-left: 350px;">
+	<nav aria-label="..." style="padding-left: 350px;">
 	  <ul class="pagination pagination-lg">
 	    <li class="page-item">
 	      <a class="page-link" href="/controller/praha/reserveBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
@@ -102,7 +104,6 @@
 	</tbody>
 	
 	
-
 	
 	
 	<tbody>
