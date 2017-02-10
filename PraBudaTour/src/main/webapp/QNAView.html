@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="materialize.css" media="screen,projection" />
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="materialize.min.js"></script>
+	
+	<nav>
+	  <div class="nav-wrapper">
+		<a href="/controller/praha/prahaMain"><img src="logo.jpg" id="logo"></a>
+	    <ul class="right hide-on-med-and-down">
+		  <li><a href="QNAList.html">1:1 답변</a></li>
+	      <li><a class="dropdown-button" href="ReserList.html" data-activates="roomShow">예약 확정</a></li>
+	      <li><a class="dropdown-button" href="InfoList.html"  data-activates="guide">여행 정보</a></li>
+	      <li><a class="dropdown-button" href="NoticeList.html" data-activates="reserve">공지사항</a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+
+	<main>
+	<div class="container">
+		<h3>Q & A</h3>
+		<pre style="border: none; border: 2px solid #000; height: 300px">1:1 문의 예시입니다.</pre>
+		<div style="float:right;">
+			<a class="waves-effect waves-light btn" href="QNAForm.html">답변하기</a>
+			<a class="waves-effect waves-light btn">삭제하기</a>
+		</div>
+	</div>
+	</main> 
+
+
+</body>
+</html>

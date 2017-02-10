@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="materialize.css" media="screen,projection" />
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="materialize.min.js"></script>
+	
+	<nav>
+	  <div class="nav-wrapper">
+		<a href="/controller/praha/prahaMain"><img src="logo.jpg" id="logo"></a>
+	    <ul class="right hide-on-med-and-down">
+		  <li><a href="QNAList.html">1:1 답변</a></li>
+	      <li><a class="dropdown-button" href="ReserList.html" data-activates="roomShow">예약 확정</a></li>
+	      <li><a class="dropdown-button" href="InfoList.html"  data-activates="guide">여행 정보</a></li>
+	      <li><a class="dropdown-button" href="NoticeList.html" data-activates="reserve">공지사항</a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+
+	<main>
+	<div class="container">
+		<h3>Q & A</h3>
+		<table class="responsive-table centered bordered">
+			<thead>
+				<tr>
+					<th data-field="id">No</th>
+					<th data-field="id">Name</th>
+					<th data-field="name">Title</th>
+					<th data-field="price">Date</th>
+					<th data-field="price">State</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Name</td>
+					<td><a href="QNAView.html">1:1 문의 예시입니다</a></td>
+					<td>2017.02.09</td>
+					<td>Y</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Name</td>
+					<td><a href="QNAView.html">1:1 문의 예시입니다</a></td>
+					<td>2017.02.09</td>
+					<td>N</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Name</td>
+					<td><a href="QNAView.html">1:1 문의 예시입니다</a></td>
+					<td>2017.02.09</td>
+					<td>Y</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Name</td>
+					<td><a href="QNAView.html">1:1 문의 예시입니다</a></td>
+					<td>2017.02.09</td>
+					<td>N</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>Name</td>
+					<td><a href="QNAView.html">1:1 문의 예시입니다</a></td>
+					<td>2017.02.09</td>
+					<td>Y</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>Name</td>
+					<td><a href="QNAView.html">1:1 문의 예시입니다</a></td>
+					<td>2017.02.09</td>
+					<td>N</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="fixed-action-btn horizontal">
+			<a class="btn-floating btn-large red" href="QNAForm.html"> <i
+				class="large material-icons" href="QNAAnswer.html">mode_edit</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+				<li><a class="btn-floating yellow darken-1"><i
+						class="material-icons">format_quote</i></a></li>
+				<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+				<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+			</ul>
+		</div>
+
+
+	</div>
+	</main>
+
+
+</body>
+</html>
