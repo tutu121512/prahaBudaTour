@@ -2,11 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 
-<%
-	//페이징 클래스 받아오기
-	PageDTO pVO = (PageDTO)request.getAttribute("page");
-
-%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,8 +28,6 @@
    <script type="text/javascript">
 	  $(function(){
 		 $("tbody tr[name='board']").click(function(){
-			 alert($("#xmp").text())
-			 alert($("#xmp").html())
 			$(".password").css("display","none");	 	 
 			$(this).find(".password").css("display","block");
 		 });
@@ -58,41 +51,41 @@
 	</thead>
 	
 	<tbody>
- <c:forEach items="${reserveSelectList}" var="list">
-
+	
+	<% for(int i =0; i<10; i++){%>
 	<tr name="board" style="cursor: pointer">
-		<td>${list.boardNo}</td>
-		<td>${list.title}</td>
-		<td>${list.writer}</td>
-		<td>${list.boardDate}</td> 
-		<td style="width:180px;">
+	<td>No</td>
+	<td>Title</td>	
+	<td>Writer</td>
+	<td>Date</td>
+	<td style="width:180px;">
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
 			<form action="/controller/praha/prahaReservePasswordCheck" method="post">
-			<input type="hidden" name="boardNo" value="${list.boardNo}">
+			<input type="hidden" name="boardNo" value="<%=i%>">
 			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:100px; margin: 0; height: 20px; padding-right: 10px;"/> 
 			<input type="submit" value="보기">
 			</form>
 			</div>
 		</td>
 	</tr>
-	</c:forEach>	 
-
+	<% } %>
+	
 <!-- ############################### ##################################### -->	
 	<tr>
 	<td colspan="5">
 	<nav aria-label="..." style="padding-left: 350px;">
 	  <ul class="pagination pagination-lg">
 	    <li class="page-item">
-	      <a class="page-link" href="/controller/praha/reserveBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
+	      <a class="page-link" href="/controller/praha/reserveBoard?page=1" aria-label="Previous">
 	        <span aria-hidden="true">&laquo;</span>
 	        <span class="sr-only">Previous</span>
 	      </a>
 	    </li>
-	    <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
+	    <%for(int i=1; i<=5; i++) {%>
 	    <li class="page-item"><a class="page-link" href="/controller/praha/reserveBoard?page=<%=i%>"><%=i %></a></li>
 	    <%} %>
 	    <li class="page-item">
-	      <a class="page-link" href="/controller/praha/reserveBoard?page=<%=pVO.getNextPage()%>" aria-label="Next">
+	      <a class="page-link" href="/controller/praha/reserveBoard?page=5" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>
 	        <span class="sr-only">Next</span>
 	      </a>

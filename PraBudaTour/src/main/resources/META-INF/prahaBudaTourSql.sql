@@ -10,10 +10,10 @@ board_date	date,
 board_reply	varchar2(4000),
 phone	varchar2(100),
 kakao_id	varchar2(100),
-board_img01	varchar2(100),
-board_img02	varchar2(100),
-board_img03	varchar2(100),
-board_img04	varchar2(100)
+board_img0	varchar2(100),
+board_img1	varchar2(100),
+board_img2	varchar2(100),
+board_img3	varchar2(100)
 );
 
 CREATE TABLE RESERVECOMPLETE(

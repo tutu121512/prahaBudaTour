@@ -24,7 +24,7 @@ $(".dropdown-button").dropdown();
 	<li><a href="#!" style="background-color:#ee6e73;color:white">예약</a></li>
 	<li><a href="/controller/praha/usePrice">예약안내</a></li>
 	<li><a href="/controller/praha/usePrice">예약현황</a></li>
-	<li><a href="/controller/praha/reserveInsertForm">예약문의</a></li>
+	<li><a href="/controller/praha/reserveBoard">예약문의</a></li>
 	<li><a href="#!">예약확정</a></li>
 </ul>
 

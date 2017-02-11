@@ -44,9 +44,11 @@
 		var result = confirm('이 글을 수정 하시겠습니까?');
 		
 		if(result) { 
-		$(".updateform").removeAttr("disabled");
-		$(this).hide();
-		$("#updateComplete").show();
+			$(".updateform").removeAttr("readonly");
+			$(this).parent().hide();
+			$("#update").hide();
+			$("#updateComplete").parent().show();
+			$("#updateComplete").show();
 		}
 	});
 	
@@ -70,11 +72,11 @@
 			<div id="main_content" style="margin-top: 16px;">
 				<div class="row" style="margin-left:12%;margin-top:-25px">
 			        <div class="input-field col s7" style="margin-bottom:-20px">
-			          <input id="title" name="title" type="text" class="validate" disabled="disabled" value="${shuttleViewInfo.title}">
+			          <input id="title" name="title" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.title}">
 			          <label for="title">문의 제목</label>
 			        </div>
 					<div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="writer" name="writer" type="text" class="validate" disabled="disabled" value="${shuttleViewInfo.writer}">
+			          <input id="writer" name="writer" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.writer}">
 			          <label for="writer">작성자</label>
 			        </div>
 			    </div>
@@ -83,7 +85,7 @@
 					<div class="row" >
 				        <div class="input-field col s10">
 					        <i class="material-icons prefix">mode_edit</i>
-					        <textarea id="icon_prefix2" class="materialize-textarea" name="content" 
+					        <textarea id="icon_prefix2" class="materialize-textarea updateform" name="content"  readonly="readonly"
 					        placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다.">${shuttleViewInfo.content} </textarea>
 					        <label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
 				        </div>
@@ -92,19 +94,19 @@
 				</div>
 				<div class="row" style="margin-left:12%;margin-top:-40px">
 			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="password" name="password" type="password" disabled="disabled" class="validate">
+			          <input id="password" name="password" type="password" readonly="readonly" class="validate updateform">
 			          <label for="password">Password</label>
 			        </div>
 			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="phone" name="phone" type="text" class="validate" disabled="disabled" value="${shuttleViewInfo.phone}">
+			          <input id="phone" name="phone" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.phone}">
 			          <label for="phone">전화번호</label>
 			        </div>
 			        <div class="input-field col s3">
-			          <input id="kakaoId" name="kakaoId" type="text" class="validate" disabled="disabled" value="${shuttleViewInfo.kakaoId}">
+			          <input id="kakaoId" name="kakaoId" type="text" class="validate updateform" readonly="readonly" value="${shuttleViewInfo.kakaoId}">
 			          <label for="kakaoId">카카오톡 아이디</label>
 			        </div>
 				</div>
-				
+			<input type="hidden" id="boardNo" name="boardNo" value="${shuttleViewInfo.boardNo}">
 			<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
 			<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
 			<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
