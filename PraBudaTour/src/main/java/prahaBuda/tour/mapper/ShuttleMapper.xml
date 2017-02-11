@@ -27,7 +27,7 @@
 	<insert id="ShuttleInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
 	password,board_date,board_reply,phone,kakao_id,board_img01,board_img02,board_img03,board_img04) 
-	VALUES('Shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
+	VALUES('shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
 	#{password},sysdate,null,#{phone},#{kakaoId},null,null,null,null)
 	</insert>
 	
@@ -54,7 +54,7 @@
 	<select id="prahaShuttlePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
 	SELECT *
 	FROM BOARD
-	WHERE board_state='shuttle' location='P' 
+	WHERE board_state='shuttle' and location='P' 
 	and board_no=#{boardNo} and password=#{password}
 	</select>
 	
