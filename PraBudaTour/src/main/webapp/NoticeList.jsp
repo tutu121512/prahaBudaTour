@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="prahaBuda.tour.dto.*" %>
+<%
+  //페이징 클래스 받아오기
+  PageDTO pVO = (PageDTO)request.getAttribute("page");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,44 +41,40 @@
 					<th data-field="price">Date</th>
 				</tr>
 			</thead>
-
+         
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Name</td>
-					<td>공지사항 예시입니다.</td>
-					<td>2017.02.09</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Name</td>
-					<td>공지사항 예시입니다.</td>
-					<td>2017.02.09</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Name</td>
-					<td>공지사항 예시입니다.</td>
-					<td>2017.02.09</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>Name</td>
-					<td>공지사항 예시입니다.</td>
-					<td>2017.02.09</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>Name</td>
-					<td>공지사항 예시입니다.</td>
-					<td>2017.02.09</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>Name</td>
-					<td>공지사항 예시입니다.</td>
-					<td>2017.02.09</td>
-				</tr>
+			<c:forEach items="${noticeSelectList}" var="list">
+			<tr name="board" style="cursor:pointer">
+			     <td>${list.boardNo}</td>
+			     <td>${list.name}</td>
+			     <td>${list.title}</td>
+			     <td>${list.boardDate}</td>
+			</tr>   
+			</c:forEach> 
+
+
+
+<!--  ##################################################################### -->
+
+            <tr>
+            <td colspan="5">
+            <nav aria-label="..." style="padding-left: 350px;">
+              <ul class="pagination pagination-lg">
+                <li class="page-item">
+                  <a class="page-link" href="/controller/notice/praha/noticeBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;</span>
+                     <span class="sr-only">Previous</span>
+                 </a>
+               </li>
+               <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage(); i++) {%>
+               <li class="page-item"><a class="page-link" href="/controller/notice/praha/noticeBoard?page=<%=i%>"><%=i %></a></li>
+               <%} %>
+               <li class="page-item">
+                 <a class="page-link" href="/controller/notice/praha/noticeBoard?page=<%=pVO.getNextPage() %>" aria-label="Next">    
+                   <span aria-hidden="true">&raquo;</span>
+                   <span class="sr-only">Next</span>
+                 </a>
+             </ul>
 			</tbody>
 		</table>
 
