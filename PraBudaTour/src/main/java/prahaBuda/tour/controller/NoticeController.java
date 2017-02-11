@@ -26,6 +26,7 @@ public class NoticeController {
 		return fileName;
 	}
 	
+	
 	@RequestMapping("praha/noticeBoard")
 	public String PrahaNoticeSelect(BoardDTO boardDto,Model model,String page) throws Exception{
 		

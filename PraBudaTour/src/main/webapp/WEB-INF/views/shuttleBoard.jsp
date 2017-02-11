@@ -64,7 +64,7 @@
 		<td>${list.boardDate}</td> 
 		<td style="width:180px;">
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
-			<form action="/controller/praha/prahaReservePasswordCheck" method="post">
+			<form action="/controller/shuttle/praha/shuttlePasswordCheck" method="post">
 			<input type="hidden" name="boardNo" value="${list.boardNo}">
 			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:100px; margin: 0; height: 20px; padding-right: 10px;"/> 
 			<input type="submit" value="보기">
@@ -102,7 +102,7 @@
 	
 	<tbody>
 		<tr>
-			<th data-field="userState"><a href="/controller/praha/reserveInsertForm"><input type="button" value="글쓰기"></a></th>
+			<th data-field="userState"><a href="/controller/praha/shuttleInsertForm"><input type="button" value="글쓰기"></a></th>
 		</tr>
 	</tbody>
 	

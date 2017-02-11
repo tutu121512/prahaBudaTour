@@ -29,6 +29,9 @@
 		<beans:property name="order" value="0"/>
 	</beans:bean>
 	
+	<!--  file  -->
+	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"></beans:bean>
+	
 	<!-- intercepter -->
 	<interceptors>
 		<beans:bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">

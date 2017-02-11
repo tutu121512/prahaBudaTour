@@ -13,10 +13,10 @@ public class BoardDTO {
 	private String boardReply;
 	private String phone;
 	private String kakaoId;
-	private String boardImg01;
-	private String boardImg02;
-	private String boardImg03;
-	private String boardImg04;
+	private String boardImg0;
+	private String boardImg1;
+	private String boardImg2;
+	private String boardImg3;
 	
 	public String getBoardState() {
 		return boardState;
@@ -84,30 +84,29 @@ public class BoardDTO {
 	public void setKakaoId(String kakaoId) {
 		this.kakaoId = kakaoId;
 	}
-	public String getBoardImg01() {
-		return boardImg01;
+	public String getBoardImg0() { 
+		return boardImg0;
 	}
-	public void setBoardImg01(String boardImg01) {
-		this.boardImg01 = boardImg01;
+	public void setBoardImg0(String boardImg0) {
+		this.boardImg0 = boardImg0;
 	}
-	public String getBoardImg02() {
-		return boardImg02;
+	public String getBoardImg1() {
+		return boardImg1;
 	}
-	public void setBoardImg02(String boardImg02) {
-		this.boardImg02 = boardImg02;
+	public void setBoardImg1(String boardImg1) {
+		this.boardImg1 = boardImg1;
 	}
-	public String getBoardImg03() {
-		return boardImg03;
+	public String getBoardImg2() {
+		return boardImg2;
 	}
-	public void setBoardImg03(String boardImg03) {
-		this.boardImg03 = boardImg03;
+	public void setBoardImg2(String boardImg2) {
+		this.boardImg2 = boardImg2;
 	}
-	public String getBoardImg04() {
-		return boardImg04;
+	public String getBoardImg3() {
+		return boardImg3;
 	}
-	public void setBoardImg04(String boardImg04) {
-		this.boardImg04 = boardImg04;
+	public void setBoardImg3(String boardImg3) {
+		this.boardImg3 = boardImg3;
 	}
-
 	
 }

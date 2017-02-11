@@ -17,17 +17,16 @@
       <result column="board_reply" property="boardReply"/>
       <result column="phone" property="phone" />
       <result column="kakao_id" property="kakaoId"/>
-      <result column="board_img01" property="boardImg01"/>
-      <result column="board_img02" property="boardImg02"/>
-      <result column="board_img03" property="boardImg03"/>
-      <result column="board_img04" property="boardImg04"/>
+      <result column="board_img0" property="boardImg0"/>
+      <result column="board_img1" property="boardImg1"/>
+      <result column="board_img2" property="boardImg2"/>
+      <result column="board_img3" property="boardImg3"/>
    </resultMap>
-
 
 	<insert id="ShuttleInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
-	password,board_date,board_reply,phone,kakao_id,board_img01,board_img02,board_img03,board_img04) 
-	VALUES('Shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
+	password,board_date,board_reply,phone,kakao_id,board_img0,board_img1,board_img2,board_img3) 
+	VALUES('shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
 	#{password},sysdate,null,#{phone},#{kakaoId},null,null,null,null)
 	</insert>
 	
@@ -54,7 +53,7 @@
 	<select id="prahaShuttlePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
 	SELECT *
 	FROM BOARD
-	WHERE board_state='shuttle' location='P' 
+	WHERE board_state='shuttle' and location='P' 
 	and board_no=#{boardNo} and password=#{password}
 	</select>
 	
