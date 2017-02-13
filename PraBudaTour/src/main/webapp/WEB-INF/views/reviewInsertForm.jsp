@@ -36,15 +36,14 @@ $(function(){
 	
 	$('.image-file').on("change", "input[type=file]", function() {
 		var size = fileSize(this).toFixed(2)+"KB";
-		var index = "#boardImg"+$(this).attr("name").substr(8,1);
-		alert(index);
+		var index = "#boardImg"+$(this).attr("class").substr(8,1);
 		$(index).val(size);
 	});
 	
 	$('#add').on("click", function() {
 		if(count < 4) {
 			var str = "<div class='file-field input-field'>";
-			str += "<input type='file' name='file'>";
+			str += "<input type='file' name='file' class='boardImg"+count+"''>";
 //			str += "<input type='file' name='boardImg"+count+"'>";
 			str += "<div class='file-path-wrapper'>";
 			str += "<input class='file-path validate' type='text' placeholder='이미지 파일을 추가해주세요.'>";
