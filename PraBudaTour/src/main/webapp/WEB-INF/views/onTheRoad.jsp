@@ -23,10 +23,20 @@
 	
 	<main>
 		<div class="container">
-			<img alt="까를르교 객실" src='<c:url value="/resources/images/onTheRoad.jpg"/>' style="width:100%;margin-top:10px">
- 		
- 		
- 		 <div id="map"></div>
+		<div class="row">
+			<div class="col s12 m4 l2"><p></div>
+		    <div class="col s12 m4 l8">
+		    	<img alt="까를르교 객실" src='<c:url value="/resources/images/onTheRoad.jpg"/>' style="margin-top:10px">
+		    </div>
+		    <div class="col s12 m4 l2"><p></div>
+		</div>
+		<div class="row">
+			<div class="col s12 m4 l2"><p></div>
+		    <div class="col s12 m4 l8">
+				<div id="map"></div>
+		    </div>
+		    <div class="col s12 m4 l2"><p></div>
+		</div>
     <script>
       function initMap() {
         var myLatLng = {lat: 50.085762, lng: 14.431693};

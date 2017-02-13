@@ -64,37 +64,34 @@
 	<main>
 		<div class="container">
 		<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/edit.png"/>' 
+			<img src='<c:url value="/resources/images/shuttle.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
 		<form method="post" action="/controller/shuttle/praha/ShuttleUpdate">
 			<div id="main_content" style="margin-top: 16px;">
-				<div class="row" style="margin-left:12%;margin-top:-25px">
+				<div class="row" style="margin-left:12%;margin-top:-10px">
 			        <div class="input-field col s7" style="margin-bottom:-20px">
-			          <input id="title" name="title" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.title}">
+			          <input id="title" name="title" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.title}" style="color:red;text-align:center;font-size:27px">
 			          <label for="title">문의 제목</label>
 			        </div>
 					<div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="writer" name="writer" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.writer}">
+			          <input id="writer" name="writer" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.writer}" style="color:black;font-size:18px">
 			          <label for="writer">작성자</label>
 			        </div>
 			    </div>
 				<div class="row" style="margin-left:12%">
-			    <form class="col s12">
 					<div class="row" >
 				        <div class="input-field col s10">
 					        <i class="material-icons prefix">mode_edit</i>
-					        <textarea id="icon_prefix2" class="materialize-textarea updateform" name="content"  readonly="readonly"
-					        placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다.">${shuttleViewInfo.content} </textarea>
+					        <textarea id="icon_prefix2" class="materialize-textarea updateform" name="content"  readonly="readonly" style="color:black;font-size:22px">${shuttleViewInfo.content} </textarea>
 					        <label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
 				        </div>
 			    	</div>
-			    </form>
 				</div>
 				<div class="row" style="margin-left:12%;margin-top:-40px">
 			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="password" name="password" type="password" readonly="readonly" class="validate updateform">
+			          <input id="password" name="password" type="password" readonly="readonly" class="validate updateform" value="${shuttleViewInfo.password}">
 			          <label for="password">Password</label>
 			        </div>
 			        <div class="input-field col s3" style="margin-bottom:-20px">
@@ -106,12 +103,13 @@
 			          <label for="kakaoId">카카오톡 아이디</label>
 			        </div>
 				</div>
+				<div class="row" style="margin-left:55%;margin-top:-10px">
 			<input type="hidden" id="boardNo" name="boardNo" value="${shuttleViewInfo.boardNo}">
 			<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
 			<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
 			<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
 			<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
-			
+			</div>
 			</div>
 		</form>
 		</div>
