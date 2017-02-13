@@ -44,14 +44,19 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <main>
 	<div class="container">
+	<div class="centered row" style="margin-top:5px;">
+			<img src='<c:url value="/resources/images/shuttle.png"/>' 
+				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'> 후기임
+		</div>
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
-		<tr>
-			<th data-field=num">글번호</th>
+		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
+			<th data-field=num" style="width:8%">글번호</th>
 			<th data-field="email">제목</th>
-			<th data-field="nickName">작성자</th>
-			<th data-field="phone">작성일자</th>
-			<th>비고</th>
+			<th data-field="nickName" style="width:13%">작성자</th>
+			<th data-field="phone" style="width:12%">작성일자</th>
+			<th style="width:15%">비고</th>
 		</tr>
 	</thead>
 	
@@ -66,7 +71,7 @@
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
 			<form action="/controller/review/praha/reviewPasswordCheck" method="post">
 			<input type="hidden" name="boardNo" value="${list.boardNo}">
-			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:100px; margin: 0; height: 20px; padding-right: 10px;"/> 
+			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:85px; margin:0; height:20px; padding-right: 10px;"/> 
 			<input type="submit" value="보기">
 			</form>
 			</div>
@@ -76,33 +81,33 @@
 
 <!-- ############################### ##################################### -->	
 	<tr>
-	<td colspan="5">
-	<nav aria-label="..."  style="padding-left: 350px;">
-	  <ul class="pagination pagination-lg">
-	    <li class="page-item">
-	      <a class="page-link" href="/controller/review/praha/reviewBoard?page=<%=pVO.getPreviPage()%>" aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
-	        <span class="sr-only">Previous</span>
+	<td colspan="5" style="padding:0px;background-color:darksalmon;">
+	  <ul class="pagination">
+		<li class="page-item">
+			<a href="/controller/review/praha/reviewBoard?page=<%=pVO.getPreviPage()%>">
+		    <i class="material-icons">chevron_left</i>
 	      </a>
 	    </li>
 	    <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
-	    <li class="page-item"><a class="page-link" href="/controller/review/praha/reviewBoard?page=<%=i%>"><%=i %></a></li>
+	    <li class="waves-effect"><a class="page-link" href="/controller/review/praha/reviewBoard?page=<%=i%>"><%=i %></a></li>
 	    <%} %>
 	    <li class="page-item">
-	      <a class="page-link" href="/controller/review/praha/reviewBoard?page=<%=pVO.getNextPage()%>" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
-	        <span class="sr-only">Next</span>
+			<a href="/controller/shuttle/praha/reviewBoard?page=<%=pVO.getNextPage()%>">
+		    <i class="material-icons">chevron_right</i>
 	      </a>
 	    </li>
 	  </ul>
-	</nav>
 	</td>
 	</tr>
 	</tbody>
 	
 	<tbody>
 		<tr>
-			<th data-field="userState"><a href="/controller/praha/reviewInsertForm"><input type="button" value="글쓰기"></a></th>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td data-field="userState" style="text-align: right"><a href="/controller/praha/reviewInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
 		</tr>
 	</tbody>
 	

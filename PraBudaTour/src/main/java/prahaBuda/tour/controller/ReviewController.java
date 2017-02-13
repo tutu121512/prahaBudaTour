@@ -1,9 +1,14 @@
 package prahaBuda.tour.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections.set.SynchronizedSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,8 +53,18 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("praha/ReviewInsert")
-	public String PrahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
-		
+	public String PrahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
+
+		for(int i =0; i<boardDto.getFile().size(); i++){			
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
+			String Time = dayTime.format(new Date(System.currentTimeMillis()));
+			String imgName = Time+boardDto.getFile().get(0).getOriginalFilename();
+			String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+			System.out.println("패스값 : " + path);
+			File file = new File(path);
+			boardDto.getFile().get(i).transferTo(file);
+		}
+
 		ReviewService.ReviewInsert(boardDto);
 		System.out.println("insert성공");
 		

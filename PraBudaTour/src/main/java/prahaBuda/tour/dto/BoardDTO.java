@@ -1,5 +1,9 @@
 package prahaBuda.tour.dto;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardDTO {
 
 	
@@ -18,8 +22,9 @@ public class BoardDTO {
 	private String boardImg1;
 	private String boardImg2;
 	private String boardImg3;
-	
-	
+
+	List<MultipartFile> file;
+		
 	public String getBoardState() {
 		return boardState;
 	}
@@ -109,6 +114,12 @@ public class BoardDTO {
 	}
 	public void setBoardImg3(String boardImg3) {
 		this.boardImg3 = boardImg3;
+	}
+	public List<MultipartFile> getFile() {
+		return file;
+	}
+	public void setFile(List<MultipartFile> file) {
+		this.file = file;
 	}
 }
 
