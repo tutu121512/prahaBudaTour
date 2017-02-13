@@ -17,6 +17,7 @@
             <a class="grey-text text-lighten-4 right" href="#signInfo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개인정보 취급 정책</a>
             <a class="grey-text text-lighten-4 right" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서비스 이용 약관&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
             <a class="grey-text text-lighten-4 right" href="#">이메일 무단 수집 거부&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+            <a class="grey-text text-lighten-4 right" href="/controller/admin/admin/admin">관리자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
             </div>
           </div>
         </footer>

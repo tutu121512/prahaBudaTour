@@ -19,6 +19,6 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 
-
+ 
 </body>
 </html>
