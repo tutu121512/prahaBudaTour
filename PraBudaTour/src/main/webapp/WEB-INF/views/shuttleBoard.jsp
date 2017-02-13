@@ -52,11 +52,11 @@
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
 		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
-			<th data-field=num" style="width:2%">글번호</th>
-			<th data-field="email"">제목</th>
+			<th data-field=num" style="width:8%">글번호</th>
+			<th data-field="email">제목</th>
 			<th data-field="nickName" style="width:13%">작성자</th>
 			<th data-field="phone" style="width:12%">작성일자</th>
-			<th style="width:13%">비고</th>
+			<th style="width:15%">비고</th>
 		</tr>
 	</thead>
 	
@@ -103,7 +103,11 @@
 	
 	<tbody>
 		<tr>
-			<th data-field="userState"><a href="/controller/praha/shuttleInsertForm"><input type="button" value="글쓰기"></a></th>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td data-field="userState" style="text-align: right"><a href="/controller/praha/shuttleInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
 		</tr>
 	</tbody>
 	

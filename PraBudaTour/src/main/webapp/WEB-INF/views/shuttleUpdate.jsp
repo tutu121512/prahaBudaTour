@@ -83,9 +83,9 @@
 				<div class="row" style="margin-left:12%">
 					<div class="row" >
 				        <div class="input-field col s10">
-					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					         readonly="readonly" style="color:black; font-size:22px">${shuttleViewInfo.content}
-					        <img src="<c:url value='/resources/images/prahaRoom.jpg'/>"/></pre>
+					        <i class="material-icons prefix">mode_edit</i>
+					        <textarea id="icon_prefix2" class="materialize-textarea updateform" name="content"  readonly="readonly" style="color:black;font-size:22px">${shuttleViewInfo.content} </textarea>
+					        <label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
 				        </div>
 			    	</div>
 				</div>
