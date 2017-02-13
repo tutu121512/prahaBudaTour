@@ -49,7 +49,7 @@
 <br><br><br>
 
 <div id="login_wrap">
-<h5>관리자 로그인</h5>
+<h5 style="margin-top:-5px">관리자 로그인</h5>
 <hr>
   <form action="#" method="post">
   	<div class="row">
@@ -61,7 +61,7 @@
 					<input id="adminPassword" name="adminPassword" type="password" class="validate">
 					<label for="adminPassword">비밀번호</label>
 			</div>
-			<div class="input-field col s12">
+			<div class="input-field col s12" style="margin-bottom:15px">
 			<input class="waves-effect waves-light btn waves-input-wrapper" type="submit" name="login" id="login" value="로그인" style="width:400px"/>
 			</div>
 			<ol>
