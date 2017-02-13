@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Review">
+
+<!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
+   <resultMap type="boardDTO" id="boardMap">
+      <result column="board_state" property="boardState"/> 
+      <result column="Location" property="location"/>
+      <result column="board_no" property="boardNo"/>
+      <result column="writer" property="writer"/>
+      <result column="title" property="title"/>
+      <result column="content" property="content"/>
+      <result column="password" property="password"/>
+      <result column="board_date" property="boardDate"/>
+      <result column="board_reply" property="boardReply"/>
+      <result column="phone" property="phone" />
+      <result column="kakao_id" property="kakaoId"/>
+      <result column="board_img0" property="boardImg0"/>
+      <result column="board_img1" property="boardImg1"/>
+      <result column="board_img2" property="boardImg2"/>
+      <result column="board_img3" property="boardImg3"/>
+   </resultMap>
+
+	<insert id="ReviewInsert" parameterType="boardDTO" >
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
+	password,board_date,board_reply,phone,kakao_id,board_img0,board_img1,board_img2,board_img3) 
+	VALUES('review','P',Review_sequence.nextVal,#{writer},#{title},#{content},
+	#{password},sysdate,null,#{phone},#{kakaoId},#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3})
+	</insert>
+	
+	<select id="ReviewList" resultMap="boardMap" parameterType="int" >
+	SELECT
+	board.board_no boardNo,
+	board.writer as writer,
+	board.title as title,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date
+	FROM (SELECT board_no,writer,title,board_Date
+	from board
+	where board_state='review' and location='P'
+	order by board_no+0 desc) ) board
+	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
+	</select>
+	
+	<select id="ReviewListCount" resultType="int">
+	select count(board_no)
+	from board
+	where board_state='review' and location='P'
+	</select>
+	
+	<select id="prahaReviewPasswordCheck" parameterType="boardDTO" resultMap="boardMap">
+	SELECT *
+	FROM BOARD
+	WHERE board_state='review' and location='P' 
+	and board_no=#{boardNo} and password=#{password}
+	</select>
+	
+	<delete id="prahaReviewDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='review' location='P'
+	</delete>
+	
+	<update id="prahaReviewUpdate" parameterType="boardDTO">
+	UPDATE BOARD SET writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
+	 WHERE BOARD_NO=${boardNo} AND board_state='review' location='P'
+	</update>
+</mapper>

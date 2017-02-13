@@ -1,6 +1,7 @@
 package prahaBuda.tour.dto;
 
 public class BoardDTO {
+
 	
 	private String boardState;
 	private String location;
@@ -17,6 +18,7 @@ public class BoardDTO {
 	private String boardImg1;
 	private String boardImg2;
 	private String boardImg3;
+	
 	
 	public String getBoardState() {
 		return boardState;
@@ -108,5 +110,5 @@ public class BoardDTO {
 	public void setBoardImg3(String boardImg3) {
 		this.boardImg3 = boardImg3;
 	}
-	
 }
+

@@ -44,13 +44,14 @@ $(function(){
 	$('#add').on("click", function() {
 		if(count < 4) {
 			var str = "<div class='file-field input-field'>";
-			str += "<input type='file' name='board_img"+count+"'>";
+			str += "<input type='file' name='file'>";
+//			str += "<input type='file' name='boardImg"+count+"'>";
 			str += "<div class='file-path-wrapper'>";
 			str += "<input class='file-path validate' type='text' placeholder='이미지 파일을 추가해주세요.'>";
 			str += "</div></div>";
 			$('div.image-file').append(str);
 			
-			str = "<div  style='margin-top:14px'><input id='board_img"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly></div>"; 
+			str = "<div  style='margin-top:14px'><input id='boardImg"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly></div>"; 
 			$('div.image-file-size').append(str);
 			count++;
 		}else {
@@ -99,7 +100,7 @@ function fileSize(input) {
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
 		</div>
-		<form method="post" action="/controller/praha/prahaReserveInsert" enctype="multipart/form-data">
+		<form method="post" action="/controller/review/praha/ReviewInsert" enctype="multipart/form-data">
 			<div id="main_content" style="margin-top: 16px;">
 				<div class="row" style="margin-left:12%;margin-top:-25px">
 			        <div class="input-field col s7" style="margin-bottom:-20px">
@@ -133,10 +134,10 @@ function fileSize(input) {
 			          <label for="phone">전화번호</label>
 			        </div>
 			        <div class="input-field col s3">
-			          <input id="kakaoId" name="kakaoId" type="password" class="validate">
+			          <input id="kakaoId" name="kakaoId" type="password" class="validate">	
 			          <label for="kakaoId">카카오톡 아이디</label>
 			        </div>
-			        <a class="waves-effect waves-light btn">문의</a>
+			        <a class="waves-effect waves-light btn"><input type="submit" value="문의"></a>
 				</div>
 			</div>
 			<div class="col s9" style="margin-left:116px">

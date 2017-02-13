@@ -32,7 +32,7 @@ $(".dropdown-button").dropdown();
 	<li><a href="#!" style="background-color:#ee6e73;color:white">커뮤니티</a></li>
 	<li><a href="#!">공지사항</a></li>
 	<li><a href="#!">자유게시판</a></li>
-	<li><a href="#!">후 기</a></li>
+	<li><a href="/controller/review/praha/reviewBoard">후 기</a></li>
 </ul>
 
 <nav>
