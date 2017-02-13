@@ -1,4 +1,4 @@
-package brainburst.tt.controller;
+/*package brainburst.tt.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,15 +37,15 @@ public class AuthorContoller {
 			@PathVariable("viewFolder") String viewFolder, 
 			@PathVariable("viewName") String viewName){
 		
-		System.out.println(viewFolder+"/"+viewName+"·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+		System.out.println(viewFolder+"/"+viewName+"ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Õ´Ï´ï¿½.");
 		return viewFolder+"/"+viewName;
 	}
 
-	/**
-	 * À¥Å÷»ó¼¼º¸±â
-	 * ÀÛ°¡°¡ ÀÚ½ÅÀÇ À¥Å÷º¸±â ÆäÀÌÁö¿¡¼­ »ó¼¼º¸±â¸¦ ´©¸¦°æ¿ì ÀÛÇ°Á¤º¸¸¦ °¡Áö°í ÇØ´çÆäÀÌÁö·Î ÀÌµ¿.
-	 * @return webtoonDTO´Â ÇØ´ç ÀÛÇ°ÀÇ Á¤º¸°¡ ´ã±ä DTO
-	 */
+	*//**
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ó¼¼ºï¿½ï¿½ï¿½
+	 * ï¿½Û°ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½.
+	 * @return webtoonDTOï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ DTO
+	 *//*
 	@RequestMapping("showDetail")
 	public ModelAndView showDetail(HttpServletRequest request) {
 		int webtoonCode = (Integer) request.getAttribute("webtoonCode");
@@ -62,10 +62,10 @@ public class AuthorContoller {
 		return new ModelAndView("author/detail", "webtoonDTO", dto);
 	}
 
-	/**
-	 * ¸¶ÀÌÆäÀÌÁö¿¡¼­ ÀÛ°¡ÆäÀÌÁö¸¦ Å¬¸¯ÇÒ¶§,
-	 * ÀÛ°¡ÀÏ°æ¿ì ÀÛ°¡ÆäÀÌÁö·ÎÀÌµ¿, µ¶ÀÚÀÏ°æ¿ì ÀÛ°¡ÆäÀÌÁö È°¼ºÈ­¹öÆ°À¸·Î ÀÌµ¿(±âº»°ª)
-	 */
+	*//**
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ò¶ï¿½,
+	 * ï¿½Û°ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½(ï¿½âº»ï¿½ï¿½)
+	 *//*
 	@RequestMapping("authorPage")
 	public ModelAndView authorPage(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -76,41 +76,41 @@ public class AuthorContoller {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("nickname", nickname);
-		//À¯Àú·¹º§ÀÌ µ¶ÀÚ°¡ ¾Æ´Ò°æ¿ì(ÆÝµùÀÛ°¡, ÀÛ°¡ÀÎ°æ¿ì!) ÀÛ°¡ÆäÀÌÁö·ÎÀÌµ¿.
-		if (!userLevel.equals("µ¶ÀÚ")) {
-			//»ç¿ëÀÚÀÇ ´Ð³×ÀÓÀ¸·Î ¿¬Á¦ÁßÀÎ À¥Å÷¸ñ·Ï °¡Á®¿À±â
-			System.out.println("´Ð³×ÀÓ:"+nickname);
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Ò°ï¿½ï¿½(ï¿½Ýµï¿½ï¿½Û°ï¿½, ï¿½Û°ï¿½ï¿½Î°ï¿½ï¿½!) ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½.
+		if (!userLevel.equals("ï¿½ï¿½ï¿½ï¿½")) {
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			System.out.println("ï¿½Ð³ï¿½ï¿½ï¿½:"+nickname);
 			List<WebtoonDTO> list = authorService.getSerialWebtoon(nickname);
 			System.out.println(list);
 			session.setAttribute("webtoonList", list);
-			//ÀÌµ¿ÇÒ ºäÀÌ¸§ º¯°æ
+			//ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			viewName = "myInfo/authorpage";
 		}
-		/*
-		 * À¥Å÷»óÅÂº¯°æ½Ã º¯°æ°¡´ÉÇÑ À¥Å÷¸ñ·Ï°¡Á®¿À±â
-		 * (¼¼¼ÇÀÇ webtoonList°¡ ¼ö½Ã·Î º¯ÇÏ¿©¼­ Á¦´ë·Î ¸®½ºÆ®°¡ Ãâ·ÂµÇÁö ¾ÊÀ¸¹Ç·Î,
-		 * ¼¼¼Ç¿¡ mylist·Î »õ·Î¿î ¸ñ·ÏÀ» ³Ö¾îÁØ´Ù.)
-		 */  
+		
+		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ°¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ webtoonListï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Âµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½,
+		 * ï¿½ï¿½ï¿½Ç¿ï¿½ mylistï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ø´ï¿½.)
+		   
 		List<WebtoonDTO> list2 = authorService.selectMyWebtoon(userDTO.getNickname());
 		session.setAttribute("mylist", list2);
 		modelAndView.setViewName(viewName);
 		return modelAndView;
 	}
 
-	/**
-	ÀÛ°¡ÆäÀÌÁöÀÇ ¸¶°¨µÈ À¥Å÷ÅÇ Å¬¸¯ÇÒ ¶§, ¿¬Àç¿Ï·á »óÅÂÀÇ À¥Å÷¸ñ·Ï °¡Áö°í ÀÌµ¿
-	*/
+	*//**
+	ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	*//*
 	@RequestMapping("complete")
 	public ModelAndView concludedWebtoonPage(HttpServletRequest request, String nickname) {
 		List<WebtoonDTO> list = authorService.getCompleteWebtoon(nickname);
 		return new ModelAndView("author/completeList", "webtoonList", list);
 	}
 
-	/**
-	À¥Å÷µî·Ï
-	µî·ÏÇÏ¸é Á¤º¸°ª °¡Áö°í À¥Å÷Å×ÀÌºí »ý¼º
-	ÀÌÈÄ ÀÛ°¡ÆäÀÌÁöÀÇ ¿¬ÀçÁßÀ¥Å÷ÅÇÀ¸·Î ÀÌµ¿
-	*/
+	*//**
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
+	ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	*//*
 	@RequestMapping("registerWebtoon")
 	public String addSeries(HttpServletRequest request, WebtoonDTO webtoonDTO, EpisodeDTO episodeDTO) throws Exception {
 		HttpSession session = request.getSession();
@@ -152,9 +152,9 @@ public class AuthorContoller {
 		return "redirect:/author/authorPage";
 	}
 	
-	/**
-	À¥Å÷¼öÁ¤
-	*/
+	*//**
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	*//*
 	@RequestMapping("modifyWebtoon")
 	public String modifyWebtoon(HttpServletRequest request, WebtoonDTO webtoonDTO) throws Exception {
 		MultipartFile webtoonThumbnailFile = webtoonDTO.getWebtoonThumbnailFile();
@@ -173,12 +173,12 @@ public class AuthorContoller {
 		return "redirect:/author/authorPage";
 	}
 	
-	/**
-	 * À¥Å÷ ¼öÁ¤ÆäÀÌÁö·Î ÀÌµ¿
+	*//**
+	 * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	 * @param request
 	 * @param webtoonCode
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("modifyWebtoonPage")
 	public String modifyWebtoonPage(HttpServletRequest request, int webtoonCode) {
 		WebtoonDTO webtoonDTO = authorService.selectWebtoon(webtoonCode);
@@ -195,19 +195,19 @@ public class AuthorContoller {
 		return "myInfo/webtoonModify";
 	}
 	
-	/**
-	ÀÛÇ°»óÅÂº¯°æ
-	*/
+	*//**
+	ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½
+	*//*
 	public String setSeriesState(HttpServletRequest request, String state) {
-		//¾î¶»°Ô¹Þ´Â°¡...?
+		//ï¿½î¶»ï¿½Ô¹Þ´Â°ï¿½...?
 		String webtoonCode = null;
 		authorService.setSeriesState(webtoonCode, state);
 		return "author/authorPage";
 	}
 	
-	/**
-	 * ¿¡ÇÇ¼Òµå¾÷·Îµå
-	 */
+	*//**
+	 * ï¿½ï¿½ï¿½Ç¼Òµï¿½ï¿½ï¿½Îµï¿½
+	 *//*
 	@RequestMapping("episodeUpload")
 	public String uploadEpisode(HttpServletRequest request, EpisodeDTO episodeDTO) throws Exception {
 		List<MultipartFile> images = episodeDTO.getImage();
@@ -245,10 +245,10 @@ public class AuthorContoller {
 		return "redirect:/webtoon/webtoonPage/"+episodeDTO.getWebtoonCode();
 	}
 	
-	/**
-	 * ¿¡ÇÇ¼Òµå ¼öÁ¤
+	*//**
+	 * ï¿½ï¿½ï¿½Ç¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("modifyEpisode")
 	public String modifyEpisode(HttpServletRequest request, 
 			EpisodeDTO episodeDTO, String[] imageSize, int imageListSize) throws Exception {
@@ -311,15 +311,15 @@ public class AuthorContoller {
 			System.out.println("addimage index : " + img.getImageIndex());
 			System.out.println("addimage name : " + img.getFileName());
 		}
-		System.out.println("¼öÁ¤°á°ú : " + result);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : " + result);
 		
 		return "redirect:/webtoon/webtoonPage/"+episodeDTO.getWebtoonCode();
 	}
 	
-	/**
-	 * ÀÛ°¡ÆäÀÌÁö¸¸µé±â
+	*//**
+	 * ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("madeAuthorPage")
 	public String madeAuthorPage(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -329,11 +329,11 @@ public class AuthorContoller {
 		session.setAttribute("webtoonList", list);
 		return "myInfo/authorpage";
 	}
-	/**
-	 * ÀÛ°¡ Ãß°¡Á¤º¸ ÀÔ·Â
+	*//**
+	 * ï¿½Û°ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 	 * @throws IOException 
 	 * @throws IllegalStateException 
-	 * */
+	 * *//*
 	@RequestMapping("additionalInfo")
 	@ResponseBody
 	public String additionalInfo(HttpServletRequest request, AdditionalInfoDTO additionalInfoDTO) throws IllegalStateException, IOException{
@@ -357,9 +357,9 @@ public class AuthorContoller {
 		return "";
 		
 	}
-	/**
-	 * ÀÛ°¡ Ãß°¡ Á¤º¸ Ãâ·Â
-	 * */
+	*//**
+	 * ï¿½Û°ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	 * *//*
 	@RequestMapping("selectAdditionalInfo")
 	@ResponseBody
 	public AdditionalInfoDTO selectAdditionalInfo(HttpServletRequest request){
@@ -370,4 +370,4 @@ public class AuthorContoller {
 		additionalInfoDTO.setIdentificationCard(identificationCard[identificationCard.length-1]);
 		return additionalInfoDTO;
 	}
-}
+}*/
