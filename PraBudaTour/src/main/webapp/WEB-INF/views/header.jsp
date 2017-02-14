@@ -33,7 +33,7 @@ $(".dropdown-button").dropdown();
 	<li><a href="#!">공지사항</a></li>
 	<li><a href="#!">자유게시판</a></li>
 	<li><a href="/controller/review/praha/reviewBoard">후 기</a></li>
-</ul>
+</ul>						
 
 <nav>
   <div class="nav-wrapper">

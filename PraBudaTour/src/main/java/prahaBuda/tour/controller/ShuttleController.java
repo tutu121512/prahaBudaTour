@@ -72,7 +72,7 @@ public class ShuttleController {
 		
 	}
 	
-	@RequestMapping("praha/ShuttleDelete")
+	@RequestMapping("praha/shuttleDelete")
 	public String prahaReserveDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		ShuttleService.ShuttleDelete(boardDto);
@@ -80,7 +80,7 @@ public class ShuttleController {
 		return "redirect:/shuttle/praha/shuttleBoard";
 	}
 	
-	@RequestMapping("praha/ShuttleUpdate")
+	@RequestMapping("praha/shuttleUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		System.out.println("카카오 " + boardDto.getKakaoId());

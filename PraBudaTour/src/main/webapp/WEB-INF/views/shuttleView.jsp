@@ -34,7 +34,7 @@
 		
 		if(result) { 
 			alert("삭제되었습니다.");
-			location.href="/controller/shuttle/praha/ShuttleDelete?boardNo="+$("#boardNo").val()
+			location.href="/controller/shuttle/praha/shuttleDelete?boardNo="+$("#boardNo").val()
 		}
 	
 	});

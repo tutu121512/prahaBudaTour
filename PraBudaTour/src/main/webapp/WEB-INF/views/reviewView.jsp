@@ -37,7 +37,7 @@
 		if(result) { 
 			alert("삭제되었습니다.");
 			location.href="/controller/review/praha/reviewDelete?boardNo="+$("#boardNo").val()
-		}
+		}											
 	
 	});
 	

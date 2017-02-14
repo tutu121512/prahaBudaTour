@@ -52,7 +52,8 @@ public class ReviewController {
 	
 	@RequestMapping("praha/ReviewInsert")
 	public String PrahaReserveInsert(BoardDTO boardDto,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
-			
+
+		if(boardDto.getFile()!=null){
 			boardDto.setBoardImg0("null");
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
@@ -72,9 +73,15 @@ public class ReviewController {
 			case 1: boardDto.setBoardImg1(db);  break;
 			case 2: boardDto.setBoardImg2(db);  break;
 			case 3: boardDto.setBoardImg3(db);  break;
+				}
 			}
+		}else{
+			boardDto.setBoardImg0("null");
+			boardDto.setBoardImg1("null");
+			boardDto.setBoardImg2("null");
+			boardDto.setBoardImg3("null");
 		}
-
+		
 		ReviewService.ReviewInsert(boardDto);
 		System.out.println("insert성공");
 		
@@ -100,7 +107,7 @@ public class ReviewController {
 		
 	}
 	
-	@RequestMapping("praha/ReivewDelete")
+	@RequestMapping("praha/reviewDelete")
 	public String prahaReserveDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		ReviewService.ReviewDelete(boardDto);
@@ -108,7 +115,7 @@ public class ReviewController {
 		return "redirect:/review/praha/reviewBoard";
 	}
 	
-	@RequestMapping("praha/ReviewUpdate")
+	@RequestMapping("praha/reviewUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
 		System.out.println("카카오 " + boardDto.getKakaoId());
