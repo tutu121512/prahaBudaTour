@@ -55,13 +55,13 @@
    	<div class="row">
      	
 			<div class="input-field col s6" style="margin-bottom:-20px">
-				    <label for="adminId">ID</label>
-				    <input type="text" id="adminId" name="adminId" class="validate">
+				    <label for="admin_Id">ID</label>
+				    <input type="text" id="admin_Id" name="admin_Id" class="validate">
 			</div>
 
 			<div class="input-field col s6" style="margin-bottom:-20px">
-					<label for="adminPassword">비밀번호</label>
-					<input type="password" id="adminPassword" name="adminPassword" class="validate">
+					<label for="admin_Password">비밀번호</label>
+					<input type="password" id="admin_Password" name="admin_Password" class="validate">
 			</div>
 			
 			<div class="input-field col s12" style="margin-bottom:15px">
