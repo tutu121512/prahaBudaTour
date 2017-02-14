@@ -24,7 +24,6 @@
    String Password = request.getParameter("Password");
    
    String filename = application.getRealPath("/") + "db.txt";
-   ArrayList<String>db = db
 
 %>
   <h1>로그인정보입니다.</h1><br/>
