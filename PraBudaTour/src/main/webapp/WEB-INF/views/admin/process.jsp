@@ -2,67 +2,34 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%! 
-boolean isset(String str)
-{
-	if(str == null) return false;
-	if(str.equals("")) return false;
-	return true;
-}
-%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그인 처리</title>
-</head>
+	<head>
+	 <!--Import Google Icon Font-->
+	    <link href='<c:url value="http://fonts.googleapis.com/icon?family=Material+Icons"/>' rel="stylesheet">
+	    <!--Import materialize.css-->
+	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
+	    <!--Let browser know website is optimized for mobile-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
 <body>
+<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	
 
 <%
-if(!isset(request.getParameter("admin_Id")))
-{
-	out.println("<p align=\"center\">ID가 입력되지 않았습니다.</p>");
-	out.println("<p align=\"center\"><a href=\"admin.jsp\">로그인하기</a></p>");
-	return;
-}
+      		
+   String Id = request.getParameter("Id");
+   String Password = request.getParameter("Password");
+   
+   String filename = application.getRealPath("/") + "db.txt";
+   ArrayList<String>db = db
 
-if(!isset(request.getParameter("admin_Password")))
-{
-	out.println("<p align=\"center\">암호가 입력되지 않았습니다.</p>");
-	out.println("<p align=\"center\"><a href=\"admin.jsp\">로그인하기</a></p>");
-	return;
-}
-
-//미리 정의된 ID와 암호
-String admin_Id = "admin";
-String admin_Password ="password";
-
-//ID 잘못 입력 시
-if(!request.getParameter("admin_Id").equals(admin_Id))
-{
-	out.println("<p align=\"center\">ID가 일치하지 않습니다.</p>");
-	out.println("<p align=\"center\"><a href=\"admin.jsp\">다시 로그인하기</a></p>");
-	return;
-}
-
-//암호 잘못 입력 시
-else if(!request.getParameter("admin_Password").equals(admin_Password))
-{
-	out.println("<p align=\"center\">암호가 일치하지 않습니다.</p>");
-	out.println("<p align=\"center\"><a href=\"admin.jsp\">다시 로그인하기</a></p>");
-	return;
-}
-//로그인 성공
-else
-{
-	out.println("<p align=\"center\">로그인 성공</p>");
-	out.println("<p align=\"center\"><a href=\"NoticeList.jsp\">회원 페이지</a></p>");
-
-    session.setAttribute("admin_id", request.getParameter("admin_id"));
-    session.setAttribute("admin_password",request.getParameter("admin_password"));
-}
-   %>
-
+%>
+  <h1>로그인정보입니다.</h1><br/>
+  아이디 : <%=Id%><br/><br/>
+  비밀번호 : <%=Password%><br/><br/>
 
 </body>
 </html>

@@ -51,17 +51,17 @@
 <div id="login_wrap">
 <h5 style="margin-top:-5px">관리자 로그인</h5>
 <hr>
-  <form id="loginform" action="process.jsp" method="post">
+  <form id="loginform"  method="post"  action="process.jsp">
    	<div class="row">
      	
 			<div class="input-field col s6" style="margin-bottom:-20px">
-				    <label for="admin_Id">ID</label>
-				    <input type="text" id="admin_Id" name="admin_Id" class="validate">
+				    <label for="Id">ID</label>
+				    <input type="text" id="Id" name="Id" class="validate">
 			</div>
 
 			<div class="input-field col s6" style="margin-bottom:-20px">
-					<label for="admin_Password">비밀번호</label>
-					<input type="password" id="admin_Password" name="admin_Password" class="validate">
+					<label for="Password">비밀번호</label>
+					<input type="password" id="Password" name="Password" class="validate">
 			</div>
 			
 			<div class="input-field col s12" style="margin-bottom:15px">
