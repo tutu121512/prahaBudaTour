@@ -51,7 +51,7 @@
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
-		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
+	<table class="striped centered" id="userManageList" style="margin-top:20px;margin-bottom:15px;">
 	<thead>
 		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
 			<th data-field=num" style="width:8%">글번호</th>
@@ -83,7 +83,7 @@
 
 <!-- ############################### ##################################### -->	
 	<tr>
-	<td colspan="5" style="padding:0px;background-color:darksalmon;">
+	<td colspan="3" style="padding:0px;">
 	  <ul class="pagination">
 		<li class="page-item">
 			<a href="/controller/shuttle/praha/shuttleBoard?page=<%=pVO.getPreviPage()%>">
@@ -100,19 +100,9 @@
 	    </li>
 	  </ul>
 	</td>
+	<td colspan="2" class="centered" data-field="userState"><a href="/controller/praha/shuttleInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
 	</tr>
 	</tbody>
-	
-	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td data-field="userState" style="text-align: right"><a href="/controller/praha/shuttleInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
-		</tr>
-	</tbody>
-	
 </table>
 	</div>
 </main>
