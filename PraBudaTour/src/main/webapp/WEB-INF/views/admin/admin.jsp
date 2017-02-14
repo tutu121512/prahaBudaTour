@@ -38,39 +38,38 @@
 	   .others li{width:504px; height:24px; margin-bottom:1px; position:relative;} 
  	   .others li span{position:absolute; left:100px; top:1px;} 
 	 
-	  
-	   </style>
-	</head>
+	  </style>
+	
+<head>
 <body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
-	<jsp:include page="/WEB-INF/views/adminHeader.jsp" />
+	
 <br><br><br>
 
 <div id="login_wrap">
 <h5 style="margin-top:-5px">관리자 로그인</h5>
 <hr>
-  <form action="#" method="post">
-  	<div class="row">
+  <form id="loginform" action="process.jsp" method="post">
+   	<div class="row">
+     	
 			<div class="input-field col s6" style="margin-bottom:-20px">
-					<input id="adminId" name="adminId" type="text" class="validate">
-					<label for="adminId">ID</label>
+				    <label for="adminId">ID</label>
+				    <input type="text" id="adminId" name="adminId" class="validate">
 			</div>
+
 			<div class="input-field col s6" style="margin-bottom:-20px">
-					<input id="adminPassword" name="adminPassword" type="password" class="validate">
 					<label for="adminPassword">비밀번호</label>
+					<input type="password" id="adminPassword" name="adminPassword" class="validate">
 			</div>
+			
 			<div class="input-field col s12" style="margin-bottom:15px">
-			<input class="waves-effect waves-light btn waves-input-wrapper" type="submit" name="login" id="login" value="로그인" style="width:400px"/>
+			<input type="submit" class="waves-effect waves-light btn waves-input-wrapper" name="login" id="LoginBtn" value="로그인" style="width:400px"/>
 			</div>
-			<ol>
-			<hr>
-   <li class="others1"><span>관리자ID를 잊으셨나요?</span><a href="#">아이디찾기</a></li>
-   <li class="others2"><span>관리자 PassWord를 잊으셨나요?</span><a href="#">비밀번호 찾기</a></li>
-</ol>
-  </div>
-  </form>
-</div>   
+		
+       </div>
+   </form>
+</div> 
 </body>
 </html>
