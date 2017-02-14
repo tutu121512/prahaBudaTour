@@ -18,6 +18,8 @@ board_img3	varchar2(100)
 
 CREATE TABLE RESERVECOMPLETE(
 Location	varchar2(100),
+Board_No varchar2(100),
+Board_Date date,
 Reserve_Name	varchar2(100),
 Room_Name	varchar2(100),
 start_date	varchar2(100),
@@ -158,7 +160,14 @@ INSERT INTO board(board_state,Location,board_no,writer,title,content,board_date,
 INSERT INTO board(board_state,Location,board_no,writer,title,content,board_date,password,phone,kakao_id) values('review','P',review_sequence.nextval,'writer20','title20','content20',sysdate,1234,01011111120,'kakaoid20');
 INSERT INTO board(board_state,Location,board_no,writer,title,content,board_date,password,phone,kakao_id) values('review','P',review_sequence.nextval,'writer21','title21','content21',sysdate,1234,01011111121,'kakaoid21');
 
-
+ INSERT INTO reserveComplete(location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,phone,kakao_id) 
+ values('P',reserveComplete_Sequence.nextVal,sysdate,'정영재','프라하성','2017-02-14','2017-02-17','3','60000','01027901708','jyj93kr');
+  
+ INSERT INTO reserveComplete(location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,phone,kakao_id) 
+ values('P',reserveComplete_Sequence.nextVal,sysdate,'장준영','바츨라프','2017-02-03','2017-02-10','2','80000','01084123017','tutu1215');
+  
+ INSERT INTO reserveComplete(location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,phone,kakao_id) 
+ values('P',reserveComplete_Sequence.nextVal,sysdate,'이은길','까를르교','2017-03-1','2017-03-02','1','450000','01073358389','geeLoveIRENE');
 
 
 drop table board;

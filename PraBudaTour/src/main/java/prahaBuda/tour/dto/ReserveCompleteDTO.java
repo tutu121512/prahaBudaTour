@@ -3,6 +3,8 @@ package prahaBuda.tour.dto;
 public class ReserveCompleteDTO {
 
 	private String  location;	
+	private String boardNo;
+	private String boardDate;
 	private String  reserveName;
 	private String	roomName;
 	private String	startDate;	
@@ -65,5 +67,17 @@ public class ReserveCompleteDTO {
 	}
 	public void setKakaoId(String kakaoId) {
 		this.kakaoId = kakaoId;
+	}
+	public String getBoardNo() {
+		return boardNo;
+	}
+	public void setBoardNo(String boardNo) {
+		this.boardNo = boardNo;
+	}
+	public String getBoardDate() {
+		return boardDate;
+	}
+	public void setBoardDate(String boardDate) {
+		this.boardDate = boardDate;
 	}
 }
