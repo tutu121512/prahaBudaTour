@@ -95,9 +95,9 @@ function fileSize(input) {
 	<main>
 		<div class="container">
 		<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/edit.png"/>' 
+			<img src='<c:url value="/resources/images/shuttle.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
 		<form method="post" action="/controller/shuttle/praha/ShuttleInsert">
 			<div id="main_content" style="margin-top: 16px;">

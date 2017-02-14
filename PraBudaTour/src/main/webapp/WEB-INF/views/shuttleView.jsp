@@ -80,12 +80,11 @@
 			          <label for="writer">작성자</label>
 			        </div>
 			    </div>
-				<div class="row" style="margin-left:12%">
-					<div class="row" >
+				<div class="row" style="margin-left:15%">
+					<div class="row" style="margin-top:-20px;margin-bottom:30px">
 				        <div class="input-field col s10">
 					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					         readonly="readonly" style="color:black; font-size:22px">${shuttleViewInfo.content}
-					        <img src="<c:url value='/resources/images/prahaRoom.jpg'/>"/></pre>
+					         readonly="readonly" style="color:black; font-size:1.4em">${shuttleViewInfo.content}</pre>
 				        </div>
 			    	</div>
 				</div>
