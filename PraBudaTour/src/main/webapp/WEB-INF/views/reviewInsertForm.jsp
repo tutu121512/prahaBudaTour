@@ -97,7 +97,7 @@ function fileSize(input) {
 		<div class="centered row" style="margin-top:5px;">
 			<img src='<c:url value="/resources/images/edit.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
 		</div>
 		<form method="post" action="/controller/review/praha/ReviewInsert" enctype="multipart/form-data">
 			<div id="main_content" style="margin-top: 16px;">

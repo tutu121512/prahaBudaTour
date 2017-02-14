@@ -62,7 +62,8 @@
 	</delete>
 	
 	<update id="prahaReviewUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
-	 WHERE BOARD_NO=${boardNo} AND board_state='review' location='P'
+	UPDATE BOARD SET title=#{title},
+	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
+	 WHERE BOARD_NO=#{boardNo} AND board_state='review' and location='P'
 	</update>
 </mapper>

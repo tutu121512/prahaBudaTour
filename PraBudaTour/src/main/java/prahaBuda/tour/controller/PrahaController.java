@@ -82,8 +82,7 @@ public class PrahaController {
 	
 	@RequestMapping("prahaReserveUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
-		
-		System.out.println("카카오 " + boardDto.getKakaoId());
+
 		ReserveQuestionService.prahaReserveUpdate(boardDto);
 		
 		return "redirect:/praha/reserveBoard";

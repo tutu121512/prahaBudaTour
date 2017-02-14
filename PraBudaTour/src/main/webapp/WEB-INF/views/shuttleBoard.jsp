@@ -36,7 +36,9 @@
 			$(".password").css("display","none");	 	 
 			$(this).find(".password").css("display","block");
 		 });
-		 
+		 var page = '#page'+<%=pVO.getCurPage()%>;
+		  	$(page).removeClass();
+		  	$(page).addClass("active");
 	  });
    </script>
 	</head>
@@ -89,7 +91,7 @@
 	      </a>
 	    </li>
 	    <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
-	    <li class="waves-effect"><a class="page-link" href="/controller/shuttle/praha/shuttleBoard?page=<%=i%>"><%=i %></a></li>
+	    <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/shuttle/praha/shuttleBoard?page=<%=i%>"><%=i %></a></li>
 	    <%} %>
 	    <li class="page-item">
 			<a href="/controller/shuttle/praha/shuttleBoard?page=<%=pVO.getNextPage()%>">

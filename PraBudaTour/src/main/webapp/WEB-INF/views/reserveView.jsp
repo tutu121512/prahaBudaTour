@@ -44,6 +44,7 @@
 		var result = confirm('이 글을 수정 하시겠습니까?');
 		
 		if(result) { 
+			$("#icon_prefix2").contents().unwrap().wrap("<textarea class='materialize-textarea' name='content' style='color:black; font-size:22px' ></textarea>");
 			$(".updateform").removeAttr("readonly");
 			$(this).parent().hide();
 			$("#update").hide();
@@ -69,6 +70,7 @@
 			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
 		<form method="post" action="/controller/praha/prahaReserveUpdate">
+			<input type="hidden" id="boardNo" name="boardNo" value="${reserveViewInfo.boardNo}">
 			<div id="main_content" style="margin-top: 16px;">
 				<div class="row" style="margin-left:12%;margin-top:-10px">
 			        <div class="input-field col s7" style="margin-bottom:-20px">
@@ -84,8 +86,7 @@
 					<div class="row" >
 				        <div class="input-field col s10">
 					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					        readonly="readonly" style="color:black; font-size:22px">${reserveViewInfo.content}
-					        </pre>
+					        readonly="readonly" style="color:black; font-size:22px">${reserveViewInfo.content}</pre>
 				        </div>
 			    	</div>
 				</div>
@@ -104,7 +105,6 @@
 			        </div>
 				</div>
 				<div class="row" style="margin-left:55%;margin-top:-10px">
-			<input type="hidden" id="boardNo" name="boardNo" value="${reserveViewInfo.boardNo}">
 			<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
 			<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
 			<input class="waves-effect waves-light btn" type="button" value="수정" id="update">

@@ -62,7 +62,8 @@
 	</delete>
 	
 	<update id="prahaShuttleUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
-	 WHERE BOARD_NO=${boardNo} AND board_state='shuttle' and location='P'
+	UPDATE BOARD SET title=#{title},
+	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
+	 WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
 	</update>
 </mapper>
