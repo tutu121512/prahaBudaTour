@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import prahaBuda.tour.dto.*;
+import prahaBuda.tour.dto.BoardDTO;
 
 @Repository
 public class ReserveQuestionDaoImpl implements ReserveQuestionDao {
@@ -16,8 +16,7 @@ public class ReserveQuestionDaoImpl implements ReserveQuestionDao {
 	
 	@Override
 	public void ReserveQuestionInsert(BoardDTO boardDto) throws Exception {
-		
-		int su = sqlSession.insert("ReserveQuestion.ReserveQuestionInsert",boardDto);
+		sqlSession.insert("ReserveQuestion.ReserveQuestionInsert",boardDto);
 	}
 
 	@Override

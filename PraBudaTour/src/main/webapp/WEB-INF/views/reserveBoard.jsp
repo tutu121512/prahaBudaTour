@@ -45,9 +45,9 @@
 <main>
 	<div class="container">
 	<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/shuttle.png"/>' 
+			<img src='<c:url value="/resources/images/edit.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
 		</div>
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>

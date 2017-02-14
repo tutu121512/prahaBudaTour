@@ -4265,11 +4265,16 @@ nav .input-field label.active i {
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "배달의민족 주아";
+  src: url("../fonts/BMJUA_ttf.ttf");
+}
+
 a {
   text-decoration: none;
 }
 
-html {
+html, pre {
   line-height: 1.5;
   font-family: "배달의민족 주아", sans-serif;
   font-weight: normal;

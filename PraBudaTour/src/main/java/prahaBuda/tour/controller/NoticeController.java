@@ -7,11 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import prahaBuda.tour.service.*;
-import prahaBuda.tour.dto.*;
+import prahaBuda.tour.dto.BoardDTO;
+import prahaBuda.tour.dto.PageDTO;
+import prahaBuda.tour.service.NoticeService;
 
 @Controller
 @RequestMapping("notice")

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import prahaBuda.tour.dto.BoardDTO;
-import prahaBuda.tour.dto.PageDTO;
 
 @Repository
 public class ShuttleDaoImpl implements ShuttleDao {

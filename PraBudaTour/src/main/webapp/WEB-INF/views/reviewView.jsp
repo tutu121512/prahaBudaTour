@@ -70,7 +70,7 @@
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
-		${reviewViewInfo.boardImg0}
+
 		<form method="post" action="/controller/review/praha/ReviewUpdate">
 			<div id="main_content" style="margin-top: 16px;">
 				<div class="row" style="margin-left:12%;margin-top:-10px">
@@ -87,24 +87,26 @@
 					<div class="row" >
 				        <div class="input-field col s10">
 					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					         readonly="readonly" style="color:black; font-size:22px">${reviewViewInfo.content}
+					         readonly="readonly" style="color:black;font-size:22px;width:616px;margin:0px;margin-bottom:-10px;">${reviewViewInfo.content}
 							</pre>
 						
+						<div style="margin-bottom:10px;">
 						<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
-					        <img style="width: 400px; height: 400px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
+					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
 						</c:if>
 				
 						<c:if test="${reviewViewInfo.boardImg1 != 'null'}">
-					        <img style="width: 400px; height: 400px;" src="<c:url value='${reviewViewInfo.boardImg1}'/>"/>
+					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg1}'/>"/>
 						</c:if>
 				
 						<c:if test="${reviewViewInfo.boardImg2 != 'null'}">
-					        <img style="width: 400px; height: 400px;" src="<c:url value='${reviewViewInfo.boardImg2}'/>"/>
+					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg2}'/>"/>
 						</c:if>
 
 						<c:if test="${reviewViewInfo.boardImg3 != 'null'}">
-			                <img style="width: 400px; height: 400px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
+			                <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
 						</c:if>
+						</div>
 			
 				        </div>
 			    	</div>
