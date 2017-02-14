@@ -67,7 +67,7 @@
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
 		<td>${list.title}</td>
-		<td>${list.writer}    <--------------- 이 부분에 그냥 faviconTour 라고 </td>
+		<td>${list.writer}</td>
 		<td>${list.boardDate}</td> 
 		<td style="width:180px;">
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
