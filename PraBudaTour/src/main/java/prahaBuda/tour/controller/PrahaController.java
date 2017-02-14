@@ -7,11 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import prahaBuda.tour.dto.BoardDTO;
-import prahaBuda.tour.dto.PageDTO;
-import prahaBuda.tour.service.ReserveQuestionService;
+import prahaBuda.tour.dto.*;
+import prahaBuda.tour.service.*;
 
 @Controller
 @RequestMapping("praha")
@@ -19,11 +19,36 @@ public class PrahaController {
 	
 	@Autowired 
 	private ReserveQuestionService ReserveQuestionService;
+
+	@Autowired 
+	private ReviewService ReviewService;
+	
+	@Autowired 
+	private ReserveCompleteService ReserveCompleteService;
+	
 	
 	@RequestMapping("{fileName}")
 	public String noneSignUpMove(
 			@PathVariable("fileName") String fileName){
 		return fileName;
+	}
+	
+	@RequestMapping("prahaMain")
+	public ModelAndView PrahaMain() throws Exception{
+		
+		PageDTO pageDto = new PageDTO();
+		pageDto.setCurPage(1);
+		
+		List<BoardDTO> reviewtList =  ReviewService.ReviewList(pageDto);
+		List<ReserveCompleteDTO> completetList =  ReserveCompleteService.reserveCompleteBoard(pageDto);
+		List<BoardDTO> reserveList =  ReserveQuestionService.ReserveQuestionList(pageDto);
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("prahaMain");
+		mv.addObject("reviewList", reviewtList);
+		mv.addObject("completeList",completetList );
+		mv.addObject("reserveList", reserveList);
+		return mv;
 	}
 	
 	@RequestMapping("reserveBoard")
