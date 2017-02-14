@@ -30,34 +30,33 @@
 
 	<script type="text/javascript">
 	$(function(){		
-	$("#updateComplete").hide();
-	$("#delete").click(function(){
-		var result = confirm('이 글을 삭제 하시겠습니까?');
+		$("#updateComplete").hide();
 		
-		if(result) { 
-			alert("삭제되었습니다.");
-			location.href="/controller/review/praha/reviewDelete?boardNo="+$("#boardNo").val()
-		}											
-	
-	});
-	
-	$("#update").click(function(){
+		$("#delete").click(function(){
+			var result = confirm('이 글을 삭제 하시겠습니까?');
+			if(result) { 
+				alert("삭제되었습니다.");
+				location.href="/controller/review/praha/reviewDelete?boardNo="+$("#boardNo").val()
+			}											
+		});
 		
-		var result = confirm('이 글을 수정 하시겠습니까?');
-		
-		if(result) { 
-			$(".updateform").removeAttr("readonly");
-			$(this).parent().hide();
-			$("#update").hide();
-			$("#updateComplete").parent().show();
-			$("#updateComplete").show();
-		}
-	});
+		$("#update").click(function(){
+			var result = confirm('이 글을 수정 하시겠습니까?');
+			
+			if(result) { 
+				$(".updateform").removeAttr("readonly");
+				$("#icon_prefix2").contents().unwrap().wrap('<textarea class="materialize-textarea"></textarea>');
+				$(this).parent().hide();
+				$("#update").hide();
+				$("#updateComplete").parent().show();
+				$("#updateComplete").show();
+				
+			}
+		});
 	
-	$("#list").click(function(){
-		location.href="/controller/review/praha/reviewBoard";
-	});
-	
+		$("#list").click(function(){
+			location.href="/controller/review/praha/reviewBoard";
+		});
 	});
 	</script>
 	
@@ -66,9 +65,9 @@
 	<main>
 		<div class="container">
 		<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/shuttle.png"/>' 
+			<img src='<c:url value="/resources/images/notebook.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
 		</div>
 
 		<form method="post" action="/controller/review/praha/ReviewUpdate">
@@ -83,12 +82,12 @@
 			          <label for="writer">작성자</label>
 			        </div>
 			    </div>
-				<div class="row" style="margin-left:12%">
-					<div class="row" >
+				<div class="row" style="margin-left:15%">
+					<div class="row">
 				        <div class="input-field col s10">
-					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					         readonly="readonly" style="color:black;font-size:22px;width:616px;margin:0px;margin-bottom:-10px;">${reviewViewInfo.content}
-							</pre>
+				        
+					    <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
+					    readonly="readonly" style="color:black;font-size:22px;width:616px;margin:0px;margin-bottom:10px;">${reviewViewInfo.content}</pre>
 						
 						<div style="margin-bottom:10px;">
 						<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
