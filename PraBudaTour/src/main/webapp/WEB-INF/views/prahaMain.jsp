@@ -33,6 +33,7 @@
 	<main>
 		<div class="container">
 		<div class="row">
+		<table class="centered"><tr><td class="centered">
 		<div class="carousel">
 		    <a class="carousel-item" href="#one!"><img src='<c:url value="/resources/images/1.jpg"/>'></a>
 		    <a class="carousel-item" href="#two!"><img src='<c:url value="/resources/images/2.jpg"/>'></a>
@@ -43,6 +44,7 @@
 		    <a class="carousel-item" href="#five!"><img src='<c:url value="/resources/images/7.jpg"/>'></a>
 		    <a class="carousel-item" href="#four!"><img src='<c:url value="/resources/images/8.jpg"/>'></a>
 		</div>
+		</td></tr></table>
 		</div>
 		</div>
 	</main>

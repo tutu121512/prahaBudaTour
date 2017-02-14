@@ -24,18 +24,12 @@
 	<main>
 		<div class="container">
 		<div class="row">
-			<div class="col s12 m4 l2"><p></div>
-		    <div class="col s12 m4 l8">
+		<table class="centered"><tr><td class="centered">
 		    	<img alt="까를르교 객실" src='<c:url value="/resources/images/onTheRoad.jpg"/>' style="margin-top:10px">
-		    </div>
-		    <div class="col s12 m4 l2"><p></div>
-		</div>
-		<div class="row">
-			<div class="col s12 m4 l2"><p></div>
-		    <div class="col s12 m4 l8">
-				<div id="map"></div>
-		    </div>
-		    <div class="col s12 m4 l2"><p></div>
+			<div id="map"></div>
+		</td></tr>
+		</table>
+		
 		</div>
     <script>
       function initMap() {

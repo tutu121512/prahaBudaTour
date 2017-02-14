@@ -18,7 +18,9 @@
 	
 	<main>
 		<div class="container">
+			<table class="centered"><tr><td class="centered">
 			<img alt="인사말" src='<c:url value="/resources/images/prahaGreetings.jpg"/>' style="width:100%;margin-top:1em">
+			</td></tr></table>
 		</div>
 	</main>
 	

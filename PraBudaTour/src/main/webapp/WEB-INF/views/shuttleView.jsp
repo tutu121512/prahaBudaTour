@@ -110,11 +110,13 @@
 		</div>
 			<div class="col s10 " style="background-color: blanchedalmond; border-radius: 30px; margin-bottom: 10px;" >
 				<c:choose>
-				<c:when  test="${shuttleViewInfo.boardReply} != 'null'">
-		
+				<c:when test="${shuttleViewInfo.boardReply eq null}">
+				<table class="centered"><tr><td class="centered">
+					<img src='<c:url value="/resources/images/noComment.png"/>' style="border-radius:15px;padding-top:8px;width: 50%;">
+				</td></tr></table>
 				</c:when>
 				<c:otherwise>
-				<pre style="border: none; height: auto">${shuttleViewInfo.boardReply}</pre>
+					<pre style="border: none; height: auto">${shuttleViewInfo.boardReply}</pre>
 				</c:otherwise>
 				</c:choose>
 			</div><!-- 댓글 -->
