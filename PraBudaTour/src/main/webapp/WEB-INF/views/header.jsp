@@ -31,7 +31,7 @@ $(".dropdown-button").dropdown();
 <ul id="community" class="dropdown-content" style="top:25px!important">
 	<li><a href="#!" style="background-color:#ee6e73;color:white">커뮤니티</a></li>
 	<li><a href="#!">공지사항</a></li>
-	<li><a href="#!">자유게시판</a></li>
+	<li><a href="#!">여행정보</a></li>
 	<li><a href="/controller/review/praha/reviewBoard">후 기</a></li>
 </ul>						
 

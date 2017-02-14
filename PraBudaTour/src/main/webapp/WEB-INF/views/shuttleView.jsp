@@ -102,16 +102,36 @@
 			          <label for="kakaoId">카카오톡 아이디</label>
 			        </div>
 				</div>
-				<div class="row" style="margin-left:55%;margin-top:-10px">
-			<input type="hidden" id="boardNo" name="boardNo" value="${shuttleViewInfo.boardNo}">
-			<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
-			<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
-			<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
-			<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
-			</div>
-			</div>
-		</form>
+		
+		<div class="row "  style="margin-left:12%;">
+		<hr style="width: 84%; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+		<div>
+		<ins style="padding-top: 10px;">댓글</ins>
 		</div>
+			<div class="col s10 " style="background-color: blanchedalmond; border-radius: 30px; margin-bottom: 10px;" >
+				<c:choose>
+				<c:when  test="${shuttleViewInfo.boardReply} != 'null'">
+		
+				</c:when>
+				<c:otherwise>
+				<pre style="border: none; height: auto">${shuttleViewInfo.boardReply}</pre>
+				</c:otherwise>
+				</c:choose>
+			</div><!-- 댓글 -->
+		<hr style="width: 84%; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+		</div>
+			<div class="row" style="margin-left:55%;margin-top:-10px">
+				<input type="hidden" id="boardNo" name="boardNo" value="${shuttleViewInfo.boardNo}">
+				<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
+				<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
+				<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
+				<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
+			</div>	<!--  button -->
+			
+			</div>	<!-- main_content -->
+		</form>
+		</div>	<!-- container -->
+	
 	</main>
 	
 	<jsp:include page="/WEB-INF/views/footer.jsp"/>
