@@ -14,4 +14,6 @@ public class adminController {
 			@PathVariable("fileName") String fileName){
 		return viewName + "/" +fileName;
 	}
+	
+
 }

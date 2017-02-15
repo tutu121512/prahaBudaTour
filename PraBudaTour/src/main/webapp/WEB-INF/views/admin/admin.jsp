@@ -40,32 +40,52 @@
 	 
 	  </style>
 	
-<head>
+</head>
 <body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
-	
+	<script type="text/javascript">
+$(function () {
+	// 로그인 버튼을 눌렀을때
+	$('#loginBtn').click(function () {
+		alert('버튼 눌렸다');
+
+		// if문으로 어드민아이디 비밀번호가 맞는지 확인
+		if($('#id').val() == 'favicontour' && $('#pw').val() == 'min337337'){ // 이부분이 어드민 아이디 비밀번호 정하는 부분
+			// 맞으면 로그인 완료 후 넥스트 페이지
+			alert('로그인 완료');
+			location.href='/controller/admin/admin/LoginOk';
+		}
+
+			// 아니면 실패 메세지 후 리턴 false;
+		else {
+			alert('로그인 실패');
+			return false;
+		}
+	})
+})
+</script>
 <br><br><br>
 
 <div id="login_wrap">
 <h5 style="margin-top:-5px">관리자 로그인</h5>
 <hr>
-  <form id="loginform"  method="post"  action="process.jsp">
-   	<div class="row">
+  <form id="loginform"  method="post">
+   	  <div class="row">
      	
 			<div class="input-field col s6" style="margin-bottom:-20px">
 				    <label for="Id">ID</label>
-				    <input type="text" id="Id" name="Id" class="validate">
+				    <input type="text" id="id" name="adminId" class="validate">
 			</div>
 
 			<div class="input-field col s6" style="margin-bottom:-20px">
 					<label for="Password">비밀번호</label>
-					<input type="password" id="Password" name="Password" class="validate">
+					<input type="password" id="pw" name="adminPassword" class="validate">
 			</div>
 			
 			<div class="input-field col s12" style="margin-bottom:15px">
-			<input type="submit" class="waves-effect waves-light btn waves-input-wrapper" name="login" id="LoginBtn" value="로그인" style="width:400px"/>
+			<input type="button" class="waves-effect waves-light btn waves-input-wrapper" name="login" id="loginBtn" value="로그인" style="width:400px"/>
 			</div>
 		
        </div>
