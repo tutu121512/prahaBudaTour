@@ -49,3 +49,7 @@ $(".dropdown-button").dropdown();
     </ul>
   </div>
 </nav>
+
+<span id="carbonads" class="carbon-wrap" style="max-width: 150px; display: inline-block; position: fixed; text-align: left; -webkit-font-smoothing: antialiased; top: 150px;z-index: 9999;">
+<img src='<c:url value="/resources/images/kakao.jpg"/>'height="100" width="130" style="max-width: 130px; ">
+</span>

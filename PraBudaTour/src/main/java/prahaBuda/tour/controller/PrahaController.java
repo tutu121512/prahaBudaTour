@@ -24,8 +24,8 @@ public class PrahaController {
 	private ReviewService ReviewService;
 	
 	@Autowired 
-	private ReserveCompleteService ReserveCompleteService;
-	
+	private NoticeService NoticeService;
+		
 	
 	@RequestMapping("{fileName}")
 	public String noneSignUpMove(
@@ -40,13 +40,13 @@ public class PrahaController {
 		pageDto.setCurPage(1);
 		
 		List<BoardDTO> reviewtList =  ReviewService.ReviewList(pageDto);
-		List<ReserveCompleteDTO> completetList =  ReserveCompleteService.reserveCompleteBoard(pageDto);
+		List<BoardDTO> noticetList =  NoticeService.NoticeList(pageDto);
 		List<BoardDTO> reserveList =  ReserveQuestionService.ReserveQuestionList(pageDto);
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("prahaMain");
 		mv.addObject("reviewList", reviewtList);
-		mv.addObject("completeList",completetList );
+		mv.addObject("completeList",noticetList );
 		mv.addObject("reserveList", reserveList);
 		return mv;
 	}
