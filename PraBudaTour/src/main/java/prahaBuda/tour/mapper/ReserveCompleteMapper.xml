@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReserveComplete">
+
+<!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
+   <resultMap type="reserveCompleteDTO" id="reserveCompleteMap">
+      <result column="Location" property="location"/>
+      <result column="board_no" property="boardNo"/>
+      <result column="board_date" property="boardDate"/>
+      <result column="reserve_Name" property="reserveName"/>
+      <result column="room_Name" property="roomName"/>      
+      <result column="start_Date" property="startDate"/>
+      <result column="end_Date" property="endDate"/>
+      <result column="people_Number" property="peopleNumber"/>
+      <result column="price" property="price"/>
+      <result column="phone" property="phone" />
+      <result column="kakao_id" property="kakaoId"/>
+   </resultMap>
+	
+	<select id="reserveCompleteCalendar" resultMap="reserveCompleteMap">
+	select *
+	from reserveComplete
+	</select>
+
+	<select id="reserveCompleteBoard" parameterType="int" resultMap="reserveCompleteMap">
+	SELECT board.board_no boardNo,
+	board.reserve_name reserveName,
+	board.room_Name roomName,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate
+	FROM (SELECT rownum as rnum,board_no,reserve_name,room_name,board_date
+	FROM (SELECT board_no,reserve_name,room_name,board_date
+	from reserveComplete
+	where location='P'
+	order by Board_no+0 desc) ) board
+	where rnum between  ((#{curPage}-1)*10)+1  AND #{curPage}*10
+	</select>
+
+	<select id="reserveCompleteBoardCount" resultType="int">
+	select count(board_No)
+	from reserveComplete
+	where location='P'
+	</select>
+
+
+</mapper>

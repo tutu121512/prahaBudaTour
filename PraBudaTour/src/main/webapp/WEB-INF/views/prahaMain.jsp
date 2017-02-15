@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="prahaBuda.tour.dto.*" %>
+<% 
+	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
+	List<BoardDTO> reserve = (List<BoardDTO>)request.getAttribute("reserveList");
+	List<ReserveCompleteDTO> complete = (List<ReserveCompleteDTO>)request.getAttribute("completeList");
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -46,7 +53,50 @@
 		</div>
 		</td></tr></table>
 		</div>
+		
+		<div>
+		<table class="striped" style="width: 30%;  float: right;  margin-left: 50px; height: 150px;">
+		<tr><td>후기 <a style="float: right; margin-right: 10px;" href="/controller/review/praha/reviewBoard">더 보기</a></td></tr>
+		<%for(int i=0; i<review.size(); i++) { 
+		if(i<5){%>
+		<tr><td style="font-size: 12px; padding: 10px;"><a href="/controller/review/praha/reviewView?boardNo=<%=review.get(i).getBoardNo()%>"><div><%=review.get(i).getTitle()%><div></div></a></td></tr>
+		<%
+		}else{ 
+			break;
+		}
+		} %>
+		</table>
 		</div>
+
+		<div>
+		<table class="striped" style="width: 30%; float :right; height: 150px;">
+		<tr><td>예약 문의<a style="float: right; margin-right: 10px;" href="#">더 보기</a></td></tr>
+		<%for(int i=0; i<reserve.size(); i++) { 
+		if(i<5){%>
+		<tr><td style="font-size: 12px;  padding: 10px;"><%= reserve.get(i).getTitle() %></td></tr>
+		<%
+		}else{ 
+			break;
+		}
+		} %>
+		</table>
+		</div>
+		
+		<div>
+		<table class="striped" style="width: 30%; height: 150px;">
+		<tr><td>예약 확정<a style="float: right; margin-right: 10px;" href="#">더 보기</a></td></tr>
+		<%for(int i=0; i<complete.size(); i++) { 
+		if(i<5){ %>
+		<tr><td style="font-size: 12px;  padding: 10px;"><%= complete.get(i).getReserveName()%>님 예약이 확정되셨습니다.</td></tr>	
+		<%}else{ 
+				break;
+			}
+		} %>
+		</table>
+		</div>
+		
+		
+		</div> <!-- container -->
 	</main>
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	</body>

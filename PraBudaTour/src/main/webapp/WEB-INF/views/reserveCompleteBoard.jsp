@@ -32,10 +32,6 @@
    <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
    <script type="text/javascript">
 	  $(function(){
-		 $("tbody tr[name='board']").click(function(){
-			$(".password").css("display","none");	 	 
-			$(this).find(".password").css("display","block");
-		 });
 		 var page = '#page'+<%=pVO.getCurPage()%>;
 		  	$(page).removeClass();
 		  	$(page).addClass("active");
@@ -47,11 +43,11 @@
 <main>
 	<div class="container">
 	<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/shuttle.png"/>' 
+			<img src='<c:url value="/resources/images/notebook.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
-		</div>
-	<table class="striped centered" id="userManageList" style="margin-top:20px;margin-bottom:15px;">
+			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'> 나 예약확정이야 바꿔쥬
+	</div>
+		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
 		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
 			<th data-field=num" style="width:8%">글번호</th>
@@ -63,46 +59,38 @@
 	</thead>
 	
 	<tbody>
-	<c:forEach items="${shuttleSelectList}" var="list">
-	<tr name="board" style="cursor: pointer">
-		<td>${list.boardNo}</td>
-		<td>${list.title}</td>
-		<td>${list.writer}</td>
+	<c:forEach items="${CompleteList}" var="list">
+	<tr>
+		<td>${list.boardNo }</td>
+		<td style="cursor: pointer"><a href="/controller/complete/praha/reserveCompleteView">${list.reserveName} 님의 예약이 확정되었습니다.</a></td>
+		<td>관리자</td>
 		<td>${list.boardDate}</td> 
-		<td style="width:180px;">
-			<div class="password" style="display: none; padding: 0px; margin: 0px;">
-			<form action="/controller/shuttle/praha/shuttlePasswordCheck" method="post">
-			<input type="hidden" name="boardNo" value="${list.boardNo}">
-			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:85px; margin:0; height:20px; padding-right: 10px;"/> 
-			<input type="submit" value="보기">
-			</form>
-			</div>
-		</td>
+		<td></td> 
 	</tr>
 	</c:forEach>	
 
 <!-- ############################### ##################################### -->	
 	<tr>
-	<td colspan="3" style="padding:0px;">
+	<td colspan="5" style="padding:0px;background-color:darksalmon;">
 	  <ul class="pagination">
 		<li class="page-item">
-			<a href="/controller/shuttle/praha/shuttleBoard?page=<%=pVO.getPreviPage()%>">
+			<a href="/controller/review/praha/reviewBoard?page=<%=pVO.getPreviPage()%>">
 		    <i class="material-icons">chevron_left</i>
 	      </a>
 	    </li>
 	    <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
-	    <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/shuttle/praha/shuttleBoard?page=<%=i%>"><%=i %></a></li>
+	    <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/review/praha/reviewBoard?page=<%=i%>"><%=i %></a></li>
 	    <%} %>
 	    <li class="page-item">
-			<a href="/controller/shuttle/praha/shuttleBoard?page=<%=pVO.getNextPage()%>">
+			<a href="/controller/review/praha/reviewBoard?page=<%=pVO.getNextPage()%>">
 		    <i class="material-icons">chevron_right</i>
 	      </a>
 	    </li>
 	  </ul>
 	</td>
-	<td colspan="2" class="centered" data-field="userState"><a href="/controller/praha/shuttleInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
 	</tr>
 	</tbody>
+	
 </table>
 	</div>
 </main>

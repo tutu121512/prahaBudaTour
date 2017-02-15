@@ -48,7 +48,7 @@
 	<div class="container">
 	<div class="centered row" style="margin-top:5px;">
 			<img src='<c:url value="/resources/images/edit.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+				style="width: 5%;margin-left: 100px;margin-top:20px;margin-bottom:15px">
 			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
 		</div>
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
@@ -83,7 +83,7 @@
 
 <!-- ############################### ##################################### -->	
 	<tr>
-	<td colspan="5" style="padding:0px;background-color:darksalmon;">
+	<td colspan="3" style="padding:0px;">
 	  <ul class="pagination">
 		<li class="page-item">
 			<a href="/controller/praha/reserveBoard?page=<%=pVO.getPreviPage()%>">
@@ -100,19 +100,9 @@
 	    </li>
 	  </ul>
 	</td>
+		<td colspan="2" class="centered" data-field="userState"><a href="/controller/praha/reserveInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
 	</tr>
 	</tbody>
-	
-	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td data-field="userState" style="text-align: right"><a href="/controller/praha/reserveInsertForm"><input class="waves-effect waves-light btn waves-input-wrapper" type="button" value="글쓰기"></a></td>
-		</tr>
-	</tbody>
-	
 </table>
 	</div>
 </main>
