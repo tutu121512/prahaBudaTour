@@ -79,7 +79,7 @@
 		} %>
 		</table>
 		
-	<%-- 	<table class="striped" style="width: 30%; height: 150px;">
+	<%--<table class="striped" style="width: 30%; height: 150px;">
 		<tr><td>공지사항<a style="float: right; margin-right: 10px;" href="#">더 보기</a></td></tr>
 		<%for(int i=0; i<notice.size(); i++) { 
 		if(i<5){ %>
