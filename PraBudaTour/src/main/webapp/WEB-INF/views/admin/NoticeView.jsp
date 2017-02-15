@@ -44,8 +44,8 @@
 	});
 	</script>
 	
-	<jsp:include page="/WEB-INF/views/adminHeader.jsp" />
-    
+	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
+	    
 <main>
 	<div class="container">
 		<h3>Notice</h3>

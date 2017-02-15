@@ -49,20 +49,7 @@
 $(function () {
 	// 로그인 버튼을 눌렀을때
 	$('#loginBtn').click(function () {
-		alert('버튼 눌렸다');
-
-		// if문으로 어드민아이디 비밀번호가 맞는지 확인
-		if($('#id').val() == 'favicontour' && $('#pw').val() == 'min337337'){ // 이부분이 어드민 아이디 비밀번호 정하는 부분
-			// 맞으면 로그인 완료 후 넥스트 페이지
-			alert('로그인 완료');
-			location.href='/controller/admin/admin/LoginOk';
-		}
-
-			// 아니면 실패 메세지 후 리턴 false;
-		else {
-			alert('로그인 실패');
-			return false;
-		}
+			location.href='/controller/admin/LoginOk?id='+$("#id").val()+"&pw="+$("#pw").val();
 	})
 })
 </script>
@@ -76,12 +63,12 @@ $(function () {
      	
 			<div class="input-field col s6" style="margin-bottom:-20px">
 				    <label for="Id">ID</label>
-				    <input type="text" id="id" name="adminId" class="validate">
+				    <input type="text" id="id" name="adminId" class="validate" value="favicontour">
 			</div>
 
 			<div class="input-field col s6" style="margin-bottom:-20px">
 					<label for="Password">비밀번호</label>
-					<input type="password" id="pw" name="adminPassword" class="validate">
+					<input type="password" id="pw" name="adminPassword" class="validate" value="min337337">
 			</div>
 			
 			<div class="input-field col s12" style="margin-bottom:15px">
