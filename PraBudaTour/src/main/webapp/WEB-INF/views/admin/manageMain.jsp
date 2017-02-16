@@ -118,6 +118,7 @@
 	  </li>
 	  </c:forEach>
 	</ul>
+
 	<c:choose>
 	<c:when test="${selectBoard eq null}">
 		<ul class="pagination">
@@ -157,11 +158,15 @@
 	 											
 	<a href="/controller/admin/selectBoard?boardState=shuttle"><input type="button" value="셔틀"></a>
 	<a href="/controller/admin/selectBoard?boardState=reserveQuestion"><input type="button" value="예약문의"></a>
-	<a href="/controller/admin/selectBoard?boardState=review"><input type="button" value="후시"></a>
+	<a href="/controller/admin/selectBoard?boardState=review"><input type="button" value="후기"></a>
 	<a href="/controller/admin/selectBoard?boardState=notice"><input type="button" value="공지사항"></a>
 	
 	</div>	<!-- container -->
 	
+	
 	</main>
+	<div style="margin-left: 307px;">
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
+	</div>
 	</body>
 </html>
