@@ -74,7 +74,7 @@
 					<div class="row" style="margin-bottom:-20px">
 						<div class="input-field col s8">
 							<i class="material-icons prefix">title</i>
-							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reserveViewInfo.title}" >
+							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reserveViewInfo.title}"style="font-size: 30px;text-align: center;color: black;">
 							<label for="title">문의 제목</label>
 						</div>
 						<div class="input-field col s4">
@@ -85,13 +85,13 @@
 					</div>
 				</td></tr>
 				<tr><td>
-					<div class="row" style="margin-bottom:-30px">
-						<div class="input-field col s12">
-							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="icon_prefix2" class="materialize-textarea" name="content"  placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다.">${reserveViewInfo.content}</textarea>
-							<label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
-						</div>
-					</div>
+					<div class="row" style="margin-top:-20px;margin-bottom:-15px">
+				        <div class="input-field col s12">
+				        <i class="material-icons prefix">mode_edit</i>
+					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
+					         readonly="readonly" style="color:black; font-size:1.4em;margin-left:45px;margin-top:0px">${reserveViewInfo.content}</pre>
+				        </div>
+			    	</div>
 				</td></tr>
 				<tr><td>
 					<div class="row">
@@ -123,7 +123,7 @@
 				</td></tr>
 				<tr><td >
 				<div class="row">
-					<input type="hidden" id="boardNo" name="boardNo" value="${shuttleViewInfo.boardNo}">
+					<input type="hidden" id="boardNo" name="boardNo" value="${reserveViewInfo.boardNo}">
 					<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
 					<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
 					<input class="waves-effect waves-light btn" type="button" value="수정" id="update">

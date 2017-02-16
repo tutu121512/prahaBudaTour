@@ -70,24 +70,34 @@
 		</div>
 
 		<form method="post" action="/controller/review/praha/ReviewUpdate">
-			<div id="main_content" style="margin-top: 16px;">
-				<div class="row" style="margin-left:12%;margin-top:-10px">
-			        <div class="input-field col s7" style="margin-bottom:-20px">
-			          <input id="title" name="title" type="text" class="validate updateform"  readonly="readonly" value="${reviewViewInfo.title}" style="color:red;text-align:center;font-size:27px">
-			          <label for="title">문의 제목</label>
-			        </div>
-					<div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="writer" name="writer" type="text" class="validate updateform"  readonly="readonly" value="${reviewViewInfo.writer}" style="color:black;font-size:18px">
-			          <label for="writer">작성자</label>
-			        </div>
-			    </div>
-				<div class="row" style="margin-left:15%">
-					<div class="row">
-				        <div class="input-field col s10">
-					    <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					    readonly="readonly" style="color:black;font-size:22px;width:616px;margin:0px;margin-bottom:10px;">${reviewViewInfo.content}</pre>
-						
-						<div style="margin-bottom:10px;">
+		<table style="margin-bottom:10px">
+				<tr><td>
+					<div class="row" style="margin-bottom:-20px">
+						<div class="input-field col s8">
+							<i class="material-icons prefix">title</i>
+							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.title}"style="font-size: 30px;text-align: center;color: black;">
+							<label for="title">문의 제목</label>
+						</div>
+						<div class="input-field col s4">
+							<i class="material-icons prefix">supervisor_account</i>
+							<input id="writer" name="writer" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.writer}" >
+							<label for="writer">작성자</label>
+				        </div>
+					</div>
+				</td></tr>
+				<tr><td>
+					<div class="row" style="margin-top:-20px;margin-bottom:-15px">
+				        <div class="input-field col s12">
+				        <i class="material-icons prefix">mode_edit</i>
+					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
+					         readonly="readonly" style="color:black; font-size:1.4em;margin-left:45px;margin-top:0px">${reviewViewInfo.content}</pre>
+				        </div>
+			    	</div>
+				</td></tr>
+				<tr><td>
+				<div class="row">
+				       <div class="input-field col s12" style="text-align:center">
+						<div>
 						<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
 					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
 						</c:if>
@@ -104,17 +114,19 @@
 			                <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
 						</c:if>
 						</div>
-				        </div>
 			    	</div>
-				</div>
-			<div class="row">
-				<input type="hidden" id="boardNo" name="boardNo" value="${reviewViewInfo.boardNo}">
-				<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
-				<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
-				<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
-				<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
-			</div>
-			</div>
+			    	</div>
+				</td></tr>
+				<tr><td>
+				<div class="row">
+					<input type="hidden" id="boardNo" name="boardNo" value="${reviewViewInfo.boardNo}">
+					<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
+					<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
+					<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
+					<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
+				</div>	<!--  button -->
+			</td></tr>
+			</table>
 		</form>
 		</div>
 	</main>
