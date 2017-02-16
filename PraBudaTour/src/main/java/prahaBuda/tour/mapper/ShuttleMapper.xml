@@ -15,8 +15,8 @@
 	<result column="password" property="password"/>
 	<result column="board_date" property="boardDate"/>
 	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>	
+	<result column="start_Date" property="startDate"/>
+	<result column="end_Date" property="endDate"/>	
 	<result column="board_img0" property="boardImg0"/>
 	<result column="board_img1" property="boardImg1"/>
 	<result column="board_img2" property="boardImg2"/>
@@ -32,9 +32,9 @@
 
 	<insert id="ShuttleInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
-	password,board_date,board_reply,phone,kakao_id,board_img0,board_img1,board_img2,board_img3) 
+	password,board_date) 
 	VALUES('shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
-	#{password},sysdate,null,#{phone},#{kakaoId},null,null,null,null)
+	#{password},sysdate)
 	</insert>
 	
 	<select id="ShuttleList" resultMap="boardMap" parameterType="int" >
@@ -69,8 +69,7 @@
 	</delete>
 	
 	<update id="prahaShuttleUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET title=#{title},
-	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
-	 WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
+	UPDATE BOARD SET title=#{title},writer=#{writer},content=#{content}, password=#{password} 
+	WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
 	</update>
 </mapper>

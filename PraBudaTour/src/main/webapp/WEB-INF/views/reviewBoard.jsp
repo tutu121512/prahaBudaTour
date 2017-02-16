@@ -32,10 +32,6 @@
    <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
    <script type="text/javascript">
 	  $(function(){
-		 $("tbody tr[name='board']").click(function(){
-			$(".password").css("display","none");	 	 
-			$(this).find(".password").css("display","block");
-		 });
 		 var page = '#page'+<%=pVO.getCurPage()%>;
 		  	$(page).removeClass();
 		  	$(page).addClass("active");
@@ -65,18 +61,10 @@
 	<c:forEach items="${reviewSelectList}" var="list">
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
-		<td>${list.title}</td>
+		<td><a href="/controller/review/praha/reviewView?boardNo=${list.boardNo}">${list.title}</a></td>
 		<td>${list.writer}</td>
 		<td>${list.boardDate}</td> 
-		<td style="width:180px;">
-			<div class="password" style="display: none; padding: 0px; margin: 0px;">
-			<form action="/controller/review/praha/reviewPasswordCheck" method="post">
-			<input type="hidden" name="boardNo" value="${list.boardNo}">
-			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:85px; margin:0; height:20px; padding-right: 10px;"/> 
-			<input type="submit" value="보기">
-			</form>
-			</div>
-		</td>
+		<td style="width:180px;"></td>
 	</tr>
 	</c:forEach>	
 

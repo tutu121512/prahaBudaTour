@@ -44,7 +44,9 @@
 		var result = confirm('이 글을 수정 하시겠습니까?');
 		
 		if(result) { 
+			$("#title").removeAttr("style");
 			$(".updateform").removeAttr("readonly");
+			$("#icon_prefix2").contents().unwrap().wrap('<textarea id="icon_prefix2" class="materialize-textarea updateform" name="content" "></textarea>');
 			$(this).parent().hide();
 			$("#update").hide();
 			$("#updateComplete").parent().show();
@@ -68,7 +70,7 @@
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
-		<form method="post" action="/controller/shuttle/praha/ShuttleUpdate">
+		<form method="post" action="/controller/shuttle/praha/shuttleUpdate">
 			<div id="main_content" style="margin-top: 16px;">
 				<div class="row">
 			        <div class="input-field col s8" style="margin-bottom:-20px">
@@ -82,15 +84,23 @@
 			          <label for="writer">작성자</label>
 			        </div>
 			    </div>
-				<div class="row">
+				<div class="row" >
 					<div class="row" style="margin-top:-20px;margin-bottom:30px">
-				        <div class="input-field col s12">
+				        <div class="input-field col s12" style="margin-left: 16px;">
 				        <i class="material-icons">mode_edit</i>
 					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
 					         readonly="readonly" style="color:black; font-size:1.4em">${shuttleViewInfo.content}</pre>
 				        </div>
 			    	</div>
 				</div>
+				
+				<div class='row' id="password">
+					<div class='input-field col s4' style='margin-bottom:-20px'>
+						<i class='material-icons prefix'>security</i>
+						<input id='password' name='password' type='password' readonly="readonly" value="${shuttleViewInfo.password}" class='validate updateform' placeholder='4자리만 입력가능' maxlength='4'>
+						<label for='password'>Password</label>
+					</div>
+				</div>				
 		<div class="row">
 		<hr style="margin-bottom:10px;">
 		<div>

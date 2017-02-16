@@ -58,21 +58,28 @@ public class ReviewController {
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
 			
 		for(int i =0; i<boardDto.getFile().size(); i++){			
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+boardDto.getFile().get(i).getOriginalFilename();
-			String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
-			File file = new File(path);
-			boardDto.getFile().get(i).transferTo(file);
-
-			String db = "/resources/upload/"+ imgName;
-			switch (i) {
-			case 0: boardDto.setBoardImg0(db);  break;
-			case 1: boardDto.setBoardImg1(db);  break;
-			case 2: boardDto.setBoardImg2(db);  break;
-			case 3: boardDto.setBoardImg3(db);  break;
+			if(!imgName.equals(Time)){
+				String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+				File file = new File(path);
+				boardDto.getFile().get(i).transferTo(file);
+				String db = "/resources/upload/"+ imgName;
+				switch (i) {
+				case 0: boardDto.setBoardImg0(db);  break;
+				case 1: boardDto.setBoardImg1(db);  break;
+				case 2: boardDto.setBoardImg2(db);  break;
+				case 3: boardDto.setBoardImg3(db);  break;
+					}
 				}
 			}
 		}else{
@@ -80,6 +87,12 @@ public class ReviewController {
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
 		}
 		
 		ReviewService.ReviewInsert(boardDto);
@@ -88,23 +101,13 @@ public class ReviewController {
 		return "redirect:/review/praha/reviewBoard";
 	}
 	
-	@RequestMapping("praha/reviewPasswordCheck")
+	@RequestMapping("praha/reviewView")
 	public String prahaReservePasswordCheck(BoardDTO boardDto,Model model,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
-		String nextpage ="";
 		
-		System.out.println("값 : " + boardDto.getBoardNo() +"  - " + boardDto.getPassword());
-		BoardDTO bDTO =ReviewService.ReviewPasswordCheck(boardDto);
+		BoardDTO bDTO =ReviewService.prahaReviewView(boardDto);
+		model.addAttribute("reviewViewInfo",bDTO);
 		
-		
-		if(bDTO!=null){			
-			model.addAttribute("reviewViewInfo",bDTO);
-			nextpage="reviewView";
-		}else{
-			nextpage="redirect:/review/praha/reviewBoard";
-		}
-		
-		return nextpage;
-		
+		return "reviewView";
 	}
 	
 	@RequestMapping("praha/reviewDelete")
@@ -122,6 +125,5 @@ public class ReviewController {
 		
 		return "redirect:/review/praha/reviewBoard";
 	}
-	
 	
 }

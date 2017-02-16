@@ -32,8 +32,8 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public BoardDTO prahaReviewPasswordCheck(BoardDTO boardDto) throws Exception {
-		return sqlSession.selectOne("Review.prahaReviewPasswordCheck",boardDto);
+	public BoardDTO prahaReviewView(BoardDTO boardDto) throws Exception {
+		return sqlSession.selectOne("Review.prahaReviewView",boardDto);
 	}
 
 	@Override

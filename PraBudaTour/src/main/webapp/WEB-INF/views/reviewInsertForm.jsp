@@ -41,7 +41,7 @@ $(function(){
 	});
 	
 	$('#add').on("click", function() {
-		if(count < 4) {
+		if(count < 10) {
 			var str = "<div class='file-field input-field'>";
 			str += "<input type='file' name='file' class='boardImg"+count+"''>";
 //			str += "<input type='file' name='boardImg"+count+"'>";
@@ -54,7 +54,7 @@ $(function(){
 			$('div.image-file-size').append(str);
 			count++;
 		}else {
-			Materialize.toast('이미지 파일은 4개까지 올릴 수 있습니다.', 3000, 'rounded');
+			Materialize.toast('이미지 파일은 10개까지 올릴 수 있습니다.', 3000, 'rounded');
 	        var width = $("#toast-container").width();
 	        $("#toast-container").css("margin-left", (width*-1)+209);
 		}

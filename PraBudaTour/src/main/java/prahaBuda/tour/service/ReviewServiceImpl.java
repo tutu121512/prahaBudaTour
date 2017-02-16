@@ -77,8 +77,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public BoardDTO ReviewPasswordCheck(BoardDTO boardDto) throws Exception {
-		return ReviewDao.prahaReviewPasswordCheck(boardDto);
+	public BoardDTO prahaReviewView(BoardDTO boardDto) throws Exception {
+		return ReviewDao.prahaReviewView(boardDto);
 	}
 
 	@Override

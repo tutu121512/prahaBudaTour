@@ -15,8 +15,8 @@
 	<result column="password" property="password"/>
 	<result column="board_date" property="boardDate"/>
 	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>	
+	<result column="start_Date" property="startDate"/>
+	<result column="end_Date" property="endDate"/>	
 	<result column="board_img0" property="boardImg0"/>
 	<result column="board_img1" property="boardImg1"/>
 	<result column="board_img2" property="boardImg2"/>

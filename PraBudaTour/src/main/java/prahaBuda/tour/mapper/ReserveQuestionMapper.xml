@@ -15,8 +15,8 @@
 	<result column="password" property="password"/>
 	<result column="board_date" property="boardDate"/>
 	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>	
+	<result column="start_Date" property="startDate"/>
+	<result column="end_Date" property="endDate"/>	
 	<result column="board_img0" property="boardImg0"/>
 	<result column="board_img1" property="boardImg1"/>
 	<result column="board_img2" property="boardImg2"/>
@@ -30,8 +30,8 @@
 </resultMap>
 
 	<insert id="ReserveQuestionInsert" parameterType="boardDTO" >
-		INSERT INTO board(board_state,Location,board_no,writer,title,content,board_date,start_date,end_date,product) 
-		values('reserveQuestion','P',reserveQuestion_sequence.nextval,#{writer},#{title},#{content},sysdate,#{startDate},${endDate},#{product});
+		INSERT INTO board(board_state,Location,board_no,writer,title,content,password,board_date,start_date,end_date,product) 
+		values('reserveQuestion','P',reserveQuestion_sequence.nextval,#{writer},#{title},#{content},#{password},sysdate,#{startDate},${endDate},#{product});
 	</insert>
 	
 	<select id="ReserveQuestionList" resultMap="boardMap" parameterType="int" >

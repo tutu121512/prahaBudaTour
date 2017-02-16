@@ -15,8 +15,8 @@
 	<result column="password" property="password"/>
 	<result column="board_date" property="boardDate"/>
 	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>
-	<result column="board_reply" property="boardReply"/>	
+	<result column="start_Date" property="startDate"/>
+	<result column="end_Date" property="endDate"/>		
 	<result column="board_img0" property="boardImg0"/>
 	<result column="board_img1" property="boardImg1"/>
 	<result column="board_img2" property="boardImg2"/>
@@ -31,9 +31,9 @@
 
 	<insert id="ReviewInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
-	password,board_date,board_reply,phone,kakao_id,board_img0,board_img1,board_img2,board_img3) 
+			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
 	VALUES('review','P',Review_sequence.nextVal,#{writer},#{title},#{content},
-	#{password},sysdate,null,#{phone},#{kakaoId},#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3})
+			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
 	<select id="ReviewList" resultMap="boardMap" parameterType="int" >
@@ -56,11 +56,10 @@
 	where board_state='review' and location='P'
 	</select>
 	
-	<select id="prahaReviewPasswordCheck" parameterType="boardDTO" resultMap="boardMap">
+	<select id="prahaReviewView" parameterType="boardDTO" resultMap="boardMap">
 	SELECT *
 	FROM BOARD
-	WHERE board_state='review' and location='P' 
-	and board_no=#{boardNo} and password=#{password}
+	WHERE board_state='review' and location='P' and board_no=#{boardNo}
 	</select>
 	
 	<delete id="prahaReviewDelete" parameterType="boardDTO">

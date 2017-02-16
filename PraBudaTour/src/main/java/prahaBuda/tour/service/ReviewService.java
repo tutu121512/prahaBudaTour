@@ -14,7 +14,7 @@ public interface ReviewService {
 	
 	public PageDTO paging(PageDTO pageDto) throws Exception;
 	
-	public BoardDTO ReviewPasswordCheck(BoardDTO boardDto) throws Exception;
+	public BoardDTO prahaReviewView(BoardDTO boardDto) throws Exception;
 	
 	public void ReviewDelete(BoardDTO boardDto) throws Exception;
 	

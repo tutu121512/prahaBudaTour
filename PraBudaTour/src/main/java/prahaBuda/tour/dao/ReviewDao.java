@@ -12,7 +12,7 @@ public interface ReviewDao {
 
 	public int ReviewListCount() throws Exception;
 	
-	public BoardDTO prahaReviewPasswordCheck(BoardDTO boardDto) throws Exception;
+	public BoardDTO prahaReviewView(BoardDTO boardDto) throws Exception;
 
 	public void prahaReviewDelete(BoardDTO boardDto) throws Exception;
 	

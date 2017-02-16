@@ -63,7 +63,7 @@
 	<jsp:include page="/WEB-INF/views/header.jsp"/>
 	
 	<main>
-		<div class="container">
+		<div class="container" style="margin-bottom:15px">
 		<div class="centered row" style="margin-top:5px;">
 			<img src='<c:url value="/resources/images/notebook.png"/>' style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
@@ -84,7 +84,6 @@
 				<div class="row" style="margin-left:15%">
 					<div class="row">
 				        <div class="input-field col s10">
-				        
 					    <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
 					    readonly="readonly" style="color:black;font-size:22px;width:616px;margin:0px;margin-bottom:10px;">${reviewViewInfo.content}</pre>
 						
@@ -105,30 +104,15 @@
 			                <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
 						</c:if>
 						</div>
-			
 				        </div>
 			    	</div>
 				</div>
-				<div class="row" style="margin-left:12%;margin-top:-40px">
-			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="password" name="password" type="password" readonly="readonly" class="validate updateform" value="${reviewViewInfo.password}">
-			          <label for="password">Password</label>
-			        </div>
-			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="phone" name="phone" type="text" class="validate updateform"  readonly="readonly" value="${reviewViewInfo.phone}">
-			          <label for="phone">전화번호</label>
-			        </div>
-			        <div class="input-field col s3">
-			          <input id="kakaoId" name="kakaoId" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.kakaoId}">
-			          <label for="kakaoId">카카오톡 아이디</label>
-			        </div>
-				</div>
-				<div class="row" style="margin-left:55%;margin-top:-10px">
-			<input type="hidden" id="boardNo" name="boardNo" value="${reviewViewInfo.boardNo}">
-			<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
-			<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
-			<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
-			<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
+			<div class="row">
+				<input type="hidden" id="boardNo" name="boardNo" value="${reviewViewInfo.boardNo}">
+				<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
+				<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">
+				<input class="waves-effect waves-light btn" type="button" value="수정" id="update">
+				<input class="waves-effect waves-light btn" type="submit" value="완료" id="updateComplete">
 			</div>
 			</div>
 		</form>
