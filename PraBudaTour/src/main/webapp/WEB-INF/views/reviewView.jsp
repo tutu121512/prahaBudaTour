@@ -96,22 +96,29 @@
 				</td></tr>
 				<tr><td>
 				<div class="row">
-				       <div class="input-field col s12" style="text-align:center">
 						<div>
 						<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
+				       <div class="input-field col s12" style="text-align:center">
 					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
+						</div>
 						</c:if>
 				
 						<c:if test="${reviewViewInfo.boardImg1 != 'null'}">
+						 <div class="input-field col s12" style="text-align:center">
 					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg1}'/>"/>
+						</div>
 						</c:if>
 				
 						<c:if test="${reviewViewInfo.boardImg2 != 'null'}">
+					         <div class="input-field col s12" style="text-align:center">
 					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg2}'/>"/>
+						</div>
 						</c:if>
 
 						<c:if test="${reviewViewInfo.boardImg3 != 'null'}">
+			                 <div class="input-field col s12" style="text-align:center">
 			                <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
+						</div>
 						</c:if>
 						</div>
 			    	</div>
