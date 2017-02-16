@@ -48,7 +48,7 @@
 		</div>
 		<table class="striped centered" id="userManageList" style="margin-top:20px;margin-bottom:15px">
 	<thead>
-		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
+		<tr style="padding:0px;background-color:darksalmon;font-size:18px" >
 			<th data-field=num" style="width:8%">글번호</th>
 			<th data-field="email">제목</th>
 			<th data-field="nickName" style="width:13%">작성자</th>
@@ -59,9 +59,9 @@
 	
 	<tbody>
 	<c:forEach items="${noticeSelectList}" var="list">
-	<tr name="board" style="cursor: pointer">
+	<tr name="board" style="cursor: pointer" onclick="location.href='/controller/notice/praha/noticeView?boardNo=${list.boardNo}'">
 		<td>${list.boardNo}</td>
-		<td><a href="/controller/notice/praha/noticeView?boardNo=${list.boardNo}">${list.title}</a></td>
+		<td>${list.title}</td>
 		<td>${list.writer}</td>
 		<td>${list.boardDate}</td> 
 		<td style="width:180px;"></td>
