@@ -93,7 +93,7 @@
 	</table> 
 	--%>
 	
-	
+	</div>
 	</div> <!-- container -->
 	</main>
 	
