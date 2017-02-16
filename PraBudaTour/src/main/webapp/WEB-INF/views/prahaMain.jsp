@@ -54,7 +54,7 @@
 		</td></tr></table>
 		</div>
 		
-	<div class="row"> 
+<%-- 	<div class="row"> 
 	
 	<table class="striped" style="width: 30%;  float: right;  margin-left: 50px; height: 150px;">
 		<tr><td>후기 <a style="float: right; margin-right: 10px;" href="/controller/review/praha/reviewBoard">더 보기</a></td></tr>
@@ -80,7 +80,7 @@
 		} %>
 	</table>
 		
-	<%-- 
+	
 	<table class="striped" style="width: 30%; height: 150px;">
 		<tr><td>공지사항<a style="float: right; margin-right: 10px;" href="#">더 보기</a></td></tr>
 		<%for(int i=0; i<notice.size(); i++) { 
@@ -91,9 +91,9 @@
 			}
 		} %>
 	</table> 
-	--%>
 	
-	</div>
+	
+	</div> --%>
 	</div> <!-- container -->
 	</main>
 	

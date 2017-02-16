@@ -83,7 +83,6 @@ public class ShuttleController {
 	@RequestMapping("praha/shuttleUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		System.out.println("카카오 " + boardDto.getKakaoId());
 		ShuttleService.ShuttleUpdate(boardDto);
 		
 		return "redirect:/shuttle/praha/shuttleBoard";

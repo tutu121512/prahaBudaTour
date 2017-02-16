@@ -84,7 +84,6 @@ public class NoticeController {
 	@RequestMapping("praha/NoticeUpdate")
 	public String prahaNoticeUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		System.out.println("카카오 " + boardDto.getKakaoId());
 		NoticeService.NoticeUpdate(boardDto);
 		
 		return "redirect:/notice/praha/noticeBoard";

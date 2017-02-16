@@ -118,7 +118,6 @@ public class ReviewController {
 	@RequestMapping("praha/reviewUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		System.out.println("카카오 " + boardDto.getKakaoId());
 		ReviewService.ReviewUpdate(boardDto);
 		
 		return "redirect:/review/praha/reviewBoard";

@@ -2,23 +2,35 @@ package prahaBuda.tour.dto;
 
 public class ReserveCompleteDTO {
 
-	private String  location;	
+	private String location;	
 	private String boardNo;
 	private String boardDate;
-	private String  reserveName;
-	private String	roomName;
-	private String	startDate;	
-	private String	endDate;
-	private int		peopleNumber;
+	private String reserveName;
+	private String roomName;
+	private String startDate;	
+	private String endDate;
+	private int	peopleNumber;
 	private String	price;
-	private String	phone;
-	private String	kakaoId;
+	private String	product;
+	private String title;
 	
 	public String getLocation() {
 		return location;
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	public String getBoardNo() {
+		return boardNo;
+	}
+	public void setBoardNo(String boardNo) {
+		this.boardNo = boardNo;
+	}
+	public String getBoardDate() {
+		return boardDate;
+	}
+	public void setBoardDate(String boardDate) {
+		this.boardDate = boardDate;
 	}
 	public String getReserveName() {
 		return reserveName;
@@ -56,28 +68,12 @@ public class ReserveCompleteDTO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getPhone() {
-		return phone;
+	public String getProduct() {
+		return product;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setProduct(String product) {
+		this.product = product;
 	}
-	public String getKakaoId() {
-		return kakaoId;
-	}
-	public void setKakaoId(String kakaoId) {
-		this.kakaoId = kakaoId;
-	}
-	public String getBoardNo() {
-		return boardNo;
-	}
-	public void setBoardNo(String boardNo) {
-		this.boardNo = boardNo;
-	}
-	public String getBoardDate() {
-		return boardDate;
-	}
-	public void setBoardDate(String boardDate) {
-		this.boardDate = boardDate;
-	}
+
+	
 }
