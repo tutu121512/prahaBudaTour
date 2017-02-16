@@ -98,7 +98,7 @@
 				<div class="row">
 						<div>
 						<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
-						<div class="input-field col s12" style="text-align:center">
+				       <div class="input-field col s12" style="text-align:center">
 					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
 						</div>
 						</c:if>
@@ -120,44 +120,6 @@
 			                <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
 						</div>
 						</c:if>
-					
-						<c:if test="${reviewViewInfo.boardImg4 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg4}'/>"/>
-						</div>
-						</c:if>
-						
-						<c:if test="${reviewViewInfo.boardImg5 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg5}'/>"/>
-						</div>
-						</c:if>
-						
-						<c:if test="${reviewViewInfo.boardImg6 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg6}'/>"/>
-						</div>
-						</c:if>
-						
-						<c:if test="${reviewViewInfo.boardImg7 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg7}'/>"/>
-						</div>
-						</c:if>
-						
-						<c:if test="${reviewViewInfo.boardImg8 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg8}'/>"/>
-						</div>
-						</c:if>
-						
-						<c:if test="${reviewViewInfo.boardImg9 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg9}'/>"/>
-						</div>
-						</c:if>					
-					
-					
 						</div>
 			    	</div>
 			    	</div>
