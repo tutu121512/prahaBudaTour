@@ -65,8 +65,7 @@
 	<main>
 		<div class="container">
 		<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/notebook.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+			<img src='<c:url value="/resources/images/notebook.png"/>' style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
 		</div>
 

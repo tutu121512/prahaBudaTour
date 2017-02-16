@@ -62,53 +62,41 @@
 	<jsp:include page="/WEB-INF/views/header.jsp"/>
 	
 	<main>
-		<div class="container">
-		<div class="centered row" style="margin-top:5px;">
+		<div class="container" style="margin-bottom:15px">
+		<div class="row" style="margin-top:5px;">
 			<img src='<c:url value="/resources/images/shuttle.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
 		</div>
 		<form method="post" action="/controller/shuttle/praha/ShuttleUpdate">
 			<div id="main_content" style="margin-top: 16px;">
-				<div class="row" style="margin-left:12%;margin-top:-10px">
-			        <div class="input-field col s7" style="margin-bottom:-20px">
+				<div class="row">
+			        <div class="input-field col s8" style="margin-bottom:-20px">
+			        <i class="material-icons prefix">title</i>
 			          <input id="title" name="title" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.title}" style="color:red;text-align:center;font-size:27px">
 			          <label for="title">문의 제목</label>
 			        </div>
-					<div class="input-field col s3" style="margin-bottom:-20px">
+					<div class="input-field col s4" style="margin-bottom:-20px">
+					<i class="material-icons prefix">supervisor_account</i>
 			          <input id="writer" name="writer" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.writer}" style="color:black;font-size:18px">
 			          <label for="writer">작성자</label>
 			        </div>
 			    </div>
-				<div class="row" style="margin-left:15%">
+				<div class="row">
 					<div class="row" style="margin-top:-20px;margin-bottom:30px">
-				        <div class="input-field col s10">
+				        <div class="input-field col s12">
+				        <i class="material-icons">mode_edit</i>
 					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
 					         readonly="readonly" style="color:black; font-size:1.4em">${shuttleViewInfo.content}</pre>
 				        </div>
 			    	</div>
 				</div>
-				<div class="row" style="margin-left:12%;margin-top:-40px">
-			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="password" name="password" type="password" readonly="readonly" class="validate updateform" value="${shuttleViewInfo.password}">
-			          <label for="password">Password</label>
-			        </div>
-			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="phone" name="phone" type="text" class="validate updateform"  readonly="readonly" value="${shuttleViewInfo.phone}">
-			          <label for="phone">전화번호</label>
-			        </div>
-			        <div class="input-field col s3">
-			          <input id="kakaoId" name="kakaoId" type="text" class="validate updateform" readonly="readonly" value="${shuttleViewInfo.kakaoId}">
-			          <label for="kakaoId">카카오톡 아이디</label>
-			        </div>
-				</div>
-		
-		<div class="row "  style="margin-left:12%;">
-		<hr style="width: 84%; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+		<div class="row">
+		<hr style="margin-bottom:10px;">
 		<div>
-		<ins style="padding-top: 10px;">댓글</ins>
+		<ins>댓글</ins>
 		</div>
-			<div class="col s10 " style="background-color: blanchedalmond; border-radius: 30px; margin-bottom: 10px;" >
+			<div class="col s12" style="background-color: blanchedalmond; border-radius: 30px; margin-bottom: 10px;" >
 				<c:choose>
 				<c:when test="${shuttleViewInfo.boardReply eq null}">
 				<table class="centered"><tr><td class="centered">
@@ -120,9 +108,9 @@
 				</c:otherwise>
 				</c:choose>
 			</div><!-- 댓글 -->
-		<hr style="width: 84%; margin-left: 0px; margin-top: 0px; margin-bottom: 10px;">
+		<hr>
 		</div>
-			<div class="row" style="margin-left:55%;margin-top:-10px">
+			<div class="row">
 				<input type="hidden" id="boardNo" name="boardNo" value="${shuttleViewInfo.boardNo}">
 				<input class="waves-effect waves-light btn" type="button" value="목록보기" id="list" >
 				<input class="waves-effect waves-light btn" type="button" value="삭제" id="delete">

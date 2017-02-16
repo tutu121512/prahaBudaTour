@@ -65,9 +65,8 @@
 	<main>
 		<div class="container">
 		<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/shuttle.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/shuttleLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/edit.png"/>' style="width: 5%;margin-left: 100px;margin-top:20px;margin-bottom:15px">
+			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
 		</div>
 		<form method="post" action="/controller/praha/prahaReserveUpdate">
 			<input type="hidden" id="boardNo" name="boardNo" value="${reserveViewInfo.boardNo}">

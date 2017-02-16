@@ -54,11 +54,11 @@
 	<table class="striped centered" id="userManageList" style="margin-top:20px;margin-bottom:15px;">
 	<thead>
 		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
-			<th data-field=num" style="width:8%">글번호</th>
+			<th data-field=num" style="width:10%">글번호</th>
 			<th data-field="email">제목</th>
-			<th data-field="nickName" style="width:13%">작성자</th>
+			<th data-field="nickName" style="width:12%">작성자</th>
 			<th data-field="phone" style="width:12%">작성일자</th>
-			<th style="width:15%">비고</th>
+			<th style="width:13%">비고</th>
 		</tr>
 	</thead>
 	
@@ -66,14 +66,14 @@
 	<c:forEach items="${shuttleSelectList}" var="list">
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
-		<td>${list.title}</td>
+		<td><i class="material-icons prefix" style="font-size:20px">security</i>${list.title}</td>
 		<td>${list.writer}</td>
 		<td>${list.boardDate}</td> 
 		<td style="width:180px;">
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
 			<form action="/controller/shuttle/praha/shuttlePasswordCheck" method="post">
 			<input type="hidden" name="boardNo" value="${list.boardNo}">
-			<input type="password" name="password" maxlength="4" placeholder="비밀번호 4자리" style="width:85px; margin:0; height:20px; padding-right: 10px;"/> 
+			<input type="password" name="password" maxlength="4" placeholder="비밀번호" style="width:50px; margin:0; height:20px; padding-right: 10px;"/> 
 			<input type="submit" value="보기">
 			</form>
 			</div>

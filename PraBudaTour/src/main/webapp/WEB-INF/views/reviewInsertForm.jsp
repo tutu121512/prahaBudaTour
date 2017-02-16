@@ -95,58 +95,53 @@ function fileSize(input) {
 	<main>
 		<div class="container">
 		<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/notebook.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+			<img src='<c:url value="/resources/images/notebook.png"/>' style="width: 5%;margin-left:100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
 		</div>
+		
 		<form method="post" action="/controller/review/praha/ReviewInsert" enctype="multipart/form-data">
-			<div id="main_content" style="margin-top: 16px;">
-				<div class="row" style="margin-left:12%;margin-top:-25px">
-			        <div class="input-field col s7" style="margin-bottom:-20px">
-			          <input id="title" name="title" type="text" class="validate">
-			          <label for="title">문의 제목</label>
-			        </div>
-					<div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="writer" name="writer" type="text" class="validate">
-			          <label for="writer">작성자</label>
-			        </div>
-			    </div>
-				<div class="row" style="margin-left:12%">
-					<div class="row" >
-				        <div class="input-field col s10">
-					        <i class="material-icons prefix">mode_edit</i>
-					        <textarea id="icon_prefix2" class="materialize-textarea" name="content" 
-					        placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다."></textarea>
-					        <label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
+			<table style="margin-bottom:10px">
+				<tr><td>
+					<div class="row" style="margin-bottom:-20px">
+						<div class="input-field col s8">
+							<i class="material-icons prefix">title</i>
+							<input id="title" name="title" type="text" class="validate">
+							<label for="title">문의 제목</label>
+						</div>
+						<div class="input-field col s4">
+							<i class="material-icons prefix">supervisor_account</i>
+							<input id="writer" name="writer" type="text" class="validate">
+							<label for="writer">작성자</label>
 				        </div>
-			    	</div>
-				</div>
-				<div class="row" style="margin-left:12%;margin-top:-40px">
-			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="password" name="password" type="password" class="validate" maxlength="4">
-			          <label for="password">Password</label>
-			        </div>
-			        <div class="input-field col s3" style="margin-bottom:-20px">
-			          <input id="phone" name="phone" type="text" class="validate">
-			          <label for="phone">전화번호</label>
-			        </div>
-			        <div class="input-field col s3">
-			          <input id="kakaoId" name="kakaoId" type="text" class="validate">	
-			          <label for="kakaoId">카카오톡 아이디</label>
-			        </div>
-			        <input class="waves-effect waves-light btn waves-input-wrapper" type="submit" value="문의">
-				</div>
-			</div>
-			<div class="col s9" style="margin-left:116px">
-				<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
-				<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
+					</div>
+				</td></tr>
+				<tr><td>
+					<div class="row" style="margin-bottom:-30px">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mode_edit</i>
+							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다."></textarea>
+							<label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
+						</div>
+					</div>
+				</td></tr>
+				<tr><td style="text-align:center">
+					<div class="col s9">
+						<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
+						<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
+					</div>
+				</td></tr>
+				<tr><td class="centered">
 				<div class="row">
-					<div class="input-field col s6 image-file">
+					<div class="input-field col s8 image-file">
 					</div>
-					<div class="input-field col s3 image-file-size">
+					<div class="input-field col s4 image-file-size">
 					</div>
 				</div>
-			</div>
+					<div class="row">
+						<input type="submit" value="문의" class="waves-effect waves-light btn" style="width:100%">
+					</div>
+				</td></tr>
+			</table>
 		</form>
 		</div>
 	</main>
