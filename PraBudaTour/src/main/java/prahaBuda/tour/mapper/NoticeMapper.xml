@@ -57,8 +57,7 @@
 	</select>
 
 	<select id="NoticeView" parameterType="boardDTO" resultMap="boardMap">
-	select 
-	board_no boardNo,
+	select board_no boardNo,
 	writer writer,
 	title title,
 	content content,
