@@ -44,7 +44,7 @@
 		
 		if(result) { 
 			$(".updateform").removeAttr("readonly");
-			$("#icon_prefix2").contents().unwrap().wrap('<textarea class="materialize-textarea"></textarea>');
+			$("#icon_prefix2").contents().unwrap().wrap('<textarea id="icon_prefix2" class="materialize-textarea updateform" name="content"></textarea>');
 			$(this).parent().hide();
 			$("#update").hide();
 			$("#updateComplete").parent().show();
@@ -97,7 +97,7 @@
 					<div class="row">
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
-							<input id="statrDate" name="statrDate" type="text" class="validate updateform" readonly="readonly" placeholder="입력예시 : 17년 2월 17일 => 160213" value="${reserveViewInfo.startDate}">
+							<input id="statrDate" name="startDate" type="text" class="validate updateform" readonly="readonly" placeholder="입력예시 : 17년 2월 17일 => 160213" value="${reserveViewInfo.startDate}">
 							<label for="statrDate">출국일</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
