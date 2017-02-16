@@ -20,10 +20,6 @@ public class CompleteController {
 	@Autowired
 	private ReserveCompleteService CompleteService;
 	
-	public String reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		return null;
-	}
-
 	@RequestMapping("praha/completeCalendar")
 	public String reserveCompleteCalrendar(Model model) throws Exception {
 		System.out.println("completeCalendar에 들어왔음");
@@ -53,11 +49,24 @@ public class CompleteController {
 		return "reserveCompleteBoard";
 	}
 	
+	@RequestMapping("praha/CompleteInsert")
+	public String reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+		
+		
+		
+		CompleteService.reserveCompleteInsert(reserveCompleteDTO);
+		 return null;
+	}
+
+	@RequestMapping("praha/CompleteUpdate")
 	public String reserveCompleteUpdate(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+		CompleteService.reserveCompleteUpdate(reserveCompleteDTO);
 		return null;
 	}
-	
+
+	@RequestMapping("praha/CompleteDelete")
 	public String reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+		CompleteService.reserveCompleteDelete(reserveCompleteDTO);
 		return null;
 	}
 }

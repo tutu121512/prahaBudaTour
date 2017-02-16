@@ -5,52 +5,56 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import prahaBuda.tour.dao.TourInfoDao;
+import prahaBuda.tour.dto.BoardDTO;
 import prahaBuda.tour.dto.PageDTO;
-import prahaBuda.tour.dto.ReserveCompleteDTO;
-import prahaBuda.tour.dao.*;
 
 @Service
-public class ReserveCompleteServiceImpl implements ReserveCompleteService {
+public class TourInfoServiceImpl implements TourInfoService {
 
 	@Autowired
-	private ReserveCompleteDao ReserveCompleteDao;
+	private TourInfoDao TourInfoDao;
+	
 	
 	@Override
-	public List<ReserveCompleteDTO> reserveCompleteCalendar() throws Exception {
-		return ReserveCompleteDao.reserveCompleteCalendar();
+	public void tourInfoInsert(BoardDTO boardDTO) throws Exception {
+		TourInfoDao.tourInfoInsert(boardDTO);		
 	}
 
 	@Override
-	public List<ReserveCompleteDTO> reserveCompleteBoard(PageDTO pageDto) throws Exception {
+	public void tourInfoUpdate(BoardDTO boardDTO) throws Exception {
+		TourInfoDao.tourInfoUpdate(boardDTO);
+	}
+
+	@Override
+	public void tourInfoDelete(BoardDTO boardDTO) throws Exception {
+		TourInfoDao.tourInfoDelete(boardDTO);
+	}
+
+	@Override
+	public List<BoardDTO> tourInfoSelect(PageDTO pageDto) throws Exception {
 		//paging 부분
-		int reserveCompleteBoardCount = reserveCompleteBoardCount();
-		pageDto.setCount(reserveCompleteBoardCount);				//notice 테이블에서 가져온 값 pageVO에 Count에 set해주기
+		int tourInfoSelectCount = tourInfoSelectCount();
+		pageDto.setCount(tourInfoSelectCount);				//notice 테이블에서 가져온 값 pageVO에 Count에 set해주기
 		PageDTO pVO = paging(pageDto);
 		int curPage = pVO.getCurPage();
-		return ReserveCompleteDao.reserveCompleteBoard(curPage);
-	}
-	@Override
-	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		ReserveCompleteDao.reserveCompleteInsert(reserveCompleteDTO);
-	}
-	@Override
-	public void reserveCompleteUpdate(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		ReserveCompleteDao.reserveCompleteUpdate(reserveCompleteDTO);
+		
+		return TourInfoDao.tourInfoSelect(curPage);
+
 	}
 
 	@Override
-	public void reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		ReserveCompleteDao.reserveCompleteDelete(reserveCompleteDTO);
+	public List<BoardDTO> tourInfoView(BoardDTO boardDTO) throws Exception {
+		return null;
 	}
 
 	@Override
-	public int reserveCompleteBoardCount() throws Exception {
-		return ReserveCompleteDao.reserveCompleteBoardCount();
+	public int tourInfoSelectCount() throws Exception {
+		return TourInfoDao.tourInfoSelectCount();
 	}
 
 	@Override
 	public PageDTO paging(PageDTO pageDto) throws Exception {
-
 		int curPage = pageDto.getCurPage();			//현제 페이지 가져오기
 		int limit=10;			
 		//화면에 보일 리스트 갯수 지정
@@ -88,5 +92,5 @@ public class ReserveCompleteServiceImpl implements ReserveCompleteService {
 		pageDto.setNextPage(nextPage);
 		return pageDto;
 	}
-	
+
 }

@@ -17,17 +17,17 @@ public class ReserveCompleteDaoImpl implements ReserveCompleteDao {
 	
 	@Override
 	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-
+		 sqlSession.insert("ReserveComplete.resereveCompleteInsert",reserveCompleteDTO);
 	}
 
 	@Override
 	public void reserveCompleteUpdate(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-
+		 sqlSession.update("ReserveComplete.rserveCompleteUpdate",reserveCompleteDTO);
 	}
 
 	@Override
 	public void reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-
+		 sqlSession.delete("ReserveComplete.reserveCompleteDelete",reserveCompleteDTO);
 	}
 
 	@Override

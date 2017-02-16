@@ -15,26 +15,22 @@ public class UserBenefitDaoImpl implements UserBenefitDao {
 	
 	@Override
 	public void serviceInsert(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.insert("UserBenefit.serviceInsert",boardDTO);
 	}
 
 	@Override
 	public void serviceUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.update("UserBenefit.serviceUpdate",boardDTO);
 	}
 
 	@Override
 	public void serviceDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.delete("UserBenefit.serviceDelete",boardDTO);
 	}
 
 	@Override
 	public List<BoardDTO> serviceSelect() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList("UserBenefit.serviceSelect");
 	}
 
 }

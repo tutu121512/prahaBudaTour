@@ -3,6 +3,7 @@ package prahaBuda.tour.service;
 import java.util.List;
 
 import prahaBuda.tour.dto.BoardDTO;
+import prahaBuda.tour.dto.PageDTO;
 
 public interface UserBenefitService {
 
@@ -21,4 +22,5 @@ public interface UserBenefitService {
 	//이용혜택 selectView
 	public List<BoardDTO> serviceView(BoardDTO boardDTO) throws Exception;
 	
+
 }

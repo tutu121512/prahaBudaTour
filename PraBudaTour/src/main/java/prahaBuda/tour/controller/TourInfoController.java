@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,11 +18,11 @@ import prahaBuda.tour.dto.*;
 import prahaBuda.tour.service.*;
 
 @Controller
-@RequestMapping("userBenefit")
-public class UserBenefitController {
+@RequestMapping("tourInfo")
+public class TourInfoController {
 
 	@Autowired
-	private UserBenefitService UserBenefitService;
+	private TourInfoService TourInfoService;
 	
 	@RequestMapping("{viewName}/{fileName}")
 	public String move(
@@ -30,9 +31,9 @@ public class UserBenefitController {
 		return viewName + "/" +fileName;
 	}
 	
-	//이용혜택 insert
-	@RequestMapping("serviceInsert")
-	public String serviceInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
+	//여행정보 insert
+	@RequestMapping("tourInfoInsert")
+	public String tourInfoInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
 	
 		if(boardDto.getFile()!=null){
 			boardDto.setBoardImg0("null");
@@ -63,41 +64,45 @@ public class UserBenefitController {
 			boardDto.setBoardImg3("null");
 		}
 		
-		UserBenefitService.serviceInsert(boardDto);
+		TourInfoService.tourInfoInsert(boardDto);
 		return "pageName";
 	}
 	
-	//이용혜택 update
-	@RequestMapping("serviceUpdate")
-	public String serviceUpdate(BoardDTO boardDTO) throws Exception{
+	//여행정보 update
+	@RequestMapping("tourInfoUpdate")
+	public String tourInfoUpdate(BoardDTO boardDTO) throws Exception{
 
-		UserBenefitService.serviceUpdate(boardDTO);
+		TourInfoService.tourInfoUpdate(boardDTO);
 		return "pageName";
 		
 	}		 
 
-	//이용혜택 delete
-	@RequestMapping("serviceDelete")
-	public String serviceDelete(BoardDTO boardDTO) throws Exception{
-		UserBenefitService.serviceDelete(boardDTO);
+	//여행정보 delete
+	@RequestMapping("tourInfoDelete")
+	public String tourInfoDelete(BoardDTO boardDTO) throws Exception{
+		TourInfoService.tourInfoDelete(boardDTO);
 		return "pageName";
 	}
 	
-	//이용혜택 selectList
-	@RequestMapping("serviceSelect")
-	public String serviceSelect() throws Exception{
-		List<BoardDTO> selectList = UserBenefitService.serviceSelect();
+	//여행정보 selectList
+	@RequestMapping("tourInfoSelect")
+	public String tourInfoSelect(BoardDTO boardDto,Model model,String page) throws Exception{
+		
+		PageDTO pageDto = new PageDTO();
+		if(page == null){
+			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		}else{
+			int curPage = Integer.parseInt(page); //형변환
+			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
+		}
+
+		
+		
+		List<BoardDTO> selectList = TourInfoService.tourInfoSelect(pageDto);
+		model.addAttribute("selectList", selectList);
+		model.addAttribute("page",pageDto);
 		return "pageName";
 
 	}
 	
-	//이용혜택 selectList
-	@RequestMapping("serviceView")
-	public String serviceView(BoardDTO boardDTO) throws Exception{
-		HashMap<String, Object> viewAndList = new HashMap<String,Object>();
-		List<BoardDTO> selectList = null;
-		viewAndList.put("selectView", boardDTO);
-		viewAndList.put("selectList", selectList);
-		return null;
-	}
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ReserveQuestion">
+<mapper namespace="TourInfo">
 
 <!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
    <resultMap type="boardDTO" id="boardMap">
@@ -23,54 +23,37 @@
       <result column="board_img3" property="boardImg3"/>
    </resultMap>
 
-
-	<insert id="ReserveQuestionInsert" parameterType="boardDTO" >
+	<insert id="InfoInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
 	password,board_date,board_reply,phone,kakao_id,board_img0,board_img1,board_img2,board_img3) 
-	VALUES('reserveQuestion','P',reserveQuestion_sequence.nextVal,#{writer},#{title},#{content},
-	#{password},sysdate,null,#{phone},#{kakaoId},null,null,null,null)
+	VALUES('tourInfo','P',tourInfo_sequence.nextVal,#{writer},#{title},#{content},
+	#{password},sysdate,null,#{phone},#{kakaoId},#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3})
 	</insert>
 	
-	<select id="ReserveQuestionList" resultMap="boardMap" parameterType="int" >
+	<select id="InfoSelect" resultMap="boardMap" parameterType="int" >
 	SELECT
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
 	to_char(board.board_date,'YYYY/MM/DD') as boardDate
-	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date
-	FROM (SELECT board_no,writer,title,board_Date
+	content content,
+	board_img0 boardImg0,
+	board_img1 boardImg1,
+	board_img2 boardImg2,
+	board_img3 boardImg3
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content content,board_img0 boardImg0,board_img1 boardImg1,board_img2 boardImg2,board_img3 boardImg3
+	FROM (SELECT board_no,writer,title,board_Date,content content,board_img0 boardImg0,board_img1 boardImg1,board_img2 boardImg2,board_img3 boardImg3
 	from board
-	where board_state='reserveQuestion' and location='P'
-	order by board_no+0 desc) ) board
-	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
+	where board_state='tourInfo' and location='P'
 	</select>
 	
-	<select id="ReserveQuestionListCount" resultType="int">
-	select count(board_no)
-	from board
-	where board_state='reserveQuestion' and location='P'
-	</select>
-	
-	<select id="prahaReservePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
-	SELECT *
-	FROM BOARD
-	WHERE board_state='reserveQuestion'and location='P' 
-	and board_no=#{boardNo} and password=#{password}
-	</select>
-	
-	<delete id="prahaReserveDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE BOARD_NO=#{boardNo} AND board_state='reserveQuestion'and location='P'
+	<delete id="InfoDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='tourInfo' and location='P'
 	</delete>
 	
-	<update id="prahaReserveUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET 
-	title=#{title},
-	writer=#{writer},
-	content=#{content},
-	board_date=sysdate, 
-	password=#{password},
-	phone=#{phone},
-	kakao_id=#{kakaoId} 
-	WHERE BOARD_NO=#{boardNo} AND board_state='reserveQuestion' and location='P'
+	<update id="InfoUpdate" parameterType="boardDTO">
+	 UPDATE BOARD SET title=#{title},
+	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
+	 WHERE BOARD_NO=#{boardNo} AND board_state='tourInfo' and location='P'
 	</update>
 </mapper>
