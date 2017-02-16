@@ -39,7 +39,7 @@ public class UserBenefitController {
 		UserBenefitService.serviceUpdate(boardDTO);
 		return "pageName";
 		
-	}		
+	}		 
 
 	//이용혜택 delete
 	@RequestMapping("serviceDelete")
