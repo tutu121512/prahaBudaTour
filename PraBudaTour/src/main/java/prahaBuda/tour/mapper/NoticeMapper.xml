@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ReserveQuestion">
+<mapper namespace="Notice">
 
 <!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
 <resultMap type="boardDTO" id="boardMap">
@@ -36,5 +36,35 @@
 		#{product},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9});
 	</insert>
 
+	<select id="NoticeList" resultMap="boardMap" parameterType="int" >
+	SELECT
+	board.board_no boardNo,
+	board.writer as writer,
+	board.title as title,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date
+	FROM (SELECT board_no,writer,title,board_Date
+	from board
+	where board_state='notice' and location='P'
+	order by board_no+0 desc) ) board
+	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
+	</select>
+	
+	<select id="NoticeListCount" resultType="int">
+	select count(board_no)
+	from board
+	where board_state='notice' and location='P'
+	</select>
+
+	<select id="NoticeView" parameterType="boardDTO" resultMap="boardMap">
+	select 
+	board_no boardNo,
+	writer writer,
+	title title,
+	content content,
+	to_char(board_date,'YYYY/MM/DD') as boardDate
+	from board
+	where board_state='notice' and location='P' and board_No=#{boardNo}
+	</select>
 
 </mapper>

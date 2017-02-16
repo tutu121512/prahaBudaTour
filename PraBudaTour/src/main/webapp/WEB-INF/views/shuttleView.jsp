@@ -29,6 +29,8 @@
 	<script type="text/javascript">
 	$(function(){		
 	$("#updateComplete").hide();
+	var preheight = $("#icon_prefix2").height();
+
 	$("#delete").click(function(){
 		var result = confirm('이 글을 삭제 하시겠습니까?');
 		
@@ -47,6 +49,7 @@
 			$("#title").removeAttr("style");
 			$(".updateform").removeAttr("readonly");
 			$("#icon_prefix2").contents().unwrap().wrap('<textarea id="icon_prefix2" class="materialize-textarea updateform" name="content" "></textarea>');
+			$("#icon_prefix2").css("height",preheight-200);
 			$(this).parent().hide();
 			$("#update").hide();
 			$("#updateComplete").parent().show();

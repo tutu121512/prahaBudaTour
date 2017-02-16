@@ -8,13 +8,16 @@ public interface NoticeService {
 
 	public void NoticeInsert(BoardDTO boardDto) throws Exception;
 
-	public List<BoardDTO> NoticeList(PageDTO pageDto);
+	public List<BoardDTO> NoticeList(PageDTO pageDto) throws Exception;
 
-	public BoardDTO NoticePasswordCheck(BoardDTO boardDto);
+	public BoardDTO NoticeView(BoardDTO boardDto)throws Exception;
 
-	public void NoticeDelete(BoardDTO boardDto);
+	public void NoticeDelete(BoardDTO boardDto)throws Exception;
 
-	public void NoticeUpdate(BoardDTO boardDto);
+	public void NoticeUpdate(BoardDTO boardDto)throws Exception;
 	
+	public int NoticeListCount() throws Exception;
+	
+	public PageDTO paging(PageDTO pageDto) throws Exception;
 	
 }

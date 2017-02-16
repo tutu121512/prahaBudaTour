@@ -54,22 +54,13 @@ public class NoticeController {
 		return "redirect:/notice/praha/noticeBoard";
 	}
 	
-	@RequestMapping("praha/noticePasswordCheck")
+	@RequestMapping("praha/noticeView")
 	public String prahaNoticePasswordCheck(BoardDTO boardDto,Model model,RedirectAttributes redirect) throws Exception{
-		String nextpage ="";
 		
-		System.out.println("값 : " + boardDto.getBoardNo() +"  - " + boardDto.getPassword());
-		BoardDTO bDTO =NoticeService.NoticePasswordCheck(boardDto);
+		BoardDTO bDTO =NoticeService.NoticeView(boardDto);
+		model.addAttribute("noticeViewInfo",bDTO);
 		
-		
-		if(bDTO!=null){
-			model.addAttribute("noticeViewInfo",bDTO);
-			nextpage="noticeView";
-		}else{
-			nextpage="redirect:/notice/praha/noticeBoard";
-		}
-		
-		return nextpage;
+		return "noticeView";
 		
 	}
 	
