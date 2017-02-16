@@ -59,9 +59,9 @@
 	
 	<tbody>
 	<c:forEach items="${reviewSelectList}" var="list">
-	<tr name="board" style="cursor: pointer">
+	<tr name="board" style="cursor: pointer;" onclick="location.href='/controller/review/praha/reviewView?boardNo=${list.boardNo}'" >
 		<td>${list.boardNo}</td>
-		<td><a href="/controller/review/praha/reviewView?boardNo=${list.boardNo}">${list.title}</a></td>
+		<td>${list.title}</td>
 		<td>${list.writer}</td>
 		<td>${list.boardDate}</td> 
 		<td style="width:180px;"></td>
