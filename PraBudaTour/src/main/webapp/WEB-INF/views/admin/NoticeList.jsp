@@ -27,8 +27,8 @@
 		src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
 	<script type="text/javascript"
 		src='<c:url value="/resources/js/materialize.min.js"/>'></script>
-	<jsp:include page="/WEB-INF/views/adminHeader.jsp" />
-
+	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
+	
 	<main>
 	<div class="container">
 		<h3>Notice</h3>
