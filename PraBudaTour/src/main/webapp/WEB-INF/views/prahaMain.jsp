@@ -54,8 +54,9 @@
 		</td></tr></table>
 		</div>
 		
-		<div class="row"> 
-		<table class="striped" style="width: 30%;  float: right;  margin-left: 50px; height: 150px;">
+	<div class="row"> 
+	
+	<table class="striped" style="width: 30%;  float: right;  margin-left: 50px; height: 150px;">
 		<tr><td>후기 <a style="float: right; margin-right: 10px;" href="/controller/review/praha/reviewBoard">더 보기</a></td></tr>
 		<%for(int i=0; i<review.size(); i++) { 
 		if(i<5){%>
@@ -65,9 +66,9 @@
 			break;
 		}
 		} %>
-		</table>
+	</table>
 
-		<table class="striped" style="width: 30%; float :right; height: 150px;">
+	<table class="striped" style="width: 30%; float :right; height: 150px;">
 		<tr><td>예약 문의<a style="float: right; margin-right: 10px;" href="#">더 보기</a></td></tr>
 		<%for(int i=0; i<reserve.size(); i++) { 
 		if(i<5){%>
@@ -77,9 +78,10 @@
 			break;
 		}
 		} %>
-		</table>
+	</table>
 		
-	<%--<table class="striped" style="width: 30%; height: 150px;">
+	<%-- 
+	<table class="striped" style="width: 30%; height: 150px;">
 		<tr><td>공지사항<a style="float: right; margin-right: 10px;" href="#">더 보기</a></td></tr>
 		<%for(int i=0; i<notice.size(); i++) { 
 		if(i<5){ %>
@@ -88,13 +90,13 @@
 				break;
 			}
 		} %>
-		</table>
-		</div>		 --%>
-		
-		</div> <!-- container -->
-
+	</table> 
+	--%>
 	
+	
+	</div> <!-- container -->
 	</main>
+	
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	</body>
 </html>
