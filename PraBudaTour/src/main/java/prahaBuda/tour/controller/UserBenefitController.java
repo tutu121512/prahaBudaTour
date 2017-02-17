@@ -103,7 +103,12 @@ public class UserBenefitController {
 			json.put("boardImg1", board.getBoardImg1());
 			json.put("boardImg2", board.getBoardImg2());
 			json.put("boardImg3", board.getBoardImg3());
-
+			json.put("boardImg4", board.getBoardImg4());
+			json.put("boardImg5", board.getBoardImg5());
+			json.put("boardImg6", board.getBoardImg6());
+			json.put("boardImg7", board.getBoardImg7());
+			json.put("boardImg8", board.getBoardImg8());
+			json.put("boardImg9", board.getBoardImg9());
 			jsonarray.add(json);						
 		}
 		System.out.println(jsonarray.toString());

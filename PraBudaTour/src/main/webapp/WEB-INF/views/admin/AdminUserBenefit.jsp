@@ -84,8 +84,49 @@
 	 					url : "/controller/userBenefit/praha/serviceInsert",
 	 					enctype: "multipart/form-data",
 	 					data : formData,
+	 					dataType : "text",
 	 					success : function success(data){
-	 						alert("dsfasdf")
+							var list = eval("("+data+")");
+							$("#ListandView").empty();
+							$("#title").val("");
+							$("#wrtier").val("");
+							$("#icon_prefix2").val("");
+							for(var i=0; i<list.length; i++){
+								var headerStr = '<li style="margin-bottom:6px">'
+									headerStr += '<div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">'
+									headerStr += '<table>'
+									headerStr += '<tr><td style="width:10%; padding-bottom: 0px;padding-top:1rem"> '
+//									headerStr += '<img style="max-width:75px" src="'+url+'>'
+									headerStr += '<img style="max-width:75px" src="/controller/'+list[i].boardImg0+'">';
+									headerStr += '</td><td style="width:85%">'
+									headerStr += '<div>'+ list[i].title +'</div>'
+									headerStr += '</td><td>'
+									headerStr += '<a href="#"><i class="material-icons prefix">delete</i></a></td></tr></tbody></table></div>'
+						  		
+						  		var bodyStr ='<div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">'
+						  			bodyStr +='<table>'
+						  			bodyStr +='<tbody id="bodyContent">'
+						  			bodyStr +='<tr>'
+									bodyStr +='<td rowspan="3" width="70%"><pre>'+list[i].content+'</pre></td>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='</tr>'
+									bodyStr +='<tr>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='</tr>'
+									bodyStr +='<tr>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+								    bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
+								    bodyStr +='</tr></tbody></table></div></li>'
+									var liStr= headerStr+bodyStr;
+								   
+								    $("#ListandView").append(liStr);
+							  		
+							}
 	 					},
 	 					error : function fail(data){
 	 						alert("실패 : " +data)
@@ -172,24 +213,26 @@
 			</table>
 		</form>
 	
-		 <ul class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${userBenefitList}" var="list">
 			  <li style="margin-bottom:6px">
 			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
-			  	<table><tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			  	<table>
+			  	<tbody id="headerContent">
+			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
 			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
-			    </td>
-			    <td style="width:85%">
+			    </td><td style="width:85%">
 			    <div>${list.title}</div>
-			    </td>
-			    <td>
-			    <a href="#"><i class="material-icons prefix">delete</i></a></td>
-			    </tr></table>
+			    </td><td>
+			    <a href="#"><i class="material-icons prefix">delete</i></a></td></tr>
+			    </tbody>
+			    </table>
 			    </div>
 			    
 			    
 			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
 			    <table>
+			    <tbody id="bodyContent">
 			    <tr>
 			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
@@ -208,6 +251,7 @@
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    </tr>
+			    </tbody>
 			    </table>
 			    </div>
 			  </li>
