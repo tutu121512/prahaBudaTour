@@ -164,8 +164,6 @@
 	
 	
 	</main>
-	<div style="margin-left: 307px;">
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
-	</div>
 	</body>
 </html>

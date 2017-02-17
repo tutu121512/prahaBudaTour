@@ -52,11 +52,11 @@
 			var str = "<div class='file-field input-field'>";
 			str += "<input type='file' name='file' class='boardImg"+count+"''>";
 			str += "<div class='file-path-wrapper'>";
-			str += "<input class='file-path validate' type='text' placeholder='이미지 파일을 추가해주세요.'>";
+			str += "<input class='file-path validate' type='text' placeholder='이미지 파일 추가 (이 부분을 클릭하세요.)'>";
 			str += "</div></div>";
 			$('div.image-file').append(str);
 			
-			str = "<div  style='margin-top:14px'><input id='boardImg"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly></div>"; 
+			str = "<div  style='margin-top:14px'><input id='boardImg"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기 (자동으로 보여지는 부분입니다)' readonly></div>"; 
 			$('div.image-file-size').append(str);
 			count++;
 		}else {
@@ -122,20 +122,23 @@
 	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
 	<main>
 
-	  <div class="container" style="margin-left:25%">
+	  <div class="container">
+	  <table style="margin-top:30px"><tr><td>
+			<img src='<c:url value="/resources/images/useService.png"/>'>
+	  </td></tr></table>
 		<form id="serviceInsert" method="post" enctype="multipart/form-data">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
 						<div class="input-field col s8">
 							<i class="material-icons prefix">title</i>
-							<input id="title" name="title" type="text" class="validate">
-							<label for="title">문의 제목</label>
+							<input id="title" name="title" type="text" class="validate" placeholder="관심을 끌수 있는 제목으로 적어주세요">
+							<label for="title" style="font-size: large;">혜택 타이틀</label>
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
-							<input id="writer" name="writer" type="text" class="validate">
-							<label for="writer">작성자</label>
+							<input id="writer" name="writer" type="text" class="validate" value="관리자">
+							<label for="writer" style="font-size: large;">작성자</label>
 				        </div>
 					</div>
 				</td></tr>
@@ -143,8 +146,8 @@
 					<div class="row" style="margin-bottom:-30px">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다."></textarea>
-							<label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
+							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="방문자들이 이해하기 쉽게 설명해주세요"></textarea>
+							<label for="icon_prefix2" style="font-size: large;">혜택 내용 (자세하게 입력해주세요)</label>
 						</div>
 					</div>
 				</td></tr>
@@ -172,15 +175,20 @@
 		 <ul class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${userBenefitList}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:30px;background-color:bisque;border-radius:27px;">
-			  	<table><tr><td style="width:15%;padding-bottom:0px;padding-top:1rem">
-			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:100px">
+			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			  	<table><tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
+			    </td>
+			    <td style="width:85%">
+			    <div>${list.title}</div>
 			    </td>
 			    <td>
-			    <div>${list.title}</div>
-			    </td></tr></table>
+			    <a href="#"><i class="material-icons prefix">delete</i></a></td>
+			    </tr></table>
 			    </div>
-			    <div class="collapsible-body">
+			    
+			    
+			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
 			    <table>
 			    <tr>
 			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
@@ -210,8 +218,6 @@
 	
 	
 	</main>
-	<div style="margin-left: 307px;">
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
-	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"/>
 	</body>
 </html>
