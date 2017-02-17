@@ -85,7 +85,9 @@ public class UserBenefitController {
 		}
 		
 		UserBenefitService.serviceInsert(boardDto);
-		return "pageName";
+		
+		List<BoardDTO> list = UserBenefitService.serviceSelect();
+		return list.toString();
 	}
 	
 	//이용혜택 update
