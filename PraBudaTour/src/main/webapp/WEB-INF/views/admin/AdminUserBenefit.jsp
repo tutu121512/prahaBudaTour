@@ -84,16 +84,12 @@
 	 					url : "/controller/userBenefit/praha/serviceInsert",
 	 					enctype: "multipart/form-data",
 	 					data : formData,
-	 					success : onSuccess,
-	 					error : onError
+	 					success : alert("성공"),
+	 					error : alert("실패")
 			}); 
 		});
 		
 	});
-	
-	function onSuccess(json, status){alert($.trim(json));}
-	
-	function onError(data, status){alert("error");}
 	
 	function readURL(input) {
 		if (input.files && input.files[0]) {
@@ -168,17 +164,17 @@
 			</table>
 		</form>
 	
-		 <ul class="collapsible popout" data-collapsible="accordion">  
+		 <ul class="collapsible" data-collapsible="accordion">  
 		 <c:forEach items="${userBenefitList}" var="list">
 			  <li>
-			    <div class="collapsible-header">
-			    <i class="material-icons">
-			    <img width="100%" src="<c:url value='/resources/images/logo.jpg'/>">
-			    </i>${list.title}</div>
+			    <div class="collapsible-header" style="height: 65px;font-size: 30px;">
+			    <i class="material-icons" style="width:80px;">
+			    <img style="width:100%" src="<c:url value='${list.boardImg0}'/>">
+			    </i><div style="padding-top:10px;">${list.title}</div></div>
 			    <div class="collapsible-body">
 			    <table>
 			    <tr>
-			    <td rowspan="3" width="70%">${list.content}</td>
+			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
@@ -195,7 +191,6 @@
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    </tr>
-			    
 			    </table>
 			    </div>
 			  </li>
