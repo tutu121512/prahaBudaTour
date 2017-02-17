@@ -15,22 +15,22 @@ public class UserBenefitDaoImpl implements UserBenefitDao {
 	
 	@Override
 	public void serviceInsert(BoardDTO boardDTO) throws Exception {
-		sqlSession.insert("UserBenefit.serviceInsert",boardDTO);
+		sqlSession.insert("UserBenefit.benefitInsert",boardDTO);
 	}
 
 	@Override
 	public void serviceUpdate(BoardDTO boardDTO) throws Exception {
-		sqlSession.update("UserBenefit.serviceUpdate",boardDTO);
+		sqlSession.update("UserBenefit.benefitUpdate",boardDTO);
 	}
 
 	@Override
 	public void serviceDelete(BoardDTO boardDTO) throws Exception {
-		sqlSession.delete("UserBenefit.serviceDelete",boardDTO);
+		sqlSession.delete("UserBenefit.benefitDelete",boardDTO);
 	}
 
 	@Override
 	public List<BoardDTO> serviceSelect() throws Exception {
-		return sqlSession.selectList("UserBenefit.serviceSelect");
+		return sqlSession.selectList("UserBenefit.benefitSelect");
 	}
 
 }

@@ -16,7 +16,7 @@ $(".dropdown-button").dropdown();
 
 <ul id="guide" class="dropdown-content">
 	<li><a href="#!" style="background-color:#ee6e73;color:white">이용안내</a></li>
-	<li><a href="/controller/praha/prahaServiceBoard">이용혜택</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard">이용혜택</a></li>
 	<li><a href="/controller/praha/onTheRoad">오시는길</a></li>
 </ul>
 

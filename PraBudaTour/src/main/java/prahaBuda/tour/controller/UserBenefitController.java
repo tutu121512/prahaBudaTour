@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import prahaBuda.tour.dto.*;
-import prahaBuda.tour.service.*;
+import prahaBuda.tour.dto.BoardDTO;
+import prahaBuda.tour.service.UserBenefitService;
 
 @Controller
 @RequestMapping("userBenefit")
@@ -31,7 +32,7 @@ public class UserBenefitController {
 	}
 	
 	//이용혜택 insert
-	@RequestMapping("serviceInsert")
+	@RequestMapping("praha/serviceInsert")
 	public String serviceInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
 	
 		if(boardDto.getFile()!=null){
@@ -68,7 +69,7 @@ public class UserBenefitController {
 	}
 	
 	//이용혜택 update
-	@RequestMapping("serviceUpdate")
+	@RequestMapping("praha/serviceUpdate")
 	public String serviceUpdate(BoardDTO boardDTO) throws Exception{
 
 		UserBenefitService.serviceUpdate(boardDTO);
@@ -77,18 +78,19 @@ public class UserBenefitController {
 	}		 
 
 	//이용혜택 delete
-	@RequestMapping("serviceDelete")
+	@RequestMapping("praha/serviceDelete")
 	public String serviceDelete(BoardDTO boardDTO) throws Exception{
 		UserBenefitService.serviceDelete(boardDTO);
 		return "pageName";
 	}
 	
 	//이용혜택 selectList
-	@RequestMapping("serviceSelect")
-	public String serviceSelect() throws Exception{
+	@RequestMapping("praha/userBenefitBoard")
+	public String serviceSelect(Model m) throws Exception{
 		List<BoardDTO> selectList = UserBenefitService.serviceSelect();
-		return "pageName";
-
+		m.addAttribute("selectList", selectList);
+		System.out.println("selectList : "+selectList.toString());
+		return "userBenefitBoard";
 	}
 	
 	//이용혜택 selectList

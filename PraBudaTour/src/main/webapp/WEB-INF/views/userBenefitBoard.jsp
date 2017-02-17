@@ -38,21 +38,40 @@
 	<div class="centered row" style="margin-top:5px;">
 			<img src='<c:url value="/resources/images/edit.png"/>' 
 				style="width: 5%;margin-left: 100px;margin-top:20px;margin-bottom:15px">
-			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'>
+			<img src='<c:url value="/resources/images/reserveLogo.jpg"/>'> 안녕? 나는 이용혜택인데 내 이름좀 만들어주겠니 ?
 		</div>
 
 	
- <ul class="collapsible popout" data-collapsible="accordion">  
-  <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>셀프마사지기</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-  </li>
-</ul>
-	
+		 <ul class="collapsible popout" data-collapsible="accordion">  
+		 <c:forEach items="${selectList}" var="list">
+			  <li>
+			    <div class="collapsible-header"><i class="material-icons">filter_drama</i>${list.title}</div>
+			    <div class="collapsible-body">
+			    <table>
+			    <tr>
+			    <td rowspan="3" width="70%">${list.content}</td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    </tr>
+			    
+			    <tr>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    </tr>
+			    
+			    <tr>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    </tr>
+			    
+			    </table>
+			    </div>
+			  </li>
+		  </c:forEach>
+		</ul>
 	</div>
 
 </main>

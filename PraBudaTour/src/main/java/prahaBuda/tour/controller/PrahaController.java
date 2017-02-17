@@ -21,11 +21,16 @@ public class PrahaController {
 	private ReserveQuestionService ReserveQuestionService;
 
 	@Autowired 
-	private ReviewService ReviewService;
-	
-	@Autowired 
 	private NoticeService NoticeService;
-		
+	
+	@Autowired
+	private UserBenefitService UserBenefitService;
+	
+	@Autowired
+	private TourInfoService TourInfoService;
+	
+	@Autowired
+	private ReviewService ReviewService;
 	
 	@RequestMapping("{fileName}")
 	public String noneSignUpMove(
@@ -39,15 +44,23 @@ public class PrahaController {
 		PageDTO pageDto = new PageDTO();
 		pageDto.setCurPage(1);
 		
-		List<BoardDTO> reviewtList =  ReviewService.ReviewList(pageDto);
-		List<BoardDTO> noticetList =  NoticeService.NoticeList(pageDto);
-		List<BoardDTO> reserveList =  ReserveQuestionService.ReserveQuestionList(pageDto);
-
+		List<BoardDTO> noticeList =  NoticeService.NoticeList(pageDto);
+		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect();
+		List<BoardDTO> tourInfoList =  TourInfoService.tourInfoSelect(pageDto);
+		List<BoardDTO> reviewList =  ReviewService.ReviewList(pageDto);
+		
+		System.out.println("공지사항 : " + noticeList.toString());
+		System.out.println("이용혜택 : " + userBenefitList.toString());
+		System.out.println("여행정보 : " + tourInfoList.toString());
+		System.out.println("후기 : " + reviewList.toString());
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("prahaMain");
-		mv.addObject("reviewList", reviewtList);
-		mv.addObject("completeList",noticetList );
-		mv.addObject("reserveList", reserveList);
+		mv.addObject("noticetList", noticeList);
+		mv.addObject("userBenefitList", userBenefitList);
+		mv.addObject("tourInfoList", tourInfoList);
+		mv.addObject("reviewList", reviewList);
+
 		return mv;
 	}
 	

@@ -39,20 +39,27 @@
 	
 	<select id="InfoSelect" resultMap="boardMap" parameterType="int" >
 	SELECT
-	board.board_no boardNo,
-	board.writer as writer,
-	board.title as title,
-	to_char(board.board_date,'YYYY/MM/DD') as boardDate
+	board_no boardNo,
+	writer as writer,
+	title as title,
+	to_char(board_date,'YYYY/MM/DD') as boardDate,
 	content content,
 	board_img0 boardImg0,
 	board_img1 boardImg1,
 	board_img2 boardImg2,
 	board_img3 boardImg3
-	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content content,board_img0 boardImg0,board_img1 boardImg1,board_img2 boardImg2,board_img3 boardImg3
-	FROM (SELECT board_no,writer,title,board_Date,content content,board_img0 boardImg0,board_img1 boardImg1,board_img2 boardImg2,board_img3 boardImg3
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content content,board_img0,board_img1,board_img2,board_img3
+	FROM (SELECT board_no,writer,title,board_Date,content content,board_img0,board_img1,board_img2,board_img3
 	from board
-	where board_state='tourInfo' and location='P'
+	where board_state='tourInfo' and location='P'))
 	</select>
+	
+	<select id="InfoSelectCount" resultType="int">
+	select count(board_no)
+	from board
+	where location='P' and board_state='tourInfo'
+	</select>
+	
 	
 	<delete id="InfoDelete" parameterType="boardDTO">
 	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='tourInfo' and location='P'
