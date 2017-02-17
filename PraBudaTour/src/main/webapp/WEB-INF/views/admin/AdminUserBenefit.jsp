@@ -85,7 +85,7 @@
 	 					enctype: "multipart/form-data",
 	 					data : formData,
 	 					success : function success(data){
-	 					
+	 						alert("dsfasdf")
 	 					},
 	 					error : function fail(data){
 	 						alert("실패 : " +data)
@@ -162,19 +162,24 @@
 					</div>
 				</div>
 					<div class="row">
-						<input id="InsertBtn" type="button" value="추가" class="waves-effect waves-light btn" style="width:100%">
+						<a class="waves-effect waves-light btn" style="width:100%" id="InsertBtn">추가
+						</a>
 					</div>
 				</td></tr>
 			</table>
 		</form>
 	
-		 <ul class="collapsible" data-collapsible="accordion">  
+		 <ul class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${userBenefitList}" var="list">
-			  <li>
-			    <div class="collapsible-header" style="height: 65px;font-size: 30px;">
-			    <i class="material-icons" style="width:80px;">
-			    <img style="width:100%" src="<c:url value='${list.boardImg0}'/>">
-			    </i><div style="padding-top:10px;">${list.title}</div></div>
+			  <li style="margin-bottom:6px">
+			    <div class="collapsible-header" style="font-size:30px;background-color:bisque;border-radius:27px;">
+			  	<table><tr><td style="width:15%;padding-bottom:0px;padding-top:1rem">
+			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:100px">
+			    </td>
+			    <td>
+			    <div>${list.title}</div>
+			    </td></tr></table>
+			    </div>
 			    <div class="collapsible-body">
 			    <table>
 			    <tr>
