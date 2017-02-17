@@ -84,8 +84,12 @@
 	 					url : "/controller/userBenefit/praha/serviceInsert",
 	 					enctype: "multipart/form-data",
 	 					data : formData,
-	 					success : alert("성공"),
-	 					error : alert("실패")
+	 					success : function success(data){
+	 					
+	 					},
+	 					error : function fail(data){
+	 						alert("실패 : " +data)
+	 					}
 			}); 
 		});
 		

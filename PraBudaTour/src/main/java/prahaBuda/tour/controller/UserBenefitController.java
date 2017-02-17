@@ -13,7 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import prahaBuda.tour.dto.BoardDTO;
 import prahaBuda.tour.service.UserBenefitService;
 
@@ -32,7 +35,8 @@ public class UserBenefitController {
 	}
 	
 	//이용혜택 insert
-	@RequestMapping("praha/serviceInsert")
+	@RequestMapping(value="praha/serviceInsert",produces = "application/text; charset=utf8")
+	@ResponseBody
 	public String serviceInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
 	
 		System.out.println("이용혜택" );
@@ -87,7 +91,23 @@ public class UserBenefitController {
 		UserBenefitService.serviceInsert(boardDto);
 		
 		List<BoardDTO> list = UserBenefitService.serviceSelect();
-		return list.toString();
+		
+		//가져온 리스트를 ajax형태인 자바스크립트로 보낼때 
+		//JSON배열로 만들어서 전송
+		JSONArray jsonarray = new JSONArray();
+		for(BoardDTO board : list){ 
+			JSONObject json = new JSONObject();
+			json.put("title", board.getTitle());
+			json.put("content", board.getContent());
+			json.put("boardImg0", board.getBoardImg0());
+			json.put("boardImg1", board.getBoardImg1());
+			json.put("boardImg2", board.getBoardImg2());
+			json.put("boardImg3", board.getBoardImg3());
+
+			jsonarray.add(json);						
+		}
+		System.out.println(jsonarray.toString());
+		return jsonarray.toString();
 	}
 	
 	//이용혜택 update
