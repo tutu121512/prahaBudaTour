@@ -35,18 +35,24 @@
 	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
 	<main>
 
-	  <div class="container" style="margin-left: 25%">
-	 
-	  <ul class="collapsible popout" data-collapsible="accordion">  
+	  <div class="container" style="margin-left:25%">
+	 <div class="row" style="margin-top:5px;">
+			<img src='<c:url value="/resources/images/manageBoard.png"/>' 
+				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+			<img src='<c:url value="/resources/images/manageBoardLogo.jpg"/>'>
+	<a href="/controller/admin/selectBoard?boardState=shuttle" class="waves-effect waves-light btn"><input type="button" value="셔틀문의"></a>
+	<a href="/controller/admin/selectBoard?boardState=reserveQuestion" class="waves-effect waves-light btn"><input type="button" value="예약문의"></a>
+	<a href="/controller/admin/selectBoard?boardState=review" class="waves-effect waves-light btn"><input type="button" value="후기"></a>
+	<a href="/controller/admin/selectBoard?boardState=notice" class="waves-effect waves-light btn"><input type="button" value="공지사항"></a>
+	
+	</div>
+	  <ul class="collapsible popout" data-collapsible="accordion" style="width:80%">  
 	  <li>
 	    <div style="padding:0px">
 	    <table class="centered">
 	    	<tr>
-	    		<td class="centered" style="width:5%">
-	    			<label style="font-size:1.3rem">선택</label>
-	    		</td>
-	    		<td class="centered" style="width:5%">
-	    			<label style="font-size:1.3rem">번호</label>
+	    		<td class="centered" style="width:10%">
+	    			<label style="font-size:1.3rem">글번호</label>
 	    		</td>
 	    		<td class="centered" style="width:55%">
 	    			<label style="font-size:1.3rem">제목</label>
@@ -70,24 +76,21 @@
 	    <div class="collapsible-header" style="padding:0px">
 	    <table class="centered">
 	    	<tr>
-	    		<td class="centered" style="width:5%">
-			    	<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked"/>
-	    			<label style="font-size:0rem;margin-left: 9px;margin-right: -8px;"></label>
-	    		</td>
-	    		<td class="centered" style="width:5%">
-	    			<label style="font-size:1.3rem">${list.boardNo}</label>
+	    		<td class="centered" style="width:10%">
+			    	<input type="checkbox" class="filled-in" id="${list.boardNo}" checked="checked" />
+      				<label for="${list.boardNo}">${list.boardNo}</label>
 	    		</td>
 	    		<td class="centered" style="width:55%">
-	    			<label style="font-size:1.3rem">${list.title}</label>
+	    			<label style="font-size:1rem">${list.title}</label>
 	    		</td>
 				<td class="centered" style="width:10%">
-	    			<label style="font-size:1.3rem">${list.writer}</label>
+	    			<label style="font-size:1rem">${list.writer}</label>
 	    		</td>
 				<td class="centered" style="width:15%">
-	    			<label style="font-size:1.3rem">${list.boardDate}</label>
+	    			<label style="font-size:1rem">${list.boardDate}</label>
 	    		</td>
 	    		<td class="centered" style="width:10%">
-	    			<label style="font-size:1.3rem">
+	    			<label style="font-size:1rem">
 	    			<c:choose>    			
 		    			<c:when test="${list.boardState eq 'notice'}"> 공지사항 </c:when>
 		    			<c:when test="${list.boardState eq 'shuttle'}">셔틀문의</c:when>
@@ -121,7 +124,7 @@
 
 	<c:choose>
 	<c:when test="${selectBoard eq null}">
-		<ul class="pagination">
+		<ul class="pagination" style="float:left;margin-top:0px">
 			<li class="page-item">
 				<a href="/controller/admin/totalBoard?page=<%=pVO.getPreviPage()%>">
 			    <i class="material-icons">chevron_left</i>
@@ -138,7 +141,7 @@
 		</ul>
 	</c:when>
 	<c:otherwise>
-		<ul class="pagination">
+		<ul class="pagination" style="float:left;margin-top:0px">
 			<li class="page-item">
 				<a href="/controller/admin/selectBoard?page=<%=pVO.getPreviPage()%>&boardState=${selectBoard}">
 			    <i class="material-icons">chevron_left</i>
@@ -156,10 +159,6 @@
 	</c:otherwise>
 	</c:choose>
 	 											
-	<a href="/controller/admin/selectBoard?boardState=shuttle"><input type="button" value="셔틀"></a>
-	<a href="/controller/admin/selectBoard?boardState=reserveQuestion"><input type="button" value="예약문의"></a>
-	<a href="/controller/admin/selectBoard?boardState=review"><input type="button" value="후기"></a>
-	<a href="/controller/admin/selectBoard?boardState=notice"><input type="button" value="공지사항"></a>
 	
 	</div>	<!-- container -->
 	
