@@ -45,7 +45,10 @@
 		 <ul class="collapsible popout" data-collapsible="accordion">  
 		 <c:forEach items="${selectList}" var="list">
 			  <li>
-			    <div class="collapsible-header"><i class="material-icons">filter_drama</i>${list.title}</div>
+			    <div class="collapsible-header">
+			    <i class="material-icons">
+			    <img width="100%" src="<c:url value='/resources/images/logo.jpg'/>">
+			    </i>${list.title}</div>
 			    <div class="collapsible-body">
 			    <table>
 			    <tr>

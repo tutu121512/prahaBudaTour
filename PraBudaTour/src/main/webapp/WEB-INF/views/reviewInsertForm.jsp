@@ -25,8 +25,8 @@
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
-<script type="text/javascript">
-$(function(){
+	<script type="text/javascript">
+	$(function(){
 	
 	var count = $("input[type=file]").length;
 	$('#thumbnail').on("change", function() {

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import prahaBuda.tour.dto.*;
-import prahaBuda.tour.service.ManageBoardService;
+import prahaBuda.tour.service.*;
 
 @Controller
 @RequestMapping("admin")
@@ -18,7 +18,9 @@ public class adminController {
 	
 	@Autowired
 	private ManageBoardService ManageBoardService;
-	
+
+	@Autowired
+	private UserBenefitService UserBenefitService;
 	
 	@RequestMapping("{viewName}/{fileName}")
 	public String move(
@@ -77,4 +79,13 @@ public class adminController {
 		
 		return "admin/manageMain";
 	}
+	
+	@RequestMapping("AdminUserBenefit")
+	public String adminUserBenefit(Model model) throws Exception{
+		
+		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect();
+		model.addAttribute("userBenefitList", userBenefitList);
+		return "admin/AdminUserBenefit";
+	}
+	
 }

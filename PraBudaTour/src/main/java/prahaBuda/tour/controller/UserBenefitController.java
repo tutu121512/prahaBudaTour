@@ -35,13 +35,21 @@ public class UserBenefitController {
 	@RequestMapping("praha/serviceInsert")
 	public String serviceInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
 	
+		System.out.println("이용혜택" );
 		if(boardDto.getFile()!=null){
 			boardDto.setBoardImg0("null");
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
 			
-		for(int i =0; i<boardDto.getFile().size(); i++){			
+		for(int i =0; i<boardDto.getFile().size(); i++){	
+			System.out.println(boardDto.getFile().get(i).getOriginalFilename());
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+boardDto.getFile().get(i).getOriginalFilename();
@@ -55,6 +63,12 @@ public class UserBenefitController {
 			case 1: boardDto.setBoardImg1(db);  break;
 			case 2: boardDto.setBoardImg2(db);  break;
 			case 3: boardDto.setBoardImg3(db);  break;
+			case 4: boardDto.setBoardImg4(db);  break;
+			case 5: boardDto.setBoardImg5(db);  break;
+			case 6: boardDto.setBoardImg6(db);  break;
+			case 7: boardDto.setBoardImg7(db);  break;
+			case 8: boardDto.setBoardImg8(db);  break;
+			case 9: boardDto.setBoardImg9(db);  break;
 				}
 			}
 		}else{
@@ -62,6 +76,12 @@ public class UserBenefitController {
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
 		}
 		
 		UserBenefitService.serviceInsert(boardDto);

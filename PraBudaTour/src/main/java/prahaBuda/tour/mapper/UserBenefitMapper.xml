@@ -32,9 +32,9 @@
 
 	<insert id="benefitInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
-	password,board_date,board_reply,phone,kakao_id,board_img0,board_img1,board_img2,board_img3) 
+			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
 	VALUES('userBenefit','P',userBenefit_sequence.nextVal,#{writer},#{title},#{content},
-	#{password},sysdate,null,#{phone},#{kakaoId},#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3})
+			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
 	<select id="benefitSelect" resultMap="boardMap" parameterType="int" >
@@ -47,11 +47,18 @@
 	board_img0 boardImg0,
 	board_img1 boardImg1,
 	board_img2 boardImg2,
-	board_img3 boardImg3
-	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2 ,board_img3
-	FROM (SELECT board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3
+	board_img3 boardImg3,
+	board_img4 boardImg4,
+	board_img5 boardImg5,
+	board_img6 boardImg6,
+	board_img7 boardImg7,
+	board_img8 boardImg8,
+	board_img9 boardImg9
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 	from board
-	where board_state='userBenefit' and location='P')) board
+	where board_state='userBenefit' and location='P'
+	order by board_no+0 desc)) board
 	</select>
 	
 	<delete id="benefitDelete" parameterType="boardDTO">
