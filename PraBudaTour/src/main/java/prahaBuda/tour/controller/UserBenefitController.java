@@ -90,6 +90,7 @@ public class UserBenefitController {
 		
 		UserBenefitService.serviceInsert(boardDto);
 		
+		return "redirect:/admin/adminUserBenefit";
 	}
 	
 	//이용혜택 update

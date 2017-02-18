@@ -114,6 +114,7 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
+			<img src='<c:url value="/resources/images/useService.png"/>'>예약관리임
 	  </td></tr></table>
 		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data">
 			<table style="margin-bottom:10px">

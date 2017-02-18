@@ -74,66 +74,16 @@
 			}
 		});
 		
-		$("#InsertBtn").click(function(){
-			var form = $('form')[0];
-	        var formData = new FormData(form);
-			 $.ajax({
-	 					type : "POST",
-	 		            processData: false,
-	 	                contentType: false,
-	 					url : "/controller/userBenefit/praha/serviceInsert",
-	 					enctype: "multipart/form-data",
-	 					data : formData,
-	 					dataType : "text",
-	 					success : function success(data){
-							var list = eval("("+data+")");
-							$("#ListandView").empty();
-							$("#title").val("");
-							$("#wrtier").val("");
-							$("#icon_prefix2").val("");
-							for(var i=0; i<list.length; i++){
-								var headerStr = '<li style="margin-bottom:6px">'
-									headerStr += '<div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">'
-									headerStr += '<table>'
-									headerStr += '<tr><td style="width:10%; padding-bottom: 0px;padding-top:1rem"> '
-//									headerStr += '<img style="max-width:75px" src="'+url+'>'
-									headerStr += '<img style="max-width:75px" src="/controller/'+list[i].boardImg0+'">';
-									headerStr += '</td><td style="width:85%">'
-									headerStr += '<div>'+ list[i].title +'</div>'
-									headerStr += '</td><td>'
-									headerStr += '<a href="#"><i class="material-icons prefix">delete</i></a></td></tr></tbody></table></div>'
-						  		
-						  		var bodyStr ='<div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">'
-						  			bodyStr +='<table>'
-						  			bodyStr +='<tbody id="bodyContent">'
-						  			bodyStr +='<tr>'
-									bodyStr +='<td rowspan="3" width="70%"><pre>'+list[i].content+'</pre></td>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='</tr>'
-									bodyStr +='<tr>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='</tr>'
-									bodyStr +='<tr>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-									bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-								    bodyStr +='<td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>'
-								    bodyStr +='</tr></tbody></table></div></li>'
-									var liStr= headerStr+bodyStr;
-								   
-								    $("#ListandView").append(liStr);
-							  		
-							}
-	 					},
-	 					error : function fail(data){
-	 						alert("실패 : " +data)
-	 					}
-			}); 
-		});
-		
+
+		$(".deleteBtn").click(function(){
+
+			var result = confirm('이 글을 삭제 하시겠습니까?');
+					
+			if(result) { 
+				alert("삭제되었습니다.");
+				location.href="/controller/userBenefit/praha/serviceDelete?boardNo="+$(this).attr("id");				
+				}
+			});
 	});
 	
 	function readURL(input) {
@@ -162,12 +112,11 @@
 	
 	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
 	<main>
-
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/useService.png"/>'>
 	  </td></tr></table>
-		<form id="serviceInsert" method="post" enctype="multipart/form-data">
+		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -206,8 +155,7 @@
 					</div>
 				</div>
 					<div class="row">
-						<a class="waves-effect waves-light btn" style="width:100%" id="InsertBtn">추가
-						</a>
+						<input class="waves-effect waves-light btn" style="width:100%" type="submit" value="추가">
 					</div>
 				</td></tr>
 			</table>
@@ -224,7 +172,7 @@
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>
