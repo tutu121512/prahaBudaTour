@@ -22,6 +22,9 @@ public class adminController {
 	@Autowired
 	private UserBenefitService UserBenefitService;
 	
+	@Autowired
+	private NoticeService NoticeService;
+	
 	@RequestMapping("{viewName}/{fileName}")
 	public String move(
 			@PathVariable("viewName") String viewName,
@@ -74,18 +77,52 @@ public class adminController {
 		model.addAttribute("totalList", totalList);
 		model.addAttribute("page",pageDto);
 		model.addAttribute("selectBoard", boardDTO.getBoardState());
-		System.out.println(totalList.toString());
-		System.out.println(pageDto.toString());
 		
 		return "admin/manageMain";
 	}
 	
-	@RequestMapping("AdminUserBenefit")
+	@RequestMapping("adminUserBenefit")
 	public String adminUserBenefit(Model model) throws Exception{
 		
 		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect();
 		model.addAttribute("userBenefitList", userBenefitList);
-		return "admin/AdminUserBenefit";
+		return "admin/adminUserBenefit";
 	}
 	
+	@RequestMapping("adminReserveComplete")
+	public String adminReserveComplete(Model model,String page,BoardDTO boardDTO) throws Exception{
+		
+		PageDTO pageDto = new PageDTO();
+		if(page == null){
+			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		}else{
+			int curPage = Integer.parseInt(page); //형변환
+			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
+		}
+		
+		boardDTO.setBoardState("reserveQuestion");
+		List<BoardDTO> list = ManageBoardService.ManageSelectBoard(pageDto,boardDTO);
+
+		model.addAttribute("list", list);
+		model.addAttribute("page",pageDto);
+		
+		return "admin/adminReserveComplete";
+	}
+	
+	@RequestMapping("adminNoticeList")
+	public String adminNoticeList(Model model,String page) throws Exception{
+		
+		PageDTO pageDto = new PageDTO();
+		if(page == null){
+			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		}else{
+			int curPage = Integer.parseInt(page); //형변환
+			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
+		}
+		
+		List<BoardDTO> noticeList = NoticeService.NoticeList(pageDto);
+		model.addAttribute("noticeList", noticeList);
+		
+		return "admin/adminNoticeInsert";
+	}
 }

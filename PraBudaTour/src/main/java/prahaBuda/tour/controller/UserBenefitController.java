@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -35,9 +36,8 @@ public class UserBenefitController {
 	}
 	
 	//이용혜택 insert
-	@RequestMapping(value="praha/serviceInsert",produces = "application/text; charset=utf8")
-	@ResponseBody
-	public String serviceInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
+	@RequestMapping(value="praha/serviceInsert")
+	public String serviceInsert(BoardDTO boardDto,HttpServletRequest request,RedirectAttributes redirect) throws Exception{
 	
 		System.out.println("이용혜택" );
 		if(boardDto.getFile()!=null){
@@ -90,29 +90,6 @@ public class UserBenefitController {
 		
 		UserBenefitService.serviceInsert(boardDto);
 		
-		List<BoardDTO> list = UserBenefitService.serviceSelect();
-		
-		//가져온 리스트를 ajax형태인 자바스크립트로 보낼때 
-		//JSON배열로 만들어서 전송
-		JSONArray jsonarray = new JSONArray();
-		for(BoardDTO board : list){ 
-			JSONObject json = new JSONObject();
-			json.put("title", board.getTitle());
-			json.put("content", board.getContent());
-			json.put("boardImg0", board.getBoardImg0());
-			json.put("boardImg1", board.getBoardImg1());
-			json.put("boardImg2", board.getBoardImg2());
-			json.put("boardImg3", board.getBoardImg3());
-			json.put("boardImg4", board.getBoardImg4());
-			json.put("boardImg5", board.getBoardImg5());
-			json.put("boardImg6", board.getBoardImg6());
-			json.put("boardImg7", board.getBoardImg7());
-			json.put("boardImg8", board.getBoardImg8());
-			json.put("boardImg9", board.getBoardImg9());
-			jsonarray.add(json);						
-		}
-		System.out.println(jsonarray.toString());
-		return jsonarray.toString();
 	}
 	
 	//이용혜택 update
@@ -126,9 +103,10 @@ public class UserBenefitController {
 
 	//이용혜택 delete
 	@RequestMapping("praha/serviceDelete")
-	public String serviceDelete(BoardDTO boardDTO) throws Exception{
+	public String serviceDelete(BoardDTO boardDTO,RedirectAttributes redirect) throws Exception{
 		UserBenefitService.serviceDelete(boardDTO);
-		return "pageName";
+		
+		return "redirect:/admin/AdminUserBenefit";
 	}
 	
 	//이용혜택 selectList

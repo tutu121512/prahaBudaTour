@@ -1,6 +1,11 @@
 package prahaBuda.tour.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,12 +51,60 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("praha/NoticeInsert")
-	public String PrahaNoticeInsert(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+	public String PrahaNoticeInsert(BoardDTO boardDto,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
+
+		System.out.println("boardDto.getTilte : " + boardDto.getTitle());
+		if(boardDto.getFile()!=null){
+			boardDto.setBoardImg0("null");
+			boardDto.setBoardImg1("null");
+			boardDto.setBoardImg2("null");
+			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
+			
+		for(int i =0; i<boardDto.getFile().size(); i++){	
+			System.out.println(boardDto.getFile().get(i).getOriginalFilename());
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
+			String Time = dayTime.format(new Date(System.currentTimeMillis()));
+			String imgName = Time+boardDto.getFile().get(i).getOriginalFilename();
+			String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+			File file = new File(path);
+			boardDto.getFile().get(i).transferTo(file);
+
+			String db = "/resources/upload/"+ imgName;
+			switch (i) {
+			case 0: boardDto.setBoardImg0(db);  break;
+			case 1: boardDto.setBoardImg1(db);  break;
+			case 2: boardDto.setBoardImg2(db);  break;
+			case 3: boardDto.setBoardImg3(db);  break;
+			case 4: boardDto.setBoardImg4(db);  break;
+			case 5: boardDto.setBoardImg5(db);  break;
+			case 6: boardDto.setBoardImg6(db);  break;
+			case 7: boardDto.setBoardImg7(db);  break;
+			case 8: boardDto.setBoardImg8(db);  break;
+			case 9: boardDto.setBoardImg9(db);  break;
+				}
+			}
+		}else{
+			boardDto.setBoardImg0("null");
+			boardDto.setBoardImg1("null");
+			boardDto.setBoardImg2("null");
+			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
+		}
 		
 		NoticeService.NoticeInsert(boardDto);
-		System.out.println("insert성공");
 		
-		return "redirect:/notice/praha/noticeBoard";
+		return "redirect:/admin/adminNoticeList";
 	}
 	
 	@RequestMapping("praha/noticeView")
@@ -69,7 +122,7 @@ public class NoticeController {
 		
 		NoticeService.NoticeDelete(boardDto);
 		
-		return "redirect:/notice/praha/noticeBoard";
+		return "redirect:/admin/adminNoticeList";
 	}
 	
 	@RequestMapping("praha/NoticeUpdate")
@@ -77,7 +130,7 @@ public class NoticeController {
 		
 		NoticeService.NoticeUpdate(boardDto);
 		
-		return "redirect:/notice/praha/noticeBoard";
+		return "redirect:/admin/adminNoticeList";
 	}
 	
 	

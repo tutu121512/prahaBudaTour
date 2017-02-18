@@ -74,15 +74,15 @@
 	<td colspan="5" style="padding:0px;background-color:darksalmon;">
 	  <ul class="pagination">
 		<li class="page-item">
-			<a href="/controller/review/praha/reviewBoard?page=<%=pVO.getPreviPage()%>">
+			<a href="/controller/complete/praha/completeBoard?page=<%=pVO.getPreviPage()%>">
 		    <i class="material-icons">chevron_left</i>
 	      </a>
 	    </li>
 	    <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
-	    <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/review/praha/reviewBoard?page=<%=i%>"><%=i %></a></li>
+	    <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/complete/praha/completeBoard?page=<%=i%>"><%=i %></a></li>
 	    <%} %>
 	    <li class="page-item">
-			<a href="/controller/review/praha/reviewBoard?page=<%=pVO.getNextPage()%>">
+			<a href="/controller/complete/praha/completeBoard?page=<%=pVO.getNextPage()%>">
 		    <i class="material-icons">chevron_right</i>
 	      </a>
 	    </li>

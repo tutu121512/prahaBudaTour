@@ -17,8 +17,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public void NoticeInsert(BoardDTO boardDto) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.insert("Notice.NoticeInsert",boardDto);
 	}
 
 	@Override
@@ -33,8 +32,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public void NoticeDelete(BoardDTO boardDto) {
-		// TODO Auto-generated method stub
-
+		sqlSession.delete("Notice.NoticeDelete", boardDto);
 	}
 
 	@Override

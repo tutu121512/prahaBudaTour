@@ -52,7 +52,6 @@
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>

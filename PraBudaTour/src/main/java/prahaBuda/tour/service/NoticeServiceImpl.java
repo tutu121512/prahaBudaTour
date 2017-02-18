@@ -17,8 +17,7 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	@Override
 	public void NoticeInsert(BoardDTO boardDto) throws Exception {
-		// TODO Auto-generated method stub
-		
+			NoticeDao.NoticeInsert(boardDto);
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public void NoticeDelete(BoardDTO boardDto) {
-		
+		NoticeDao.NoticeDelete(boardDto);
 	}
 
 	@Override

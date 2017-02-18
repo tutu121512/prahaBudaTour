@@ -65,9 +65,15 @@
 		board_img0 boardImg0,
 		board_img1 boardImg1,
 		board_img2 boardImg2,
-		board_img3 boardImg3
-		FROM ( select rownum as rnum,board_state,board_no,title,board_date,writer,content,board_img0,board_img1,board_img2,board_img3
-		FROM ( select board_state,board_no,title,board_date,writer,content,board_img0,board_img1,board_img2,board_img3
+		board_img3 boardImg3,
+		board_img4 boardImg4,
+		board_img5 boardImg5,
+		board_img6 boardImg6,
+		board_img7 boardImg7,
+		board_img8 boardImg8,
+		board_img9 boardImg9
+		FROM ( select rownum as rnum,board_state,board_no,title,board_date,writer,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+		FROM ( select board_state,board_no,title,board_date,writer,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 		FROM board
 		WHERE Location='P'
 		and board_State=#{boardState}
