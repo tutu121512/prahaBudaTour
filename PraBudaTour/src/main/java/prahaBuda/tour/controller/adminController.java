@@ -119,7 +119,6 @@ public class adminController {
 		List<ReserveCompleteDTO> completelist = ReserveCompleteService.reserveCompleteBoard(CpageDto);
 		model.addAttribute("completelist", completelist);
 		model.addAttribute("Cpage",CpageDto);
-
 		
 		return "admin/adminReserveComplete";
 	}

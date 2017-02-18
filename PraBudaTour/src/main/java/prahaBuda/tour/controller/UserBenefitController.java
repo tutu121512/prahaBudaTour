@@ -105,7 +105,7 @@ public class UserBenefitController {
 	public String serviceDelete(BoardDTO boardDTO,RedirectAttributes redirect) throws Exception{
 		UserBenefitService.serviceDelete(boardDTO);
 		
-		return "redirect:/admin/AdminUserBenefit";
+		return "redirect:/admin/adminUserBenefit";
 	}
 	
 	//이용혜택 selectList
