@@ -115,19 +115,19 @@
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/useService.png"/>'>예약관리임
 	  </td></tr></table>
-		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data">
+		<form method="post" action="/controller/praha/prahaReserveInsert">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
 						<div class="input-field col s8">
 							<i class="material-icons prefix">title</i>
-							<input id="title" name="title" type="text" class="validate" placeholder="관심을 끌수 있는 제목으로 적어주세요">
-							<label for="title" style="font-size: large;">혜택 타이틀</label>
+							<input id="title" name="title" type="text" class="validate">
+							<label for="title">문의 제목</label>
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
-							<input id="writer" name="writer" type="text" class="validate" value="관리자">
-							<label for="writer" style="font-size: large;">작성자</label>
+							<input id="writer" name="writer" type="text" class="validate">
+							<label for="writer">작성자</label>
 				        </div>
 					</div>
 				</td></tr>
@@ -135,26 +135,42 @@
 					<div class="row" style="margin-bottom:-30px">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="방문자들이 이해하기 쉽게 설명해주세요"></textarea>
-							<label for="icon_prefix2" style="font-size: large;">혜택 내용 (자세하게 입력해주세요)</label>
+							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다."></textarea>
+							<label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
+						</div>
+					</div>
+				</td></tr>
+				<tr><td>
+					<div class="row">
+				        <div class="input-field col s6" style="margin-bottom:-20px">
+							<i class="material-icons prefix">flight_takeoff</i>
+							<input id="statrDate" name="statrDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213">
+							<label for="statrDate">출국일</label>
+				        </div>
+				        <div class="input-field col s6" style="margin-bottom:-20px">
+							<i class="material-icons prefix">flight_land</i>
+							<input id="endDate" name="endDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160217">
+							<label for="endDate">귀국일</label>
+						</div>
+					</div>
+				</td></tr>
+				<tr><td>
+					<div class="row">
+						<div class="input-field col s8">
+							<i class="material-icons prefix">card_giftcard</i>
+							<input id="product" name="product" type="text" class="validate" placeholder="프라하만의 혜택 상품들!! 공지사항을 꼭 확인해주세요 - 100자이내">	
+							<label for="product">신청상품(프라하만의 혜택 상품들!! 공지사항을 꼭 확인해주세요) - 100자이내</label>
+						</div>
+						<div class="input-field col s4" style="margin-bottom:-20px">
+							<i class="material-icons prefix">security</i>
+							<input id="password" name="password" type="password" class="validate" placeholder="4자리만 입력가능" maxlength="4">
+							<label for="password">Password</label>
 						</div>
 					</div>
 				</td></tr>
 				<tr><td style="text-align:center">
-					<div class="col s9">
-						<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
-						<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
-					</div>
-				</td></tr>
-				<tr><td class="centered">
-				<div class="row">
-					<div class="input-field col s8 image-file">
-					</div>
-					<div class="input-field col s4 image-file-size">
-					</div>
-				</div>
 					<div class="row">
-						<input class="waves-effect waves-light btn" style="width:100%" type="submit" value="추가">
+						<input type="submit" value="문의" class="waves-effect waves-light btn" style="width:100%">
 					</div>
 				</td></tr>
 			</table>
