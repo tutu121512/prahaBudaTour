@@ -122,6 +122,14 @@ public class PrahaController {
 		return "redirect:/praha/reserveBoard";
 	}
 	
+	@RequestMapping("adminReserveDelete")
+	public String prahaAdminDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+		ReserveQuestionService.prahaReserveDelete(boardDto);
+		
+		return "redirect:/admin/adminReserveComplete";
+	}
+	
+	
 	@RequestMapping("prahaReserveUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		ReserveQuestionService.prahaReserveUpdate(boardDto);

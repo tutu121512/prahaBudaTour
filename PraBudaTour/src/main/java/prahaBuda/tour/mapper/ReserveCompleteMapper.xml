@@ -20,8 +20,10 @@
    </resultMap>
 	
 	<insert id="resereveCompleteInsert" parameterType="reserveCompleteDTO">
-	INSERT INTO reserveComplete(location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,phone,kakao_id) 
-	values('P',reserveComplete_Sequence.nextVal,sysdate,#{reserveName},#{roomName},#{startsDate},#{endDate},#{peopleNumber},#{price},#{phone},#{kakaoId});
+	INSERT INTO reserveComplete(
+	location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,product,title) 
+	values
+	('P',reserveComplete_Sequence.nextVal,sysdate,#{reserveName},#{roomName},#{startDate},#{endDate},#{peopleNumber},#{price},#{product},#{title})
 	</insert>
 	
 	<select id="reserveCompleteCalendar" resultMap="reserveCompleteMap">

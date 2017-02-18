@@ -65,7 +65,33 @@
 		}
 	});
 	
-		$("#delete").on("click", function() {
+	$(".reserveNo").click(function(){
+		$.ajax({
+			url : '/controller/admin/adminReserveSelect',
+			type : 'post',
+			data : ({
+				boardNo : $(this).attr("id")
+			}),
+			dataType : "text", // html / xml / json / jsonp / text
+			success : function(data) {
+				var boardDTO = eval("("+data+")");
+				$("#title").val(boardDTO.writer+"님이 예약을 확정하셨습니다.");
+				$("#writer").val(boardDTO.writer);
+				$("#icon_prefix2").val(boardDTO.content);
+				$("#startDate").val(boardDTO.startDate);
+				$("#endDate").val(boardDTO.endDate);
+				$("#product").val(boardDTO.product);
+				var str ='<input type="submit" value="문의" class="waves-effect waves-light btn" style="width:100%">'
+				$("#writer").attr("name","reserveName");
+				$("#submitBtn").empty();
+				$("#submitBtn").append(str);
+			},
+			error : function(data) {
+				console.log("에러발생");
+			}
+		});
+	});	
+	$("#delete").on("click", function() {
 			if(count > 0) {
 				$(".image-file").children(":last").remove();
 				$(".image-file-size").children(":last").remove();
@@ -74,15 +100,25 @@
 		});
 		
 
-		$(".deleteBtn").click(function(){
+		$(".questionDeleteBtn").click(function(){
 
 			var result = confirm('이 글을 삭제 하시겠습니까?');
 					
 			if(result) { 
 				alert("삭제되었습니다.");
-				location.href="/controller/userBenefit/praha/serviceDelete?boardNo="+$(this).attr("id");				
+				location.href="/controller/praha/adminReserveDelete?boardNo="+$(this).attr("id");				
 				}
 			});
+
+		$(".completeDeleteBtn").click(function(){
+			var result = confirm('이 글을 삭제 하시겠습니까?');
+			
+			if(result) { 
+				alert("삭제되었습니다.");
+				location.href="/controller/complete/praha/CompleteDelete?boardNo="+$(this).attr("id");				
+				}
+		
+		});
 	});
 	
 	function readURL(input) {
@@ -115,18 +151,18 @@
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/useService.png"/>'>예약관리임
 	  </td></tr></table>
-		<form method="post" action="/controller/praha/prahaReserveInsert">
+		<form method="post" action="/controller/complete/praha/CompleteInsert">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
 						<div class="input-field col s8">
 							<i class="material-icons prefix">title</i>
-							<input id="title" name="title" type="text" class="validate">
+							<input id="title" name="title" type="text" class="validate" placeholder=" ">
 							<label for="title">문의 제목</label>
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
-							<input id="writer" name="writer" type="text" class="validate">
+							<input id="writer" name="writer" type="text" class="validate" placeholder=" ">
 							<label for="writer">작성자</label>
 				        </div>
 					</div>
@@ -144,8 +180,8 @@
 					<div class="row">
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
-							<input id="statrDate" name="statrDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213">
-							<label for="statrDate">출국일</label>
+							<input id="startDate" name="startDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213">
+							<label for="startDate">출국일</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_land</i>
@@ -168,9 +204,28 @@
 						</div>
 					</div>
 				</td></tr>
-				<tr><td style="text-align:center">
+				<tr><td>
 					<div class="row">
-						<input type="submit" value="문의" class="waves-effect waves-light btn" style="width:100%">
+						<div class="input-field col s4" style="margin-bottom:-20px">
+							<i class="material-icons prefix">security</i>
+							<input id="peopleNumber" name="peopleNumber" type="text" class="validate" placeholder="인원수" maxlength="4">
+							<label for="peopleNumber">인원수</label>
+						</div>
+						<div class="input-field col s4" style="margin-bottom:-20px">
+							<i class="material-icons prefix">security</i>
+							<input id="price" name="price" type="text" class="validate" placeholder="금액">
+							<label for="price">금액</label>
+						</div>
+						<div class="input-field col s4" style="margin-bottom:-20px">
+							<i class="material-icons prefix">security</i>
+							<input id="roomName" name="roomName" type="text" class="validate" placeholder="방이름">
+							<label for="roomName">방이름</label>
+						</div>
+					</div>
+				</td>
+				</tr>				
+				<tr><td style="text-align:center">
+					<div class="row" id="submitBtn">
 					</div>
 				</td></tr>
 			</table>
@@ -182,23 +237,13 @@
 			  <li style="margin-bottom:6px">
 			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
 			  	<table>
-			  	<tbody id="headerContent">
-			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			  	<tbody id="collection-item">
+			  	<tr class="reserveNo" id="${list.boardNo}"><td style="width:10%;padding-bottom:0px;padding-top:1rem">
 			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px">
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
-			    </tbody>
-			    </table>
-			    </div>
-			    
-			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
-			    <table>
-			    <tbody id="bodyContent">
-			    <tr>
-			    <td><pre>${list.content}</pre></td>
-			    </tr>
+			    <a href="#"><i class="material-icons prefix questionDeleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>
@@ -237,7 +282,7 @@
 			    </td><td style="width:85%">
 			    <div>${completelist.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix deleteBtn" id="${completelist.boardNo}">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix completeDeleteBtn" id="${completelist.boardNo}">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>

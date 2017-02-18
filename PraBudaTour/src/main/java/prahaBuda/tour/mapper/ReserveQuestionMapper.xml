@@ -58,7 +58,10 @@
 	SELECT *
 	FROM BOARD
 	WHERE board_state='reserveQuestion'and location='P' 
-	and board_no=#{boardNo} and password=#{password}
+	and board_no=#{boardNo}  
+	<if test="password neq null">
+	and password=#{password}
+	</if>
 	</select>
 	
 	<delete id="prahaReserveDelete" parameterType="boardDTO">

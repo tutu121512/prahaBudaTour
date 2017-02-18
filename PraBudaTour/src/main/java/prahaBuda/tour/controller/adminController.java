@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import prahaBuda.tour.dto.*;
@@ -27,6 +28,9 @@ public class adminController {
 	
 	@Autowired
 	private ReserveCompleteService ReserveCompleteService;
+	
+	@Autowired
+	private ReserveQuestionService resereveQeustionService;
 	
 	@RequestMapping("{viewName}/{fileName}")
 	public String move(
@@ -136,7 +140,19 @@ public class adminController {
 		
 		List<BoardDTO> noticeList = NoticeService.NoticeList(pageDto);
 		model.addAttribute("noticeList", noticeList);
-		
+		  
 		return "admin/adminNoticeInsert";
 	}
+	
+	@RequestMapping("adminReserveSelect")
+	@ResponseBody
+	public BoardDTO adminReserve(BoardDTO boardDTO) throws Exception{
+		
+		BoardDTO bDTO = resereveQeustionService.prahaReservePasswordCheck(boardDTO);
+		System.out.println(bDTO.getBoardNo());
+		return bDTO;
+	}
+	
+
+	
 }
