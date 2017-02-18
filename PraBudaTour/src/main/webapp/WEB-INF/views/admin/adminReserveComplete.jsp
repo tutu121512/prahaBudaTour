@@ -3,10 +3,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 <% 
-	PageDTO pVO = (PageDTO)request.getAttribute("page");
-	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
-	List<BoardDTO> reserve = (List<BoardDTO>)request.getAttribute("reserveList");
-	List<BoardDTO> notice = (List<BoardDTO>)request.getAttribute("noticetList");
+	PageDTO qpVO = (PageDTO)request.getAttribute("Qpage");
+	PageDTO cpVO = (PageDTO)request.getAttribute("Cpage");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -160,7 +159,8 @@
 				</td></tr>
 			</table>
 		</form>
-	
+		
+		<div style="width: 48%;  float: left;">
 		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${list}" var="list">
 			  <li style="margin-bottom:6px">
@@ -177,7 +177,6 @@
 			    </table>
 			    </div>
 			    
-			    
 			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
 			    <table>
 			    <tbody id="bodyContent">
@@ -191,21 +190,81 @@
 		  </c:forEach>
 		</ul>
 		
-		<ul class="pagination" style="float:left;margin-top:0px">
+		<ul class="pagination" style="float:left;margin-top:0px;padding-left:30%">
 			<li class="page-item">
-				<a href="/controller/admin/adminReserveComplete?page=<%=pVO.getPreviPage()%>&boardState=reserveQuestion">
+				<a href="/controller/admin/adminReserveComplete?Qpage=<%=qpVO.getPreviPage()%>&boardState=reserveQuestion">
 			    <i class="material-icons">chevron_left</i>
 			     </a>
 			   </li>
-			   <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
-			   <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/admin/adminReserveComplete?page=<%=i%>&boardState=reserveQuestion"><%=i %></a></li>
+			   <%for(int i=qpVO.getStartPage(); i <= qpVO.getEndPage() ; i++) {%>
+			   <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/admin/adminReserveComplete?Qpage=<%=i%>&boardState=reserveQuestion"><%=i %></a></li>
 			   <%} %>
 			   <li class="page-item">
-				<a href="/controller/admin/adminReserveComplete?page=<%=pVO.getNextPage()%>&boardState=reserveQuestion">
+				<a href="/controller/admin/adminReserveComplete?Qpage=<%=qpVO.getNextPage()%>&boardState=reserveQuestion">
 			    <i class="material-icons">chevron_right</i>
 		       </a>
 		   </li>
 		</ul>
+		</div>
+		
+		<!-- ----------------------------------------------------------------------------------------------------- -->
+
+		<div style="width: 48%; float: right;">
+		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+		 <c:forEach items="${completelist}" var="completelist">
+			  <li style="margin-bottom:6px">
+			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			  	<table>
+			  	<tbody id="headerContent">
+			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px">
+			    </td><td style="width:85%">
+			    <div>${completelist.title}</div>
+			    </td><td>
+			    <a href="#"><i class="material-icons prefix deleteBtn" id="${completelist.boardNo}">delete</i></a></td></tr>
+			    </tbody>
+			    </table>
+			    </div>
+			    
+			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
+			    <table>
+			    <tbody id="bodyContent">
+			    <tr>
+			    <td><pre>${completelist.reserveName} 님
+즐겨찾기 게스트하우스에 관심가져 주셔서 감사합니다.
+문의 하신 날짜에 ( )박 예약확정 되셨습니다.
+예약사항을 확인하시고 변경사항이 있으심녀 언제든지 카톡남겨주시기 바랍니다.
+아름다운 프라하에서 즐겨찾기와 함께 행복한 시간이 되기를 바랍니다 ^^
+			    </pre>
+			    <img style="padding-left:22%" src="<c:url value='/resources/images/favicon.png'/>">
+			    </td>
+			    </tr>
+			    </tbody>
+			    </table>
+			    </div>
+			  </li>
+		  </c:forEach>
+		</ul>
+		
+		<ul class="pagination" style="float:left;margin-top:0px;padding-left:35%;">
+			<li class="page-item">
+				<a href="/controller/admin/adminReserveComplete?Cpage=<%=cpVO.getPreviPage()%>">
+			    <i class="material-icons">chevron_left</i>
+			     </a>
+			   </li>
+			   <%for(int i=cpVO.getStartPage(); i <= cpVO.getEndPage() ; i++) {%>
+			   <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/admin/adminReserveComplete?Cpage=<%=i%>"><%=i %></a></li>
+			   <%} %>
+			   <li class="page-item">
+				<a href="/controller/admin/adminReserveComplete?Cpage=<%=cpVO.getNextPage()%>">
+			    <i class="material-icons">chevron_right</i>
+		       </a>
+		   </li>
+		</ul>
+		</div>
+
+
+		
 	  </div>	<!-- container -->
 	
 	

@@ -15,8 +15,8 @@
       <result column="end_Date" property="endDate"/>
       <result column="people_Number" property="peopleNumber"/>
       <result column="price" property="price"/>
-      <result column="phone" property="phone" />
-      <result column="kakao_id" property="kakaoId"/>
+      <result column="product" property="product"/>
+      <result column="title" property="title"/>
    </resultMap>
 	
 	<insert id="resereveCompleteInsert" parameterType="reserveCompleteDTO">
@@ -33,9 +33,10 @@
 	SELECT board.board_no boardNo,
 	board.reserve_name reserveName,
 	board.room_Name roomName,
-	to_char(board.board_date,'YYYY/MM/DD') as boardDate
-	FROM (SELECT rownum as rnum,board_no,reserve_name,room_name,board_date
-	FROM (SELECT board_no,reserve_name,room_name,board_date
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
+	board.title title
+	FROM (SELECT rownum as rnum,board_no,reserve_name,room_name,board_date,title
+	FROM (SELECT board_no,reserve_name,room_name,board_date,title
 	from reserveComplete
 	where location='P'
 	order by Board_no+0 desc) ) board

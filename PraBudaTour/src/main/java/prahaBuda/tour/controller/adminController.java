@@ -25,6 +25,9 @@ public class adminController {
 	@Autowired
 	private NoticeService NoticeService;
 	
+	@Autowired
+	private ReserveCompleteService ReserveCompleteService;
+	
 	@RequestMapping("{viewName}/{fileName}")
 	public String move(
 			@PathVariable("viewName") String viewName,
@@ -90,21 +93,33 @@ public class adminController {
 	}
 	
 	@RequestMapping("adminReserveComplete")
-	public String adminReserveComplete(Model model,String page,BoardDTO boardDTO) throws Exception{
+	public String adminReserveComplete(Model model,String Qpage,BoardDTO boardDTO,String Cpage) throws Exception{
 		
-		PageDTO pageDto = new PageDTO();
-		if(page == null){
-			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		PageDTO QpageDto = new PageDTO();
+		if(Qpage == null){
+			QpageDto.setCurPage(1);				//page값이 null이면 1로 지정
 		}else{
-			int curPage = Integer.parseInt(page); //형변환
-			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
+			int curPage = Integer.parseInt(Qpage); //형변환
+			QpageDto.setCurPage(curPage);			//현제페이지값 set해주기
 		}
 		
 		boardDTO.setBoardState("reserveQuestion");
-		List<BoardDTO> list = ManageBoardService.ManageSelectBoard(pageDto,boardDTO);
-
+		List<BoardDTO> list = ManageBoardService.ManageSelectBoard(QpageDto,boardDTO);
 		model.addAttribute("list", list);
-		model.addAttribute("page",pageDto);
+		model.addAttribute("Qpage",QpageDto);
+
+		PageDTO CpageDto = new PageDTO();
+		if(Cpage == null){
+			CpageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		}else{
+			int curPage = Integer.parseInt(Cpage); //형변환
+			CpageDto.setCurPage(curPage);			//현제페이지값 set해주기
+		}
+		
+		List<ReserveCompleteDTO> completelist = ReserveCompleteService.reserveCompleteBoard(CpageDto);
+		model.addAttribute("completelist", completelist);
+		model.addAttribute("Cpage",CpageDto);
+
 		
 		return "admin/adminReserveComplete";
 	}

@@ -60,7 +60,6 @@
 	where location='P' and board_state='tourInfo'
 	</select>
 	
-	
 	<delete id="InfoDelete" parameterType="boardDTO">
 	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='tourInfo' and location='P'
 	</delete>
