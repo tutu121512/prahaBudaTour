@@ -199,6 +199,7 @@
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
 			    </tr>
+			    
 			    </tbody>
 			    </table>
 			    </div>
