@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import prahaBuda.tour.dao.UserBenefitDao;
 import prahaBuda.tour.dto.BoardDTO;
-import prahaBuda.tour.dto.PageDTO;
-import prahaBuda.tour.dao.*;
 @Service
 public class UserBenefitServiceImpl implements UserBenefitService {
 

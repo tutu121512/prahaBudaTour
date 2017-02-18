@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import prahaBuda.tour.dao.*;
-import prahaBuda.tour.dto.*;
+import prahaBuda.tour.dao.ManageBoardDao;
+import prahaBuda.tour.dto.BoardDTO;
+import prahaBuda.tour.dto.PageDTO;
 
 @Service
 public class ManageBoardServiceImpl implements ManageBoardService {

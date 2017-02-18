@@ -37,11 +37,10 @@ public class ShuttleController {
 			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
 		}
 		
-		
 		List<BoardDTO> selectList =  ShuttleService.ShuttleList(pageDto);
 		model.addAttribute("shuttleSelectList", selectList);
 		model.addAttribute("page",pageDto);
-		return "shuttleBoard";
+		return "prahaShuttle/shuttleBoard";
 	}
 	
 	@RequestMapping("praha/ShuttleInsert")
@@ -63,7 +62,7 @@ public class ShuttleController {
 		
 		if(bDTO!=null){
 			model.addAttribute("shuttleViewInfo",bDTO);
-			nextpage="shuttleView";
+			nextpage="prahaShuttle/shuttleView";
 		}else{
 			nextpage="redirect:/shuttle/praha/shuttleBoard";
 		}

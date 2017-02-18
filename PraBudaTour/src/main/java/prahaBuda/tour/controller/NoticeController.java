@@ -25,12 +25,16 @@ public class NoticeController {
 	@Autowired 
 	private NoticeService NoticeService;
 	
-	@RequestMapping("{fileName}")
-	public String noneSignUpMove(
+	@RequestMapping("{viewName}/{fileName}")
+	public String onlyMove(
+			@PathVariable("viewName") String viewName,
 			@PathVariable("fileName") String fileName){
-		return fileName;
+		return viewName + "/" +fileName;
 	}
 	
+	/*
+	 * 유저 
+	 * */
 	
 	@RequestMapping("praha/noticeBoard")
 	public String PrahaNoticeSelect(BoardDTO boardDto,Model model,String page) throws Exception{
@@ -43,12 +47,26 @@ public class NoticeController {
 			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
 		}
 		
-		
 		List<BoardDTO> selectList =  NoticeService.NoticeList(pageDto);
 		model.addAttribute("noticeSelectList", selectList);
 		model.addAttribute("page",pageDto);
-		return "noticeBoard";
+		return "prahaCommunity/noticeBoard";
 	}
+	
+
+	@RequestMapping("praha/noticeView")
+	public String prahaNoticePasswordCheck(BoardDTO boardDto,Model model,RedirectAttributes redirect) throws Exception{
+		
+		BoardDTO bDTO =NoticeService.NoticeView(boardDto);
+		model.addAttribute("noticeViewInfo",bDTO);
+		
+		return "prahaCommunity/noticeView";
+		
+	}
+	
+	/*
+	 * 관리자
+	 * */
 	
 	@RequestMapping("praha/NoticeInsert")
 	public String PrahaNoticeInsert(BoardDTO boardDto,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
@@ -105,16 +123,6 @@ public class NoticeController {
 		NoticeService.NoticeInsert(boardDto);
 		
 		return "redirect:/admin/adminNoticeList";
-	}
-	
-	@RequestMapping("praha/noticeView")
-	public String prahaNoticePasswordCheck(BoardDTO boardDto,Model model,RedirectAttributes redirect) throws Exception{
-		
-		BoardDTO bDTO =NoticeService.NoticeView(boardDto);
-		model.addAttribute("noticeViewInfo",bDTO);
-		
-		return "noticeView";
-		
 	}
 	
 	@RequestMapping("praha/NoticeDelete")

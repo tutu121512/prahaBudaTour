@@ -3,7 +3,6 @@ package prahaBuda.tour.service;
 import java.util.List;
 
 import prahaBuda.tour.dto.BoardDTO;
-import prahaBuda.tour.dto.PageDTO;
 
 public interface UserBenefitService {
 

@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import prahaBuda.tour.dto.BoardDTO;
 import prahaBuda.tour.service.UserBenefitService;
 
@@ -116,16 +114,16 @@ public class UserBenefitController {
 		List<BoardDTO> selectList = UserBenefitService.serviceSelect();
 		m.addAttribute("selectList", selectList);
 		System.out.println("selectList : "+selectList.toString());
-		return "userBenefitBoard";
+		return "prahaUseGuide/userBenefitBoard";
 	}
 	
 	//이용혜택 selectList
 	@RequestMapping("serviceView")
-	public String serviceView(BoardDTO boardDTO) throws Exception{
+	@ResponseBody
+	public void serviceView(BoardDTO boardDTO) throws Exception{
 		HashMap<String, Object> viewAndList = new HashMap<String,Object>();
 		List<BoardDTO> selectList = null;
 		viewAndList.put("selectView", boardDTO);
 		viewAndList.put("selectList", selectList);
-		return null;
 	}
 }

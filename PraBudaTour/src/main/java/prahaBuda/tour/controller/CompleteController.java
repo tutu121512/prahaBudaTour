@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import prahaBuda.tour.dto.BoardDTO;
 import prahaBuda.tour.dto.PageDTO;
 import prahaBuda.tour.dto.ReserveCompleteDTO;
 import prahaBuda.tour.service.ReserveCompleteService;
@@ -27,7 +26,7 @@ public class CompleteController {
 		System.out.println(reserveCompleteDTO.toString());
 		model.addAttribute("CalendarList", reserveCompleteDTO);
 
-		return "reserveCalendar";
+		return "prahaReserve/reserveCalendar";
 	}
 	
 	@RequestMapping("praha/completeBoard")
@@ -41,32 +40,29 @@ public class CompleteController {
 			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
 		}
 		
-		
 		List<ReserveCompleteDTO> completeList =  CompleteService.reserveCompleteBoard(pageDto);
 		System.out.println(completeList.toString());
 		model.addAttribute("CompleteList", completeList);
 		model.addAttribute("page",pageDto);
-		return "reserveCompleteBoard";
+		
+		return "prahaReserve/reserveCompleteBoard";
 	}
 	
 	@RequestMapping("praha/CompleteInsert")
-	public String reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		
-		
-		
+	@ResponseBody
+	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
 		CompleteService.reserveCompleteInsert(reserveCompleteDTO);
-		 return null;
 	}
 
 	@RequestMapping("praha/CompleteUpdate")
-	public String reserveCompleteUpdate(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+	@ResponseBody
+	public void reserveCompleteUpdate(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
 		CompleteService.reserveCompleteUpdate(reserveCompleteDTO);
-		return null;
 	}
 
 	@RequestMapping("praha/CompleteDelete")
-	public String reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+	@ResponseBody
+	public void reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
 		CompleteService.reserveCompleteDelete(reserveCompleteDTO);
-		return null;
 	}
 }

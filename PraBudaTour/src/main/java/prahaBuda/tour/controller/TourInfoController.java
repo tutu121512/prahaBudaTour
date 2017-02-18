@@ -3,7 +3,6 @@ package prahaBuda.tour.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import prahaBuda.tour.dto.*;
-import prahaBuda.tour.service.*;
+import prahaBuda.tour.dto.BoardDTO;
+import prahaBuda.tour.dto.PageDTO;
+import prahaBuda.tour.service.TourInfoService;
 
 @Controller
 @RequestMapping("tourInfo")
@@ -33,8 +33,7 @@ public class TourInfoController {
 	
 	//여행정보 insert
 	@RequestMapping("tourInfoInsert")
-	public String tourInfoInsert(BoardDTO boardDto,HttpServletRequest request) throws Exception{
-	
+	public String tourInfoInsert(BoardDTO boardDto, HttpServletRequest request) throws Exception{
 		if(boardDto.getFile()!=null){
 			boardDto.setBoardImg0("null");
 			boardDto.setBoardImg1("null");
@@ -63,7 +62,6 @@ public class TourInfoController {
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
 		}
-		
 		TourInfoService.tourInfoInsert(boardDto);
 		return "pageName";
 	}
@@ -71,10 +69,8 @@ public class TourInfoController {
 	//여행정보 update
 	@RequestMapping("tourInfoUpdate")
 	public String tourInfoUpdate(BoardDTO boardDTO) throws Exception{
-
 		TourInfoService.tourInfoUpdate(boardDTO);
 		return "pageName";
-		
 	}		 
 
 	//여행정보 delete
@@ -87,7 +83,6 @@ public class TourInfoController {
 	//여행정보 selectList
 	@RequestMapping("tourInfoSelect")
 	public String tourInfoSelect(BoardDTO boardDto,Model model,String page) throws Exception{
-		
 		PageDTO pageDto = new PageDTO();
 		if(page == null){
 			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
@@ -95,9 +90,6 @@ public class TourInfoController {
 			int curPage = Integer.parseInt(page); //형변환
 			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
 		}
-
-		
-		
 		List<BoardDTO> selectList = TourInfoService.tourInfoSelect(pageDto);
 		model.addAttribute("selectList", selectList);
 		model.addAttribute("page",pageDto);

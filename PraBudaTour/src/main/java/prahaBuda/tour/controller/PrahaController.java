@@ -38,6 +38,13 @@ public class PrahaController {
 		return fileName;
 	}
 	
+	@RequestMapping("{viewName}/{fileName}")
+	public String onlyMove(
+			@PathVariable("viewName") String viewName,
+			@PathVariable("fileName") String fileName){
+		return viewName + "/" +fileName;
+	}
+	
 	@RequestMapping("prahaMain")
 	public ModelAndView PrahaMain() throws Exception{
 		
@@ -55,7 +62,7 @@ public class PrahaController {
 		System.out.println("후기 : " + reviewList.toString());
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("prahaMain");
+		mv.setViewName("main/prahaMain");
 		mv.addObject("noticetList", noticeList);
 		mv.addObject("userBenefitList", userBenefitList);
 		mv.addObject("tourInfoList", tourInfoList);
@@ -79,7 +86,7 @@ public class PrahaController {
 		List<BoardDTO> selectList =  ReserveQuestionService.ReserveQuestionList(pageDto);
 		model.addAttribute("reserveSelectList", selectList);
 		model.addAttribute("page",pageDto);
-		return "reserveBoard";
+		return "prahaReserve/reserveBoard";
 	}
 	
 	@RequestMapping("prahaReserveInsert")
@@ -98,21 +105,18 @@ public class PrahaController {
 		System.out.println("값 : " + boardDto.getBoardNo() +"  - " + boardDto.getPassword());
 		BoardDTO bDTO =ReserveQuestionService.prahaReservePasswordCheck(boardDto);
 		
-		
 		if(bDTO!=null){
 			model.addAttribute("reserveViewInfo",bDTO);
-			nextpage="reserveView";
+			nextpage="prahaReserve/reserveView";
 		}else{
 			nextpage="redirect:/praha/reserveBoard";
 		}
 		
 		return nextpage;
-		
 	}
 	
 	@RequestMapping("prahaReserveDelete")
 	public String prahaReserveDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
-		
 		ReserveQuestionService.prahaReserveDelete(boardDto);
 		
 		return "redirect:/praha/reserveBoard";
@@ -120,11 +124,8 @@ public class PrahaController {
 	
 	@RequestMapping("prahaReserveUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
-
 		ReserveQuestionService.prahaReserveUpdate(boardDto);
 		
 		return "redirect:/praha/reserveBoard";
 	}
-	
-	
 }

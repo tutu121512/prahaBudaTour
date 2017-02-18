@@ -25,11 +25,11 @@ public class ReviewController {
 	@Autowired 
 	private ReviewService ReviewService;
 	
-	
-	@RequestMapping("{fileName}")
-	public String noneSignUpMove(
+	@RequestMapping("{viewName}/{fileName}")
+	public String onlyMove(
+			@PathVariable("viewName") String viewName,
 			@PathVariable("fileName") String fileName){
-		return fileName;
+		return viewName + "/" +fileName;
 	}
 	
 	@RequestMapping("praha/reviewBoard")
@@ -43,11 +43,10 @@ public class ReviewController {
 			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
 		}
 		
-		
 		List<BoardDTO> selectList =  ReviewService.ReviewList(pageDto);
 		model.addAttribute("reviewSelectList", selectList);
 		model.addAttribute("page",pageDto);
-		return "reviewBoard";
+		return "prahaReview/reviewBoard";
 	}
 	
 	@RequestMapping("praha/ReviewInsert")
@@ -107,7 +106,7 @@ public class ReviewController {
 		BoardDTO bDTO =ReviewService.prahaReviewView(boardDto);
 		model.addAttribute("reviewViewInfo",bDTO);
 		
-		return "reviewView";
+		return "prahaReview/reviewView";
 	}
 	
 	@RequestMapping("praha/reviewDelete")
