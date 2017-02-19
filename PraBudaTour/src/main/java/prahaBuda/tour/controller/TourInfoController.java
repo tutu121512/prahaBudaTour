@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import prahaBuda.tour.dto.BoardDTO;
 import prahaBuda.tour.dto.PageDTO;
@@ -33,12 +34,18 @@ public class TourInfoController {
 	
 	//여행정보 insert
 	@RequestMapping("tourInfoInsert")
-	public String tourInfoInsert(BoardDTO boardDto, HttpServletRequest request) throws Exception{
+	public String tourInfoInsert(BoardDTO boardDto, HttpServletRequest request,RedirectAttributes redirect) throws Exception{
 		if(boardDto.getFile()!=null){
 			boardDto.setBoardImg0("null");
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
 			
 		for(int i =0; i<boardDto.getFile().size(); i++){			
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
@@ -61,9 +68,15 @@ public class TourInfoController {
 			boardDto.setBoardImg1("null");
 			boardDto.setBoardImg2("null");
 			boardDto.setBoardImg3("null");
+			boardDto.setBoardImg4("null");
+			boardDto.setBoardImg5("null");
+			boardDto.setBoardImg6("null");
+			boardDto.setBoardImg7("null");
+			boardDto.setBoardImg8("null");
+			boardDto.setBoardImg9("null");
 		}
 		TourInfoService.tourInfoInsert(boardDto);
-		return "pageName";
+		return "redirect:/admin/adminTourInfo";
 	}
 	
 	//여행정보 update
@@ -76,13 +89,15 @@ public class TourInfoController {
 	//여행정보 delete
 	@RequestMapping("tourInfoDelete")
 	public String tourInfoDelete(BoardDTO boardDTO) throws Exception{
+		System.out.println("tourInfoDelete : " +boardDTO.getBoardNo());
 		TourInfoService.tourInfoDelete(boardDTO);
-		return "pageName";
+		return "redirect:/admin/adminTourInfo";
 	}
 	
 	//여행정보 selectList
 	@RequestMapping("tourInfoSelect")
 	public String tourInfoSelect(BoardDTO boardDto,Model model,String page) throws Exception{
+		
 		PageDTO pageDto = new PageDTO();
 		if(page == null){
 			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
@@ -93,7 +108,7 @@ public class TourInfoController {
 		List<BoardDTO> selectList = TourInfoService.tourInfoSelect(pageDto);
 		model.addAttribute("selectList", selectList);
 		model.addAttribute("page",pageDto);
-		return "pageName";
+		return "prahaCommunity/tourInfoBoard";
 
 	}
 	

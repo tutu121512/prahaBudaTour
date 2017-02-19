@@ -21,17 +21,17 @@ public class TourInfoDaoImpl implements TourInfoDao {
 
 	@Override
 	public void tourInfoUpdate(BoardDTO boardDTO) throws Exception {
-		sqlSession.update("TourInfo.InfoDelete",boardDTO);
+		sqlSession.update("TourInfo.InfoUpdate",boardDTO);
 	}
 
 	@Override
 	public void tourInfoDelete(BoardDTO boardDTO) throws Exception {
-		sqlSession.delete("TourInfo.InfoUpdate",boardDTO);
-	}
+		sqlSession.delete("TourInfo.InfoDelete",boardDTO);
+	} 
 
 	@Override
-	public List<BoardDTO> tourInfoSelect(int curPage) throws Exception {
-		return sqlSession.selectList("TourInfo.InfoSelect",curPage);
+	public List<BoardDTO> tourInfoSelect( ) throws Exception {
+		return sqlSession.selectList("TourInfo.InfoSelect");
 	}
 
 	@Override

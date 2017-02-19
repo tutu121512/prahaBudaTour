@@ -39,19 +39,26 @@
 	
 	<select id="InfoSelect" resultMap="boardMap" parameterType="int" >
 	SELECT
-	board_no boardNo,
-	writer as writer,
-	title as title,
-	to_char(board_date,'YYYY/MM/DD') as boardDate,
+	board.board_no boardNo,
+	board.writer as writer,
+	board.title as title,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
 	content content,
 	board_img0 boardImg0,
 	board_img1 boardImg1,
 	board_img2 boardImg2,
-	board_img3 boardImg3
-	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content content,board_img0,board_img1,board_img2,board_img3
-	FROM (SELECT board_no,writer,title,board_Date,content content,board_img0,board_img1,board_img2,board_img3
+	board_img3 boardImg3,
+	board_img4 boardImg4,
+	board_img5 boardImg5,
+	board_img6 boardImg6,
+	board_img7 boardImg7,
+	board_img8 boardImg8,
+	board_img9 boardImg9
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 	from board
-	where board_state='tourInfo' and location='P'))
+	where board_state='tourInfo' and location='P'
+	order by board_no+0 desc)) board
 	</select>
 	
 	<select id="InfoSelectCount" resultType="int">
@@ -61,7 +68,7 @@
 	</select>
 	
 	<delete id="InfoDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='tourInfo' and location='P'
+	DELETE FROM BOARD WHERE BOARD_NO= #{boardNo} and BOARD_STATE='tourInfo' and location='P'	
 	</delete>
 	
 	<update id="InfoUpdate" parameterType="boardDTO">

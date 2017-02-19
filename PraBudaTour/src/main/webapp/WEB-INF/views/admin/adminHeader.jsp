@@ -25,7 +25,7 @@
        <li class="no-padding">
            <ul class="collapsible collapsible-accordion">
             <li class="bold">
-            <a style="font-size:20px;color:white" class="collapsible-header  waves-effect waves-teal">여행정보 관리</a>
+            <a href="/controller/admin/adminTourInfo" style="font-size:20px;color:white" class="collapsible-header  waves-effect waves-teal">여행정보 관리</a>
             </li>
           </ul>
         </li>

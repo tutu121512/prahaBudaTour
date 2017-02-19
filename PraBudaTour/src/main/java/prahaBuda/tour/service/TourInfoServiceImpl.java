@@ -34,12 +34,12 @@ public class TourInfoServiceImpl implements TourInfoService {
 	@Override
 	public List<BoardDTO> tourInfoSelect(PageDTO pageDto) throws Exception {
 		//paging 부분
-		int tourInfoSelectCount = tourInfoSelectCount();
+/*		int tourInfoSelectCount = tourInfoSelectCount();
 		pageDto.setCount(tourInfoSelectCount);				//notice 테이블에서 가져온 값 pageVO에 Count에 set해주기
 		PageDTO pVO = paging(pageDto);
 		int curPage = pVO.getCurPage();
-		
-		return TourInfoDao.tourInfoSelect(curPage);
+*/		
+		return TourInfoDao.tourInfoSelect();
 
 	}
 

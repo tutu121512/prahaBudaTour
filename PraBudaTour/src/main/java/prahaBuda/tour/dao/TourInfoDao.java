@@ -16,7 +16,7 @@ public interface TourInfoDao {
 	public void tourInfoDelete(BoardDTO boardDTO) throws Exception;
 	
 	//이용혜택 selectList
-	public List<BoardDTO> tourInfoSelect(int curPage) throws Exception;
+	public List<BoardDTO> tourInfoSelect( ) throws Exception;
 	
 	public int tourInfoSelectCount() throws Exception;		
 }

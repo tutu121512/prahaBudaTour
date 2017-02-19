@@ -78,7 +78,7 @@
 					
 			if(result) { 
 				alert("삭제되었습니다.");
-				location.href="/controller/userBenefit/praha/serviceDelete?boardNo="+$(this).attr("id");				
+				location.href="/controller/tourInfo/tourInfoDelete?boardNo="+$(this).attr("id");				
 				}
 			});
 	});
@@ -111,9 +111,9 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/useService.png"/>'>
+			<img src='<c:url value="/resources/images/useService.png"/>'>안녕 나는 여행정보입력이야^~^
 	  </td></tr></table>
-		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data">
+		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -159,7 +159,7 @@
 		</form>
 	
 		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
-		 <c:forEach items="${userBenefitList}" var="list">
+		 <c:forEach items="${tourInfoList}" var="list">
 			  <li style="margin-bottom:6px">
 			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
 			  	<table>
