@@ -120,7 +120,14 @@ public class ReviewController {
 	@RequestMapping("praha/reviewUpdate")
 	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		ReviewService.ReviewUpdate(boardDto);
+		BoardDTO bDTO =ReviewService.prahaReviewView(boardDto);
+		
+		System.out.println("게시글의 비밀번호 : " + bDTO.getPassword());
+		System.out.println("내가 입력한 비밀번호 : " + boardDto.getPassword());
+		if(bDTO.getPassword().equals(boardDto.getPassword())){
+			System.out.println("업데이트 성공");
+			ReviewService.ReviewUpdate(boardDto);
+		}
 		
 		return "redirect:/review/praha/reviewBoard";
 	}

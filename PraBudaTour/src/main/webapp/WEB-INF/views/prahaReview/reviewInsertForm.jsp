@@ -129,6 +129,13 @@ document.getElementById("reviewInsertForm").submit();
 						</div>
 					</div>
 				</td></tr>
+				<tr><td> 
+					<div class="input-field col s4" style="margin-bottom:-20px; width: 20%;">
+					<i class="material-icons prefix">security</i>
+					<input id="password" name="password" type="password" class="validate" placeholder="4자리만 입력가능" maxlength="4">
+					<label for="password">Password</label>
+				</div>
+				</td></tr>
 				<tr><td style="text-align:center">
 					<div class="col s9">
 						<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>

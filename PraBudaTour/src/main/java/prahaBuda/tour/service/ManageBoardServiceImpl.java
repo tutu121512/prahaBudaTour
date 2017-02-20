@@ -85,4 +85,9 @@ public class ManageBoardServiceImpl implements ManageBoardService {
 	public int ManageSelectBoardCount(BoardDTO boardDTO) throws Exception {
 		return managerBoardDao.ManageSelectBoardCount(boardDTO);
 	}
+
+	@Override
+	public int manageBoardReply(BoardDTO boardDTO) throws Exception {
+		return managerBoardDao.manageBoardReply(boardDTO);
+	}
 }

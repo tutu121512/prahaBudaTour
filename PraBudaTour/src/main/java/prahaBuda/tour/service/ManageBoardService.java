@@ -16,5 +16,6 @@ public interface ManageBoardService {
 
 	public int ManageSelectBoardCount(BoardDTO boardDTO) throws Exception;
 
+	public int manageBoardReply(BoardDTO boardDTO) throws Exception;
 	
 }

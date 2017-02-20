@@ -30,9 +30,9 @@
 </resultMap>
 
 	<insert id="ReviewInsert" parameterType="boardDTO" >
-	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,password,
 			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
-	VALUES('review','P',Review_sequence.nextVal,#{writer},#{title},#{content},
+	VALUES('review','P',Review_sequence.nextVal,#{writer},#{title},#{content},#{password},
 			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
@@ -68,7 +68,7 @@
 	
 	<update id="prahaReviewUpdate" parameterType="boardDTO">
 	UPDATE BOARD SET title=#{title},
-	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password},phone=#{phone},kakao_id=#{kakaoId} 
+	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password}
 	 WHERE BOARD_NO=#{boardNo} AND board_state='review' and location='P'
 	</update>
 </mapper>

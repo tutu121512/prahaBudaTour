@@ -174,5 +174,16 @@ public class adminController {
 		return "admin/adminTourInfo";
 	}
 	
-	
+	@RequestMapping("adminBoardReply")
+	public String adminBoardReply(BoardDTO boardDTO,RedirectAttributes redirect) throws Exception{
+		
+		System.out.println(boardDTO.getBoardNo());
+		System.out.println(boardDTO.getBoardReply());
+		System.out.println(boardDTO.getBoardState());
+		
+		ManageBoardService.manageBoardReply(boardDTO);
+		
+		
+		return "redirect:/admin/selectBoard?boardState="+boardDTO.getBoardState();
+	}
 }

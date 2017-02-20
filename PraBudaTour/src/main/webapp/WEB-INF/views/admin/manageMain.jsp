@@ -32,6 +32,19 @@
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<script type="text/javascript">
+	$(function(){
+		
+		$(".reply").click(function(){
+			$(this).parents().find('#'+$(this).attr("id")).submit(); 
+		});
+		
+		$(".replyUpdate").click(function(){
+			$(this).parents().find("#boardReply").contents().unwrap().wrap('<textarea name="boardReply" class="materialize-textarea" placeholder="답변을 달아주세요""></textarea>');
+			$(this).attr("class","waves-effect waves-light btn reply");
+		});
+	});
+	</script>
 	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
 	<main>
 
@@ -116,7 +129,34 @@
 		<c:if test="${list.boardImg3 != 'null'}">
 			<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
 		</c:if>
-	    
+	    <c:if test="${list.boardState eq 'reserveQuestion' or list.boardState eq 'shuttle'}">
+	    	<c:choose>
+	    	<c:when test="${list.boardReply eq null}">
+			<div class="col s12">
+					<form id="${list.boardNo}" method="post" action="/controller/admin/adminBoardReply">
+					<input type="hidden" name="boardState" id="boardState" value="${list.boardState}">
+					<input type="hidden" name="boardNo" id="boardNo" value="${list.boardNo}">
+					<table class="centered" style="background-color: blanchedalmond; border-radius: 30px;"><tr><td class="centered">
+					<tr><td width="80%"><textarea id="boardReply" name="boardReply" class="materialize-textarea" placeholder="답변을 달아주세요"></textarea></td>
+					<td><a id="${list.boardNo}" class="waves-effect waves-light btn reply">답변하기</a></td></tr>
+					</table>
+					</form>
+			</div><!-- 댓글 -->	    
+	    	</c:when>
+			<c:otherwise>
+			<div class="col s12">
+					<form id="${list.boardNo}" method="post" action="/controller/admin/adminBoardReply">
+					<input type="hidden" name="boardState" id="boardState" value="${list.boardState}">
+					<input type="hidden" name="boardNo" id="boardNo" value="${list.boardNo}">
+					<table class="centered" style="background-color: blanchedalmond; border-radius: 30px;"><tr><td class="centered">
+					<tr><td width="80%"><pre id="boardReply" class="materialize-textarea" >${list.boardReply}</pre></td>
+					<td><a id="${list.boardNo}" class="waves-effect waves-light btn replyUpdate">답변 수정</a></td></tr>
+					</table>
+					</form>
+			</div><!-- 댓글 -->	    
+			</c:otherwise>
+	    	</c:choose>
+	    </c:if>
 	    </div>
 	  </li>
 	  </c:forEach>

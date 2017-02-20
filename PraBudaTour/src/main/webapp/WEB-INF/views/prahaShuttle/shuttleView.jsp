@@ -64,7 +64,7 @@
 	});
 	
 	function submit(){
-		document.getElementById("shuttleInsertForm").submit();
+		document.getElementById("shuttleUpdateForm").submit();
 	}
 	</script>
 	

@@ -39,4 +39,9 @@ public class ManageBoardDaoImpl implements ManageBoardDao{
 		System.out.println(boardDTO.getBoardState());
 		return sqlSession.selectOne("Manage.ManageSelectBoardCount",boardDTO.getBoardState());
 	}
+
+	@Override
+	public int manageBoardReply(BoardDTO boardDTO) throws Exception {
+		return sqlSession.update("Manage.boardReply",boardDTO);
+	}
 }

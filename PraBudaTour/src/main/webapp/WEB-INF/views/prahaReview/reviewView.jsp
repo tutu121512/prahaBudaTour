@@ -31,7 +31,7 @@
 	<script type="text/javascript">
 	$(function(){		
 		$("#updateComplete").hide();
-		
+		var preheight = $("#icon_prefix2").height();
 		$("#delete").click(function(){
 			var result = confirm('이 글을 삭제 하시겠습니까?');
 			if(result) { 
@@ -42,11 +42,17 @@
 		
 		$("#update").click(function(){
 			var result = confirm('이 글을 수정 하시겠습니까?');
-			
+			var str ='<div class="input-field col s4" style="margin-bottom:-20px; width: 20%;">'
+				str +='<i class="material-icons prefix">security</i>'
+				str +='<input id="password" name="password" type="password" class="validate" placeholder="4자리만 입력가능" maxlength="4">'
+				str +='<label for="password">Password</label>'
+				str +='</div>'
 			if(result) { 
 				$(".updateform").removeAttr("readonly");
-				$("#icon_prefix2").contents().unwrap().wrap('<textarea class="materialize-textarea"></textarea>');
+				$("#icon_prefix2").contents().unwrap().wrap('<textarea id="icon_prefix2" class="materialize-textarea updateform" name="content" style="color:black; font-size:1.4em;margin-left:45px;margin-top:0px"></textarea>');
+				$("#icon_prefix2").css("height",preheight);
 				$(this).parent().hide();
+				$("#pass").append(str);
 				$("#update").hide();
 				$("#updateComplete").parent().show();
 				$("#updateComplete").show();
@@ -74,7 +80,7 @@
 			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
 		</div>
 
-		<form id="reviewForm" method="post" action="/controller/review/praha/ReviewUpdate">
+		<form id="reviewForm" method="post" action="/controller/review/praha/reviewUpdate">
 		<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -165,7 +171,9 @@
 					
 						</div>
 			    	</div>
-			    	</div>
+				</td></tr>
+				<tr><td id="pass">
+
 				</td></tr>
 				<tr><td>
 				<div class="row">

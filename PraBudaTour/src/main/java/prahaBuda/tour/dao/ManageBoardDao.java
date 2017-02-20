@@ -12,4 +12,6 @@ public interface ManageBoardDao {
 	public List<BoardDTO> ManageSelectBoard(PageDTO pageDto, BoardDTO boardDTO) throws Exception;
 	
 	public int ManageSelectBoardCount(BoardDTO boardDTO ) throws Exception;
+	
+	public int manageBoardReply(BoardDTO boardDTO) throws Exception;
 }
