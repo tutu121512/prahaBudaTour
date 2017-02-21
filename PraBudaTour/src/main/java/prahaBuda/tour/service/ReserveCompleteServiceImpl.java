@@ -88,5 +88,10 @@ public class ReserveCompleteServiceImpl implements ReserveCompleteService {
 		pageDto.setNextPage(nextPage);
 		return pageDto;
 	}
+
+	@Override
+	public ReserveCompleteDTO reserveCompleteView(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+		return ReserveCompleteDao.reserveCompleteView(reserveCompleteDTO);
+	}
 	
 }

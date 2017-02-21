@@ -128,6 +128,32 @@
 						</div>
 					</div>
 				</td></tr>
+				<tr><td>
+				<div class="row">
+				<hr style="margin-bottom:10px;">
+				<div>
+				<ins>댓글</ins>
+				</div>
+					<div class="col s12" style="background-color: blanchedalmond; border-radius: 30px; margin-bottom: 10px;" >
+						<c:choose>
+						<c:when test="${reserveViewInfo.boardReply eq null}">
+						<table class="centered"><tr><td class="centered">
+							<img src='<c:url value="/resources/images/noComment.png"/>' style="border-radius:15px;padding-top:8px;width: 50%;">
+						</td></tr></table>
+						</c:when>
+						<c:otherwise>
+							<table>
+							<tr>
+							<td><img src="<c:url value='/resources/images/adminLogo.png'/>"></td>
+							<td><pre style="white-space:pre-wrap; border: none; height: auto">${reserveViewInfo.boardReply}</pre></td>
+							</tr>
+							</table>
+						</c:otherwise>
+						</c:choose>
+					</div><!-- 댓글 -->
+				<hr>
+				</div>
+				</td></tr>
 				<tr><td >
 				<div class="row">
 					<input type="hidden" id="boardNo" name="boardNo" value="${reserveViewInfo.boardNo}">

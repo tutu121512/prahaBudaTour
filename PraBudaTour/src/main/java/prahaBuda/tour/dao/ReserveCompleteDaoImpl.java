@@ -44,4 +44,9 @@ public class ReserveCompleteDaoImpl implements ReserveCompleteDao {
 		return sqlSession.selectOne("ReserveComplete.reserveCompleteBoardCount");
 	}
 
+	@Override
+	public ReserveCompleteDTO reserveCompleteView(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+		return sqlSession.selectOne("ReserveComplete.reserveCompleteView", reserveCompleteDTO);
+	}
+
 }

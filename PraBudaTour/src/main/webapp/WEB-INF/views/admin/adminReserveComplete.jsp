@@ -181,12 +181,12 @@
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
 							<input id="startDate" name="startDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213">
-							<label for="startDate">출국일</label>
+							<label for="startDate">희망 입실날짜</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_land</i>
 							<input id="endDate" name="endDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160217">
-							<label for="endDate">귀국일</label>
+							<label for="endDate">퇴실날짜</label>
 						</div>
 					</div>
 				</td></tr>
@@ -294,7 +294,7 @@
 			    <td><pre>${completelist.reserveName} 님
 즐겨찾기 게스트하우스에 관심가져 주셔서 감사합니다.
 문의 하신 날짜에 ( )박 예약확정 되셨습니다.
-예약사항을 확인하시고 변경사항이 있으심녀 언제든지 카톡남겨주시기 바랍니다.
+예약사항을 확인하시고 변경사항이 있으시면 언제든지 카톡남겨주시기 바랍니다.
 아름다운 프라하에서 즐겨찾기와 함께 행복한 시간이 되기를 바랍니다 ^^
 			    </pre>
 			    <img style="padding-left:22%" src="<c:url value='/resources/images/favicon.png'/>">

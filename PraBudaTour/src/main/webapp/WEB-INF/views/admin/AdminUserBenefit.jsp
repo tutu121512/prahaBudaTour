@@ -45,7 +45,7 @@
 	});
 	
 	$('#add').on("click", function() {
-		if(count < 10) {
+		if(count < 1) {
 			var str = "<div class='file-field input-field'>";
 			str += "<input type='file' name='file' class='boardImg"+count+"''>";
 			str += "<div class='file-path-wrapper'>";
@@ -57,7 +57,7 @@
 			$('div.image-file-size').append(str);
 			count++;
 		}else {
-			Materialize.toast('이미지 파일은 10개까지 올릴 수 있습니다.', 3000, 'rounded');
+			Materialize.toast('제목에 들어가는 이미지만 올릴 수 있습니다.', 3000, 'rounded');
 	        var width = $("#toast-container").width();
 	        $("#toast-container").css("margin-left", (width*-1)+209);
 		}
@@ -181,40 +181,7 @@
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td rowspan="3" width="70%"><pre style="font-size: 20px;">${list.content}</pre></td>
-			    <td width="10%"><c:if test="${list.boardImg1 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg1}'/>"/>
-				</c:if></td>
-			    <td width="10%"><c:if test="${list.boardImg2 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg2}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg3 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
-				</c:if></td>
-			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><c:if test="${list.boardImg4 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg4}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg5 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg5}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg6 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg6}'/>"/>
-				</c:if></td>
-			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><c:if test="${list.boardImg7 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg7}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg8 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg8}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg9 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg9}'/>"/>
-				</c:if></td>
+			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap; text-align:center; font-size: 20px;">${list.content}</pre></td>
 			    </tr>
 			    </tbody>
 			    </table>

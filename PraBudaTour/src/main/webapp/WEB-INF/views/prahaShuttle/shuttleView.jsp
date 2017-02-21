@@ -121,7 +121,12 @@
 				</td></tr></table>
 				</c:when>
 				<c:otherwise>
-					<pre style="border: none; height: auto">${shuttleViewInfo.boardReply}</pre>
+				<table>
+				<tr>
+				<td><img src="<c:url value='/resources/images/adminLogo.png'/>"></td>
+				<td><pre style="white-space:pre-wrap; border: none; height: auto">${shuttleViewInfo.boardReply}</pre></td>
+				</tr>
+				</table>
 				</c:otherwise>
 				</c:choose>
 			</div><!-- 댓글 -->

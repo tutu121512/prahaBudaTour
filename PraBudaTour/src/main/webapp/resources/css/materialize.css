@@ -2354,6 +2354,7 @@ hr {
  * Contain overflow in all browsers.
  */
 pre {
+  white-space:pre-wrap;
   overflow: auto;
 }
 

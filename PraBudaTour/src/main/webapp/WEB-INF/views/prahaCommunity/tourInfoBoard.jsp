@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 
 <%
@@ -30,6 +31,11 @@
 	<!--Import jQuery before materialize.js-->
    <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
    <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+   <script type="text/javascript">
+   $(document).ready(function(){
+	    $('.materialboxed').materialbox();
+	  });
+   </script>
 	</head>
 	<body>
 <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
@@ -62,22 +68,50 @@
 			    <tbody id="bodyContent">
 			    <tr>
 			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><c:if test="${list.boardImg1 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
+				${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]}
+				</c:if></td>
+			    <td width="10%"><c:if test="${list.boardImg2 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
+				${fn:split(fn:substring(list.boardImg2,33,fn:length(list.boardImg2)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg3 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
+				${fn:split(fn:substring(list.boardImg3,33,fn:length(list.boardImg3)),'.')[0]}
+				</c:if></td>
 			    </tr>
 			    
 			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><c:if test="${list.boardImg4 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
+				${fn:split(fn:substring(list.boardImg4,33,fn:length(list.boardImg4)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg5 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
+				${fn:split(fn:substring(list.boardImg5,33,fn:length(list.boardImg5)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg6 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
+				${fn:split(fn:substring(list.boardImg6,33,fn:length(list.boardImg6)),'.')[0]}
+				</c:if></td>
+				</tr>
+			   	
+			   	<tr>
+			    <td width="10%"><c:if test="${list.boardImg7 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg7}'/>"/>
+				${fn:split(fn:substring(list.boardImg7,33,fn:length(list.boardImg7)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg8 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg8}'/>"/>
+				${fn:split(fn:substring(list.boardImg8,33,fn:length(list.boardImg8)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg9 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg9}'/>"/>
+				${fn:split(fn:substring(list.boardImg9,33,fn:length(list.boardImg9)),'.')[0]}
+				</c:if></td>
 			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    </tr>
+			   
 			    </tbody>
 			    </table>
 			    </div>

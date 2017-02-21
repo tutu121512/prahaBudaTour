@@ -67,4 +67,10 @@
 	kakao_id = #{kakaoId}
 	WHERE BOARD_NO=${boardNo} AND location='P'
 	</update>
+	
+	<select id="reserveCompleteView" parameterType="reserveCompleteDTO" resultMap="reserveCompleteMap">
+	select *
+	from reserveComplete
+	where BOARD_NO =#{boardNo} and location='P'
+	</select>
 </mapper>

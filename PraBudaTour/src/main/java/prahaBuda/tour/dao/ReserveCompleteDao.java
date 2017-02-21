@@ -17,4 +17,5 @@ public interface ReserveCompleteDao {
 	
 	public void reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception;
 	
+	public ReserveCompleteDTO reserveCompleteView(ReserveCompleteDTO reserveCompleteDTO) throws Exception;
 }

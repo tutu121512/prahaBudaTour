@@ -62,7 +62,7 @@
 	<c:forEach items="${CompleteList}" var="list">
 	<tr>
 		<td>${list.boardNo }</td>
-		<td style="cursor: pointer"><a href="/controller/complete/praha/reserveCompleteView">${list.reserveName} 님의 예약이 확정되었습니다.</a></td>
+		<td style="cursor: pointer"><a href="/controller/complete/praha/reserveCompleteView?boardNo=${list.boardNo}">${list.reserveName} 님의 예약이 확정되었습니다.</a></td>
 		<td>관리자</td>
 		<td>${list.boardDate}</td> 
 		<td></td> 

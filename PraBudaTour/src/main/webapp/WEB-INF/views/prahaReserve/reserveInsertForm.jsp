@@ -70,12 +70,12 @@
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
 							<input id="startDate" name="startDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213" maxlength="6">
-							<label for="startDate">출국일</label>
+							<label for="startDate">희망 입실날짜</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_land</i>
 							<input id="endDate" name="endDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160217" maxlength="6">
-							<label for="endDate">귀국일</label>
+							<label for="endDate">퇴실날짜</label>
 						</div>
 					</div>
 				</td></tr>

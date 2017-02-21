@@ -30,6 +30,11 @@
 	<!--Import jQuery before materialize.js-->
    <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
    <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+   <script type="text/javascript">
+   $(document).ready(function(){
+	    $('.materialboxed').materialbox();
+	  });
+   </script>
 	</head>
 	<body>
 <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
@@ -62,41 +67,7 @@
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td rowspan="3" width="70%"><pre style="font-size: 20px;">${list.content}</pre></td>
-			    <td width="10%"><c:if test="${list.boardImg1 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg1}'/>"/>
-				</c:if></td>
-			    <td width="10%"><c:if test="${list.boardImg2 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg2}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg3 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
-				</c:if></td>
-			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><c:if test="${list.boardImg4 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg4}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg5 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg5}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg6 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg6}'/>"/>
-				</c:if></td>
-			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><c:if test="${list.boardImg7 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg7}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg8 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg8}'/>"/>
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg9 != 'null'}">
-				<img style="max-width:600px;" src="<c:url value='${list.boardImg9}'/>"/>
-				</c:if></td>
-			    </tr>
+			    <td><pre  style="text-align:center; font-size: 20px;">${list.content}</pre></td>
 			    </tbody>
 			    </table>
 			    </div>
