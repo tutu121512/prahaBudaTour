@@ -34,15 +34,37 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
 	<script type="text/javascript">
 	$(function(){
+		var deleteStr = "";
 		
 		$(".reply").click(function(){
 			$(this).parents().find('#'+$(this).attr("id")).submit(); 
 		});
 		
 		$(".replyUpdate").click(function(){
-			$(this).parents().find("#boardReply").contents().unwrap().wrap('<textarea name="boardReply" class="materialize-textarea" placeholder="답변을 달아주세요""></textarea>');
 			$(this).attr("class","waves-effect waves-light btn reply");
+			$(this).parents().find("#boardReply").contents().unwrap().wrap('<textarea name="boardReply" class="materialize-textarea" placeholder="답변을 달아주세요""></textarea>');
 		});
+		
+		$("#deletebtn").click(function(){
+			var result = confirm("삭제하시겠습니까?");
+			if(result){
+				location.href="/controller/admin/adminDelete?deleteArry="+deleteStr;
+			}
+		});
+		
+		$(".chk").click(function(){
+			if($(this).is(":checked")){
+				deleteStr += $(this).val() +"/"
+			}else{
+				deleteStr = "";
+				$(".chk").each(function(){
+					if($(this).is(":checked")){
+						deleteStr += $(this).val() +"/"
+					}
+				});
+			}
+		})
+		
 	});
 	</script>
 	<jsp:include page="/WEB-INF/views/admin/adminHeader.jsp"></jsp:include>
@@ -57,6 +79,7 @@
 	<a href="/controller/admin/selectBoard?boardState=reserveQuestion" class="waves-effect waves-light btn"><input type="button" value="예약문의"></a>
 	<a href="/controller/admin/selectBoard?boardState=review" class="waves-effect waves-light btn"><input type="button" value="후기"></a>
 	<a href="/controller/admin/selectBoard?boardState=notice" class="waves-effect waves-light btn"><input type="button" value="공지사항"></a>
+	<input type="button" value="삭제" id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">
 	
 	</div>
 	  <ul class="collapsible popout" data-collapsible="accordion" style="width:80%">  
@@ -90,7 +113,7 @@
 	    <table class="centered">
 	    	<tr>
 	    		<td class="centered" style="width:10%">
-			    	<input type="checkbox" class="filled-in" id="${list.boardNo}" checked="checked" />
+			    	<input type="checkbox" class="filled-in chk" id="${list.boardNo}" value="${list.boardNo},${list.boardState}" />
       				<label for="${list.boardNo}">${list.boardNo}</label>
 	    		</td>
 	    		<td class="centered" style="width:55%">
@@ -129,33 +152,44 @@
 		<c:if test="${list.boardImg3 != 'null'}">
 			<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
 		</c:if>
+		<c:if test="${list.boardImg4 != 'null'}">
+			<img style="max-width:600px;" src="<c:url value='${list.boardImg4}'/>"/>
+		</c:if>
+		<c:if test="${list.boardImg5 != 'null'}">
+			<img style="max-width:600px;" src="<c:url value='${list.boardImg5}'/>"/>
+		</c:if>
+		<c:if test="${list.boardImg6 != 'null'}">
+			<img style="max-width:600px;" src="<c:url value='${list.boardImg6}'/>"/>
+		</c:if>
+		<c:if test="${list.boardImg7 != 'null'}">
+			<img style="max-width:600px;" src="<c:url value='${list.boardImg7}'/>"/>
+		</c:if>
+		<c:if test="${list.boardImg8 != 'null'}">
+			<img style="max-width:600px;" src="<c:url value='${list.boardImg8}'/>"/>
+		</c:if>
+		<c:if test="${list.boardImg9 != 'null'}">
+			<img style="max-width:600px;" src="<c:url value='${list.boardImg9}'/>"/>
+		</c:if>
+		
 	    <c:if test="${list.boardState eq 'reserveQuestion' or list.boardState eq 'shuttle'}">
+			<div class="col s12">
+					<form id="${list.boardNo}" method="post" action="/controller/admin/adminBoardReply">
+					<input type="hidden" name="boardState" id="boardState" value="${list.boardState}">
+					<input type="hidden" name="boardNo" id="boardNo" value="${list.boardNo}">
+					<table class="centered" style="background-color: blanchedalmond; border-radius: 30px;"><tr><td class="centered">
 	    	<c:choose>
 	    	<c:when test="${list.boardReply eq null}">
-			<div class="col s12">
-					<form id="${list.boardNo}" method="post" action="/controller/admin/adminBoardReply">
-					<input type="hidden" name="boardState" id="boardState" value="${list.boardState}">
-					<input type="hidden" name="boardNo" id="boardNo" value="${list.boardNo}">
-					<table class="centered" style="background-color: blanchedalmond; border-radius: 30px;"><tr><td class="centered">
 					<tr><td width="80%"><textarea id="boardReply" name="boardReply" class="materialize-textarea" placeholder="답변을 달아주세요"></textarea></td>
 					<td><a id="${list.boardNo}" class="waves-effect waves-light btn reply">답변하기</a></td></tr>
-					</table>
-					</form>
-			</div><!-- 댓글 -->	    
 	    	</c:when>
 			<c:otherwise>
-			<div class="col s12">
-					<form id="${list.boardNo}" method="post" action="/controller/admin/adminBoardReply">
-					<input type="hidden" name="boardState" id="boardState" value="${list.boardState}">
-					<input type="hidden" name="boardNo" id="boardNo" value="${list.boardNo}">
-					<table class="centered" style="background-color: blanchedalmond; border-radius: 30px;"><tr><td class="centered">
-					<tr><td width="80%"><pre id="boardReply" class="materialize-textarea" >${list.boardReply}</pre></td>
+					<tr><td width="80%"><pre id="boardReply" name="boardReply" class="materialize-textarea">${list.boardReply}</pre></td>
 					<td><a id="${list.boardNo}" class="waves-effect waves-light btn replyUpdate">답변 수정</a></td></tr>
+			</c:otherwise>
+			</c:choose> 
 					</table>
 					</form>
-			</div><!-- 댓글 -->	    
-			</c:otherwise>
-	    	</c:choose>
+			</div><!-- 댓글 -->	   
 	    </c:if>
 	    </div>
 	  </li>

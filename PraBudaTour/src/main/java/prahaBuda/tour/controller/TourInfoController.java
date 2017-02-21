@@ -61,6 +61,12 @@ public class TourInfoController {
 			case 1: boardDto.setBoardImg1(db);  break;
 			case 2: boardDto.setBoardImg2(db);  break;
 			case 3: boardDto.setBoardImg3(db);  break;
+			case 4: boardDto.setBoardImg4(db);  break;
+			case 5: boardDto.setBoardImg5(db);  break;
+			case 6: boardDto.setBoardImg6(db);  break;
+			case 7: boardDto.setBoardImg7(db);  break;
+			case 8: boardDto.setBoardImg8(db);  break;
+			case 9: boardDto.setBoardImg9(db);  break;
 				}
 			}
 		}else{

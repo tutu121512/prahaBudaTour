@@ -99,4 +99,8 @@
 	UPDATE BOARD SET board_reply=#{boardReply} where board_no=#{boardNo} and board_state=#{boardState} and location='P'
 	</update>
 	
+	<delete id="boardDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE board_state=#{boardState} and board_no=#{boardNo} and location='P'
+	</delete>
+	
 </mapper>

@@ -165,7 +165,9 @@
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			  	<c:if test="${list.boardImg0 != 'null'}">
 			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
+			    </c:if>
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
@@ -179,24 +181,41 @@
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td rowspan="3" width="70%"><pre style="font-size: 20px;">${list.content}</pre></td>
+			    <td width="10%"><c:if test="${list.boardImg1 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg1}'/>"/>
+				</c:if></td>
+			    <td width="10%"><c:if test="${list.boardImg2 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg2}'/>"/>
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg3 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
+				</c:if></td>
 			    </tr>
 			    
 			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><c:if test="${list.boardImg4 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg4}'/>"/>
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg5 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg5}'/>"/>
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg6 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg6}'/>"/>
+				</c:if></td>
 			    </tr>
 			    
 			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td width="10%"><c:if test="${list.boardImg7 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg7}'/>"/>
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg8 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg8}'/>"/>
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg9 != 'null'}">
+				<img style="max-width:600px;" src="<c:url value='${list.boardImg9}'/>"/>
+				</c:if></td>
 			    </tr>
-			    
 			    </tbody>
 			    </table>
 			    </div>

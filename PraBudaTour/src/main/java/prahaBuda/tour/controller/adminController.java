@@ -45,6 +45,7 @@ public class adminController {
 	@RequestMapping("LoginOk")
 	public String adminlogin(String id, String pw,RedirectAttributes redirect) throws Exception{
 		String nextpage = null;
+	
 		if(id.equals("favicontour")&&pw.equals("min337337")){
 			nextpage="redirect:totalBoard";
 		}else{
@@ -185,5 +186,19 @@ public class adminController {
 		
 		
 		return "redirect:/admin/selectBoard?boardState="+boardDTO.getBoardState();
+	}
+	
+	@RequestMapping("adminDelete")
+	public String adminDelete(String deleteArry,RedirectAttributes redirect) throws Exception{
+		String delete[] = deleteArry.split("/");
+		for(int i=0; i< delete.length; i++){
+			String delArry[] = delete[i].split(",");
+			BoardDTO boardDTO = new BoardDTO();
+			boardDTO.setBoardNo(delArry[0]);
+			boardDTO.setBoardState(delArry[1]);
+			ManageBoardService.manageBoardDelete(boardDTO);
+		}
+		
+		return "redirect:/admin/totalBoard";
 	}
 }

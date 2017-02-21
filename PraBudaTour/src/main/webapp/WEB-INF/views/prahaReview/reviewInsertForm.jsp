@@ -136,12 +136,6 @@ document.getElementById("reviewInsertForm").submit();
 					<label for="password">Password</label>
 				</div>
 				</td></tr>
-				<tr><td style="text-align:center">
-					<div class="col s9">
-						<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
-						<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
-					</div>
-				</td></tr>
 				<tr><td class="centered">
 				<div class="row">
 					<div class="input-field col s8 image-file">
@@ -149,6 +143,12 @@ document.getElementById("reviewInsertForm").submit();
 					<div class="input-field col s4 image-file-size">
 					</div>
 				</div>
+				</td></tr>
+				<tr><td style="text-align:center">
+					<div class="col s9" style="padding-bottom: 15px;">
+						<a class="waves-effect waves-light btn color-500" id="add">이미지 추가</a>
+						<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
+					</div>
 					<div class="row">
 						<a href="#" onClick="submit(); return false;" class="waves-effect waves-light btn" style="width:100%">문의</a>
 					</div>

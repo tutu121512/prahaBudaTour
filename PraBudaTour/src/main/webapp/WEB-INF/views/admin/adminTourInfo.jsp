@@ -30,6 +30,11 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
 	<script type="text/javascript">
+
+	$(window).load(function(){
+	      $('.carousel').carousel();
+	});
+
 	$(function(){
 	
 	var count = $("input[type=file]").length;
@@ -82,7 +87,7 @@
 				}
 			});
 	});
-	
+
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -133,7 +138,7 @@
 					<div class="row" style="margin-bottom:-30px">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="방문자들이 이해하기 쉽게 설명해주세요"></textarea>
+							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="방문자들이 이해하기 쉽게 설명해주세요" ></textarea>
 							<label for="icon_prefix2" style="font-size: large;">혜택 내용 (자세하게 입력해주세요)</label>
 						</div>
 					</div>
@@ -174,32 +179,46 @@
 			    </table>
 			    </div>
 			    
-			    
 			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
+			    <td><pre style="font-size: 20px; white-space: pre-wrap;">${list.content}</pre></td>
 			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='/resources/images/logo.jpg'/>"></td>
-			    </tr>
-			    
-			    </tbody>
-			    </table>
-			    </div>
+			   	<tr><td class="centered">
+				<div class="carousel">
+					<a class="carousel-item" href="#one!">
+				    <c:if test="${list.boardImg1 != 'null'}">
+					<img style="max-width:600px;" src='<c:url value="${list.boardImg1}"/>'/>
+					</c:if></a>
+					<a class="carousel-item" href="#two!">
+				    <c:if test="${list.boardImg2 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg2}'/>"/>
+					</c:if></a><a class="carousel-item" href="#three!">
+				    <c:if test="${list.boardImg3 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
+					</c:if></a><a class="carousel-item" href="#four!">
+				    <c:if test="${list.boardImg4 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg4}'/>"/>
+					</c:if></a><a class="carousel-item" href="#five!">
+				    <c:if test="${list.boardImg5 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg5}'/>"/>
+					</c:if></a><a class="carousel-item" href="#six!">
+				    <c:if test="${list.boardImg6 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg6}'/>"/>
+					</c:if></a><a class="carousel-item" href="#seven!">
+				    <c:if test="${list.boardImg7 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg7}'/>"/>
+					</c:if></a><a class="carousel-item" href="#eight!">
+				    <c:if test="${list.boardImg8 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg8}'/>"/>
+					</c:if></a><a class="carousel-item" href="#nine!">
+					<c:if test="${list.boardImg9 != 'null'}">
+					<img style="max-width:600px;" src="<c:url value='${list.boardImg9}'/>"/>
+					</c:if></a>
+				</div>
+				</td></tr></table>
+				</div>			   
 			  </li>
 		  </c:forEach>
 		</ul>

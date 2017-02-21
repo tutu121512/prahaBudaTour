@@ -69,8 +69,8 @@
 					<div class="row">
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
-							<input id="statrDate" name="statrDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213" maxlength="6">
-							<label for="statrDate">출국일</label>
+							<input id="startDate" name="startDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213" maxlength="6">
+							<label for="startDate">출국일</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_land</i>
