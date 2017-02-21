@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 <% 
 	PageDTO pVO = (PageDTO)request.getAttribute("page");
-	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
-	List<BoardDTO> reserve = (List<BoardDTO>)request.getAttribute("reserveList");
-	List<BoardDTO> notice = (List<BoardDTO>)request.getAttribute("noticetList");
 %>
 <!DOCTYPE html>
 <html>
@@ -181,25 +179,53 @@
 			    
 			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
 			    <table>
-			    <tbody id="bodyC	ontent">
+			    <tbody>
 			    <tr>
-			    <td rowspan="3" width="70%"><pre>${list.content}</pre></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg1}'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg2}'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg3}'/>"></td>
+			    <td rowspan="3"><pre  class="materialize-textarea" style="white-space:pre-wrap;">${list.content}</pre></td>
+			    <td width="10%"><c:if test="${list.boardImg1 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
+				${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]}
+				</c:if></td>
+			    <td width="10%"><c:if test="${list.boardImg2 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
+				${fn:split(fn:substring(list.boardImg2,33,fn:length(list.boardImg2)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg3 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
+				${fn:split(fn:substring(list.boardImg3,33,fn:length(list.boardImg3)),'.')[0]}
+				</c:if></td>
 			    </tr>
 			    
 			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg4}'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg5}'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg6}'/>"></td>
+			    <td width="10%"><c:if test="${list.boardImg4 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
+				${fn:split(fn:substring(list.boardImg4,33,fn:length(list.boardImg4)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg5 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
+				${fn:split(fn:substring(list.boardImg5,33,fn:length(list.boardImg5)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg6 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
+				${fn:split(fn:substring(list.boardImg6,33,fn:length(list.boardImg6)),'.')[0]}
+				</c:if></td>
+				</tr>
+			   	
+			   	<tr>
+			    <td width="10%"><c:if test="${list.boardImg7 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg7}'/>"/>
+				${fn:split(fn:substring(list.boardImg7,33,fn:length(list.boardImg7)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg8 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg8}'/>"/>
+				${fn:split(fn:substring(list.boardImg8,33,fn:length(list.boardImg8)),'.')[0]}
+				</c:if></td>
+				<td width="10%"><c:if test="${list.boardImg9 != 'null'}">
+				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg9}'/>"/>
+				${fn:split(fn:substring(list.boardImg9,33,fn:length(list.boardImg9)),'.')[0]}
+				</c:if></td>
 			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg7}'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg8}'/>"></td>
-			    <td width="10%"><img width="100%" src="<c:url value='${list.boardImg9}'/>"></td>
-			    </tr>
+
 			    </tbody>
 			    </table>
 			    </div>
