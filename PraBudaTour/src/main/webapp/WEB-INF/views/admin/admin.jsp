@@ -72,7 +72,7 @@ $(function () {
 			</div>
 			
 			<div class="input-field col s12" style="margin-bottom:15px">
-			<input type="button" class="waves-effect waves-light btn waves-input-wrapper" name="login" id="loginBtn" value="로그인" style="width:400px"/>
+			<a class="waves-effect waves-light btn" id="loginBtn" style="width:400px">로그인</a>
 			</div>
 		
        </div>

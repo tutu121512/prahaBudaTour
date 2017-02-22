@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-
+<title>저희를 관리해 주세요</title>
 	<ul id="nav-mobile" class="side-nav fixed" style="transform:translateX(0px);background-color:black;width:175px;font-family:'배달의민족 도현'">
         <li class="logo">
 			<img src="<c:url value='/resources/images/adminLogo.png'/>">

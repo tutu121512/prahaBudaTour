@@ -111,6 +111,9 @@
 		return fileSize;
 	}
 	
+	function submit(){
+		document.getElementById("tourInfoInsert").submit();
+	}
 	
 	</script>
 	
@@ -120,7 +123,7 @@
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/useService.png"/>'>안녕 나는 여행정보입력이야^~^
 	  </td></tr></table>
-		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data">
+		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data" id="tourInfoInsert">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -159,7 +162,7 @@
 					</div>
 				</div>
 					<div class="row">
-						<input class="waves-effect waves-light btn" style="width:100%" type="submit" value="추가">
+						<a class="waves-effect waves-light btn" style="width:100%" onClick="submit();return false;">추가</a>
 					</div>
 				</td></tr>
 			</table>
@@ -185,52 +188,50 @@
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td rowspan="3" width="70%"><pre  class="materialize-textarea" style="white-space:pre-wrap;">${list.content}</pre></td>
-			    <td width="10%"><c:if test="${list.boardImg1 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
-				${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]}
-				</c:if></td>
-			    <td width="10%"><c:if test="${list.boardImg2 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
-				${fn:split(fn:substring(list.boardImg2,33,fn:length(list.boardImg2)),'.')[0]}
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg3 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
-				${fn:split(fn:substring(list.boardImg3,33,fn:length(list.boardImg3)),'.')[0]}
-				</c:if></td>
-			    </tr>
-			    
-			    <tr>
-			    <td width="10%"><c:if test="${list.boardImg4 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
-				${fn:split(fn:substring(list.boardImg4,33,fn:length(list.boardImg4)),'.')[0]}
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg5 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
-				${fn:split(fn:substring(list.boardImg5,33,fn:length(list.boardImg5)),'.')[0]}
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg6 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
-				${fn:split(fn:substring(list.boardImg6,33,fn:length(list.boardImg6)),'.')[0]}
-				</c:if></td>
+			    <td rowspan="3">
+			    	<pre  class="materialize-textarea" style="white-space:pre-wrap;">${list.content}</pre>
+			    </td>
 				</tr>
-			   	
-			   	<tr>
-			    <td width="10%"><c:if test="${list.boardImg7 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg7}'/>"/>
-				${fn:split(fn:substring(list.boardImg7,33,fn:length(list.boardImg7)),'.')[0]}
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg8 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg8}'/>"/>
-				${fn:split(fn:substring(list.boardImg8,33,fn:length(list.boardImg8)),'.')[0]}
-				</c:if></td>
-				<td width="10%"><c:if test="${list.boardImg9 != 'null'}">
-				<img width="50px" style="max-width:600px;" class="materialboxed" src="<c:url value='${list.boardImg9}'/>"/>
-				${fn:split(fn:substring(list.boardImg9,33,fn:length(list.boardImg9)),'.')[0]}
-				</c:if></td>
-			    </tr>
 			    </tbody>
 			    </table>
+			    
+			    <table class="centered">
+						<tr>
+						<td class="centered">
+							<c:if test="${list.boardImg0 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg0}'/>"/>
+								<%-- ${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]} --%>
+							</c:if>
+							<c:if test="${list.boardImg1 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg2 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg3 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg4 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg5 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg6 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg7 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg7}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg8 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg8}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg9 != 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg9}'/>"/>
+							</c:if>
+						</td>
+						</tr>
+					</table>
 			    </div>  
 			  </li>
 		  </c:forEach>
