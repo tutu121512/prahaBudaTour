@@ -36,9 +36,11 @@
 	board.reserve_name reserveName,
 	board.room_Name roomName,
 	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
-	board.title title
-	FROM (SELECT rownum as rnum,board_no,reserve_name,room_name,board_date,title
-	FROM (SELECT board_no,reserve_name,room_name,board_date,title
+	board.title title,
+	board.start_date startDate,
+	board.end_date endDate
+	FROM (SELECT rownum as rnum,board_no,reserve_name,room_name,board_date,title,start_date,end_date
+	FROM (SELECT board_no,reserve_name,room_name,board_date,title,start_date,end_date
 	from reserveComplete
 	where location='P'
 	order by Board_no+0 desc) ) board
@@ -69,7 +71,9 @@
 	</update>
 	
 	<select id="reserveCompleteView" parameterType="reserveCompleteDTO" resultMap="reserveCompleteMap">
-	select *
+	select 
+	reserve_name = #{resereveName},
+	
 	from reserveComplete
 	where BOARD_NO =#{boardNo} and location='P'
 	</select>

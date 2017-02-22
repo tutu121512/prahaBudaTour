@@ -72,11 +72,6 @@ public class CompleteController {
 	@RequestMapping("praha/reserveCompleteView")
 	public String reserveCompleteView(ReserveCompleteDTO reserveCompleteDTO,RedirectAttributes redirect,Model model) throws Exception {
 		ReserveCompleteDTO completeDTO = CompleteService.reserveCompleteView(reserveCompleteDTO);
-		System.out.println(completeDTO.getStartDate());
-		System.out.println(completeDTO.getEndDate());
-//		SimpleDateFormat dayTime = new SimpleDateFormat();
-//		String Time = dayTime.format(new Date(System.currentTimeMillis()));
-		
 		model.addAttribute("completeView", completeDTO);
 		return "prahaReserve/reserveCompleteView";
 	}

@@ -293,7 +293,7 @@
 			    <tr>
 			    <td><pre>${completelist.reserveName} 님
 즐겨찾기 게스트하우스에 관심가져 주셔서 감사합니다.
-문의 하신 날짜에 ( )박 예약확정 되셨습니다.
+문의 하신 ${completelist.startDate}~${completelist.endDate} 날짜에 예약확정 되셨습니다.
 예약사항을 확인하시고 변경사항이 있으시면 언제든지 카톡남겨주시기 바랍니다.
 아름다운 프라하에서 즐겨찾기와 함께 행복한 시간이 되기를 바랍니다 ^^
 			    </pre>
