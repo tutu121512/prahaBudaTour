@@ -5692,6 +5692,7 @@ button.btn-floating {
   float:left;
 }
 
+
 .materialboxed:hover:not(.active) {
   opacity: .8;
 }
