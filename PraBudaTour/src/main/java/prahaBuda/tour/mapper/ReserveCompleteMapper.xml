@@ -72,8 +72,11 @@
 	
 	<select id="reserveCompleteView" parameterType="reserveCompleteDTO" resultMap="reserveCompleteMap">
 	select 
-	reserve_name = #{resereveName},
-	
+	reserve_name reserveName,
+	board_date boardDate,
+	title title,
+ 	start_date startDate,
+	end_date endDate
 	from reserveComplete
 	where BOARD_NO =#{boardNo} and location='P'
 	</select>

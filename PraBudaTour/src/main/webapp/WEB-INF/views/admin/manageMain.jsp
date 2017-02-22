@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 <% 
 	PageDTO pVO = (PageDTO)request.getAttribute("page");
-	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
-	List<BoardDTO> reserve = (List<BoardDTO>)request.getAttribute("reserveList");
-	List<BoardDTO> notice = (List<BoardDTO>)request.getAttribute("noticetList");
 %>
 <!DOCTYPE html>
 <html>
@@ -140,37 +138,52 @@
 	    </table>
 	    </div>
 	    <div class="collapsible-body">
-	    <pre>${list.content}</pre>
-		<c:if test="${list.boardImg0 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg0}'/>"/>
-		</c:if>				
-		<c:if test="${list.boardImg1 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg1}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg2 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg2}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg3 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg3}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg4 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg4}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg5 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg5}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg6 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg6}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg7 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg7}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg8 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg8}'/>"/>
-		</c:if>
-		<c:if test="${list.boardImg9 != 'null'}">
-			<img style="max-width:600px;" src="<c:url value='${list.boardImg9}'/>"/>
-		</c:if>
+	     <table>
+			    <tbody id="bodyContent">
+			    <tr>
+			    <td rowspan="3">
+			    	<pre  class="materialize-textarea" style="word-break:break-all; white-space:pre-wrap;">${list.content}</pre>
+			    </td>
+				</tr>
+			    </tbody>
+		</table>
+		<table class="centered">
+						<tr>
+						<td class="centered">
+							<c:if test="${list.boardImg0 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg0}'/>"/>
+								<%-- ${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]} --%>
+							</c:if>
+							<c:if test="${list.boardImg1 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg2 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg3 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg4 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg5 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg6 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg7 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg7}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg8 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg8}'/>"/>
+							</c:if>
+							<c:if test="${list.boardImg9 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg9}'/>"/>
+							</c:if>
+						</td>
+						</tr>
+					</table>
 		
 	    <c:if test="${list.boardState eq 'reserveQuestion' or list.boardState eq 'shuttle'}">
 			<div class="col s12">

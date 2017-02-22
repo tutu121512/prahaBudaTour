@@ -2356,6 +2356,7 @@ hr {
 pre {
   white-space:pre-wrap;
   overflow: auto;
+  word-break:break-all;
 }
 
 /**

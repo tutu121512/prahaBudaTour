@@ -3,9 +3,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 <% 
-	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
-	List<BoardDTO> reserve = (List<BoardDTO>)request.getAttribute("reserveList");
 	List<BoardDTO> notice = (List<BoardDTO>)request.getAttribute("noticetList");
+	List<BoardDTO> userBenefit = (List<BoardDTO>)request.getAttribute("userBenefitList");
+	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
+	List<BoardDTO> tourInfo = (List<BoardDTO>)request.getAttribute("tourInfoList");
 %>
 <!DOCTYPE html>
 <html>
@@ -54,6 +55,35 @@
 		</div>
 		</td></tr></table>
 		</div>
+		
+		<table>
+		<tr><td colspan="3">
+		<div>
+		<table class="striped centered bordered" >
+		<tr><td>공지사항</td></tr>
+		<%for(int i=0; i<5; i++){ %>
+		<tr><td><%=notice.get(i).getTitle() %></td></tr>
+		<%} %></table>
+		</div></tr>
+		<tr><td>
+		<div style="width: 33%; float: right;">
+		<img src="<c:url value='/resources/images/logo.jpg'/>">
+		</div>
+		<div style="width: 33%; float: right;"><table class="striped centered bordered" >
+		<tr><td>이용혜택</td></tr>
+		<%for(int i=0; i<5; i++){ %>
+		<tr><td><%=userBenefit.get(i).getTitle() %></td></tr>
+		<%} %>
+		</table></div>
+		<div style="width: 33%; float: right;"><table class="striped centered bordered" >
+		<tr><td>여행정보</td></tr>
+		<%for(int i=0; i<5; i++){ %>
+		<tr><td><%=tourInfo.get(i).getTitle() %></td></tr>
+		<%} %>
+		</table></div>
+		</td></tr>
+		</table>
+		
 	</div> <!-- container -->
 	</main>
 	

@@ -13,7 +13,7 @@
 	    <link href='<c:url value="http://fonts.googleapis.com/icon?family=Material+Icons"/>' rel="stylesheet">
 	    <!--Import materialize.css-->
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
+		<meta http-neuiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
 	<style>
 	body {
 	    display: flex;
@@ -143,7 +143,7 @@
 					<div class="row" style="margin-bottom:-30px">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="icon_prefix2" class="materialize-textarea" name="content" wrap="virtual" placeholder="방문자들이 이해하기 쉽게 설명해주세요" ></textarea>
+							<textarea id="icon_prefix2" class="materialize-textarea" name="content" wrap="soft" placeholder="방문자들이 이해하기 쉽게 설명해주세요" ></textarea>
 							<label for="icon_prefix2" style="font-size: large;">혜택 내용 (자세하게 입력해주세요)</label>
 						</div>
 					</div>
@@ -189,7 +189,7 @@
 			    <tbody id="bodyContent">
 			    <tr>
 			    <td rowspan="3">
-			    	<pre  class="materialize-textarea" style="white-space:pre-wrap;">${list.content}</pre>
+			    	<pre  class="materialize-textarea" style="word-break:break-all; white-space:pre-wrap;">${list.content}</pre>
 			    </td>
 				</tr>
 			    </tbody>
@@ -198,35 +198,35 @@
 			    <table class="centered">
 						<tr>
 						<td class="centered">
-							<c:if test="${list.boardImg0 != 'null'}">
+							<c:if test="${list.boardImg0 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg0}'/>"/>
 								<%-- ${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]} --%>
 							</c:if>
-							<c:if test="${list.boardImg1 != 'null'}">
+							<c:if test="${list.boardImg1 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg2 != 'null'}">
+							<c:if test="${list.boardImg2 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg3 != 'null'}">
+							<c:if test="${list.boardImg3 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg4 != 'null'}">
+							<c:if test="${list.boardImg4 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg5 != 'null'}">
+							<c:if test="${list.boardImg5 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg6 != 'null'}">
+							<c:if test="${list.boardImg6 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg7 != 'null'}">
+							<c:if test="${list.boardImg7 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg7}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg8 != 'null'}">
+							<c:if test="${list.boardImg8 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg8}'/>"/>
 							</c:if>
-							<c:if test="${list.boardImg9 != 'null'}">
+							<c:if test="${list.boardImg9 ne 'null'}">
 								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg9}'/>"/>
 							</c:if>
 						</td>

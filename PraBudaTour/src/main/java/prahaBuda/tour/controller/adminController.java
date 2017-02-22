@@ -66,7 +66,6 @@ public class adminController {
 		}
 		
 		List<BoardDTO> totalList = ManageBoardService.ManageBoard(pageDto);
-		System.out.println(totalList.toString());
 		model.addAttribute("totalList", totalList);
 		model.addAttribute("page",pageDto);
 		return "admin/manageMain";

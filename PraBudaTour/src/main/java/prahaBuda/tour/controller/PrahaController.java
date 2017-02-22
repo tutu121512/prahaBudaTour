@@ -56,11 +56,6 @@ public class PrahaController {
 		List<BoardDTO> tourInfoList =  TourInfoService.tourInfoSelect(pageDto);
 		List<BoardDTO> reviewList =  ReviewService.ReviewList(pageDto);
 		
-		System.out.println("공지사항 : " + noticeList.toString());
-		System.out.println("이용혜택 : " + userBenefitList.toString());
-		System.out.println("여행정보 : " + tourInfoList.toString());
-		System.out.println("후기 : " + reviewList.toString());
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main/prahaMain");
 		mv.addObject("noticetList", noticeList);
