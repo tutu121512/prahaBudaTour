@@ -57,30 +57,46 @@
 		</div>
 		
 		<table>
+		
 		<tr><td colspan="3">
-		<div>
+		<div class="col s12">
 		<table class="striped centered bordered" >
-		<tr><td>공지사항</td></tr>
+		<tr><td style="background-color:firebrick;color:aliceblue;font-size:25px;padding:2px;">공지사항
+		<i class="material-icons prefix" style="float:right;padding-top:6px;padding-right:7px;margin-left:-30px;">&#xE145;</i>
+		</td></tr>
 		<%for(int i=0; i<5; i++){ %>
 		<tr><td><%=notice.get(i).getTitle() %></td></tr>
 		<%} %></table>
 		</div></tr>
+
 		<tr><td>
-		<div style="width: 33%; float: right;">
-		<img src="<c:url value='/resources/images/logo.jpg'/>">
-		</div>
-		<div style="width: 33%; float: right;"><table class="striped centered bordered" >
-		<tr><td>이용혜택</td></tr>
+		<div class="row">
+		<div class="col s4">
+		<table class="striped centered bordered" >
+		<tr><td style="background-color:#cc3825;color:aliceblue;font-size:25px;padding:2px;">이용혜택
+		<i class="material-icons prefix" style="float:right;padding-top:6px;padding-right:7px;margin-left:-30px;">&#xE145;</i>
+		</td></tr>
 		<%for(int i=0; i<5; i++){ %>
 		<tr><td><%=userBenefit.get(i).getTitle() %></td></tr>
 		<%} %>
-		</table></div>
-		<div style="width: 33%; float: right;"><table class="striped centered bordered" >
-		<tr><td>여행정보</td></tr>
+		</table>
+		</div>
+		
+		<div class="col s4">
+		<table class="striped centered bordered" >
+		<tr><td style="background-color:#cc3825;color:aliceblue;font-size:25px;padding:2px;">여행정보
+		<i class="material-icons prefix" style="float:right;padding-top:6px;padding-right:7px;margin-left:-30px;">&#xE145;</i>
+		</td></tr>
 		<%for(int i=0; i<5; i++){ %>
 		<tr><td><%=tourInfo.get(i).getTitle() %></td></tr>
 		<%} %>
-		</table></div>
+		</table>
+		</div>
+		
+		<div class="col s4">
+		<img src="<c:url value='/resources/images/logo.jpg'/>">
+		</div>
+		</div>
 		</td></tr>
 		</table>
 		
