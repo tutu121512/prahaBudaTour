@@ -41,7 +41,8 @@
 		});
 		
 		$(".replyUpdate").click(function(){
-			$(this).attr("class","waves-effect waves-light btn reply");
+			$(this).css("display","none");
+			$(this).next().removeAttr("style");
 			$(this).parents().find("#boardReply").contents().unwrap().wrap('<textarea name="boardReply" class="materialize-textarea" placeholder="답변을 달아주세요""></textarea>');
 		});
 		
@@ -184,7 +185,8 @@
 	    	</c:when>
 			<c:otherwise>
 					<tr><td width="80%"><pre id="boardReply" name="boardReply" class="materialize-textarea">${list.boardReply}</pre></td>
-					<td><a id="${list.boardNo}" class="waves-effect waves-light btn replyUpdate">답변 수정</a></td></tr>
+					<td><a id="${list.boardNo}" class="waves-effect waves-light btn replyUpdate">답변 수정</a>
+						<a id="${list.boardNo}" class="waves-effect waves-light btn reply" style="display: none">답변 수정</a></td></tr>
 			</c:otherwise>
 			</c:choose> 
 					</table>
