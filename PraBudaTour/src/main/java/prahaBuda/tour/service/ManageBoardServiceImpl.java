@@ -77,7 +77,7 @@ public class ManageBoardServiceImpl implements ManageBoardService {
 		System.out.println("selectBoardCount 수  : "  + ManageSelectBoardCount );
 		pageDto.setCount(ManageSelectBoardCount);				//notice 테이블에서 가져온 값 pageVO에 Count에 set해주기
 		PageDTO pVO = paging(pageDto);
-		int curPage = pVO.getCurPage();
+		pVO.getCurPage();
 		return managerBoardDao.ManageSelectBoard(pageDto, boardDTO);
 	}
 
