@@ -167,7 +167,9 @@
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			  	<c:if test="${list.boardImg0 ne 'null'}">
 			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
+			    </c:if>
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
