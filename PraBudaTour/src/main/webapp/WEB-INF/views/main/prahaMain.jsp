@@ -94,7 +94,19 @@
 		</div>
 		
 		<div class="col s4">
-		<img src="<c:url value='/resources/images/logo.jpg'/>">
+		<table class="striped centered bordered" >
+		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">둘러 보러 가기 !!
+		</td></tr>
+		<tr><td> </td></tr>
+		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">예약 문의 하러 가기 !!
+		</td></tr>
+		<tr><td> </td></tr>
+		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">셔틀 문의 하러 가기 !!
+		</td></tr>
+		<tr><td> </td></tr>
+		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">즐거운 후기 미리보기 !!
+		</td></tr>
+		</table>
 		</div>
 		</div>
 		</td></tr>

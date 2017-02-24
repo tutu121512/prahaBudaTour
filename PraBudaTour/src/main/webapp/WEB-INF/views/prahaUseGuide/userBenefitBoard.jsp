@@ -46,28 +46,30 @@
 			<img src='<c:url value="/resources/images/useServiceLogo.jpg"/>'>
 	</div>
 	<div>
-	 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+	<ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${selectList}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			    <div class="collapsible-header" style="font-size:20px;background-color:tomato;border-radius:27px;border-bottom:15px solid;">
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
 			  	<c:if test="${list.boardImg0 != 'null'}">
 			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
-			    </c:if></td><td style="width:85%">
-			    <div>${list.title}</div>
-			    </td><td>
+			    </c:if>
+			    </td><td style="width:85%">
+			    <div style="width:85%;font-size: 40px;color: white;">${list.title}</div>
+			    </td></tr>
 			    </tbody>
 			    </table>
 			    </div>
 			    
 			    
-			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
+			    <div class="collapsible-body" style="border-radius:25px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td><pre  style="text-align:center; font-size: 20px;">${list.content}</pre></td>
+			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap; text-align:center; font-size: 20px;">${list.content}</pre></td>
+			    </tr>
 			    </tbody>
 			    </table>
 			    </div>

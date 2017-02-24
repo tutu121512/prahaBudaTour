@@ -121,7 +121,7 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/useService.png"/>'>안녕 나는 여행정보입력이야^~^
+			<img src='<c:url value="/resources/images/tripInfoPlus.png"/>' style="width:28%">
 	  </td></tr></table>
 		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data" id="tourInfoInsert">
 			<table style="margin-bottom:10px">

@@ -149,7 +149,8 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/useService.png"/>'>예약관리임
+			<img src='<c:url value="/resources/images/reservePlus.png"/>' style="width:28%">
+			<h5 style="float:right;color:darkorchid;">왼쪽 목록 ( 예약 문의 받은 요청 ) 을 눌러주시면 내용이 자동 완성됩니다.</h5>
 	  </td></tr></table>
 		<form method="post" action="/controller/complete/praha/CompleteInsert">
 			<table style="margin-bottom:10px">
@@ -231,18 +232,31 @@
 			</table>
 		</form>
 		
-		<div style="width: 48%;  float: left;">
-		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+		
+		<!-- 왼쪽 목록  -->
+		<div style="width:48%;float:left;">
+		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none;">
+		 <li style="margin-bottom:6px">
+			    <div class="collapsible-header" style="font-size:20px;background-color:brown;border-radius:27px;height:45px;color:aliceblue;">
+			  	<table class="centered">
+			  	<tbody id="collection-item">
+			    <tr><td style="width:85%;padding-top:2px" class="centered">
+			    	에약 문의 받은 요청
+			    </td></tr>
+			    </tbody>
+			    </table>
+			    </div>
+			  </li>  
 		 <c:forEach items="${list}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			    <div class="collapsible-header" style="font-size:20px;background-color:turquoise;border-radius:27px;height:55px;">
 			  	<table>
 			  	<tbody id="collection-item">
-			  	<tr class="reserveNo" id="${list.boardNo}"><td style="width:10%;padding-bottom:0px;padding-top:1rem">
-			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px">
-			    </td><td style="width:85%">
+			  	<tr class="reserveNo" id="${list.boardNo}"><td style="width:10%;padding-bottom:0px;">
+			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px;">
+			    </td><td style="width:85%;padding-top:2px">
 			    <div>${list.title}</div>
-			    </td><td>
+			    </td><td style="padding-top:3px;">
 			    <a href="#"><i class="material-icons prefix questionDeleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
@@ -272,9 +286,20 @@
 
 		<div style="width: 48%; float: right;">
 		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+			 <li style="margin-bottom:6px">
+			    <div class="collapsible-header" style="font-size:20px;background-color:slateblue;border-radius:27px;height:45px;color:aliceblue;">
+			  	<table class="centered">
+			  	<tbody id="collection-item">
+			    <tr><td style="width:85%;padding-top:2px" class="centered">
+			    	예약 확정 리스트
+			    </td></tr>
+			    </tbody>
+			    </table>
+			    </div>
+			  </li>
 		 <c:forEach items="${completelist}" var="completelist">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			    <div class="collapsible-header" style="font-size:20px;background-color:darkorange;border-radius:27px;">
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">

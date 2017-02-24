@@ -113,7 +113,7 @@
 
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/useService.png"/>'>  공지사항임
+			<img src='<c:url value="/resources/images/noticePlus.png"/>' style="width:28%">
 	  </td></tr></table>
 		<form id="noticeInsert" action="/controller/notice/praha/NoticeInsert" method="post" enctype="multipart/form-data">
 			<table style="margin-bottom:10px">

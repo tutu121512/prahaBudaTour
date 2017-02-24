@@ -105,12 +105,12 @@
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
 							<input id="statrDate" name="startDate" type="text" class="validate updateform" readonly="readonly" placeholder="입력예시 : 17년 2월 17일 => 160213" value="${reserveViewInfo.startDate}">
-							<label for="statrDate">출국일</label>
+							<label for="statrDate">입실날짜</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_land</i>
 							<input id="endDate" name="endDate" type="text" class="validate updateform" readonly="readonly" placeholder="입력예시 : 17년 2월 17일 => 160217" value="${reserveViewInfo.endDate}" }>
-							<label for="endDate">귀국일</label>
+							<label for="endDate">퇴실날짜</label>
 						</div>
 					</div>
 				</td></tr>
