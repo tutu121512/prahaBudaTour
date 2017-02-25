@@ -35,6 +35,7 @@ public class TourInfoController {
 	//여행정보 insert
 	@RequestMapping("tourInfoInsert")
 	public String tourInfoInsert(BoardDTO boardDto, HttpServletRequest request,RedirectAttributes redirect) throws Exception{
+	
 		if(boardDto.getFile()!=null){
 			boardDto.setBoardImg0("null");
 			boardDto.setBoardImg1("null");
@@ -51,22 +52,23 @@ public class TourInfoController {
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+boardDto.getFile().get(i).getOriginalFilename();
-			String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
-			File file = new File(path);
-			boardDto.getFile().get(i).transferTo(file);
-
-			String db = "/resources/upload/"+ imgName;
-			switch (i) {
-			case 0: boardDto.setBoardImg0(db);  break;
-			case 1: boardDto.setBoardImg1(db);  break;
-			case 2: boardDto.setBoardImg2(db);  break;
-			case 3: boardDto.setBoardImg3(db);  break;
-			case 4: boardDto.setBoardImg4(db);  break;
-			case 5: boardDto.setBoardImg5(db);  break;
-			case 6: boardDto.setBoardImg6(db);  break;
-			case 7: boardDto.setBoardImg7(db);  break;
-			case 8: boardDto.setBoardImg8(db);  break;
-			case 9: boardDto.setBoardImg9(db);  break;
+			if(!imgName.equals(Time)){
+				String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+				File file = new File(path);
+				boardDto.getFile().get(i).transferTo(file);
+				String db = "/resources/upload/"+ imgName;
+				switch (i) {
+				case 0: boardDto.setBoardImg0(db);  break;
+				case 1: boardDto.setBoardImg1(db);  break;
+				case 2: boardDto.setBoardImg2(db);  break;
+				case 3: boardDto.setBoardImg3(db);  break;
+				case 4: boardDto.setBoardImg4(db);  break;
+				case 5: boardDto.setBoardImg5(db);  break;
+				case 6: boardDto.setBoardImg6(db);  break;
+				case 7: boardDto.setBoardImg7(db);  break;
+				case 8: boardDto.setBoardImg8(db);  break;
+				case 9: boardDto.setBoardImg9(db);  break;
+					}
 				}
 			}
 		}else{
