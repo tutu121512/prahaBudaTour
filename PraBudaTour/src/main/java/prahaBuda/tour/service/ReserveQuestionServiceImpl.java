@@ -78,8 +78,8 @@ public class ReserveQuestionServiceImpl implements ReserveQuestionService {
 			previPage=1;
 		}
 		
-		if(nextPage>endpage){
-			nextPage=endpage;
+		if(nextPage>maxpage){
+			nextPage=maxpage;
 		} 
 
 		pageDto.setStartPage(startpage);	//startPage set해주기

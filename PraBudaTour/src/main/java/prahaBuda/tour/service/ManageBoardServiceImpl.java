@@ -39,29 +39,23 @@ public class ManageBoardServiceImpl implements ManageBoardService {
 		int sponCount = pageDto.getCount();  		//카운트 가져오기
 		int maxpage = (sponCount+limit-1)/limit;	//마지막 페이지 구하기 
 		int startpage = ((curPage-1)/10) * 10 + 1; 	//1부터 5까지는 1 6부터 10까지는 2
-		//한 화면에 출력되는 쪽 번호의 시작번호
+		//한 화면에 출력되는 쪽 번호의 시작번호  
 		int endpage = startpage + 10 - 1; 		     //화면 마지막 페이지 지정
-
+		
 
 		// 화면 마지막 페이지가 한페이지거나, 마지막페이지인 경우
-		if(endpage > maxpage) 
-			endpage = maxpage;
+		if(endpage > maxpage) endpage = maxpage;
 
-		if(endpage < curPage) 
-			curPage = endpage;
+		if(endpage < curPage) curPage = endpage;
 
 		//############ 이전, 다음 값 지정
 		int previPage = curPage-1;
 		int nextPage = curPage+1;	    
 
 		//############ 이전버튼, 다음버튼을 눌렀을때  1페이지 혹은 마지막 페이지를 눌렀을 경우
-		if(previPage < 1){
-			previPage=1;
-		}
+		if(previPage < 1){ previPage=1; }
 		
-		if(nextPage>endpage){
-			nextPage=endpage;
-		} 
+		if(nextPage>maxpage){ nextPage=maxpage; } 
 
 		pageDto.setStartPage(startpage);	//startPage set해주기
 		pageDto.setEndPage(endpage);		//endPage set 해주기

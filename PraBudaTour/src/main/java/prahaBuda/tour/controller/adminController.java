@@ -148,7 +148,7 @@ public class adminController {
 		
 		List<BoardDTO> noticeList = NoticeService.NoticeList(pageDto);
 		model.addAttribute("noticeList", noticeList);
-		  
+		model.addAttribute("page",pageDto);
 		return "admin/adminNoticeInsert";
 	}
 	

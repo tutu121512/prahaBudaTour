@@ -263,6 +263,22 @@
 		  </c:forEach>
 		</ul>
 	
+	<ul class="pagination" style="float:left;margin-top:0px;padding-left:35%;">
+			<li class="page-item">
+				<a href="/controller/admin/adminNoticeList?page=<%=pVO.getPreviPage()%>">
+			    <i class="material-icons">chevron_left</i>
+			     </a>
+			   </li>
+			   <%for(int i=pVO.getStartPage(); i <= pVO.getEndPage() ; i++) {%>
+			   <li class="waves-effect" id="page<%=i%>"><a class="page-link" href="/controller/admin/adminNoticeList?page=<%=i%>"><%=i %></a></li>
+			   <%} %>
+			   <li class="page-item">
+				<a href="/controller/admin/adminNoticeList?page=<%=pVO.getNextPage()%>">
+			    <i class="material-icons">chevron_right</i>
+		       </a>
+		   </li>
+		</ul>
+	
 	  </div>	<!-- container -->
 	
 	

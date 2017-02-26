@@ -52,7 +52,7 @@
 		FROM ( select board_state,board_no,title,board_date,writer,content,board_reply,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 		FROM board
 		WHERE Location='P'
-		ORDER BY board_State,board_No+0 desc))
+		ORDER BY board_date desc))
 		WHERE rnum BETWEEN ((#{curPage}-1)*10)+1 AND #{curPage}*10
 	</select>
 
