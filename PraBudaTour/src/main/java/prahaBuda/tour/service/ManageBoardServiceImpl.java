@@ -95,4 +95,14 @@ public class ManageBoardServiceImpl implements ManageBoardService {
 	public void manageBoardDelete(BoardDTO boardDTO) throws Exception {
 		managerBoardDao.manageBoardDelete(boardDTO);
 	}
+
+	@Override
+	public BoardDTO manageSelect(BoardDTO boardDTO) throws Exception {
+		return managerBoardDao.manageSelect(boardDTO);
+	}
+
+	@Override
+	public void manageUpdate(BoardDTO boardDTO) throws Exception {
+		managerBoardDao.manageUpdate(boardDTO);
+	}
 }

@@ -78,6 +78,36 @@
 				location.href="/controller/userBenefit/praha/serviceDelete?boardNo="+$(this).attr("id");				
 				}
 			});
+		
+		$(".updateBtn").click(function(){
+			var boardNo = $(this).attr("id");
+			var boardState = $(this).attr("name");
+			$("#adminUpdate").attr("action","/controller/admin/adminUpdate");
+			
+			$.ajax({
+				url : '/controller/admin/adminSelect',
+				type : 'post',
+				data : ({
+					boardNo : boardNo,
+					boardState : boardState
+				}),
+				dataType : "text", // html / xml / json / jsonp / text
+				success : function(data) {
+					var boardDTO = eval("("+data+")");
+					$("#title").val(boardDTO.title);
+					$("#writer").val(boardDTO.writer);
+					$("#icon_prefix2").val(boardDTO.content);
+					$("#boardNo").val(boardDTO.boardNo);
+					$("#boardState").val(boardDTO.boardState);
+				},
+				error : function(data) {
+					console.log("에러발생");
+				}
+			});
+		});
+		
+		
+		
 	});
 	
 	function readURL(input) {
@@ -110,7 +140,9 @@
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/useService.png"/>'>
 	  </td></tr></table>
-		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data">
+		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data" id="adminUpdate">
+		<input type="hidden" name="boardNo" id="boardNo">
+		<input type="hidden" name="boardState" id="boardState">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -180,6 +212,7 @@
 			    <tr>
 			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap; text-align:center; font-size: 20px;">${list.content}</pre></td>
 			    </tr>
+			    <tr><td><input type="button" id="${list.boardNo}" name="${list.boardState}" class="waves-effect waves-light btn updateBtn" value="수정"></td></tr>
 			    </tbody>
 			    </table>
 			    </div>

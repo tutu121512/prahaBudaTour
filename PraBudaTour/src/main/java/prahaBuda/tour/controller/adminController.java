@@ -1,6 +1,11 @@
 package prahaBuda.tour.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -147,12 +152,11 @@ public class adminController {
 		return "admin/adminNoticeInsert";
 	}
 	
-	@RequestMapping("adminReserveSelect")
+	@RequestMapping("adminSelect")
 	@ResponseBody
 	public BoardDTO adminReserve(BoardDTO boardDTO) throws Exception{
-		
-		BoardDTO bDTO = resereveQeustionService.prahaReservePasswordCheck(boardDTO);
-		System.out.println(bDTO.getBoardNo());
+		BoardDTO bDTO = ManageBoardService.manageSelect(boardDTO);
+		System.out.println("adminSelect : " + bDTO.getBoardState());
 		return bDTO;
 	}
 	
@@ -177,12 +181,7 @@ public class adminController {
 	@RequestMapping("adminBoardReply")
 	public String adminBoardReply(BoardDTO boardDTO,RedirectAttributes redirect) throws Exception{
 		
-		System.out.println(boardDTO.getBoardNo());
-		System.out.println(boardDTO.getBoardReply());
-		System.out.println(boardDTO.getBoardState());
-		
 		ManageBoardService.manageBoardReply(boardDTO);
-		
 		
 		return "redirect:/admin/selectBoard?boardState="+boardDTO.getBoardState();
 	}
@@ -199,5 +198,69 @@ public class adminController {
 		}
 		
 		return "redirect:/admin/totalBoard";
+	}
+	
+	@RequestMapping("adminUpdate")
+	public String adminUpadte(BoardDTO boardDTO,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
+		
+		String nextPage = null;
+		if(boardDTO.getBoardState().equals("tourInfo")){
+			nextPage ="redirect:/admin/adminTourInfo";
+		}else if(boardDTO.getBoardState().equals("userBenefit")){
+			nextPage ="redirect:/admin/adminUserBenefit";
+		}else if(boardDTO.getBoardState().equals("notice")){
+			nextPage ="redirect:/admin/adminNoticeList";
+		}
+		
+		if(boardDTO.getFile()!=null){
+			boardDTO.setBoardImg0("null");
+			boardDTO.setBoardImg1("null");
+			boardDTO.setBoardImg2("null");
+			boardDTO.setBoardImg3("null");
+			boardDTO.setBoardImg4("null");
+			boardDTO.setBoardImg5("null");
+			boardDTO.setBoardImg6("null");
+			boardDTO.setBoardImg7("null");
+			boardDTO.setBoardImg8("null");
+			boardDTO.setBoardImg9("null");
+			
+		for(int i =0; i<boardDTO.getFile().size(); i++){
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
+			String Time = dayTime.format(new Date(System.currentTimeMillis()));
+			String imgName = Time+boardDTO.getFile().get(i).getOriginalFilename();
+			if(!imgName.equals(Time)){
+				String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+				File file = new File(path);
+				boardDTO.getFile().get(i).transferTo(file);
+				String db = "/resources/upload/"+ imgName;
+				switch (i) {
+				case 0: boardDTO.setBoardImg0(db);  break;
+				case 1: boardDTO.setBoardImg1(db);  break;
+				case 2: boardDTO.setBoardImg2(db);  break;
+				case 3: boardDTO.setBoardImg3(db);  break;
+				case 4: boardDTO.setBoardImg4(db);  break;
+				case 5: boardDTO.setBoardImg5(db);  break;
+				case 6: boardDTO.setBoardImg6(db);  break;
+				case 7: boardDTO.setBoardImg7(db);  break;
+				case 8: boardDTO.setBoardImg8(db);  break;
+				case 9: boardDTO.setBoardImg9(db);  break;
+					}
+				}
+			}
+		}else{
+			boardDTO.setBoardImg0("null");
+			boardDTO.setBoardImg1("null");
+			boardDTO.setBoardImg2("null");
+			boardDTO.setBoardImg3("null");
+			boardDTO.setBoardImg4("null");
+			boardDTO.setBoardImg5("null");
+			boardDTO.setBoardImg6("null");
+			boardDTO.setBoardImg7("null");
+			boardDTO.setBoardImg8("null");
+			boardDTO.setBoardImg9("null");
+		}
+		
+		ManageBoardService.manageUpdate(boardDTO);
+		return nextPage;
 	}
 }

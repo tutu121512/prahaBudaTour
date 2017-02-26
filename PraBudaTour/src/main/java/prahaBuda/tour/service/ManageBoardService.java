@@ -19,4 +19,8 @@ public interface ManageBoardService {
 	public int manageBoardReply(BoardDTO boardDTO) throws Exception;
 	
 	public void manageBoardDelete(BoardDTO boardDTO) throws Exception;
+	
+	public BoardDTO manageSelect(BoardDTO boardDTO) throws Exception;
+	
+	public void manageUpdate(BoardDTO boardDTO) throws Exception;
 }

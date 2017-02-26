@@ -87,7 +87,34 @@
 				alert("삭제되었습니다.");
 				location.href="/controller/tourInfo/tourInfoDelete?boardNo="+$(this).attr("id");				
 				}
+		});
+		
+		$(".updateBtn").click(function(){
+			var boardNo = $(this).attr("id");
+			var boardState = $(this).attr("name");
+			$("#tourInfoInsert").attr("action","/controller/admin/adminUpdate");
+			
+			$.ajax({
+				url : '/controller/admin/adminSelect',
+				type : 'post',
+				data : ({
+					boardNo : boardNo,
+					boardState : boardState
+				}),
+				dataType : "text", // html / xml / json / jsonp / text
+				success : function(data) {
+					var boardDTO = eval("("+data+")");
+					$("#title").val(boardDTO.title);
+					$("#writer").val(boardDTO.writer);
+					$("#icon_prefix2").val(boardDTO.content);
+					$("#boardNo").val(boardDTO.boardNo);
+					$("#boardState").val(boardDTO.boardState);
+				},
+				error : function(data) {
+					console.log("에러발생");
+				}
 			});
+		});
 	});
 
 	function readURL(input) {
@@ -124,6 +151,8 @@
 			<img src='<c:url value="/resources/images/tripInfoPlus.png"/>' style="width:28%">
 	  </td></tr></table>
 		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data" id="tourInfoInsert">
+		<input type="hidden" name="boardNo" id="boardNo">
+		<input type="hidden" name="boardState" id="boardState">
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -167,7 +196,6 @@
 				</td></tr>
 			</table>
 		</form>
-	
 		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${tourInfoList}" var="list">
 			  <li style="margin-bottom:6px">
@@ -233,6 +261,7 @@
 							</c:if>
 						</td>
 						</tr>
+						<tr><td><input type="button" id="${list.boardNo}" name="${list.boardState}" class="waves-effect waves-light btn updateBtn" value="수정"></td></tr>
 					</table>
 			    </div>  
 			  </li>

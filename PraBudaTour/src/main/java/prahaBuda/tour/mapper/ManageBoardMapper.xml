@@ -103,4 +103,47 @@
 	DELETE FROM BOARD WHERE board_state=#{boardState} and board_no=#{boardNo} and location='P'
 	</delete>
 	
+	<update id="manageUpdate" parameterType="boardDTO">
+	UPDATE BOARD SET 
+	title = #{title},
+	writer = #{writer},
+	content = #{content}
+	<if test="boardImg0 neq 'null'">,
+	board_img0 = #{boardImg0},
+	board_img1 = #{boardImg1},
+	board_img2 = #{boardImg2},
+	board_img3 = #{boardImg3},
+	board_img4 = #{boardImg4},
+	board_img5 = #{boardImg5},
+	board_img6 = #{boardImg6},
+	board_img7 = #{boardImg7},
+	board_img8 = #{boardImg8},
+	board_img9 = #{boardImg9}
+	</if>
+	WHERE BOARD_NO=#{boardNo} AND board_state=#{boardState} and location='P'
+	</update>
+	
+	<select id="manageSelect" parameterType="boardDTO" resultMap="boardMap">
+	SELECT board_state boardState,
+	board_no boardNo,
+	title title,
+	writer writer,
+	to_char(board_date,'YYYY/MM/DD') as boardDate,
+	content content,
+	board_reply boardReply,
+	board_img0 boardImg0,
+	board_img1 boardImg1,
+	board_img2 boardImg2,
+	board_img3 boardImg3,
+	board_img4 boardImg4,
+	board_img5 boardImg5,
+	board_img6 boardImg6,
+	board_img7 boardImg7,
+	board_img8 boardImg8,
+	board_img9 boardImg9
+	FROM BOARD
+	WHERE board_state=#{boardState} and location='P' and board_no=#{boardNo}  
+	</select>
+	
+	
 </mapper>

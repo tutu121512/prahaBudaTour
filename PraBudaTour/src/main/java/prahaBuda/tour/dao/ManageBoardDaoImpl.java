@@ -49,6 +49,16 @@ public class ManageBoardDaoImpl implements ManageBoardDao{
 	public void manageBoardDelete(BoardDTO boardDTO) throws Exception {
 		 sqlSession.delete("Manage.boardDelete",boardDTO);
 	}
+
+	@Override
+	public BoardDTO manageSelect(BoardDTO boardDTO) throws Exception {
+		return sqlSession.selectOne("Manage.manageSelect", boardDTO);
+	}
+
+	@Override
+	public void manageUpdate(BoardDTO boardDTO) throws Exception {
+		sqlSession.update("Manage.manageUpdate",boardDTO);
+	}
 	
 	
 }

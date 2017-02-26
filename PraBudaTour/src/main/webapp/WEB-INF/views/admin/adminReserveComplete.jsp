@@ -67,10 +67,11 @@
 	
 	$(".reserveNo").click(function(){
 		$.ajax({
-			url : '/controller/admin/adminReserveSelect',
+			url : '/controller/admin/adminSelect',
 			type : 'post',
 			data : ({
-				boardNo : $(this).attr("id")
+				boardNo : $(this).attr("id"),
+				boardState : $(this).attr("name")
 			}),
 			dataType : "text", // html / xml / json / jsonp / text
 			success : function(data) {
@@ -252,7 +253,7 @@
 			    <div class="collapsible-header" style="font-size:20px;background-color:turquoise;border-radius:27px;height:55px;">
 			  	<table>
 			  	<tbody id="collection-item">
-			  	<tr class="reserveNo" id="${list.boardNo}"><td style="width:10%;padding-bottom:0px;">
+			  	<tr class="reserveNo" id="${list.boardNo}" name="${list.boardState}"><td style="width:10%;padding-bottom:0px;">
 			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px;">
 			    </td><td style="width:85%;padding-top:2px">
 			    <div>${list.title}</div>
