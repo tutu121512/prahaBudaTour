@@ -42,9 +42,10 @@
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
-	to_char(board.board_date,'YYYY/MM/DD') as boardDate
-	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date
-	FROM (SELECT board_no,writer,title,board_Date
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
+	board.board_reply as boardReply
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,board_reply
+	FROM (SELECT board_no,writer,title,board_Date,board_reply
 	from board
 	where board_state='shuttle' and location='P'
 	order by board_no+0 desc) ) board

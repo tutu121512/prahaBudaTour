@@ -12,6 +12,7 @@ $(".dropdown-button").dropdown();
 	<li><a href="/controller/praha/prahaRoomInfo/prahaRoom">프라하성</a></li>
 	<li><a href="/controller/praha/prahaRoomInfo/bachlRoom">바츨라프</a></li>
 	<li><a href="/controller/praha/prahaRoomInfo/publicRoom">공용공간</a></li>
+	<li><a href="#">3호점</a></li>
 </ul>
 
 <ul id="guide" class="dropdown-content">

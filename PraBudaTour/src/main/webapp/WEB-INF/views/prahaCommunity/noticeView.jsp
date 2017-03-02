@@ -65,35 +65,35 @@ main {
 		<table class="centered">
 			<tr>
 				<td class="centered"><c:if test="${noticeViewInfo.boardImg0 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg0}'/>" />
 						<%-- ${fn:split(fn:substring(noticeViewInfo.boardImg1,33,fn:length(noticeViewInfo.boardImg1)),'.')[0]} --%>
 					</c:if> <c:if test="${noticeViewInfo.boardImg1 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg1}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg2 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg2}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg3 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg3}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg4 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg4}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg5 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg5}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg6 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg6}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg7 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg7}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg8 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg8}'/>" />
 					</c:if> <c:if test="${noticeViewInfo.boardImg9 != 'null'}">
-						<img height="130px" style="max-heigth: 600px;"
+						<img height="300px" style="max-heigth: 600px;"
 							class="materialboxed" src="<c:url value='${noticeViewInfo.boardImg9}'/>" />
 					</c:if></td>
 			</tr>

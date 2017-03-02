@@ -67,7 +67,16 @@
 	<c:forEach items="${shuttleSelectList}" var="list">
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
-		<td><i class="material-icons prefix" style="font-size:20px">security</i>${list.title}</td>
+		<td><i class="material-icons prefix" style="font-size:20px">security</i>${list.title}
+		<c:choose>
+		<c:when test="${list.boardReply eq null}">
+		
+		</c:when>
+		<c:otherwise>
+		[1]
+		</c:otherwise>
+		</c:choose>
+		</td>
 		<td>${list.writer}</td>
 		<td>${list.boardDate}</td> 
 		<td style="width:180px;">
