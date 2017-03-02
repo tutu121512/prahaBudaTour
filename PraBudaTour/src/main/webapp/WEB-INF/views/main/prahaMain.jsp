@@ -62,13 +62,13 @@
 		<div class="col s12">
 		<table class="striped centered bordered" >
 		<tr><td style="background-color:firebrick;color:aliceblue;font-size:25px;padding:2px;">공지사항
-		<i class="material-icons prefix" style="float:right;padding-top:6px;padding-right:7px;margin-left:-30px;">&#xE145;</i>
+		<i class="material-icons prefix" style="cursor:pointer;float:right;padding-top:6px;padding-right:7px;margin-left:-30px;" onclick='location.href="/controller/notice/praha/noticeBoard"'">&#xE145;</i>
 		</td></tr>
 		<%if(notice.isEmpty()){ %>
 		<tr><td> 게시글이 없습니다.</td></tr>		
 		<%}else{ %>
 		<%for(int i=0; i<5; i++){ %>
-		<tr><td><%=notice.get(i).getTitle() %></td></tr>
+		<tr style="cursor: pointer" onclick="location.href='/controller/notice/praha/noticeView?boardNo=<%=notice.get(i).getBoardNo()%>'"><td><%=notice.get(i).getTitle() %></td></tr>
 			<%} %>
 		<%} %>
 		</table>
@@ -79,13 +79,13 @@
 		<div class="col s4">
 		<table class="striped centered bordered" >
 		<tr><td style="background-color:#cc3825;color:aliceblue;font-size:25px;padding:2px;">이용혜택
-		<i class="material-icons prefix" style="float:right;padding-top:6px;padding-right:7px;margin-left:-30px;">&#xE145;</i>
+		<i class="material-icons prefix" style="cursor:pointer; float:right;padding-top:6px;padding-right:7px;margin-left:-30px;" onclick='location.href="/controller/userBenefit/praha/userBenefitBoard"'>&#xE145;</i>
 		</td></tr>
 		<%if(userBenefit.isEmpty()){ %>
 		<tr><td> 게시글이 없습니다.</td></tr>		
 		<%}else{ %>
 		<%for(int i=0; i<5; i++){ %>
-		<tr><td><%=userBenefit.get(i).getTitle() %></td></tr>
+		<tr style="cursor: pointer" onclick="location.href='/controller/userBenefit/praha/userBenefitBoard'"><td><%=userBenefit.get(i).getTitle() %></td></tr>
 			<%} %>
 		<%} %>
 		</table>
@@ -94,13 +94,13 @@
 		<div class="col s4">
 		<table class="striped centered bordered" >
 		<tr><td style="background-color:#cc3825;color:aliceblue;font-size:25px;padding:2px;">여행정보
-		<i class="material-icons prefix" style="float:right;padding-top:6px;padding-right:7px;margin-left:-30px;">&#xE145;</i>
+		<i class="material-icons prefix" style="cursor:pointer; float:right;padding-top:6px;padding-right:7px;margin-left:-30px;"  onclick='location.href="/controller/tourInfo/tourInfoSelect"'>&#xE145;</i>
 		</td></tr>
 		<%if(tourInfo.isEmpty()){ %>
 		<tr><td> 게시글이 없습니다.</td></tr>		
 		<%}else{ %>
 		<%for(int i=0; i<5; i++){ %>
-		<tr><td><%=tourInfo.get(i).getTitle() %></td></tr>
+		<tr style="cursor: pointer;" onclick="location.href='/controller/tourInfo/tourInfoSelect'"><td><%=tourInfo.get(i).getTitle() %></td></tr>
 			<%} %>
 		<%} %>
 		</table>
@@ -108,16 +108,16 @@
 		
 		<div class="col s4">
 		<table class="striped centered bordered" >
-		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">둘러 보러 가기 !!
+		<tr style="cursor: pointer;" onclick="location.href='/controller/praha/prahaRoomInfo/publicRoom'"><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">둘러 보러 가기 !!
 		</td></tr>
 		<tr><td> </td></tr>
-		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">예약 문의 하러 가기 !!
+		<tr style="cursor: pointer;" onclick="location.href='/controller/praha/reserveBoard'"><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">예약 문의 하러 가기 !!
 		</td></tr>
 		<tr><td> </td></tr>
-		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">셔틀 문의 하러 가기 !!
+		<tr style="cursor: pointer;" onclick="location.href='/controller/shuttle/praha/shuttleBoard'"><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">셔틀 문의 하러 가기 !!
 		</td></tr>
 		<tr><td> </td></tr>
-		<tr><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">즐거운 후기 미리보기 !!
+		<tr style="cursor: pointer;" onclick="location.href='/controller/review/praha/reviewBoard'"><td style="background-color:chocolate;color:aliceblue;font-size:25px;padding:2px;">즐거운 후기 미리보기 !!
 		</td></tr>
 		</table>
 		</div>
