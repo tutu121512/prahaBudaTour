@@ -81,7 +81,7 @@
 			<div class="password" style="display: none; padding: 0px; margin: 0px;">
 			<form action="/controller/praha/prahaReservePasswordCheck" method="post">
 			<input type="hidden" name="boardNo" value="${list.boardNo}">
-			<input type="password" name="password" maxlength="4" placeholder="비밀번호" style="width:50px; margin:0; height:20px; padding-right: 10px;"/> 
+			<input type="password" name="password" placeholder="비밀번호" style="width:50px; margin:0; height:20px; padding-right: 10px;"/> 
 			<input type="submit" value="보기">
 			</form>
 			</div>

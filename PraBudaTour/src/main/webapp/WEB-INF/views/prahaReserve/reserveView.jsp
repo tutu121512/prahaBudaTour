@@ -123,7 +123,7 @@
 						</div>
 						<div class="input-field col s4" style="margin-bottom:-20px">
 							<i class="material-icons prefix">security</i>
-							<input id="password" name="password" type="password" class="validate updateform" readonly="readonly" placeholder="4자리만 입력가능" maxlength="4" value="${reserveViewInfo.password}">
+							<input id="password" name="password" type="password" class="validate updateform" readonly="readonly" placeholder="비밀번호 입력" value="${reserveViewInfo.password}">
 							<label for="password">Password</label>
 						</div>
 					</div>

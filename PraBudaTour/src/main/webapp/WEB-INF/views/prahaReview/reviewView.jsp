@@ -31,20 +31,34 @@
 	<script type="text/javascript">
 	$(function(){		
 		$("#updateComplete").hide();
+		$("#deletebtn").hide();
 		var preheight = $("#icon_prefix2").height();
+		
 		$("#delete").click(function(){
-			var result = confirm('이 글을 삭제 하시겠습니까?');
-			if(result) { 
-				alert("삭제되었습니다.");
-				location.href="/controller/review/praha/reviewDelete?boardNo="+$("#boardNo").val()
-			}											
+			
+			var str ='<div class="input-field col s4" style="margin-bottom:-20px; width: 20%;">'
+				str +='<i class="material-icons prefix">security</i>'
+				str +='<input id="password" name="password" type="password" class="validate" placeholder="비밀번호 입력">'
+				str +='<label for="password">Password</label>'
+				str +='</div>'
+			$("#pass").append(str);													
+			$(this).hide();
+			$("#deletebtn").show();
 		});
+		
+		$("#deletebtn").click(function(){
+		var result = confirm('이 글을 삭제 하시겠습니까?');
+			if(result) { 
+				location.href="/controller/review/praha/reviewDelete?boardNo="+$("#boardNo").val()+"&password="+$("#password").val();
+			}	
+		});
+		
 		
 		$("#update").click(function(){
 			var result = confirm('이 글을 수정 하시겠습니까?');
 			var str ='<div class="input-field col s4" style="margin-bottom:-20px; width: 20%;">'
 				str +='<i class="material-icons prefix">security</i>'
-				str +='<input id="password" name="password" type="password" class="validate" placeholder="4자리만 입력가능" maxlength="4">'
+				str +='<input id="password" name="password" type="password" class="validate" placeholder="비밀번호 입력">'
 				str +='<label for="password">Password</label>'
 				str +='</div>'
 			if(result) { 
@@ -180,6 +194,7 @@
 					<input type="hidden" id="boardNo" name="boardNo" value="${reviewViewInfo.boardNo}">
 					<a class="waves-effect waves-light btn" type="button" id="list" >목록보기</a>
 					<a class="waves-effect waves-light btn" type="button" id="delete">삭제</a>
+					<a class="waves-effect waves-light btn" type="button" id="deletebtn">삭제</a>
 					<a class="waves-effect waves-light btn" type="button" id="update">수정</a>
 					<a href="#" onClick="submit(); return false;" class="waves-effect waves-light btn" id="updateComplete">완료</a>
 				</div>	<!--  button -->

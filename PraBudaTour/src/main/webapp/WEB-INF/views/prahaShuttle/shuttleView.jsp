@@ -104,7 +104,7 @@
 				<div class='row' id="password">
 					<div class='input-field col s4' style='margin-bottom:-20px'>
 						<i class='material-icons prefix'>security</i>
-						<input id='password' name='password' type='password' readonly="readonly" value="${shuttleViewInfo.password}" class='validate updateform' placeholder='4자리만 입력가능' maxlength='4'>
+						<input id='password' name='password' type='password' readonly="readonly" value="${shuttleViewInfo.password}" class='validate updateform' placeholder='비밀번호 입력'>
 						<label for='password'>Password</label>
 					</div>
 				</div>				

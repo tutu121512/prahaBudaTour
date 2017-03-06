@@ -118,7 +118,16 @@ public class ReviewController {
 	@RequestMapping("praha/reviewDelete")
 	public String prahaReserveDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
 		
-		ReviewService.ReviewDelete(boardDto);
+		BoardDTO bDTO =ReviewService.prahaReviewView(boardDto);
+
+		System.out.println("게시글의 비밀번호 : " + bDTO.getPassword());
+		System.out.println("내가 입력한 비밀번호 : " + boardDto.getPassword());
+		if(bDTO.getPassword().equals(boardDto.getPassword())){
+			System.out.println("삭제 성공");
+			ReviewService.ReviewDelete(boardDto);
+		}
+		
+		
 		
 		return "redirect:/review/praha/reviewBoard";
 	}

@@ -132,7 +132,7 @@ document.getElementById("reviewInsertForm").submit();
 				<tr><td> 
 					<div class="input-field col s4" style="margin-bottom:-20px; width: 20%;">
 					<i class="material-icons prefix">security</i>
-					<input id="password" name="password" type="password" class="validate" placeholder="4자리만 입력가능" maxlength="4">
+					<input id="password" name="password" type="password" class="validate" placeholder="비밀번호 입력">
 					<label for="password">Password</label>
 				</div>
 				</td></tr>
