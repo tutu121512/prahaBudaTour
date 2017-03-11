@@ -33,8 +33,8 @@
 	<insert id="InfoInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
 			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
-	VALUES('tourInfo','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'tourInfo'),#{writer},#{title},#{content},
-			now(),#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
+	VALUES('tourInfo','P',tourInfo_sequence.nextVal,#{writer},#{title},#{content},
+			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
 	<select id="InfoSelect" resultMap="boardMap" parameterType="int" >
@@ -43,7 +43,7 @@
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
-	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
 	content content,
 	board_img0 boardImg0,
 	board_img1 boardImg1,
@@ -55,11 +55,11 @@
 	board_img7 boardImg7,
 	board_img8 boardImg8,
 	board_img9 boardImg9
-	FROM (SELECT @ROWNUM := @ROWNUM + 1 as rnum,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT rownum as rnum,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 	FROM (SELECT board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 	from board
 	where board_state='tourInfo' and location='P'
-	order by board_no+0 desc) a ) board
+	order by board_no+0 desc)) board
 	</select>
 	
 	<select id="InfoSelectCount" resultType="int">

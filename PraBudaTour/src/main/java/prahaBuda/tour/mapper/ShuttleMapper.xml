@@ -33,8 +33,8 @@
 	<insert id="ShuttleInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
 	password,board_date) 
-	VALUES('shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
-	#{password},sysdate)
+	VALUES('shuttle','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'shuttle'),#{writer},#{title},#{content},
+	#{password},now())
 	</insert>
 	
 	<select id="ShuttleList" resultMap="boardMap" parameterType="int" >
@@ -42,13 +42,13 @@
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
-	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
+	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate,
 	board.board_reply as boardReply
-	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,board_reply
+	FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, (SELECT board_no,writer,title,board_Date,board_reply
 	FROM (SELECT board_no,writer,title,board_Date,board_reply
 	from board
 	where board_state='shuttle' and location='P'
-	order by board_no+0 desc) ) board
+	order by board_no+0 desc) a ) t) board
 	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
 	</select>
 	
