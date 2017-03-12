@@ -32,8 +32,8 @@
 	<insert id="ReviewInsert" parameterType="boardDTO" >
 	INSERT INTO Board(board_state,Location,board_no,writer,title,content,password,
 			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
-	VALUES('review','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'review'),#{writer},#{title},#{content},#{password},
-			now(),#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
+	VALUES('review','P',Review_sequence.nextVal,#{writer},#{title},#{content},#{password},
+			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
 	<select id="ReviewList" resultMap="boardMap" parameterType="int" >
@@ -41,12 +41,12 @@
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
-	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate
-	FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, (SELECT board_no,writer,title,board_Date
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date
 	FROM (SELECT board_no,writer,title,board_Date
 	from board
 	where board_state='review' and location='P'
-	order by board_no+0 desc) a ) t) board
+	order by board_no+0 desc) ) board
 	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
 	</select>
 	
@@ -68,7 +68,7 @@
 	
 	<update id="prahaReviewUpdate" parameterType="boardDTO">
 	UPDATE BOARD SET title=#{title},
-	 writer=#{writer},content=#{content},board_date=now(), password=#{password}
+	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password}
 	 WHERE BOARD_NO=#{boardNo} AND board_state='review' and location='P'
 	</update>
 </mapper>

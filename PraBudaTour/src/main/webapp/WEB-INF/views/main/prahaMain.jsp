@@ -67,9 +67,9 @@
 		<%if(notice.isEmpty()){ %>
 		<tr><td> 게시글이 없습니다.</td></tr>		
 		<%}else{ %>
-		<%for(int i=0; i<notice.size(); i++){ %>
+		<%for(int i=0; i<5; i++){ %>
 		<tr style="cursor: pointer" onclick="location.href='/controller/notice/praha/noticeView?boardNo=<%=notice.get(i).getBoardNo()%>'"><td><%=notice.get(i).getTitle() %></td></tr>
-			<% if(i==4) break; } %>
+			<%} %>
 		<%} %>
 		</table>
 		</div></tr>
@@ -84,9 +84,9 @@
 		<%if(userBenefit.isEmpty()){ %>
 		<tr><td> 게시글이 없습니다.</td></tr>		
 		<%}else{ %>
-		<%for(int i=0; i<userBenefit.size(); i++){ %>
+		<%for(int i=0; i<5; i++){ %>
 		<tr style="cursor: pointer" onclick="location.href='/controller/userBenefit/praha/userBenefitBoard'"><td><%=userBenefit.get(i).getTitle() %></td></tr>
-			<% if(i==4) break; } %>
+			<%} %>
 		<%} %>
 		</table>
 		</div>
@@ -99,9 +99,9 @@
 		<%if(tourInfo.isEmpty()){ %>
 		<tr><td> 게시글이 없습니다.</td></tr>		
 		<%}else{ %>
-		<%for(int i=0; i<tourInfo.size(); i++){ %>
+		<%for(int i=0; i<5; i++){ %>
 		<tr style="cursor: pointer;" onclick="location.href='/controller/tourInfo/tourInfoSelect'"><td><%=tourInfo.get(i).getTitle() %></td></tr>
-			<% if(i==4) break; } %>
+			<%} %>
 		<%} %>
 		</table>
 		</div>

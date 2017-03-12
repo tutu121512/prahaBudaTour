@@ -23,7 +23,7 @@
 	INSERT INTO reserveComplete(
 	location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,product,title) 
 	values
-	('P',(select ifnull(max(BOARD_NO+0),0)+1 from reserveComplete a),now(),#{reserveName},#{roomName},#{startDate},#{endDate},#{peopleNumber},#{price},#{product},#{title})
+	('P',reserveComplete_Sequence.nextVal,sysdate,#{reserveName},#{roomName},#{startDate},#{endDate},#{peopleNumber},#{price},#{product},#{title})
 	</insert>
 	
 	<select id="reserveCompleteCalendar" resultMap="reserveCompleteMap">
@@ -35,15 +35,15 @@
 	SELECT board.board_no boardNo,
 	board.reserve_name reserveName,
 	board.room_Name roomName,
-	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
 	board.title title,
 	board.start_date startDate,
 	board.end_date endDate
-	FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, (SELECT board_no,reserve_name,room_name,board_date,title,start_date,end_date
+	FROM (SELECT rownum as rnum,board_no,reserve_name,room_name,board_date,title,start_date,end_date
 	FROM (SELECT board_no,reserve_name,room_name,board_date,title,start_date,end_date
 	from reserveComplete
 	where location='P'
-	order by Board_no+0 desc) a ) t) board
+	order by Board_no+0 desc) ) board
 	where rnum between  ((#{curPage}-1)*10)+1  AND #{curPage}*10
 	</select>
 
