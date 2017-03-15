@@ -71,8 +71,7 @@
 
 	  <div class="container" style="margin-left:25%">
 	 <div class="row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/manageBoard.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top: 20px;">
+			<img src='<c:url value="/resources/images/manageBoard.png"/>' style="width: 5%;margin-left: 100px;margin-top: 20px;">
 			<img src='<c:url value="/resources/images/manageBoardLogo.jpg"/>'>
 	<a href="/controller/admin/selectBoard?boardState=shuttle" class="waves-effect waves-light btn"><input type="button" value="셔틀문의"></a>
 	<a href="/controller/admin/selectBoard?boardState=reserveQuestion" class="waves-effect waves-light btn"><input type="button" value="예약문의"></a>

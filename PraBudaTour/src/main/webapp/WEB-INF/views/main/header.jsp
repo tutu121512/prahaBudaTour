@@ -52,5 +52,5 @@ $(".dropdown-button").dropdown();
 </nav>
 
 <span id="carbonads" class="carbon-wrap" style="position:fixed;top:50%;z-index:9999;margin-right:-200px;left:90%">
-<img src='<c:url value="/resources/images/navigatorLogo.png"/>' style="width:45%">
+<img src='<c:url value="/resources/images/navigatorLogo.gif"/>' style="width:45%">
 </span>
