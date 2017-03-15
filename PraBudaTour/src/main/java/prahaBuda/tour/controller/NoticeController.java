@@ -125,11 +125,11 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("praha/NoticeDelete")
-	public String prahaNoticeDelete(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+	public String prahaNoticeDelete(BoardDTO boardDto,RedirectAttributes redirect,String page) throws Exception{
 		
 		NoticeService.NoticeDelete(boardDto);
 		
-		return "redirect:/admin/adminNoticeList";
+		return "redirect:/admin/adminNoticeList?page="+page;
 	}
 	
 	@RequestMapping("praha/NoticeUpdate")
