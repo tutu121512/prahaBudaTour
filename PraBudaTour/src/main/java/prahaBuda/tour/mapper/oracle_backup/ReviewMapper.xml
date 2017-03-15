@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="UserBenefit">
+<mapper namespace="Review">
 
 <!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
 <resultMap type="boardDTO" id="boardMap">
@@ -16,7 +16,7 @@
 	<result column="board_date" property="boardDate"/>
 	<result column="board_reply" property="boardReply"/>
 	<result column="start_Date" property="startDate"/>
-	<result column="end_Date" property="endDate"/>	
+	<result column="end_Date" property="endDate"/>		
 	<result column="board_img0" property="boardImg0"/>
 	<result column="board_img1" property="boardImg1"/>
 	<result column="board_img2" property="boardImg2"/>
@@ -29,42 +29,46 @@
 	<result column="board_img9" property="boardImg9"/>
 </resultMap>
 
-
-	<insert id="benefitInsert" parameterType="boardDTO" >
-	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
+	<insert id="ReviewInsert" parameterType="boardDTO" >
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,password,
 			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
-	VALUES('userBenefit','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'userBenefit'),#{writer},#{title},#{content},
-			now(),#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
+	VALUES('review','P',Review_sequence.nextVal,#{writer},#{title},#{content},#{password},
+			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
-	<select id="benefitSelect" resultMap="boardMap" parameterType="int" >
+	<select id="ReviewList" resultMap="boardMap" parameterType="int" >
 	SELECT
-	board.board_state boardState,
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
-	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate,
-	content content,
-	board_img0 boardImg0,
-	board_img1 boardImg1,
-	board_img2 boardImg2,
-	board_img3 boardImg3,
-	board_img4 boardImg4,
-	board_img5 boardImg5,
-	board_img6 boardImg6,
-	board_img7 boardImg7,
-	board_img8 boardImg8,
-	board_img9 boardImg9
-	FROM (SELECT @ROWNUM := @ROWNUM + 1 as rnum,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
-	FROM (SELECT board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date
+	FROM (SELECT board_no,writer,title,board_Date
 	from board
-	where board_state='userBenefit' and location='P'
-	order by board_no+0 desc) a) board
+	where board_state='review' and location='P'
+	order by board_no+0 desc) ) board
+	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
 	</select>
 	
-	<delete id="benefitDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='userBenefit' and location='P'
+	<select id="ReviewListCount" resultType="int">
+	select count(board_no)
+	from board
+	where board_state='review' and location='P'
+	</select>
+	
+	<select id="prahaReviewView" parameterType="boardDTO" resultMap="boardMap">
+	SELECT *
+	FROM BOARD
+	WHERE board_state='review' and location='P' and board_no=#{boardNo}
+	</select>
+	
+	<delete id="prahaReviewDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE BOARD_NO=#{boardNo} AND board_state='review' and location='P'
 	</delete>
 	
-
+	<update id="prahaReviewUpdate" parameterType="boardDTO">
+	UPDATE BOARD SET title=#{title},
+	 writer=#{writer},content=#{content},board_date=sysdate, password=#{password}
+	 WHERE BOARD_NO=#{boardNo} AND board_state='review' and location='P'
+	</update>
 </mapper>

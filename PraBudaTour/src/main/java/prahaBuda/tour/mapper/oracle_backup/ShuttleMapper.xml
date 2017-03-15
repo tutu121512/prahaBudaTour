@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ReserveQuestion">
+<mapper namespace="Shuttle">
 
 <!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
 <resultMap type="boardDTO" id="boardMap">
@@ -29,50 +29,48 @@
 	<result column="board_img9" property="boardImg9"/>
 </resultMap>
 
-	<insert id="ReserveQuestionInsert" parameterType="boardDTO" >
-		INSERT INTO board(board_state,Location,board_no,writer,title,content,password,board_date,start_date,end_date,product) 
-		values('reserveQuestion','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'reserveQuestion'), #{writer},#{title},#{content},#{password},now(),#{startDate},${endDate},#{product})
+
+	<insert id="ShuttleInsert" parameterType="boardDTO" >
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
+	password,board_date) 
+	VALUES('shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
+	#{password},sysdate)
 	</insert>
 	
-	<select id="ReserveQuestionList" resultMap="boardMap" parameterType="int" >
+	<select id="ShuttleList" resultMap="boardMap" parameterType="int" >
 	SELECT
 	board.board_no boardNo,
 	board.writer as writer,
 	board.title as title,
-	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
 	board.board_reply as boardReply
-	FROM ((SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, 
-	(SELECT board_no,writer,title,board_Date,board_reply from board where board_state='reserveQuestion' and location='P'
-	order by board_no+0 desc) t)) board
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,board_reply
+	FROM (SELECT board_no,writer,title,board_Date,board_reply
+	from board
+	where board_state='shuttle' and location='P'
+	order by board_no+0 desc) ) board
 	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
 	</select>
 	
-	<select id="ReserveQuestionListCount" resultType="int">
+	<select id="ShuttleListCount" resultType="int">
 	select count(board_no)
 	from board
-	where board_state='reserveQuestion' and location='P'
+	where board_state='shuttle' and location='P'
 	</select>
 	
-	<select id="prahaReservePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
+	<select id="prahaShuttlePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
 	SELECT *
 	FROM BOARD
-	WHERE board_state='reserveQuestion'and location='P' 
+	WHERE board_state='shuttle' and location='P' 
 	and board_no=#{boardNo} and password=#{password}
 	</select>
 	
-	<delete id="prahaReserveDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE BOARD_NO=#{boardNo} AND board_state='reserveQuestion'and location='P'
+	<delete id="prahaShuttleDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
 	</delete>
 	
-	<update id="prahaReserveUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET 
-	title=#{title},
-	writer=#{writer},
-	content=#{content},
-	start_date = #{startDate},
-	end_date = #{endDate},
-	product = #{product},
-	password= #{password}
-	WHERE BOARD_NO=#{boardNo} AND board_state='reserveQuestion' and location='P'
+	<update id="prahaShuttleUpdate" parameterType="boardDTO">
+	UPDATE BOARD SET title=#{title},writer=#{writer},content=#{content}, password=#{password} 
+	WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
 	</update>
 </mapper>
