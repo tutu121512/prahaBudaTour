@@ -40,6 +40,9 @@ public class adminController {
 	@Autowired
 	private TourInfoService TourInfoService;
 	
+	@Autowired
+	private PopupService PopupSerivce;
+	
 	@RequestMapping("{viewName}/{fileName}")
 	public String move(
 			@PathVariable("viewName") String viewName,
@@ -263,4 +266,43 @@ public class adminController {
 		ManageBoardService.manageUpdate(boardDTO);
 		return nextPage;
 	}
+	
+	@RequestMapping("adminPopup")
+	public String adminPopup(Model model,String page) throws Exception{
+		
+		
+		PopupDTO popupDTO =PopupSerivce.popup();
+		
+		List<BoardDTO> noticeList = NoticeService.popupNoticeList();
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("popup", popupDTO);
+		
+		return "admin/adminPopup";
+	}
+	
+	@RequestMapping("popupInsert")
+	public String popupInsert(Model model,String page,RedirectAttributes redirect,PopupDTO popupDTO,HttpServletRequest request) throws Exception{
+		if(!popupDTO.getBoardNo().equals("")&&!popupDTO.getFile().getOriginalFilename().equals("")){
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
+			String Time = dayTime.format(new Date(System.currentTimeMillis()));
+			String imgName = Time+popupDTO.getFile().getOriginalFilename();
+			String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+			File file = new File(path);
+			popupDTO.getFile().transferTo(file);
+			String db = "/resources/upload/"+ imgName;
+			popupDTO.setPopupImg(db);
+			PopupSerivce.popupInsert(popupDTO);
+		}
+		
+		return "redirect:/admin/adminPopup";
+	}
+	
+	@RequestMapping("popupDelete")
+	public String popupDelete(PopupDTO popupDTO,RedirectAttributes redirect) throws Exception{
+		
+		PopupSerivce.popupDelete(popupDTO);
+		
+		return  "redirect:/admin/adminPopup";
+	}
+		
 }

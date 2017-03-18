@@ -32,6 +32,9 @@ public class PrahaController {
 	@Autowired
 	private ReviewService ReviewService;
 	
+	@Autowired
+	private PopupService PopupService;
+	
 	@RequestMapping("{fileName}")
 	public String noneSignUpMove(
 			@PathVariable("fileName") String fileName){
@@ -56,6 +59,7 @@ public class PrahaController {
 		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect();
 		List<BoardDTO> tourInfoList =  TourInfoService.tourInfoSelect(pageDto);
 		List<BoardDTO> reviewList =  ReviewService.ReviewList(pageDto);
+		PopupDTO popupDTO = PopupService.popup();
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main/prahaMain");
@@ -63,13 +67,15 @@ public class PrahaController {
 		mv.addObject("userBenefitList", userBenefitList);
 		mv.addObject("tourInfoList", tourInfoList);
 		mv.addObject("reviewList", reviewList);
-
+		mv.addObject("popup", popupDTO);
 		return mv;
 	}
 	
 	@RequestMapping("popup")
 	public String popup(String boardNo,Model model) throws Exception{
-		model.addAttribute("boardNo", boardNo);
+		
+		PopupDTO popupDTO = PopupService.popup();
+		model.addAttribute("popup", popupDTO);
 		return "main/popup";
 	}
 	@RequestMapping("reserveBoard")

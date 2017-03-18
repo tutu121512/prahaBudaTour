@@ -90,5 +90,10 @@ public class NoticeServiceImpl implements NoticeService{
 		return pageDto;		
 	}
 
+	@Override
+	public List<BoardDTO> popupNoticeList() throws Exception {
+		return NoticeDao.popupNoticeList();
+	}
+
 
 }
