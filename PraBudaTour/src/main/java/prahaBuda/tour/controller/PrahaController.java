@@ -45,6 +45,7 @@ public class PrahaController {
 		return viewName + "/" +fileName;
 	}
 	
+	
 	@RequestMapping("prahaMain")
 	public ModelAndView PrahaMain() throws Exception{
 		
@@ -66,6 +67,11 @@ public class PrahaController {
 		return mv;
 	}
 	
+	@RequestMapping("popup")
+	public String popup(String boardNo,Model model) throws Exception{
+		model.addAttribute("boardNo", boardNo);
+		return "main/popup";
+	}
 	@RequestMapping("reserveBoard")
 	public String PrahaReserveSelect(BoardDTO boardDto,Model model,String page) throws Exception{
 		

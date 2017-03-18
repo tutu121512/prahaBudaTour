@@ -41,7 +41,15 @@
        <li class="no-padding">
            <ul class="collapsible collapsible-accordion">
             <li class="bold">											
-            <a style="font-size:20px;color:white" href="/controller/admin/adminUserBenefit" class="collapsible-header  waves-effect waves-teal">이용혜택 관리</a>
+            <a style="font-size:20px;color:white" href="/controller/admin/adminNoticeList" class="collapsible-header  waves-effect waves-teal">이용혜택 관리</a>
+            </li>
+          </ul>
+        </li>
+
+       <li class="no-padding">
+           <ul class="collapsible collapsible-accordion">
+            <li class="bold">											
+            <a style="font-size:20px;color:white" href="/controller/admin/adminUserBenefit" class="collapsible-header  waves-effect waves-teal">팝업 관리</a>
             </li>
           </ul>
         </li>

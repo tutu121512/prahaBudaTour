@@ -35,8 +35,15 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
 	<script>
 	$(document).ready(function(){
-	      $('.carousel').carousel();
-	    });
+	      $('.carousel').carousel();  
+	
+	function popupOpen(){      
+	    var popUrl ="/controller/praha/popup?boardNo=34";
+	  	var popOption = "width=400, height=450,scrollbars=no,toolbar=no,location=no,directories=no,top=100,left=100,resizable=no";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}
+	popupOpen();
+	});
 	</script>
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 	<main>
@@ -54,7 +61,7 @@
 		    <a class="carousel-item" href="#four!"><img src='<c:url value="/resources/images/8.jpg"/>'></a>
 		</div>
 		</td></tr></table>
-		</div>
+	</div>
 		
 		<table>
 		
