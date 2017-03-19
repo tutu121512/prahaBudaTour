@@ -12,8 +12,8 @@
 </resultMap>
 
 	<insert id="popupInsert" parameterType="popupDTO">
-		INSERT INTO popup(board_no,popup_img,popup_status) 
-		values(#{boardNo},#{popupImg},'1')
+		INSERT INTO popup(popup_img,popup_status) 
+		values(#{popupImg},'1')
 	</insert>
 	
 	<select id="popup" resultMap="popupMap">
@@ -21,6 +21,6 @@
 	</select>
 	
 	<update id="popupDelete" parameterType="popupDTO">
-		update popup set popup_status='0' where board_No=#{boardNo};
+		update popup set popup_status='0' where popup_status='1';
 	</update>
 </mapper>
