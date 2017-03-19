@@ -273,8 +273,8 @@ public class adminController {
 		
 		PopupDTO popupDTO =PopupSerivce.popup();
 		
-//		List<BoardDTO> noticeList = NoticeService.popupNoticeList();
-//		model.addAttribute("noticeList", noticeList);
+		List<BoardDTO> noticeList = NoticeService.popupNoticeList();
+		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("popup", popupDTO);
 		
 		return "admin/adminPopup";
@@ -282,7 +282,7 @@ public class adminController {
 	
 	@RequestMapping("popupInsert")
 	public String popupInsert(Model model,String page,RedirectAttributes redirect,PopupDTO popupDTO,HttpServletRequest request) throws Exception{
-		if(!popupDTO.getFile().getOriginalFilename().equals("")){
+		if(!popupDTO.getBoardNo().equals("")&&!popupDTO.getFile().getOriginalFilename().equals("")){
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+popupDTO.getFile().getOriginalFilename();

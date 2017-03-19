@@ -60,8 +60,23 @@
 		$(index).val(size);
 	});
 	
+	$('#add').on("click", function() {
+		if(count < 1) {
+			var str = "<div class='file-field input-field'>";
+			str += "<input type='file' name='file' id='InputFile' class='boardImg"+count+"''>";
+			str += "<div class='file-path-wrapper'>";
+			str += "<input class='file-path validate' type='text' placeholder='이미지 파일 추가 (이 부분을 클릭하세요.)'>";
+			str += "</div></div>";
+			$('div.image-file').append(str);
+			
+			str = "<input class='waves-effect waves-light btn' style='width:100%' type='submit' value='추가'>"
+			$("#submitbtn").append(str);
+			count++;
+		}
+	});
+	
 		$("#popupDelete").click(function(){
-				location.href="/controller/admin/popupDelete";
+				location.href="/controller/admin/popupDelete?boardNo="+$("#popupNo").val();
 		});
 		
 			
@@ -73,10 +88,9 @@
 			var reader = new FileReader();
 			
 			reader.onload = function(e) {
-				if($("#jImg").length==0){
+				$('.inner').html("<img id='preview-image' src='"+e.target.result+"'/>");
 				var str ="<img id='jImg' width='500px' height='510px'>";
 				$("div.image-file-size").append(str);
-				}
 	            $('#jImg').attr('src', e.target.result);
 			}
 			reader.readAsDataURL(input.files[0]);
@@ -105,20 +119,20 @@
 		<input type="hidden" name="popupNo" id="popupNo">	
 		<table style="margin-bottom:10px">
 			<tr><td class="centered" style="padding-left: 40%;">
-				<input class="waves-effect waves-light btn" type="submit" id="add" value="팝업사용">
+				<input class="waves-effect waves-light btn" type="button" id="add" value="팝업사용">
 			    <input class="waves-effect waves-light btn" type="button" id="popupDelete" value="팝업사용안함">
 				  
 			</td></tr>
 				<tr><td class="centered">
 				<div class="row">
 				<div class="input-field col s7 image-file">
-				
-				<div class='file-field input-field'>
-					<input type='file' name='file' id='InputFile' class='boardImg0'>
-				<div class='file-path-wrapper'>
-					<input class='file-path validate' type='text' placeholder='이미지 파일 추가 (이 부분을 클릭하세요.)'>
-				</div></div>
-				
+				<div>
+				<select class="browser-default" name="boardNo" id="boardNo">
+					<c:forEach items="${noticeList}" var="selectbox">
+			   			 <option value="${selectbox.boardNo}">${selectbox.title}</option>
+			 		</c:forEach>
+			  	</select>
+				</div>
 				</div>
 					<div class="input-field col s4 image-file-size">
 					</div>
