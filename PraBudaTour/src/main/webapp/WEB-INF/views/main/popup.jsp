@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#parent").click(function(){
-			window.opener.location.href="/controller/notice/praha/noticeView?boardNo="+$("#boardNo").val();
+			window.opener.location.href="/controller/notice/praha/noticeBoard";
 			window.close();
 		});
 	});
