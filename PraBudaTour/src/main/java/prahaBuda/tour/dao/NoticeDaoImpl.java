@@ -52,4 +52,9 @@ public class NoticeDaoImpl implements NoticeDao {
 		return null;
 	}
 
+	@Override
+	public List<BoardDTO> popupNoticeList() throws Exception {
+		return sqlSession.selectList("Notice.popupNoticeList");
+	}
+
 }

@@ -35,8 +35,36 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
 	<script>
 	$(document).ready(function(){
-	      $('.carousel').carousel();
-	    });
+	      $('.carousel').carousel();  
+	});
+	
+	if(!checkPoupCookie("close20150406")){
+	    var popUrl ="/controller/praha/popup";
+	  	var popOption = "width=403, height=482,scrollbars=no,toolbar=no,location=no,directories=no,top=100,left=100,resizable=no";    //팝업창 옵션(optoin)
+		<% Object obj = request.getAttribute("popup");
+		if(obj!=null){%>
+			window.open(popUrl,"",popOption);
+		<% } %>
+
+	}
+	
+	function checkPoupCookie(cookieName){
+		var cookie = document.cookie;
+		// 현재 쿠키가 존재할 경우
+		if(cookie.length > 0){
+		// 자식창에서 set해준 쿠키명이 존재하는지 검색
+			startIndex = cookie.indexOf(cookieName);
+		// 존재한다면
+		if(startIndex != -1){
+			return true;
+		}else{
+			return false; // 쿠키 내에 해당 쿠키가 존재하지 않을 경우
+		};
+			}else{
+			return false;	// 쿠키 자체가 없을 경우
+			};
+	}
+
 	</script>
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 	<main>
@@ -54,7 +82,7 @@
 		    <a class="carousel-item" href="#four!"><img src='<c:url value="/resources/images/8.jpg"/>'></a>
 		</div>
 		</td></tr></table>
-		</div>
+	</div>
 		
 		<table>
 		

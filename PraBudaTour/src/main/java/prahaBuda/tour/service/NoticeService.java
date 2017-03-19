@@ -19,5 +19,7 @@ public interface NoticeService {
 	public int NoticeListCount() throws Exception;
 	
 	public PageDTO paging(PageDTO pageDto) throws Exception;
+
+	public List<BoardDTO> popupNoticeList() throws Exception;
 	
 }
