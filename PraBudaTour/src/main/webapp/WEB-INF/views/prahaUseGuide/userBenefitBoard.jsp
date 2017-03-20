@@ -41,34 +41,33 @@
 <main>
 	<div class="container">
 	<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/gift.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top:20px;">
+			<img src='<c:url value="/resources/images/gift.png"/>' style="width:5%;margin-left:20px;margin-top:20px;">
 			<img src='<c:url value="/resources/images/useServiceLogo.jpg"/>'>
 	</div>
 	<div>
 	<ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${selectList}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:tomato;border-radius:27px;border-bottom:15px solid;">
+			    <div class="collapsible-header" style="line-height:1rem;font-size:20px;background-color:seagreen;border-radius:35px;border-bottom:6px solid;">
 			  	<table>
 			  	<tbody id="headerContent">
-			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
+			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:5px">
 			  	<c:if test="${list.boardImg0 != 'null'}">
 			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
 			    </c:if>
 			    </td><td style="width:85%">
-			    <div style="width:85%;font-size: 40px;color: white;">${list.title}</div>
+			    <div style="width:85%;font-size:25px;color: white;">${list.title}</div>
 			    </td></tr>
 			    </tbody>
 			    </table>
 			    </div>
 			    
 			    
-			    <div class="collapsible-body" style="border-radius:25px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
+			    <div class="collapsible-body" style="padding:0px;margin:0px;border-radius:37px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap; text-align:center; font-size: 20px;">${list.content}</pre></td>
+			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap;text-align:center;font-size:17px;">${list.content}</pre></td>
 			    </tr>
 			    </tbody>
 			    </table>

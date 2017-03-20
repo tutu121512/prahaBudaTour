@@ -48,63 +48,62 @@
 	 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 		 <c:forEach items="${selectList}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			    <div class="collapsible-header" style="line-height:2rem;font-size:20px;background-color:forestgreen;border-radius:35px;border-bottom:8px solid;">
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
-			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px">
+			    <img src="<c:url value='${list.boardImg0}'/>" style="max-width:75px;border-radius:20px;">
 			    </td><td style="width:85%">
-			    <div>${list.title}</div>
+			    <div style="width:85%;font-size:25px;color: white;">${list.title}</div>
 			    </td><td>
 			    </tbody>
 			    </table>
 			    </div>
 			    
-			    
-			    <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
-			  <table>
+			    <div class="collapsible-body" style="border-radius:37px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
+			<table>
 			    <tbody id="bodyContent">
 			    <tr>
 			    <td rowspan="3">
-			    	<pre  class="materialize-textarea" style="word-break:break-all; white-space:pre-wrap;">${list.content}</pre>
+			    	<pre  class="materialize-textarea" style="font-size:18px;word-break:break-all;white-space:pre-wrap;padding-left:35px;">${list.content}</pre>
 			    </td>
 				</tr>
 			    </tbody>
-			    </table>
+			</table>
 			    
 			    <table class="centered">
 						<tr>
-						<td class="centered">
-							<c:if test="${!list.boardImg0 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg0}'/>"/>
+						<td class="centered" style="padding-left:40px">
+							<c:if test="${list.boardImg0 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg0}'/>"/>
 								<%-- ${fn:split(fn:substring(list.boardImg1,33,fn:length(list.boardImg1)),'.')[0]} --%>
 							</c:if>
-							<c:if test="${!list.boardImg1 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
+							<c:if test="${list.boardImg1 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg1}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg2 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
+							<c:if test="${list.boardImg2 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg2}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg3 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
+							<c:if test="${list.boardImg3 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg3}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg4 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
+							<c:if test="${list.boardImg4 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg4}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg5 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
+							<c:if test="${list.boardImg5 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg5}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg6 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
+							<c:if test="${list.boardImg6 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg6}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg7 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg7}'/>"/>
+							<c:if test="${list.boardImg7 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg7}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg8 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg8}'/>"/>
+							<c:if test="${list.boardImg8 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg8}'/>"/>
 							</c:if>
-							<c:if test="${!list.boardImg9 eq 'null'}">
-								<img height="130px" style="max-heigth:600px;" class="materialboxed"  src="<c:url value='${list.boardImg9}'/>"/>
+							<c:if test="${list.boardImg9 ne 'null'}">
+								<img height="130px" style="max-heigth:600px;border-radius:20px" class="materialboxed"  src="<c:url value='${list.boardImg9}'/>"/>
 							</c:if>
 						</td>
 						</tr>
@@ -115,7 +114,6 @@
 		</ul>
 	</div>
 	</div>
-
 </main>
 
 <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
