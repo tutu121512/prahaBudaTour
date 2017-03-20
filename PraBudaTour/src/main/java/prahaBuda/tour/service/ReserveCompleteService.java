@@ -5,7 +5,7 @@ import prahaBuda.tour.dto.*;
 
 public interface ReserveCompleteService {
 
-	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception;
+	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO,String boardNo) throws Exception;
 	
 	public List<ReserveCompleteDTO> reserveCompleteCalendar() throws Exception;
 	

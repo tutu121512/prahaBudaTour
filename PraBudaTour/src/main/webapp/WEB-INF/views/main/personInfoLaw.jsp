@@ -19,7 +19,7 @@
 	
 	<main>
 		<div class="container">
-		<div>
+		<pre>
 
 ::: 개인정보취급방침 ::::
 
@@ -142,7 +142,7 @@ OOOOO(이하 '회사'라 합니다.)은 회원의 사생활 및 개인정보를 
 
 
 
-		</div>
+		</pre>
 		</div>
 	</main>
 	

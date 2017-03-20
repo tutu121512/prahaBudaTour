@@ -30,8 +30,8 @@ public class ReserveCompleteServiceImpl implements ReserveCompleteService {
 		return ReserveCompleteDao.reserveCompleteBoard(curPage);
 	}
 	@Override
-	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		ReserveCompleteDao.reserveCompleteInsert(reserveCompleteDTO);
+	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO,String boardNo) throws Exception {
+		ReserveCompleteDao.reserveCompleteInsert(reserveCompleteDTO,boardNo);
 	}
 	@Override
 	public void reserveCompleteUpdate(ReserveCompleteDTO reserveCompleteDTO) throws Exception {

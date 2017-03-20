@@ -49,8 +49,9 @@ public class CompleteController {
 	}
 	
 	@RequestMapping("praha/CompleteInsert")
-	public String reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO,RedirectAttributes redirect) throws Exception {
-		CompleteService.reserveCompleteInsert(reserveCompleteDTO);
+	public String reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO,RedirectAttributes redirect,String boardNo) throws Exception {
+		System.out.println("예약글번호 : " + boardNo);
+		CompleteService.reserveCompleteInsert(reserveCompleteDTO,boardNo);
 		return "redirect:/admin/adminReserveComplete";
 	}
 
@@ -61,7 +62,13 @@ public class CompleteController {
 
 	@RequestMapping("praha/CompleteDelete")
 	public String reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO,RedirectAttributes redirect) throws Exception {
-		CompleteService.reserveCompleteDelete(reserveCompleteDTO);
+		
+		ReserveCompleteDTO completeDTO = CompleteService.reserveCompleteView(reserveCompleteDTO);
+		System.out.println(" 글번호 "+completeDTO.getReserveBoardNo());
+		System.out.println(" 작성자 "+completeDTO.getReserveName());
+		
+		CompleteService.reserveCompleteDelete(completeDTO);
+		
 		return "redirect:/admin/adminReserveComplete";
 	}
 	

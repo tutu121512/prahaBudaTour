@@ -19,7 +19,7 @@
 	
 	<main>
 		<div class="container">
-		<div>
+		<pre>
 [제1장 총칙]
 
 
@@ -260,7 +260,7 @@
 (시행일) 위 약관은 200*년 **월 **일 부터 시행합니다.
 
 
-		</div>
+		</pre>
 		</div>
 	</main>
 	

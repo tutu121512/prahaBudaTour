@@ -17,14 +17,15 @@
       <result column="price" property="price"/>
       <result column="product" property="product"/>
       <result column="title" property="title"/>
+      <result column="reserve_board_no" property="reserveBoardNo"/>
    </resultMap>
 	
 	<insert id="resereveCompleteInsert" parameterType="reserveCompleteDTO">
 	INSERT INTO reserveComplete(
-	location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,product,title) 
+	location,board_no,board_date,reserve_name,room_name,start_date,end_date,people_number,price,product,title,reserve_board_no) 
 	values
-	('P',(select ifnull(max(BOARD_NO+0),0)+1 from reserveComplete a),now(),#{reserveName},#{roomName},#{startDate},#{endDate},#{peopleNumber},#{price},#{product},#{title})
-	</insert>
+	('P',(select ifnull(max(BOARD_NO+0),0)+1 from reserveComplete a),now(),#{reserveName},#{roomName},#{startDate},#{endDate},#{peopleNumber},#{price},#{product},#{title},#{reserveBoardNo})
+	</insert>																																								
 	
 	<select id="reserveCompleteCalendar" resultMap="reserveCompleteMap">
 	select *
@@ -72,11 +73,13 @@
 	
 	<select id="reserveCompleteView" parameterType="reserveCompleteDTO" resultMap="reserveCompleteMap">
 	select 
+	board_no boardNo,
 	reserve_name reserveName,
 	board_date boardDate,
 	title title,
  	start_date startDate,
-	end_date endDate
+	end_date endDate,
+	reserve_board_no reserveBoardNo
 	from reserveComplete
 	where BOARD_NO =#{boardNo} and location='P'
 	</select>

@@ -66,6 +66,7 @@
 	});
 	
 	$(".reserveNo").click(function(){
+		$("#boardNo").val($(this).attr("id"));
 		$.ajax({
 			url : '/controller/admin/adminSelect',
 			type : 'post',
@@ -82,6 +83,7 @@
 				$("#startDate").val(boardDTO.startDate);
 				$("#endDate").val(boardDTO.endDate);
 				$("#product").val(boardDTO.product);
+				$("#reserveBoardNo").val(boardDTO.boardNo);
 				var str ='<input type="submit" value="문의" class="waves-effect waves-light btn" style="width:100%">'
 				$("#writer").attr("name","reserveName");
 				$("#submitBtn").empty();
@@ -210,7 +212,7 @@
 					<div class="row">
 						<div class="input-field col s4" style="margin-bottom:-20px">
 							<i class="material-icons prefix">security</i>
-							<input id="peopleNumber" name="peopleNumber" type="text" class="validate" placeholder="인원수" maxlength="4">
+							<input id="peopleNumber" name="peopleNumber" type="text" class="validate" placeholder="인원수" maxlength="4" value='0'>
 							<label for="peopleNumber">인원수</label>
 						</div>
 						<div class="input-field col s4" style="margin-bottom:-20px">
@@ -231,6 +233,8 @@
 					</div>
 				</td></tr>
 			</table>
+			<input type="hidden" name="boardNo" id="boardNo" value="">
+			<input type="hidden" name="reserveBoardNo" id="reserveBoardNo" value="">
 		</form>
 		
 		

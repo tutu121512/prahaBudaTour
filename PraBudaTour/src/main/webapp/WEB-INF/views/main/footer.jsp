@@ -15,9 +15,9 @@
 				<tr>
 					<td colspan="3">
 						<hr>
-						<a href="#signInfo" style="color:white">개인정보 취급 정책</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#" style="color:white">서비스 이용 약관</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#" style="color:white">이메일 무단 수집 거부</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/controller/praha/main/personInfoLaw" target="_blank" style="color:white">개인정보 취급 정책</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/controller/praha/main/serviceLaw" target="_blank" style="color:white">서비스 이용 약관</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/controller/praha/main/emailLaw" target="_blank" style="color:white">이메일 무단 수집 거부</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a target="_blank" href="/controller/admin/admin/admin" style="color:white">관리자</a>
 						<hr>
 					</td>

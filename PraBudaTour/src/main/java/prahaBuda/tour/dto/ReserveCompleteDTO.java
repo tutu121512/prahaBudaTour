@@ -13,6 +13,7 @@ public class ReserveCompleteDTO {
 	private String	price;
 	private String	product;
 	private String title;
+	private String reserveBoardNo;
 	
 	public String getLocation() {
 		return location;
@@ -79,6 +80,12 @@ public class ReserveCompleteDTO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getReserveBoardNo() {
+		return reserveBoardNo;
+	}
+	public void setReserveBoardNo(String reserveBoardNo) {
+		this.reserveBoardNo = reserveBoardNo;
 	}
 	
 }

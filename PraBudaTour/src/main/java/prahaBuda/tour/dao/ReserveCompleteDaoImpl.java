@@ -1,5 +1,6 @@
 package prahaBuda.tour.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,8 +16,12 @@ public class ReserveCompleteDaoImpl implements ReserveCompleteDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
+	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO,String boardNo) throws Exception {
 		 sqlSession.insert("ReserveComplete.resereveCompleteInsert",reserveCompleteDTO);
+		 HashMap map = new HashMap();
+		 map.put("boardNo", boardNo);
+		 map.put("reserveName", reserveCompleteDTO.getReserveName());
+		 sqlSession.update("ReserveQuestion.completeUpdate",map);
 	}
 
 	@Override
@@ -26,7 +31,10 @@ public class ReserveCompleteDaoImpl implements ReserveCompleteDao {
 
 	@Override
 	public void reserveCompleteDelete(ReserveCompleteDTO reserveCompleteDTO) throws Exception {
-		 sqlSession.delete("ReserveComplete.reserveCompleteDelete",reserveCompleteDTO);
+		 
+		sqlSession.delete("ReserveComplete.reserveCompleteDelete",reserveCompleteDTO);
+		 sqlSession.update("ReserveQuestion.completeDelete",reserveCompleteDTO);
+				 
 	}
 
 	@Override
