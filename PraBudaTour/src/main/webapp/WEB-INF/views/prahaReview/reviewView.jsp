@@ -98,12 +98,12 @@
 		<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
-						<div class="input-field col s8">
+						<div class="input-field col s10">
 							<i class="material-icons prefix">title</i>
-							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.title}"style="font-size: 30px;text-align: center;color: black;">
+							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.title}"style="font-size:31px;text-align:center;color:crimson;">
 							<label for="title">문의 제목</label>
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s2">
 							<i class="material-icons prefix">supervisor_account</i>
 							<input id="writer" name="writer" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.writer}" >
 							<label for="writer">작성자</label>
@@ -115,7 +115,7 @@
 				        <div class="input-field col s12">
 				        <i class="material-icons prefix">mode_edit</i>
 					        <pre id="icon_prefix2" class="materialize-textarea updateform" name="content" 
-					         readonly="readonly" style="color:black; font-size:1.4em;margin-left:45px;margin-top:0px">${reviewViewInfo.content}</pre>
+					         readonly="readonly" style="color:black; font-size:1.2rem;margin-left:45px;margin-top:0px">${reviewViewInfo.content}</pre>
 				        </div>
 			    	</div>
 				</td></tr>
