@@ -39,6 +39,7 @@
 	
 	<select id="benefitSelect" resultMap="boardMap" parameterType="int" >
 	SELECT
+	board.location location,
 	board.board_state boardState,
 	board.board_no boardNo,
 	board.writer as writer,
@@ -55,15 +56,15 @@
 	board_img7 boardImg7,
 	board_img8 boardImg8,
 	board_img9 boardImg9
-	FROM (SELECT @ROWNUM := @ROWNUM + 1 as rnum,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
-	FROM (SELECT board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT @ROWNUM := @ROWNUM + 1 as rnum,location,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT location,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 	from board
 	where board_state='userBenefit'
 	order by board_no+0 desc) a) board
 	</select>
 	
 	<delete id="benefitDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='userBenefit' and location='P'
+	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='userBenefit' and location=#{location}
 	</delete>
 	
 

@@ -75,7 +75,7 @@
 					
 			if(result) { 
 				alert("삭제되었습니다.");
-				location.href="/controller/userBenefit/praha/serviceDelete?boardNo="+$(this).attr("id");				
+				location.href="/controller/userBenefit/praha/serviceDelete?boardNo="+$(this).attr("id")+"&location="+$(this).attr("name");				
 				}
 			});
 		
@@ -208,7 +208,7 @@
 			    </td><td style="width:85%">
 			    <div style="width:85%;font-size: 40px;color: white;">${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}" name="${list.location}">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>

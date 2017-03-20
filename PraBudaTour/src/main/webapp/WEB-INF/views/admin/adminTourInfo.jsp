@@ -84,8 +84,7 @@
 			var result = confirm('이 글을 삭제 하시겠습니까?');
 					
 			if(result) { 
-				alert("삭제되었습니다.");
-				location.href="/controller/tourInfo/tourInfoDelete?boardNo="+$(this).attr("id");				
+				location.href="/controller/tourInfo/tourInfoDelete?boardNo="+$(this).attr("id")+"&location="+$(this).attr("name");				
 				}
 		});
 		
@@ -218,7 +217,7 @@
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}" name="${list.location}">delete</i></a></td></tr>
 			    </tbody>
 			   </table>
 			    </div>
