@@ -151,10 +151,18 @@
 							<input id="title" name="title" type="text" class="validate" placeholder="관심을 끌수 있는 제목으로 적어주세요">
 							<label for="title" style="font-size: large;">혜택 타이틀</label>
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s2">
 							<i class="material-icons prefix">supervisor_account</i>
 							<input id="writer" name="writer" type="text" class="validate" value="관리자">
 							<label for="writer" style="font-size: large;">작성자</label>
+				        </div>
+				        <div class="input-field col s2">
+							<select class="browser-default" name="location" id="location">
+							    <option value="" disabled selected>지역을 선택해주세요.</option>
+							    <option value="P">프라하</option>
+							    <option value="B">부다페스트</option>
+							    <option value="A">프라하 별관</option>
+							 </select>
 				        </div>
 					</div>
 				</td></tr>
