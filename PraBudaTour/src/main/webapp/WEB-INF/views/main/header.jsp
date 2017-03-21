@@ -41,8 +41,8 @@ $(".dropdown-button").dropdown();
 </ul>
 
 <ul id="tourInfo" class="dropdown-content" style="top:25px!important">
-	<li><a href="#!" style="line-height:13px;background-color:brown;color:white">1호점/별관</a></li>
-	<li><a href="#!" style="line-height:13px;background-color:orangered;color:white">부다페스트</a></li>
+	<li><a href="/controller/tourInfo/tourInfoSelect?location=P" style="line-height:13px;background-color:brown;color:white">1호점/별관</a></li>
+	<li><a href="/controller/tourInfo/tourInfoSelect?location=B" style="line-height:13px;background-color:orangered;color:white">부다페스트</a></li>
 </ul>
 
 <ul id="community" class="dropdown-content" style="top:25px!important">
