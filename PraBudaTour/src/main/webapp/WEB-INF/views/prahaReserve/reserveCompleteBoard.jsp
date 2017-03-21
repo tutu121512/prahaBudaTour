@@ -43,9 +43,7 @@
 <main>
 	<div class="container">
 	<div class="centered row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/notebook.png"/>' 
-				style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'> 나 예약확정이야 바꿔쥬
+			<h2 style="padding-top:10px;margin:0px;padding-left:20px;margin-bottom:-13px;">예약확정</h2>
 	</div>
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
