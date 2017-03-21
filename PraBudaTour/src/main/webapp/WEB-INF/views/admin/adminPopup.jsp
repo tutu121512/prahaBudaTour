@@ -121,6 +121,7 @@
 				
 				</div>
 					<div class="input-field col s4 image-file-size">
+					<img id='jImg' width='500px' height='510px' src="<c:url value='/resources/images/imageReady.jpg'/>">
 					</div>
 				</div>
 					<div class="row">

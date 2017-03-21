@@ -47,7 +47,7 @@
 	<div>
 	 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
 	<c:choose>
-	<c:when test="${empty noticeSelectList}">
+	<c:when test="${empty selectList}">
 	<table class="striped centered">
 	<tr><td colspan="5">게시글이 없습니다.</td></tr>
 	</table>
