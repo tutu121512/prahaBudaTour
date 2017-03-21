@@ -17,7 +17,7 @@ $(".dropdown-button").dropdown();
 	<li><a href="/controller/praha/budapestRoomInfo/pestRoom" style="line-height:10px;">페스트</a></li>
 	<li><a href="/controller/praha/budapestRoomInfo/publicRoomT" style="line-height:10px;">공용공간</a></li>
 	<li><a href="#!" style="line-height:10px;background-color:tomato;color:white">프라하 별관</a></li>
-	<li><a href="#" style="line-height:10px;">3호점</a></li>
+	<li><a href="#" style="line-height:10px;" onclick="alert('준비중입니다.');">3호점</a></li>
 </ul>
 
 <ul id="guide" class="dropdown-content">
@@ -26,10 +26,10 @@ $(".dropdown-button").dropdown();
 	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>
 	<li><a href="#!" style="line-height:10px;background-color:orangered;color:white">부다페스트</a></li>
 	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=B" style="line-height:10px;">이용혜택</a></li>
-	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>
+	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" style="line-height:10px;">오시는길</a></li>
 	<li><a href="#!" style="line-height:10px;background-color:tomato;color:white">프라하 별관</a></li>
 	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=A" style="line-height:10px;">이용혜택</a></li>
-	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>	
+	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" style="line-height:10px;">오시는길</a></li>	
 </ul>
 
 
