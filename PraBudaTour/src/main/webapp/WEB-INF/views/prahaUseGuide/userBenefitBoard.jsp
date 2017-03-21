@@ -63,7 +63,7 @@
 			    </div>
 			    
 			    
-			    <div class="collapsible-body" style="padding:0px;margin:0px;border-radius:37px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
+			    <div class="collapsible-body" style=" padding:0px;margin:0px;border-radius:37px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
