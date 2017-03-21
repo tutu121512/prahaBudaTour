@@ -100,9 +100,9 @@ public class adminController {
 	}
 	
 	@RequestMapping("adminUserBenefit")
-	public String adminUserBenefit(Model model) throws Exception{
-		
-		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect();
+	public String adminUserBenefit(Model model,BoardDTO boardDTO) throws Exception{
+		System.out.println("지역 : " +boardDTO.getLocation());
+		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect(boardDTO);
 		model.addAttribute("userBenefitList", userBenefitList);
 		return "admin/adminUserBenefit";
 	}
@@ -164,17 +164,9 @@ public class adminController {
 	}
 	
 	@RequestMapping("adminTourInfo")
-	public String adminTourInfo(Model model,String page) throws Exception{
+	public String adminTourInfo(Model model,String page,BoardDTO boardDTO) throws Exception{
 		
-		PageDTO pageDto = new PageDTO();
-		if(page == null){
-			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
-		}else{
-			int curPage = Integer.parseInt(page); //형변환
-			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
-		}
-		
-		List<BoardDTO> tourInfoList = TourInfoService.tourInfoSelect(pageDto);
+		List<BoardDTO> tourInfoList = TourInfoService.tourInfoSelect(boardDTO);
 		System.out.println(tourInfoList.toString());
 		model.addAttribute("tourInfoList", tourInfoList);
 		  
