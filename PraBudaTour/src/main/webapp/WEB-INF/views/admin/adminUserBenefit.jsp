@@ -138,12 +138,7 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/useService.png"/>'>
-			<div style="padding-left: 35.5%;">
-			<a href="/controller/admin/adminUserBenefit?location=P" class="waves-effect waves-light btn"><input type="button" value="프라하"></a>
-			<a href="/controller/admin/adminUserBenefit?location=B" class="waves-effect waves-light btn"><input type="button" value="부다페스트"></a>
-			<a href="/controller/admin/adminUserBenefit?location=A" class="waves-effect waves-light btn"><input type="button" value="프라하별관"></a>
-		  </div>
+		<h2 style="padding-top:10px;margin:0px;padding-left:40px;">이용혜택</h2>
 	  </td></tr></table>
 		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data" id="adminUpdate">
 		<input type="hidden" name="boardNo" id="boardNo">
@@ -151,7 +146,7 @@
 			<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
-						<div class="input-field col s8">
+						<div class="input-field col s7">
 							<i class="material-icons prefix">title</i>
 							<input id="title" name="title" type="text" class="validate" placeholder="관심을 끌수 있는 제목으로 적어주세요">
 							<label for="title" style="font-size: large;">혜택 타이틀</label>
@@ -161,7 +156,7 @@
 							<input id="writer" name="writer" type="text" class="validate" value="관리자">
 							<label for="writer" style="font-size: large;">작성자</label>
 				        </div>
-				        <div class="input-field col s2">
+				        <div class="input-field col s3">
 							<select class="browser-default" name="location" id="location">
 							    <option value="" disabled selected>지역을 선택해주세요.</option>
 							    <option value="P">프라하</option>
@@ -201,9 +196,14 @@
 		</form>
 	
 		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+		 <li style="margin-bottom:15px">
+			<a href="/controller/admin/adminUserBenefit?location=P" class="waves-effect waves-light btn" style="background-color:blue">프라하 이용혜택</a>
+			<a href="/controller/admin/adminUserBenefit?location=B" class="waves-effect waves-light btn" style="background-color:brown">부다페스트 이용혜택</a>
+			<a href="/controller/admin/adminUserBenefit?location=A" class="waves-effect waves-light btn" style="background-color:sienna">프라하별관 이용혜택</a>
+		 </li>
 		 <c:forEach items="${userBenefitList}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:tomato;border-radius:27px;border-bottom:15px solid;">
+			    <div class="collapsible-header" style="line-height:1rem;font-size:20px;background-color:seagreen;border-radius:35px;border-bottom:6px solid;">
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
@@ -213,19 +213,19 @@
 			    </td><td style="width:85%">
 			    <div style="width:85%;font-size: 40px;color: white;">${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}" name="${list.location}">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}" name="${list.location}" style="color:white">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>
 			    
 			    
-			    <div class="collapsible-body" style="border-radius:25px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
+			    <div class="collapsible-body" style=" padding:0px;margin:0px;border-radius:37px;display:block;border-right:3px solid #ddd;border-left:3px solid #ddd;border-bottom:3px solid #ddd;">
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
 			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap; text-align:center; font-size: 20px;">${list.content}</pre></td>
 			    </tr>
-			    <tr><td><input type="button" id="${list.boardNo}" name="${list.boardState}" class="waves-effect waves-light btn updateBtn" value="수정"></td></tr>
+			    <tr><td><a id="${list.boardNo}" name="${list.boardState}" class="waves-effect waves-light btn updateBtn">수정</a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>

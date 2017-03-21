@@ -140,7 +140,7 @@
 
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/noticePlus.png"/>' style="width:28%">
+			<h2 style="padding-top:10px;margin:0px;padding-left:40px;">공지사항</h2>
 	  </td></tr></table>
 		<form id="noticeInsert" action="/controller/notice/praha/NoticeInsert" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="boardNo" id="boardNo">
