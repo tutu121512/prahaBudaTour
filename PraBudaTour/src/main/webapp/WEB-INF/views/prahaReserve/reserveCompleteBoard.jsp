@@ -75,7 +75,7 @@
 	</c:choose>
 <!-- ############################### ##################################### -->	
 	<tr>
-	<td colspan="5" style="padding:0px;background-color:darksalmon;">
+	<td colspan="5" style="padding:0px;">
 	  <ul class="pagination">
 		<li class="page-item">
 			<a href="/controller/complete/praha/completeBoard?page=<%=pVO.getPreviPage()%>">
