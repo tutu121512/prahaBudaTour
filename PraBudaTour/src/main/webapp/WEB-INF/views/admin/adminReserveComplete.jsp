@@ -84,7 +84,7 @@
 				$("#endDate").val(boardDTO.endDate);
 				$("#product").val(boardDTO.product);
 				$("#reserveBoardNo").val(boardDTO.boardNo);
-				var str ='<input type="submit" value="문의" class="waves-effect waves-light btn" style="width:100%">'
+				var str ='<input type="submit" value="확정하기" class="waves-effect waves-light btn" style="width:100%">'
 				$("#writer").attr("name","reserveName");
 				$("#submitBtn").empty();
 				$("#submitBtn").append(str);
@@ -152,7 +152,7 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/reservePlus.png"/>' style="width:28%">
+		<h2 style="padding-top:10px;margin:0px;padding-left:40px;">예약관리/확정등록</h2>
 			<h5 style="float:right;color:darkorchid;">왼쪽 목록 ( 예약 문의 받은 요청 ) 을 눌러주시면 내용이 자동 완성됩니다.</h5>
 	  </td></tr></table>
 		<form method="post" action="/controller/complete/praha/CompleteInsert">
@@ -254,7 +254,7 @@
 			  </li>  
 		 <c:forEach items="${list}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:turquoise;border-radius:27px;height:55px;">
+			    <div class="collapsible-header" style="font-size:20px;background-color:coral;border-radius:27px;height:55px;">
 			  	<table>
 			  	<tbody id="collection-item">
 			  	<tr class="reserveNo" id="${list.boardNo}" name="${list.boardState}"><td style="width:10%;padding-bottom:0px;">
@@ -262,7 +262,7 @@
 			    </td><td style="width:85%;padding-top:2px">
 			    <div>${list.title}</div>
 			    </td><td style="padding-top:3px;">
-			    <a href="#"><i class="material-icons prefix questionDeleteBtn" id="${list.boardNo}">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix questionDeleteBtn" id="${list.boardNo}" style="color:white">delete</i></a></td></tr>
 			    </tbody>
 			    </table>
 			    </div>

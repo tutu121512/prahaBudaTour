@@ -71,17 +71,16 @@
 
 	  <div class="container" style="margin-left:25%">
 	 <div class="row" style="margin-top:5px;">
-			<img src='<c:url value="/resources/images/manageBoard.png"/>' style="width: 5%;margin-left: 100px;margin-top: 20px;">
-			<img src='<c:url value="/resources/images/manageBoardLogo.jpg"/>'>
-	<a href="/controller/admin/selectBoard?boardState=shuttle" class="waves-effect waves-light btn"><input type="button" value="셔틀문의"></a>
-	<a href="/controller/admin/selectBoard?boardState=reserveQuestion" class="waves-effect waves-light btn"><input type="button" value="예약문의"></a>
-	<a href="/controller/admin/selectBoard?boardState=review" class="waves-effect waves-light btn"><input type="button" value="후기"></a>
-	<a href="/controller/admin/selectBoard?boardState=notice" class="waves-effect waves-light btn"><input type="button" value="공지사항"></a>
+		<h2 style="padding-top:10px;margin:0px;padding-left:40px;">게시판관리</h2>
+	</div>
+	<a href="/controller/admin/selectBoard?boardState=shuttle" class="waves-effect waves-light btn">셔틀문의</a>
+	<a href="/controller/admin/selectBoard?boardState=reserveQuestion" class="waves-effect waves-light btn">예약문의</a>
+	<a href="/controller/admin/selectBoard?boardState=review" class="waves-effect waves-light btn">후기</a>
+	<a id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">삭제</a>
+	<!-- <a href="/controller/admin/selectBoard?boardState=notice" class="waves-effect waves-light btn"><input type="button" value="공지사항"></a>
 	<a href="/controller/admin/selectBoard?boardState=tourInfo" class="waves-effect waves-light btn"><input type="button" value="여행정보"></a>
 	<a href="/controller/admin/selectBoard?boardState=userBenefit" class="waves-effect waves-light btn"><input type="button" value="이용혜택"></a>
-	<a href="/controller/admin/selectBoard?boardState=reserveComplete" class="waves-effect waves-light btn"><input type="button" value="예약확정"></a>
-		       <input type="button" value="삭제" id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">
-	</div>
+	<a href="/controller/admin/selectBoard?boardState=reserveComplete" class="waves-effect waves-light btn"><input type="button" value="예약확정"></a> -->
 	  <ul class="collapsible popout" data-collapsible="accordion" style="width:80%">  
 	  <li>
 	    <div style="padding:0px">

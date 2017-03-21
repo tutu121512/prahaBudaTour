@@ -147,10 +147,8 @@
 	<main>
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
-			<img src='<c:url value="/resources/images/tripInfoPlus.png"/>' style="width:28%">
+		<h2 style="padding-top:10px;margin:0px;padding-left:40px;">여행정보</h2>
 			<div style="padding-left: 40.5%;">
-			<a href="/controller/admin/adminTourInfo?location=P" class="waves-effect waves-light btn"><input type="button" value="프라하"></a>
-			<a href="/controller/admin/adminTourInfo?location=B" class="waves-effect waves-light btn"><input type="button" value="부다페스트"></a>
 		  </div>
 	  </td></tr></table>
 		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data" id="tourInfoInsert">
@@ -208,9 +206,13 @@
 			</table>
 		</form>
 		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+		 <li style="margin-bottom:15px">
+			<a href="/controller/admin/adminTourInfo?location=P" class="waves-effect waves-light btn" style="background-color:blue">프라하 여행정보</a>
+			<a href="/controller/admin/adminTourInfo?location=B" class="waves-effect waves-light btn" style="background-color:brown">부다페스트 여행정보</a>
+		 </li>
 		 <c:forEach items="${tourInfoList}" var="list">
 			  <li style="margin-bottom:6px">
-			    <div class="collapsible-header" style="font-size:20px;background-color:burlywood;border-radius:27px;">
+			    <div class="collapsible-header" style="font-size:20px;background-color:seagreen;border-radius:27px;">
 			  	<table>
 			  	<tbody id="headerContent">
 			  	<tr><td style="width:10%;padding-bottom:0px;padding-top:1rem">
@@ -220,12 +222,12 @@
 			    </td><td style="width:85%">
 			    <div>${list.title}</div>
 			    </td><td>
-			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}" name="${list.location}">delete</i></a></td></tr>
+			    <a href="#"><i class="material-icons prefix deleteBtn" id="${list.boardNo}" name="${list.location}" style="color:white">delete</i></a></td></tr>
 			    </tbody>
 			   </table>
 			    </div>
 			    
-			   <div class="collapsible-body" style="background-color:antiquewhite;border-radius:25px;">
+			   <div class="collapsible-body" style="background-color:pink;border-radius:25px;">
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
