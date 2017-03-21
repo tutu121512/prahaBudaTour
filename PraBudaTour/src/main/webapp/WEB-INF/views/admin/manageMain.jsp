@@ -73,10 +73,9 @@
 	 <div class="row" style="margin-top:5px;">
 		<h2 style="padding-top:10px;margin:0px;padding-left:40px;">게시판관리</h2>
 	</div>
-	<a href="/controller/admin/selectBoard?boardState=shuttle" class="waves-effect waves-light btn">셔틀문의</a>
+	<a href="/controller/admin/selectBoard?boardState=shuttle" style="margin-left: 26px;" class="waves-effect waves-light btn">셔틀문의</a>
 	<a href="/controller/admin/selectBoard?boardState=reserveQuestion" class="waves-effect waves-light btn">예약문의</a>
 	<a href="/controller/admin/selectBoard?boardState=review" class="waves-effect waves-light btn">후기</a>
-	<a id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">삭제</a>
 	<!-- <a href="/controller/admin/selectBoard?boardState=notice" class="waves-effect waves-light btn"><input type="button" value="공지사항"></a>
 	<a href="/controller/admin/selectBoard?boardState=tourInfo" class="waves-effect waves-light btn"><input type="button" value="여행정보"></a>
 	<a href="/controller/admin/selectBoard?boardState=userBenefit" class="waves-effect waves-light btn"><input type="button" value="이용혜택"></a>
@@ -127,14 +126,14 @@
 	    		<td class="centered" style="width:10%">
 	    			<label style="font-size:1rem">
 	    			<c:choose>    			
-		    			<c:when test="${list.boardState eq 'notice'}"> 공지사항 </c:when>
 		    			<c:when test="${list.boardState eq 'shuttle'}">셔틀문의</c:when>
 		       			<c:when test="${list.boardState eq 'reserveQuestion'}">예약문의</c:when>
 		       			<c:when test="${list.boardState eq 'review'}">후기</c:when>
+<%-- 		    		<c:when test="${list.boardState eq 'notice'}"> 공지사항 </c:when>
 		       			<c:when test="${list.boardState eq 'tourInfo'}">여행정보</c:when>
 		       			<c:when test="${list.boardState eq 'userBenefit'}">이용혜택</c:when>
-		       			<c:when test="${list.boardState eq 'reserveComplete'}">예약확정</c:when>
-	    			</c:choose>
+		       			<c:when test="${list.boardState eq 'reserveComplete'}">예약확정</c:when> --%>	    			
+		       		</c:choose>
 	    			</label>
 	    		</td>
 	    	</tr>
@@ -214,6 +213,7 @@
 	  </c:forEach>
 	</ul>
 
+	<table style="width: 1094px;"><tr><td>
 	<c:choose>
 	<c:when test="${selectBoard eq null}">
 		<ul class="pagination" style="float:left;margin-top:0px">
@@ -249,11 +249,10 @@
 		   </li>
 		</ul>
 	</c:otherwise>
-	</c:choose>
-	 											
-	
+	</c:choose>	</td>
+	<td><a style="margin-bottom: 16px;" id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">삭제</a></td>
+	</tr></table>
 	</div>	<!-- container -->
-	
 	
 	</main>
 	</body>
