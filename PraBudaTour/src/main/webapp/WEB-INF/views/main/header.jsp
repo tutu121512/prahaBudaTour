@@ -45,9 +45,12 @@ $(".dropdown-button").dropdown();
 
 <ul id="community" class="dropdown-content" style="top:25px!important">
 	<li><a href="#!" style="background-color:#ee6e73;color:white">커뮤니티</a></li>
+	<li><a href="#!" style="line-height:10px;background-color:brown;color:white">1호점/별관</a></li>
+	<li><a href="/controller/tourInfo/tourInfoSelect?location=P" style="line-height:10px; ">여행정보</a></li>
+	<li><a href="#!" style="line-height:10px;background-color:orangered;color:white">부다페스트</a></li>
+	<li><a href="/controller/tourInfo/tourInfoSelect?location=B" style="line-height:10px;">여행정보</a></li>
+	<li><a href="#!" style="line-height:10px;background-color:tomato;color:white">통합</a></li>
 	<li><a href="/controller/notice/praha/noticeBoard" style="line-height:10px;">공지사항</a></li>
-	<li><a href="/controller/tourInfo/tourInfoSelect?location=P" style="line-height:10px; ">&nbsp;프라하 <br><br>여행정보</a></li>
-	<li><a href="/controller/tourInfo/tourInfoSelect?location=B" style="line-height:10px;">부다페스트 <br><br>&nbsp;여행정보</a></li>
 	<li><a href="/controller/review/praha/reviewBoard" style="line-height:10px;">후 기</a></li>
 </ul>						
 
