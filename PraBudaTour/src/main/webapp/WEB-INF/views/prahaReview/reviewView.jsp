@@ -30,6 +30,9 @@
 
 	<script type="text/javascript">
 	$(function(){		
+		
+		var count = 0;
+		$("#imgbtn").hide();		
 		$("#updateComplete").hide();
 		$("#deletebtn").hide();
 		var preheight = $("#icon_prefix2").height();
@@ -66,6 +69,7 @@
 				$("#icon_prefix2").contents().unwrap().wrap('<textarea id="icon_prefix2" class="materialize-textarea updateform" name="content" style="color:black; font-size:1.4em;margin-left:45px;margin-top:0px"></textarea>');
 				$("#icon_prefix2").css("height",preheight);
 				$(this).parent().hide();
+				$("#imgbtn").show();
 				$("#pass").append(str);
 				$("#update").hide();
 				$("#updateComplete").parent().show();
@@ -76,7 +80,61 @@
 		$("#list").click(function(){
 			location.href="/controller/review/praha/reviewBoard";
 		});
+		
+		$('.image-file').on("change", "input[type=file]", function() {
+			var size = fileSize(this).toFixed(2)+"KB";
+			var index = "#boardImg"+$(this).attr("class").substr(8,1);
+			$(index).val(size);
+		});
+		
+		$('#imgAdd').on("click", function() {
+			if(count < 10) {
+				var str = "<div class='file-field input-field'>";
+				str += "<input type='file' name='file' class='boardImg"+count+"''>";
+				str += "<div class='file-path-wrapper'>";
+				str += "<input class='file-path validate' type='text' placeholder='이미지 파일을 추가해주세요.'>";
+				str += "</div></div>";
+				$('div.image-file').append(str);
+				
+				str = "<div  style='margin-top:14px'><input id='boardImg"+count+"' name='imageSize' type='text' class='validate' placeholder='이미지 크기' readonly></div>"; 
+				$('div.image-file-size').append(str);
+				count++;
+			}else {
+				Materialize.toast('이미지 파일은 10개까지 올릴 수 있습니다.', 3000, 'rounded');
+		        var width = $("#toast-container").width();
+		        $("#toast-container").css("margin-left", (width*-1)+209);
+			}
+		});
+		
+		$("#imgDelete").on("click", function() {
+			if(count > 0) {
+				$(".image-file").children(":last").remove();
+				$(".image-file-size").children(":last").remove();
+				count--;
+			}
+		});
 	});
+
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			
+			reader.onload = function(e) {
+				$('.inner').html("<img id='preview-image' src='"+e.target.result+"'/>");
+			}
+			
+			reader.readAsDataURL(input.files[0]);
+			var fileSize = input.files[0].size/1024;
+			
+			$('#thumbnail-preview').val(fileSize.toFixed(2)+"KB");
+		}
+	}
+
+	function fileSize(input) {
+		var fileSize = input.files[0].size/1024;
+		return fileSize;
+	}
+	
 	
 	function submit()
 	{
@@ -94,7 +152,7 @@
 			<img src='<c:url value="/resources/images/reviewLogo.jpg"/>'>
 		</div>
 
-		<form id="reviewForm" method="post" action="/controller/review/praha/reviewUpdate">
+		<form id="reviewForm" method="post" action="/controller/review/praha/reviewUpdate" enctype="multipart/form-data">
 		<table style="margin-bottom:10px">
 				<tr><td>
 					<div class="row" style="margin-bottom:-20px">
@@ -188,6 +246,16 @@
 				</td></tr>
 				<tr><td id="pass">
 
+				</td></tr>
+				<tr><td style="text-align:center">
+				<div class="col s9" id="imgbtn" style="padding-bottom: 15px;">
+				<a class="waves-effect waves-light btn color-500" id="imgAdd">이미지 추가</a>
+				<a class="waves-effect waves-light btn color-500" id="imgDelete">이미지 삭제</a>
+				</div>
+				<div class="row">
+				<div class="input-field col s8 image-file"></div>
+				<div class="input-field col s4 image-file-size"></div>
+				</div>
 				</td></tr>
 				<tr><td>
 				<div class="row">

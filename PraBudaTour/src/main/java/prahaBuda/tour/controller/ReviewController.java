@@ -133,15 +133,64 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("praha/reviewUpdate")
-	public String prahaReserveUpdate(BoardDTO boardDto,RedirectAttributes redirect) throws Exception{
+	public String prahaReserveUpdate(BoardDTO boardDTO,RedirectAttributes redirect,HttpServletRequest request) throws Exception{
 		
-		BoardDTO bDTO =ReviewService.prahaReviewView(boardDto);
+		BoardDTO bDTO =ReviewService.prahaReviewView(boardDTO);
 		
 		System.out.println("게시글의 비밀번호 : " + bDTO.getPassword());
-		System.out.println("내가 입력한 비밀번호 : " + boardDto.getPassword());
-		if(bDTO.getPassword().equals(boardDto.getPassword())){
-			System.out.println("업데이트 성공");
-			ReviewService.ReviewUpdate(boardDto);
+		System.out.println("내가 입력한 비밀번호 : " + boardDTO.getPassword());
+		if(bDTO.getPassword().equals(boardDTO.getPassword())){
+
+			if(boardDTO.getFile()!=null){
+				boardDTO.setBoardImg0("null");
+				boardDTO.setBoardImg1("null");
+				boardDTO.setBoardImg2("null");
+				boardDTO.setBoardImg3("null");
+				boardDTO.setBoardImg4("null");
+				boardDTO.setBoardImg5("null");
+				boardDTO.setBoardImg6("null");
+				boardDTO.setBoardImg7("null");
+				boardDTO.setBoardImg8("null");
+				boardDTO.setBoardImg9("null");
+				
+			for(int i =0; i<boardDTO.getFile().size(); i++){
+				SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
+				String Time = dayTime.format(new Date(System.currentTimeMillis()));
+				String imgName = Time+boardDTO.getFile().get(i).getOriginalFilename();
+				if(!imgName.equals(Time)){
+					String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
+					File file = new File(path);
+					boardDTO.getFile().get(i).transferTo(file);
+					String db = "/resources/upload/"+ imgName;
+					switch (i) {
+					case 0: boardDTO.setBoardImg0(db);  break;
+					case 1: boardDTO.setBoardImg1(db);  break;
+					case 2: boardDTO.setBoardImg2(db);  break;
+					case 3: boardDTO.setBoardImg3(db);  break;
+					case 4: boardDTO.setBoardImg4(db);  break;
+					case 5: boardDTO.setBoardImg5(db);  break;
+					case 6: boardDTO.setBoardImg6(db);  break;
+					case 7: boardDTO.setBoardImg7(db);  break;
+					case 8: boardDTO.setBoardImg8(db);  break;
+					case 9: boardDTO.setBoardImg9(db);  break;
+						}
+					}
+				}
+			}else{
+				boardDTO.setBoardImg0("null");
+				boardDTO.setBoardImg1("null");
+				boardDTO.setBoardImg2("null");
+				boardDTO.setBoardImg3("null");
+				boardDTO.setBoardImg4("null");
+				boardDTO.setBoardImg5("null");
+				boardDTO.setBoardImg6("null");
+				boardDTO.setBoardImg7("null");
+				boardDTO.setBoardImg8("null");
+				boardDTO.setBoardImg9("null");
+			}
+			
+			
+			ReviewService.ReviewUpdate(boardDTO);
 		}
 		
 		return "redirect:/review/praha/reviewBoard";
