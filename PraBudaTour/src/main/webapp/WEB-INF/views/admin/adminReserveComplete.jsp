@@ -167,7 +167,7 @@
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
-							<input id="writer" name="writer" type="text" class="validate" placeholder=" " disabled="disabled">
+							<input id="writer" name="writer" type="text" class="validate" placeholder=" " readonly>
 							<label for="writer">작성자</label>
 				        </div>
 					</div>
