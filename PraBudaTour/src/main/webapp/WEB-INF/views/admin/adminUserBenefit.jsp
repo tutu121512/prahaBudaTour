@@ -139,6 +139,11 @@
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/useService.png"/>'>
+			<div style="padding-left: 35.5%;">
+			<a href="/controller/admin/adminUserBenefit?location=P" class="waves-effect waves-light btn"><input type="button" value="프라하"></a>
+			<a href="/controller/admin/adminUserBenefit?location=B" class="waves-effect waves-light btn"><input type="button" value="부다페스트"></a>
+			<a href="/controller/admin/adminUserBenefit?location=A" class="waves-effect waves-light btn"><input type="button" value="프라하별관"></a>
+		  </div>
 	  </td></tr></table>
 		<form action="/controller/userBenefit/praha/serviceInsert" method="post" enctype="multipart/form-data" id="adminUpdate">
 		<input type="hidden" name="boardNo" id="boardNo">

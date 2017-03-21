@@ -79,8 +79,8 @@
 	<a href="/controller/admin/selectBoard?boardState=notice" class="waves-effect waves-light btn"><input type="button" value="공지사항"></a>
 	<a href="/controller/admin/selectBoard?boardState=tourInfo" class="waves-effect waves-light btn"><input type="button" value="여행정보"></a>
 	<a href="/controller/admin/selectBoard?boardState=userBenefit" class="waves-effect waves-light btn"><input type="button" value="이용혜택"></a>
-	<input type="button" value="삭제" id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">
-	
+	<a href="/controller/admin/selectBoard?boardState=reserveComplete" class="waves-effect waves-light btn"><input type="button" value="예약확정"></a>
+		       <input type="button" value="삭제" id="deletebtn" name="deletebtn" class="waves-effect waves-light btn">
 	</div>
 	  <ul class="collapsible popout" data-collapsible="accordion" style="width:80%">  
 	  <li>
@@ -134,6 +134,7 @@
 		       			<c:when test="${list.boardState eq 'review'}">후기</c:when>
 		       			<c:when test="${list.boardState eq 'tourInfo'}">여행정보</c:when>
 		       			<c:when test="${list.boardState eq 'userBenefit'}">이용혜택</c:when>
+		       			<c:when test="${list.boardState eq 'reserveComplete'}">예약확정</c:when>
 	    			</c:choose>
 	    			</label>
 	    		</td>

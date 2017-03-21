@@ -29,8 +29,8 @@ public class UserBenefitDaoImpl implements UserBenefitDao {
 	}
 
 	@Override
-	public List<BoardDTO> serviceSelect() throws Exception {
-		return sqlSession.selectList("UserBenefit.benefitSelect");
+	public List<BoardDTO> serviceSelect(BoardDTO boardDTO) throws Exception {
+		return sqlSession.selectList("UserBenefit.benefitSelect",boardDTO);
 	}
 
 }

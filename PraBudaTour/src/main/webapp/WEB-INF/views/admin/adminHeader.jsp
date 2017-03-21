@@ -25,7 +25,7 @@
        <li class="no-padding">
            <ul class="collapsible collapsible-accordion">
             <li class="bold">
-            <a href="/controller/admin/adminTourInfo" style="font-size:20px;color:white" class="collapsible-header  waves-effect waves-teal">여행정보 관리</a>
+            <a href="/controller/admin/adminTourInfo?location=P" style="font-size:20px;color:white" class="collapsible-header  waves-effect waves-teal">여행정보 관리</a>
             </li>
           </ul>
         </li>
@@ -41,7 +41,7 @@
        <li class="no-padding">
            <ul class="collapsible collapsible-accordion">
             <li class="bold">											
-            <a style="font-size:20px;color:white" href="/controller/admin/adminUserBenefit" class="collapsible-header  waves-effect waves-teal">이용혜택 관리</a>
+            <a style="font-size:20px;color:white" href="/controller/admin/adminUserBenefit?location=P" class="collapsible-header  waves-effect waves-teal">이용혜택 관리</a>
             </li>
           </ul>
         </li>

@@ -148,6 +148,10 @@
 	  <div class="container">
 	  <table style="margin-top:30px"><tr><td>
 			<img src='<c:url value="/resources/images/tripInfoPlus.png"/>' style="width:28%">
+			<div style="padding-left: 40.5%;">
+			<a href="/controller/admin/adminTourInfo?location=P" class="waves-effect waves-light btn"><input type="button" value="프라하"></a>
+			<a href="/controller/admin/adminTourInfo?location=B" class="waves-effect waves-light btn"><input type="button" value="부다페스트"></a>
+		  </div>
 	  </td></tr></table>
 		<form action="/controller/tourInfo/tourInfoInsert" method="post" enctype="multipart/form-data" id="tourInfoInsert">
 		<input type="hidden" name="boardNo" id="boardNo">
@@ -170,7 +174,6 @@
 							    <option value="" disabled selected>지역을 선택해주세요.</option>
 							    <option value="P">프라하</option>
 							    <option value="B">부다페스트</option>
-							    <option value="A">프라하 별관</option>
 							 </select>
 				        </div>
 				        

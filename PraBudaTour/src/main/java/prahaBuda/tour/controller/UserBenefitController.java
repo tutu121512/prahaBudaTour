@@ -109,8 +109,9 @@ public class UserBenefitController {
 	
 	//이용혜택 selectList
 	@RequestMapping("praha/userBenefitBoard")
-	public String serviceSelect(Model m) throws Exception{
-		List<BoardDTO> selectList = UserBenefitService.serviceSelect();
+	public String serviceSelect(Model m,BoardDTO boardDTO) throws Exception{
+		System.out.println("지역 : " +boardDTO.getLocation());
+		List<BoardDTO> selectList = UserBenefitService.serviceSelect(boardDTO);
 		m.addAttribute("selectList", selectList);
 		System.out.println("selectList : "+selectList.toString());
 		return "prahaUseGuide/userBenefitBoard";

@@ -37,7 +37,7 @@
 			now(),#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
 	</insert>
 	
-	<select id="benefitSelect" resultMap="boardMap" parameterType="int" >
+	<select id="benefitSelect" resultMap="boardMap" parameterType="boardDTO" >
 	SELECT
 	board.location location,
 	board.board_state boardState,
@@ -60,6 +60,9 @@
 	FROM (SELECT location,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 	from board
 	where board_state='userBenefit'
+	<if test="location neq null">
+	AND location=#{location}
+	</if>
 	order by board_no+0 desc) a) board
 	</select>
 	

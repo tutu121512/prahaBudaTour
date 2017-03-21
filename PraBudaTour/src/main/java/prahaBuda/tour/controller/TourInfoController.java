@@ -106,16 +106,8 @@ public class TourInfoController {
 	@RequestMapping("tourInfoSelect")
 	public String tourInfoSelect(BoardDTO boardDto,Model model,String page) throws Exception{
 		
-		PageDTO pageDto = new PageDTO();
-		if(page == null){
-			pageDto.setCurPage(1);				//page값이 null이면 1로 지정
-		}else{
-			int curPage = Integer.parseInt(page); //형변환
-			pageDto.setCurPage(curPage);			//현제페이지값 set해주기
-		}
-		List<BoardDTO> selectList = TourInfoService.tourInfoSelect(pageDto);
+		List<BoardDTO> selectList = TourInfoService.tourInfoSelect(boardDto);
 		model.addAttribute("selectList", selectList);
-		model.addAttribute("page",pageDto);
 		return "prahaCommunity/tourInfoBoard";
 
 	}

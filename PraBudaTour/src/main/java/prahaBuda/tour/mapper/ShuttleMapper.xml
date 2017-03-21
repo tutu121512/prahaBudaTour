@@ -31,10 +31,10 @@
 
 
 	<insert id="ShuttleInsert" parameterType="boardDTO" >
-	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
-	password,board_date) 
-	VALUES('shuttle','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'shuttle'),#{writer},#{title},#{content},
-	#{password},now())
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,password,board_date,
+	board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
+	VALUES('shuttle','P',(select ifnull(max(BOARD_NO+0),0)+1 from board a where board_state = 'shuttle'),#{writer},#{title},#{content},#{password},now(),
+	'null','null','null','null','null','null','null','null','null','null')
 	</insert>
 	
 	<select id="ShuttleList" resultMap="boardMap" parameterType="int" >

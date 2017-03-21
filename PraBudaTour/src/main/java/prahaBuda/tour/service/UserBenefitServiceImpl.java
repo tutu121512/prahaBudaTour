@@ -29,8 +29,8 @@ public class UserBenefitServiceImpl implements UserBenefitService {
 	}
 
 	@Override
-	public List<BoardDTO> serviceSelect() throws Exception {
-		return UserBenefitDao.serviceSelect();
+	public List<BoardDTO> serviceSelect(BoardDTO boardDTO) throws Exception {
+		return UserBenefitDao.serviceSelect(boardDTO);
 	}
 
 	@Override

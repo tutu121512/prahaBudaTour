@@ -55,9 +55,11 @@ public class PrahaController {
 		PageDTO pageDto = new PageDTO();
 		pageDto.setCurPage(1);
 		
+		BoardDTO boardDTO = new BoardDTO();
+		boardDTO.setLocation("P");
 		List<BoardDTO> noticeList =  NoticeService.NoticeList(pageDto);
-		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect();
-		List<BoardDTO> tourInfoList =  TourInfoService.tourInfoSelect(pageDto);
+		List<BoardDTO> userBenefitList = UserBenefitService.serviceSelect(boardDTO);
+		List<BoardDTO> tourInfoList =  TourInfoService.tourInfoSelect(boardDTO);
 		List<BoardDTO> reviewList =  ReviewService.ReviewList(pageDto);
 		PopupDTO popupDTO = PopupService.popup();
 		

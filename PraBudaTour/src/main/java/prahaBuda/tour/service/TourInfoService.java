@@ -17,15 +17,6 @@ public interface TourInfoService {
 	public void tourInfoDelete(BoardDTO boardDTO) throws Exception;
 	
 	//여행정보 selectList
-	public List<BoardDTO> tourInfoSelect(PageDTO pageDto) throws Exception;
-	
-	//여행정보 selectView
-	public List<BoardDTO> tourInfoView(BoardDTO boardDTO) throws Exception;
-	
-	//여행정보 selectListCount
-	public int tourInfoSelectCount() throws Exception;
-
-	//여행정보 Paging
-	public PageDTO paging(PageDTO pageDto) throws Exception;
+	public List<BoardDTO> tourInfoSelect(BoardDTO boardDto) throws Exception;
 
 }

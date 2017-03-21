@@ -30,13 +30,9 @@ public class TourInfoDaoImpl implements TourInfoDao {
 	} 
 
 	@Override
-	public List<BoardDTO> tourInfoSelect( ) throws Exception {
-		return sqlSession.selectList("TourInfo.InfoSelect");
+	public List<BoardDTO> tourInfoSelect(BoardDTO boardDTO) throws Exception {
+		return sqlSession.selectList("TourInfo.InfoSelect",boardDTO);
 	}
 
-	@Override
-	public int tourInfoSelectCount() throws Exception {
-		return sqlSession.selectOne("TourInfo.InfoSelectCount");
-	}
 
 }

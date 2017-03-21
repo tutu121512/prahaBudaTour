@@ -16,7 +16,7 @@ public interface UserBenefitService {
 	public void serviceDelete(BoardDTO boardDTO) throws Exception;
 	
 	//이용혜택 selectList
-	public List<BoardDTO> serviceSelect() throws Exception;
+	public List<BoardDTO> serviceSelect(BoardDTO boardDTO) throws Exception;
 	
 	//이용혜택 selectView
 	public List<BoardDTO> serviceView(BoardDTO boardDTO) throws Exception;

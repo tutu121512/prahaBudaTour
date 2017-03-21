@@ -16,6 +16,6 @@ public interface UserBenefitDao {
 	public void serviceDelete(BoardDTO boardDTO) throws Exception;
 	
 	//이용혜택 selectList
-	public List<BoardDTO> serviceSelect() throws Exception;
+	public List<BoardDTO> serviceSelect(BoardDTO boardDTO) throws Exception;
 	
 }

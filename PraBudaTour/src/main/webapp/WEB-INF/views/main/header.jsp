@@ -24,15 +24,16 @@ $(".dropdown-button").dropdown();
 <ul id="guide" class="dropdown-content">
 	<li><a href="#!" style="background-color:#ee6e73;color:white">이용안내</a></li>
 	<li><a href="#!" style="line-height:10px;background-color:brown;color:white">프라하1호점</a></li>
-	<li><a href="/controller/userBenefit/praha/userBenefitBoard" style="line-height:10px;">이용혜택</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=P" style="line-height:10px;">이용혜택</a></li>
 	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>
-	<li><a href="#!" style="line-height:10px;background-color:orangered;color:white">부다패스트</a></li>
-	<li><a href="/controller/userBenefit/praha/userBenefitBoard" style="line-height:10px;">이용혜택</a></li>
+	<li><a href="#!" style="line-height:10px;background-color:orangered;color:white">부다페스트</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=B" style="line-height:10px;">이용혜택</a></li>
 	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>
 	<li><a href="#!" style="line-height:10px;background-color:tomato;color:white">프라하 별관</a></li>
-	<li><a href="/controller/userBenefit/praha/userBenefitBoard" style="line-height:10px;">이용혜택</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=A" style="line-height:10px;">이용혜택</a></li>
 	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>	
 </ul>
+
 
 <ul id="reserve" class="dropdown-content">
 	<li><a href="#!" style="background-color:#ee6e73;color:white">예&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;약</a></li>
@@ -45,7 +46,8 @@ $(".dropdown-button").dropdown();
 <ul id="community" class="dropdown-content" style="top:25px!important">
 	<li><a href="#!" style="background-color:#ee6e73;color:white">커뮤니티</a></li>
 	<li><a href="/controller/notice/praha/noticeBoard" style="line-height:10px;">공지사항</a></li>
-	<li><a href="/controller/tourInfo/tourInfoSelect" style="line-height:10px;">여행정보</a></li>
+	<li><a href="/controller/tourInfo/tourInfoSelect?location=P" style="line-height:10px; ">&nbsp;프라하 <br><br>여행정보</a></li>
+	<li><a href="/controller/tourInfo/tourInfoSelect?location=B" style="line-height:10px;">부다페스트 <br><br>&nbsp;여행정보</a></li>
 	<li><a href="/controller/review/praha/reviewBoard" style="line-height:10px;">후 기</a></li>
 </ul>						
 
