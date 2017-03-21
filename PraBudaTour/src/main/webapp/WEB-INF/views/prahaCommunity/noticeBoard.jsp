@@ -58,6 +58,11 @@
 	</thead>
 	
 	<tbody>
+	<c:choose>
+	<c:when test="${empty noticeSelectList}">
+	<tr><td colspan="5">게시글이 없습니다.</td></tr>
+	</c:when>
+	<c:otherwise>
 	<c:forEach items="${noticeSelectList}" var="list">
 	<tr name="board" style="cursor: pointer" onclick="location.href='/controller/notice/praha/noticeView?boardNo=${list.boardNo}'">
 		<td>${list.boardNo}</td>
@@ -67,7 +72,8 @@
 		<td style="width:180px;"></td>
 	</tr>
 	</c:forEach>	
-
+	</c:otherwise>
+	</c:choose>
 <!-- ############################### ##################################### -->	
 	<tr>
 	<td colspan="3" style="padding:0px;">

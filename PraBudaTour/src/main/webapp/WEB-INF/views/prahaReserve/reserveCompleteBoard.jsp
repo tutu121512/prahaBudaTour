@@ -59,6 +59,11 @@
 	</thead>
 	
 	<tbody>
+	<c:choose>
+	<c:when test="${empty CompleteList}">
+	<tr><td colspan="5">게시글이 없습니다.</td></tr>
+	</c:when>
+	<c:otherwise>
 	<c:forEach items="${CompleteList}" var="list">
 	<tr>
 		<td>${list.boardNo }</td>
@@ -68,7 +73,8 @@
 		<td></td> 
 	</tr>
 	</c:forEach>	
-
+	</c:otherwise>
+	</c:choose>
 <!-- ############################### ##################################### -->	
 	<tr>
 	<td colspan="5" style="padding:0px;background-color:darksalmon;">

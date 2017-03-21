@@ -64,6 +64,11 @@
 	</thead>
 	
 	<tbody>
+	<c:choose>
+	<c:when test="${empty shuttleSelectList}">
+	<tr><td colspan="5">게시글이 없습니다.</td></tr>
+	</c:when>
+	<c:otherwise>
 	<c:forEach items="${shuttleSelectList}" var="list">
 	<tr name="board" style="cursor: pointer">
 		<td>${list.boardNo}</td>
@@ -90,6 +95,8 @@
 		</td>
 	</tr>
 	</c:forEach>	
+	</c:otherwise>
+	</c:choose>
 
 <!-- ############################### ##################################### -->	
 	<tr>

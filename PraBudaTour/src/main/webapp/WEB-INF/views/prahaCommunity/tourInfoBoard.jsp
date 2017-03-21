@@ -46,6 +46,13 @@
 	</div>
 	<div>
 	 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+	<c:choose>
+	<c:when test="${empty noticeSelectList}">
+	<table class="striped centered">
+	<tr><td colspan="5">게시글이 없습니다.</td></tr>
+	</table>
+	</c:when>
+	<c:otherwise>
 		 <c:forEach items="${selectList}" var="list">
 			  <li style="margin-bottom:6px">
 			    <div class="collapsible-header" style="line-height:2rem;font-size:20px;background-color:forestgreen;border-radius:35px;border-bottom:8px solid;">
@@ -111,6 +118,8 @@
 			    </div>
 			  </li>
 		  </c:forEach>
+		</c:otherwise>
+		</c:choose>
 		</ul>
 	</div>
 	</div>
