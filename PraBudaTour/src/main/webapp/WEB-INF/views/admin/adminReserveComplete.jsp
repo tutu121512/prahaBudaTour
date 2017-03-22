@@ -83,6 +83,7 @@
 				$("#startDate").val(boardDTO.startDate);
 				$("#endDate").val(boardDTO.endDate);
 				$("#product").val(boardDTO.product);
+				$("#password").val(boardDTO.password);
 				$("#reserveBoardNo").val(boardDTO.boardNo);
 				var str ='<input type="submit" value="확정하기" class="waves-effect waves-light btn" style="width:100%">'
 				$("#writer").attr("name","reserveName");
@@ -166,7 +167,7 @@
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
-							<input id="writer" name="writer" type="text" class="validate" placeholder=" " disabled="disabled">
+							<input id="writer" name="writer" type="text" class="validate" placeholder=" " readonly>
 							<label for="writer">작성자</label>
 				        </div>
 					</div>
@@ -260,7 +261,7 @@
 			  	<tr class="reserveNo" id="${list.boardNo}" name="${list.boardState}"><td style="width:10%;padding-bottom:0px;">
 			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px;">
 			    </td><td style="width:85%;padding-top:2px">
-			    <div>${list.title}</div>
+			    <div>${list.boardNo}-${list.title} -&nbsp; ${list.writer}</div>
 			    </td><td style="padding-top:3px;">
 			    <a href="#"><i class="material-icons prefix questionDeleteBtn" id="${list.boardNo}" style="color:white">delete</i></a></td></tr>
 			    </tbody>
@@ -270,7 +271,7 @@
 		  </c:forEach>
 		</ul>
 		
-		<ul class="pagination" style="float:left;margin-top:0px;padding-left:30%">
+		<ul class="pagination" style="float:left;margin-top:0px;">
 			<li class="page-item">
 				<a href="/controller/admin/adminReserveComplete?Qpage=<%=qpVO.getPreviPage()%>&boardState=reserveQuestion">
 			    <i class="material-icons">chevron_left</i>
@@ -337,7 +338,7 @@
 		  </c:forEach>
 		</ul>
 		
-		<ul class="pagination" style="float:left;margin-top:0px;padding-left:35%;">
+		<ul class="pagination" style="float:left;margin-top:0px;">
 			<li class="page-item">
 				<a href="/controller/admin/adminReserveComplete?Cpage=<%=cpVO.getPreviPage()%>">
 			    <i class="material-icons">chevron_left</i>

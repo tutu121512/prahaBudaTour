@@ -140,7 +140,11 @@
 	board_img6 boardImg6,
 	board_img7 boardImg7,
 	board_img8 boardImg8,
-	board_img9 boardImg9
+	board_img9 boardImg9,
+	start_date startDate,
+	end_date endDate,
+	product product,
+	password password
 	FROM BOARD
 	WHERE board_state=#{boardState} and location='P' and board_no=#{boardNo}  
 	</select>
