@@ -158,7 +158,7 @@
 					<div class="row" style="margin-bottom:-20px">
 						<div class="input-field col s10">
 							<i class="material-icons prefix">title</i>
-							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.title}"style="font-size:31px;text-align:center;color:crimson;">
+							<input id="title" name="title" type="text" class="validate updateform" readonly="readonly" value="${reviewViewInfo.title}"style="font-size:28px;text-align:center;color:crimson;">
 							<label for="title">문의 제목</label>
 						</div>
 						<div class="input-field col s2">
@@ -179,70 +179,68 @@
 				</td></tr>
 				<tr><td>
 				<div class="row">
-						<div>
-						<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
+					<div>
+					<c:if test="${reviewViewInfo.boardImg0 != 'null'}">
+					<div class="input-field col s12" style="text-align:center">
+					       <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
+					</div>
+					</c:if>
+				
+					<c:if test="${reviewViewInfo.boardImg1 != 'null'}">
+					<div class="input-field col s12" style="text-align:center">
+					       <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg1}'/>"/>
+					</div>
+					</c:if>
+				
+					<c:if test="${reviewViewInfo.boardImg2 != 'null'}">
 						<div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg0}'/>"/>
+					    	<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg2}'/>"/>
 						</div>
-						</c:if>
-				
-						<c:if test="${reviewViewInfo.boardImg1 != 'null'}">
-						 <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg1}'/>"/>
-						</div>
-						</c:if>
-				
-						<c:if test="${reviewViewInfo.boardImg2 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg2}'/>"/>
-						</div>
-						</c:if>
+					</c:if>
 
-						<c:if test="${reviewViewInfo.boardImg3 != 'null'}">
-			                 <div class="input-field col s12" style="text-align:center">
-			                <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg3 != 'null'}">
+			        	<div class="input-field col s12" style="text-align:center">
+			            	<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg3}'/>"/>
 						</div>
-						</c:if>
+					</c:if>
 					
-						<c:if test="${reviewViewInfo.boardImg4 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg4}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg4 != 'null'}">
+						<div class="input-field col s12" style="text-align:center">
+							<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg4}'/>"/>
 						</div>
-						</c:if>
+					</c:if>
 						
-						<c:if test="${reviewViewInfo.boardImg5 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg5}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg5 != 'null'}">
+						<div class="input-field col s12" style="text-align:center">
+							<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg5}'/>"/>
 						</div>
-						</c:if>
+					</c:if>
 						
-						<c:if test="${reviewViewInfo.boardImg6 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg6}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg6 != 'null'}">
+						<div class="input-field col s12" style="text-align:center">
+							<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg6}'/>"/>
 						</div>
-						</c:if>
+					</c:if>
 						
-						<c:if test="${reviewViewInfo.boardImg7 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg7}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg7 != 'null'}">
+						<div class="input-field col s12" style="text-align:center">
+							<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg7}'/>"/>
 						</div>
-						</c:if>
+					</c:if>
 						
-						<c:if test="${reviewViewInfo.boardImg8 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg8}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg8 != 'null'}">
+						<div class="input-field col s12" style="text-align:center">
+							<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg8}'/>"/>
 						</div>
-						</c:if>
+					</c:if>
 						
-						<c:if test="${reviewViewInfo.boardImg9 != 'null'}">
-					         <div class="input-field col s12" style="text-align:center">
-					        <img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg9}'/>"/>
+					<c:if test="${reviewViewInfo.boardImg9 != 'null'}">
+						<div class="input-field col s12" style="text-align:center">
+							<img style="max-width:600px;" src="<c:url value='${reviewViewInfo.boardImg9}'/>"/>
 						</div>
-						</c:if>					
-					
-					
-						</div>
-			    	</div>
+					</c:if>					
+				</div>
+			</div>
 				</td></tr>
 				<tr><td id="pass">
 

@@ -5,6 +5,11 @@
 <script>
 $(".dropdown-button").dropdown();
 </script>
+<style>
+.dropdown-content li a{
+	line-height:10px;
+}
+</style>
 
 <ul id="roomShow" class="dropdown-content">
 	<li><a href="#!" style="background-color:brown;color:white;font-size:15px">프라하1호점</a></li>
@@ -17,7 +22,7 @@ $(".dropdown-button").dropdown();
 	<li><a href="/controller/praha/budapestRoomInfo/pestRoom" >페스트</a></li>
 	<li><a href="/controller/praha/budapestRoomInfo/publicRoomT" >공용공간</a></li>
 	<li><a href="#!" style="background-color:tomato;color:white">프라하 별관</a></li>
-	<li><a href="/controller/praha/annexRoomInfo/annexRoom" >룸</a></li>
+	<li><a href="/controller/praha/annexRoomInfo/annexRoom" >별관 룸</a></li>
 	<li><a href="/controller/praha/annexRoomInfo/publicRoomA" >공용공간</a></li>
 </ul>
 
