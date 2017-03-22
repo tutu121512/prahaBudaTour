@@ -5,49 +5,54 @@
 <script>
 $(".dropdown-button").dropdown();
 </script>
+<style>
+.dropdown-content li a{
+	line-height:10px;
+}
+</style>
 
 <ul id="roomShow" class="dropdown-content">
-	<li><a href="#!" style="line-height:10px;background-color:brown;color:white">프라하1호점</a></li>
-	<li><a href="/controller/praha/prahaRoomInfo/karelRoom" style="line-height:10px;">까르를교</a></li>
-	<li><a href="/controller/praha/prahaRoomInfo/prahaRoom" style="line-height:10px;">프라하성</a></li>
-	<li><a href="/controller/praha/prahaRoomInfo/bachlRoom" style="line-height:10px;">바츨라프</a></li>
-	<li><a href="/controller/praha/prahaRoomInfo/publicRoom" style="line-height:10px;">공용공간</a></li>
-	<li><a href="#!" style="line-height:10px;background-color:orangered;color:white">부다패스트</a></li>
-	<li><a href="/controller/praha/budapestRoomInfo/budaRoom" style="line-height:10px;">부다</a></li>
-	<li><a href="/controller/praha/budapestRoomInfo/pestRoom" style="line-height:10px;">페스트</a></li>
-	<li><a href="/controller/praha/budapestRoomInfo/publicRoomT" style="line-height:10px;">공용공간</a></li>
-	<li><a href="#!" style="line-height:10px;background-color:tomato;color:white">프라하 별관</a></li>
-	<li><a href="#" style="line-height:10px;" onclick="alert('준비중입니다.');">3호점</a></li>
+	<li><a href="#!" style="background-color:brown;color:white;font-size:15px">프라하1호점</a></li>
+	<li><a href="/controller/praha/prahaRoomInfo/karelRoom" >까르를교</a></li>
+	<li><a href="/controller/praha/prahaRoomInfo/prahaRoom" >프라하성</a></li>
+	<li><a href="/controller/praha/prahaRoomInfo/bachlRoom" >바츨라프</a></li>
+	<li><a href="/controller/praha/prahaRoomInfo/publicRoom" >공용공간</a></li>
+	<li><a href="#!" style="background-color:orangered;color:white">부다패스트</a></li>
+	<li><a href="/controller/praha/budapestRoomInfo/budaRoom" >부다</a></li>
+	<li><a href="/controller/praha/budapestRoomInfo/pestRoom" >페스트</a></li>
+	<li><a href="/controller/praha/budapestRoomInfo/publicRoomT" >공용공간</a></li>
+	<li><a href="#!" style="background-color:tomato;color:white">프라하 별관</a></li>
+	<li><a href="/controller/praha/annexRoomInfo/annexRoom" >별관 룸</a></li>
+	<li><a href="/controller/praha/annexRoomInfo/publicRoomA" >공용공간</a></li>
 </ul>
 
 <ul id="guide" class="dropdown-content">
-	<li><a href="#!" style="line-height:10px;background-color:brown;color:white">프라하1호점</a></li>
-	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=P" style="line-height:10px;">이용혜택</a></li>
-	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" style="line-height:10px;">오시는길</a></li>
-	<li><a href="#!" style="line-height:10px;background-color:orangered;color:white">부다페스트</a></li>
-	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=B" style="line-height:10px;">이용혜택</a></li>
-	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" style="line-height:10px;">오시는길</a></li>
-	<li><a href="#!" style="line-height:10px;background-color:tomato;color:white">프라하 별관</a></li>
-	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=A" style="line-height:10px;">이용혜택</a></li>
-	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" style="line-height:10px;">오시는길</a></li>	
+	<li><a href="#!" style="background-color:brown;color:white;font-size:15px">프라하1호점</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=P" >이용혜택</a></li>
+	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" >오시는길</a></li>
+	<li><a href="#!" style="background-color:orangered;color:white">부다페스트</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=B" >이용혜택</a></li>
+	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" >오시는길</a></li>
+	<li><a href="#!" style="background-color:tomato;color:white">프라하 별관</a></li>
+	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=A" >이용혜택</a></li>
+	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" >오시는길</a></li>	
 </ul>
-
 
 <ul id="reserve" class="dropdown-content">
-	<li><a href="/controller/praha/prahaReserve/usePrice" style="line-height:10px;">예약안내</a></li>
-	<li><a href="/controller/praha/reserveBoard" style="line-height:10px;">예약문의</a></li>
-	<li><a href="/controller/complete/praha/completeBoard" style="line-height:10px;">예약확정</a></li>
-	<li style="display:none"><a href="/controller/complete/praha/completeCalendar" style="line-height:10px;">예약현황</a></li>
+	<li><a href="/controller/praha/prahaReserve/usePrice" >예약안내</a></li>
+	<li><a href="/controller/praha/reserveBoard" >예약문의</a></li>
+	<li><a href="/controller/complete/praha/completeBoard" >예약확정</a></li>
+	<li style="display:none"><a href="/controller/complete/praha/completeCalendar" >예약현황</a></li>
 </ul>
 
-<ul id="tourInfo" class="dropdown-content" style="top:25px!important">
+<ul id="tourInfo" class="dropdown-content">
 	<li><a href="/controller/tourInfo/tourInfoSelect?location=P" style="line-height:13px;background-color:brown;color:white">1호점/별관</a></li>
 	<li><a href="/controller/tourInfo/tourInfoSelect?location=B" style="line-height:13px;background-color:orangered;color:white">부다페스트</a></li>
 </ul>
 
-<ul id="community" class="dropdown-content" style="top:25px!important">
-	<li><a href="/controller/notice/praha/noticeBoard" style="line-height:10px;">공지사항</a></li>
-	<li><a href="/controller/review/praha/reviewBoard" style="line-height:10px;">후 기</a></li>
+<ul id="community" class="dropdown-content">
+	<li><a href="/controller/notice/praha/noticeBoard" >공지사항</a></li>
+	<li><a href="/controller/review/praha/reviewBoard" >후 기</a></li>
 </ul>						
 
 <nav>
@@ -61,7 +66,7 @@ $(".dropdown-button").dropdown();
       <li><a class="dropdown-button" href="#" data-activates="tourInfo">여행정보<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#"  data-activates="community">커뮤니티<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a href="/controller/shuttle/praha/shuttleBoard">셔틀문의</a></li>
-      <li><a href="#">   </a></li>
+      <li><a href="#"></a></li>
     </ul>
   </div>
 </nav>
