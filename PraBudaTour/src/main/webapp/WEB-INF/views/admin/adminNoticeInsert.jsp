@@ -84,6 +84,7 @@
 		$(".updateBtn").click(function(){
 			var boardNo = $(this).attr("id");
 			var boardState = $(this).attr("name");
+			var location = 'P';
 			$("#noticeInsert").attr("action","/controller/admin/adminUpdate");
 			
 			$.ajax({
@@ -91,7 +92,8 @@
 				type : 'post',
 				data : ({
 					boardNo : boardNo,
-					boardState : boardState
+					boardState : boardState,
+					location : location 
 				}),
 				dataType : "text", // html / xml / json / jsonp / text
 				success : function(data) {
@@ -101,6 +103,7 @@
 					$("#icon_prefix2").val(boardDTO.content);
 					$("#boardNo").val(boardDTO.boardNo);
 					$("#boardState").val(boardDTO.boardState);
+					$("#location").val(boardDTO.location);
 				},
 				error : function(data) {
 					console.log("에러발생");
@@ -144,6 +147,7 @@
 	  </td></tr></table>
 		<form id="noticeInsert" action="/controller/notice/praha/NoticeInsert" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="boardNo" id="boardNo">
+		<input type="hidden" name="location" id="location">
 		<input type="hidden" name="boardState" id="boardState">
 			<table style="margin-bottom:10px">
 				<tr><td>

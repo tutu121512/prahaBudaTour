@@ -200,9 +200,9 @@ public class adminController {
 		
 		String nextPage = null;
 		if(boardDTO.getBoardState().equals("tourInfo")){
-			nextPage ="redirect:/admin/adminTourInfo";
+			nextPage ="redirect:/admin/adminTourInfo?location="+boardDTO.getLocation();
 		}else if(boardDTO.getBoardState().equals("userBenefit")){
-			nextPage ="redirect:/admin/adminUserBenefit";
+			nextPage ="redirect:/admin/adminUserBenefit?location="+boardDTO.getLocation();
 		}else if(boardDTO.getBoardState().equals("notice")){
 			nextPage ="redirect:/admin/adminNoticeList";
 		}

@@ -84,7 +84,7 @@ public class TourInfoController {
 			boardDto.setBoardImg9("null");
 		}
 		TourInfoService.tourInfoInsert(boardDto);
-		return "redirect:/admin/adminTourInfo";
+		return "redirect:/admin/adminTourInfo?location="+boardDto.getLocation();
 	}
 	
 	//여행정보 update
@@ -98,8 +98,9 @@ public class TourInfoController {
 	@RequestMapping("tourInfoDelete")
 	public String tourInfoDelete(BoardDTO boardDTO) throws Exception{
 		System.out.println("tourInfoDelete : " +boardDTO.getBoardNo());
+		System.out.println("tourInfoDelete : " +boardDTO.getLocation());
 		TourInfoService.tourInfoDelete(boardDTO);
-		return "redirect:/admin/adminTourInfo";
+		return "redirect:/admin/adminTourInfo?location="+boardDTO.getLocation();
 	}
 	
 	//여행정보 selectList

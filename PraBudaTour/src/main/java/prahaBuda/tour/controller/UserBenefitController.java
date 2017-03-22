@@ -87,7 +87,7 @@ public class UserBenefitController {
 		
 		UserBenefitService.serviceInsert(boardDto);
 		
-		return "redirect:/admin/adminUserBenefit";
+		return "redirect:/admin/adminUserBenefit?location="+boardDto.getLocation();
 	}
 	
 	//이용혜택 update
@@ -104,7 +104,7 @@ public class UserBenefitController {
 	public String serviceDelete(BoardDTO boardDTO,RedirectAttributes redirect) throws Exception{
 		UserBenefitService.serviceDelete(boardDTO);
 		
-		return "redirect:/admin/adminUserBenefit";
+		return "redirect:/admin/adminUserBenefit?location="+boardDTO.getLocation();
 	}
 	
 	//이용혜택 selectList

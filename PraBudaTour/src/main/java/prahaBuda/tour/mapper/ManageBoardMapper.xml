@@ -120,11 +120,13 @@
 	board_img8 = #{boardImg8},
 	board_img9 = #{boardImg9}
 	</if>
-	WHERE BOARD_NO=#{boardNo} AND board_state=#{boardState} and location='P'
+	WHERE BOARD_NO=#{boardNo} AND board_state=#{boardState} and location=#{location}
 	</update>
 	
 	<select id="manageSelect" parameterType="boardDTO" resultMap="boardMap">
-	SELECT board_state boardState,
+	SELECT 
+	location location,
+	board_state boardState,
 	board_no boardNo,
 	title title,
 	writer writer,
@@ -146,7 +148,7 @@
 	product product,
 	password password
 	FROM BOARD
-	WHERE board_state=#{boardState} and location='P' and board_no=#{boardNo}  
+	WHERE board_state=#{boardState} and location=#{location} and board_no=#{boardNo}  
 	</select>
 	
 	

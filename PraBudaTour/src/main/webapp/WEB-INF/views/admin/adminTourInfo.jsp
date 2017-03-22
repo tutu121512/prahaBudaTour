@@ -89,6 +89,7 @@
 		});
 		
 		$(".updateBtn").click(function(){
+			var location= $(this).parent().next().val();
 			var boardNo = $(this).attr("id");
 			var boardState = $(this).attr("name");
 			$("#tourInfoInsert").attr("action","/controller/admin/adminUpdate");
@@ -98,7 +99,8 @@
 				type : 'post',
 				data : ({
 					boardNo : boardNo,
-					boardState : boardState
+					boardState : boardState,
+					location : location
 				}),
 				dataType : "text", // html / xml / json / jsonp / text
 				success : function(data) {
@@ -108,6 +110,7 @@
 					$("#icon_prefix2").val(boardDTO.content);
 					$("#boardNo").val(boardDTO.boardNo);
 					$("#boardState").val(boardDTO.boardState);
+					$("#location").val(boardDTO.location);
 				},
 				error : function(data) {
 					console.log("에러발생");
@@ -274,7 +277,9 @@
 							</c:if>
 						</td>
 						</tr>
-						<tr><td><input type="button" id="${list.boardNo}" name="${list.boardState}" class="waves-effect waves-light btn updateBtn" value="수정"></td></tr>
+						<tr><td>
+						<input type="button" id="${list.boardNo}" name="${list.boardState}"  class="waves-effect waves-light btn updateBtn" value="수정">
+						<input type="hidden" value="${list.location}"></td></tr>
 					</table>
 			    </div>  
 			  </li>

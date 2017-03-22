@@ -82,6 +82,7 @@
 		$(".updateBtn").click(function(){
 			var boardNo = $(this).attr("id");
 			var boardState = $(this).attr("name");
+			var location= $(this).next().val();
 			$("#adminUpdate").attr("action","/controller/admin/adminUpdate");
 			
 			$.ajax({
@@ -89,7 +90,8 @@
 				type : 'post',
 				data : ({
 					boardNo : boardNo,
-					boardState : boardState
+					boardState : boardState,
+					location : location
 				}),
 				dataType : "text", // html / xml / json / jsonp / text
 				success : function(data) {
@@ -99,6 +101,7 @@
 					$("#icon_prefix2").val(boardDTO.content);
 					$("#boardNo").val(boardDTO.boardNo);
 					$("#boardState").val(boardDTO.boardState);
+					$("#location").val(boardDTO.location);
 				},
 				error : function(data) {
 					console.log("에러발생");
@@ -225,7 +228,8 @@
 			    <tr>
 			    <td rowspan="3" width="70%"><pre style="white-space:pre-wrap; text-align:center; font-size: 20px;">${list.content}</pre></td>
 			    </tr>
-			    <tr><td><a id="${list.boardNo}" name="${list.boardState}" class="waves-effect waves-light btn updateBtn">수정</a></td></tr>
+			    <tr><td><a id="${list.boardNo}" name="${list.boardState}"  class="waves-effect waves-light btn updateBtn">수정</a>
+			    <input type="hidden" value="${list.location}"></td></tr>
 			    </tbody>
 			    </table>
 			    </div>
