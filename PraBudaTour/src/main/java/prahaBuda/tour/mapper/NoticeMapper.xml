@@ -90,7 +90,7 @@
    </select>
    
    <delete id="NoticeDelete" parameterType="boardDTO">
-   DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='notice' and location='P'
+   DELETE FROM board WHERE BOARD_NO=${boardNo} AND board_state='notice' and location='P'
    </delete>
    
 

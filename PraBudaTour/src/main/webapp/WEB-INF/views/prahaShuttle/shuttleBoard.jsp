@@ -35,6 +35,7 @@
 		 $("tbody tr[name='board']").click(function(){
 			$(".password").css("display","none");	 	 
 			$(this).find(".password").css("display","block");
+			$(this).find("[name='password']").focus();
 		 });
 		 var page = '#page'+<%=pVO.getCurPage()%>;
 		  	$(page).removeClass();
@@ -59,7 +60,7 @@
 			<th data-field="email">제목</th>
 			<th data-field="nickName" style="width:12%">작성자</th>
 			<th data-field="phone" style="width:12%">작성일자</th>
-			<th style="width:13%">비고</th>
+			<th style="width:15%">비고</th>
 		</tr>
 	</thead>
 	

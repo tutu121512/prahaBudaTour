@@ -7,7 +7,7 @@ $(".dropdown-button").dropdown();
 </script>
 <style>
 .dropdown-content li a{
-	line-height:10px;
+	line-height:12px;
 }
 </style>
 
@@ -32,10 +32,10 @@ $(".dropdown-button").dropdown();
 	<li><a href="/controller/praha/prahaUseGuide/onTheRoad" >오시는길</a></li>
 	<li><a href="#!" style="background-color:orangered;color:white">부다페스트</a></li>
 	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=B" >이용혜택</a></li>
-	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" >오시는길</a></li>
+	<li><a href="/controller/praha/prahaUseGuide/onTheRoadBuda"  >오시는길</a></li>
 	<li><a href="#!" style="background-color:tomato;color:white">프라하 별관</a></li>
 	<li><a href="/controller/userBenefit/praha/userBenefitBoard?location=A" >이용혜택</a></li>
-	<li><a href="#" onclick="alert('준비중입니다. 카카오톡으로 연락주세요');" >오시는길</a></li>	
+	<li><a href="/controller/praha/prahaUseGuide/onTheRoadPublic"  >오시는길</a></li>	
 </ul>
 
 <ul id="reserve" class="dropdown-content">

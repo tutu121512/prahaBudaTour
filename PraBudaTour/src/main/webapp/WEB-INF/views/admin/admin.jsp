@@ -63,12 +63,12 @@ $(function () {
      	
 			<div class="input-field col s6" style="margin-bottom:-20px">
 				    <label for="Id">ID</label>
-				    <input type="text" id="id" name="adminId" class="validate" value="favicontour">
+				    <input type="text" id="id" name="adminId" class="validate">
 			</div>
 
 			<div class="input-field col s6" style="margin-bottom:-20px">
 					<label for="Password">비밀번호</label>
-					<input type="password" id="pw" name="adminPassword" class="validate" value="min337337">
+					<input type="password" id="pw" name="adminPassword" class="validate">
 			</div>
 			
 			<div class="input-field col s12" style="margin-bottom:15px">

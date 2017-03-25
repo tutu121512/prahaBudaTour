@@ -71,17 +71,17 @@
 	
 	<select id="prahaReservePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
 	SELECT *
-	FROM BOARD
+	FROM board
 	WHERE board_state='reserveQuestion'and location='P' 
 	and board_no=#{boardNo} and password=#{password}
 	</select>
 	
 	<delete id="prahaReserveDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE BOARD_NO=#{boardNo} AND board_state='reserveQuestion'and location='P'
+	DELETE FROM board WHERE BOARD_NO=#{boardNo} AND board_state='reserveQuestion'and location='P'
 	</delete>
 	
 	<update id="prahaReserveUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET 
+	UPDATE board SET 
 	title=#{title},
 	writer=#{writer},
 	content=#{content},
@@ -94,11 +94,11 @@
 	
 	
 	<update id="completeUpdate" parameterType="hashmap">
-	UPDATE BOARD SET board_state='reserveComplete' where board_No=#{boardNo} and writer=#{reserveName}
+	UPDATE board SET board_state='reserveComplete' where board_No=#{boardNo} and writer=#{reserveName}
 	</update>
 	
 	<update id="completeDelete" parameterType="reserveCompleteDTO">
-	UPDATE BOARD SET board_state='reserveQuestion' where board_No=#{reserveBoardNo} and writer=#{reserveName}
+	UPDATE board SET board_state='reserveQuestion' where board_No=#{reserveBoardNo} and writer=#{reserveName}
 	</update>
 		
 </mapper>

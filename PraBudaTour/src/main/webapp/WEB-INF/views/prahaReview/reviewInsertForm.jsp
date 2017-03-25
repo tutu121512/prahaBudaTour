@@ -111,7 +111,7 @@ document.getElementById("reviewInsertForm").submit();
 						<div class="input-field col s8">
 							<i class="material-icons prefix">title</i>
 							<input id="title" name="title" type="text" class="validate">
-							<label for="title">문의 제목</label>
+							<label for="title">제목</label>
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
@@ -125,7 +125,7 @@ document.getElementById("reviewInsertForm").submit();
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
 							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="카카오톡 ID를 남겨주시면 연락이 편합니다."></textarea>
-							<label for="icon_prefix2">문의 내용 (입력창이 자동으로 늘어납니다.)</label>
+							<label for="icon_prefix2">내용 (입력창이 자동으로 늘어납니다.)</label>
 						</div>
 					</div>
 				</td></tr>
@@ -150,7 +150,7 @@ document.getElementById("reviewInsertForm").submit();
 						<a class="waves-effect waves-light btn color-500" id="delete">이미지 삭제</a>
 					</div>
 					<div class="row">
-						<a href="#" onClick="submit(); return false;" class="waves-effect waves-light btn" style="width:100%">문의</a>
+						<a href="#" onClick="submit(); return false;" class="waves-effect waves-light btn" style="width:100%">확인</a>
 					</div>
 				</td></tr>
 			</table>

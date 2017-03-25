@@ -96,15 +96,15 @@
 	</select>
 	
 	<update id="boardReply" parameterType="boardDTO">
-	UPDATE BOARD SET board_reply=#{boardReply} where board_no=#{boardNo} and board_state=#{boardState} and location='P'
+	UPDATE board SET board_reply=#{boardReply} where board_no=#{boardNo} and board_state=#{boardState} and location='P'
 	</update>
 	
 	<delete id="boardDelete" parameterType="boardDTO">
-	DELETE FROM BOARD WHERE board_state=#{boardState} and board_no=#{boardNo} and location='P'
+	DELETE FROM board WHERE board_state=#{boardState} and board_no=#{boardNo} and location='P'
 	</delete>
 	
 	<update id="manageUpdate" parameterType="boardDTO">
-	UPDATE BOARD SET 
+	UPDATE board SET 
 	title = #{title},
 	writer = #{writer},
 	content = #{content}
@@ -147,7 +147,7 @@
 	end_date endDate,
 	product product,
 	password password
-	FROM BOARD
+	FROM board
 	WHERE board_state=#{boardState} and location=#{location} and board_no=#{boardNo}  
 	</select>
 	

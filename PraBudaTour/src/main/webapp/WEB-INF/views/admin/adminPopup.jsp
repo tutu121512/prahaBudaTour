@@ -43,8 +43,8 @@
 		var imgsrc= '<%=popup.getPopupImg()%>';
 		var boardNo = '<%=popup.getBoardNo()%>';
 		$("#popupNo").val(boardNo);
-		var str ="<img id='jImg' width='500px' height='510px'>";
-		$("div.image-file-size").append(str);
+		/*var str ="<img id='jImg' width='500px' height='510px'>";
+		$("div.image-file-size").append(str);*/
         $('#jImg').attr('src', '/controller/'+imgsrc);
         $("#boardNo").val(boardNo).prop("selected", true);
 	<%}else{%> 
