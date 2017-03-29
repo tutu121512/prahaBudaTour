@@ -29,7 +29,8 @@
 	<body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<!-- <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>  -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
 		var deleteStr = "";
