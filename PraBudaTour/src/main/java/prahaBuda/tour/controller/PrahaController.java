@@ -47,7 +47,7 @@ public class PrahaController {
 			@PathVariable("fileName") String fileName){
 		return viewName + "/" +fileName;
 	}
-	
+
 	
 	@RequestMapping("prahaMain")
 	public ModelAndView PrahaMain() throws Exception{

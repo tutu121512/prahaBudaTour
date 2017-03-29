@@ -21,6 +21,13 @@
             </li>
           </ul>
         </li>
+        <li class="no-padding">
+           <ul class="collapsible collapsible-accordion">
+            <li class="bold">
+            <a href="/controller/admin/adminReserveComplete" style="font-size:20px;color:white" class="collapsible-header  waves-effect waves-teal">예약 관리/확정(기타)</a>
+            </li>
+          </ul>
+        </li>
 
        <li class="no-padding">
            <ul class="collapsible collapsible-accordion">

@@ -25,12 +25,12 @@
 		<div class="container">	
 			<div id="bl-main" class="bl-main">
 				<section>
-					<div class="bl-box" style="cursor: pointer;" onclick="location.href='/controller/praha/prahaMain'">
+					<div class="bl-box" style="cursor: pointer;" onclick="location.href='<c:url value="r/re"/>'">
 					</div>
 				</section>
 				
 				<section>
-					<div class="bl-box" style="cursor: pointer;" onclick="location.href='/controller/praha/prahaMain'">
+					<div class="bl-box" style="cursor: pointer;" onclick="location.href='/controller/praha/reHome'">
 					</div>
 				</section>
 			</div>
