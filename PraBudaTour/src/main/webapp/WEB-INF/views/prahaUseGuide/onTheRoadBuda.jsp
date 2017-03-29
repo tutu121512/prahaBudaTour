@@ -36,7 +36,7 @@
 		        <div>
 		        <label id="addr">O utca 11 , Budapest , 1066 , HUNGARY</label>
 		        </div>
-                   <div id="map1"><img alt="rootbuda" src='<c:url value="/resources/images/rootbuda.png"/>'</div>
+                   <div id="map1"><img alt="rootbuda" src='<c:url value="/resources/images/rootbuda.png"/>'></div>
 		   <div id="map"></div>
 		</td></tr>
 		</table>

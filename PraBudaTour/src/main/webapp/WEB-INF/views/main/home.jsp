@@ -10,7 +10,6 @@
 	    <!--Let browser know website is optimized for mobile-->
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
-<META http-equiv="refresh" content="0; url=/praha/prahaMain">
 
 	</head>
 	<body>
@@ -25,7 +24,7 @@
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 	<main>
 		
-                /*<div class="container">
+    <div class="container">
 		<div class="row">
 		<div class="carousel">
 		    <a class="carousel-item" href="#one!"><img src='<c:url value="/resources/images/1.jpg"/>'></a>
@@ -38,7 +37,7 @@
 		    <a class="carousel-item" href="#four!"><img src='<c:url value="/resources/images/8.jpg"/>'></a>
 		</div>
 		</div>
-		</div>*/
+		</div>
 	  
          </main>
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
