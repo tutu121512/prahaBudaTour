@@ -48,7 +48,7 @@
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
 		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
-			<th data-field=num" style="width:8%">글번호</th>
+			<th data-field="num" style="width:8%">글번호</th>
 			<th data-field="email">제목</th>
 			<th data-field="nickName" style="width:13%">작성자</th>
 			<th data-field="phone" style="width:12%">작성일자</th>
