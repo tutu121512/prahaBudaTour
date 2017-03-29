@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
@@ -29,7 +29,7 @@
 	<body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	
 	<script type="text/javascript">
 		$(".completeDeleteBtn").click(function(){
@@ -62,7 +62,7 @@
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
 							<input id="reserveName" name="reserveName" type="text" class="validate" placeholder=" ">
-							<label for="writer">게시글 작성자명</label>
+							<label for="writer">문의하신분 이름</label>
 				        </div>
 					</div>
 				</td></tr>
@@ -70,7 +70,7 @@
 					<div class="row">
 				        <div class="input-field col s6" style="margin-bottom:-20px">
 							<i class="material-icons prefix">flight_takeoff</i>
-							<input id="startDate" name="startDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 160213">
+							<input id="startDate" name="startDate" type="text" class="validate" placeholder="입력예시 : 17년 2월 17일 => 170217">
 							<label for="startDate">희망 입실날짜</label>
 				        </div>
 				        <div class="input-field col s6" style="margin-bottom:-20px">
@@ -84,8 +84,8 @@
 					<div class="row">
 						<div class="input-field col s8">
 							<i class="material-icons prefix">card_giftcard</i>
-							<input id="product" name="product" type="text" class="validate" placeholder="프라하만의 혜택 상품들!! 공지사항을 꼭 확인해주세요 - 100자이내">	
-							<label for="product">신청상품(프라하만의 혜택 상품들!! 공지사항을 꼭 확인해주세요) - 100자이내</label>
+							<input id="product" name="product" type="text" class="validate" placeholder="즐겨찾기만의 혜택 상품들!! 공지사항을 꼭 확인해주세요 - 100자이내">	
+							<label for="product">신청상품(즐겨찾기만의 혜택 상품들!! 공지사항을 꼭 확인해주세요) - 100자이내</label>
 						</div>
 						<div class="input-field col s4" style="margin-bottom:-20px">
 							<i class="material-icons prefix">security</i>

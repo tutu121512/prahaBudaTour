@@ -8,7 +8,7 @@
 	    <!--Import materialize.css-->
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
 	    <!--Let browser know website is optimized for mobile-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
 	<style type="text/css">
   #map { height: 400px;
   		margin-bottom:20px;
@@ -24,18 +24,19 @@
    </head>
    <body>
     <!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	<jsp:include page="/WEB-INF/views/main/header.jsp"/>
   </body>
   <main>
 		<div class="container">
 		<div class="row">
 		<table class="centered"><tr><td class="centered">
-		        <img alt=" HUNGARY" src='<c:url value="/resources/images/selectonTheRoad.jpg"/>' style="margin-top:10px; padding-left:320px" >
+                        <img alt=" HUNGARY" src='<c:url value="/resources/images/selectonTheRoad.jpg"/>' style="margin-top:10px; padding-left:340px" >
 		        <div>
 		        <label id="addr">O utca 11 , Budapest , 1066 , HUNGARY</label>
 		        </div>
+                   <div id="map1"><img alt="rootbuda" src='<c:url value="/resources/images/rootbuda.png"/>'</div>
 		   <div id="map"></div>
 		</td></tr>
 		</table>

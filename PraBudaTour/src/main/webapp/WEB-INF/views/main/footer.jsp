@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+
 <footer class="page-footer">
 	<div class="container">
 		<div class="row">
@@ -24,8 +25,8 @@
 				</tr>
 				<tr>
 					<td class="centered" colspan="3" style="color:white">
-					회사명 : Prahafavicon s.r.o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자번호 : 0491384&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전화번호 : +420 608 294 618 (체코)<p>
-					주소 : Senovazne nam. 1465/7, Praha 1-Nove Mestro, Czech&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡 아이디 : prahafavicon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이메일 : favicontour@naver.com<p>
+					회사명 : Prahafavicon s.r.o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자번호 : 0491384&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전화번호 : +420 608 294 618 (체코) +36 70 238 2490 (부다페스트)<p>
+					주소 : Senovazne nam. 1465/7, Praha 1-Nove Mestro, Czech&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡 아이디 : prahafavicon / budafavicon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이메일 : favicontour@naver.com<p>
 					<hr>
 					Copyright(c) 2016 즐겨찾기 All Rights Reserved
 					</td>

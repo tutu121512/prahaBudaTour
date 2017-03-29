@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Popup">
+
+	<!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
+	<resultMap type="popupDTO" id="popupMap">
+	<result column="board_no" property="boardNo"/> 
+	<result column="popup_img" property="popupImg"/>
+	<result column="popup_status" property="popupStatus"/>
+</resultMap>
+
+	<insert id="popupInsert" parameterType="popupDTO">
+		INSERT INTO popup(popup_img,popup_status) 
+		values(#{popupImg},'1')
+	</insert>
+	
+	<select id="popup" resultMap="popupMap">
+		select * from popup where popup_status='1'
+	</select>
+	
+	<update id="popupDelete" parameterType="popupDTO">
+		update popup set popup_status='0' where popup_status='1';
+	</update>
+</mapper>

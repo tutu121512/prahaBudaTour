@@ -1,4 +1,4 @@
-/* 스크롤링 */
+﻿/* 스크롤링 */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -4265,14 +4265,17 @@ nav .input-field label.active i {
   font-weight: 700;
 }
 
+
 @font-face {
   font-family: "배달의민족 주아";
-  src: url("../fonts/BMJUA_ttf.ttf");
+  src: url("../fonts/BMJUA_ttf.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/BMJUA_ttf.ttf") format('opentype');
 }
 
 @font-face {
   font-family: "배달의민족 도현";
-  src: url("../fonts/BMDOHYEON_ttf.ttf");
+  src: url("../fonts/BMDOHYEON_ttf.eot") format("embedded-opentype"),
+  url("../fonts/BMDOHYEON_ttf.ttf") format('opentype');
 }
 
 a {

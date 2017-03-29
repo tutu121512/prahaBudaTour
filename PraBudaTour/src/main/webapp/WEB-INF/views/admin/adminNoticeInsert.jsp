@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.List" %>
@@ -28,8 +28,9 @@
 	</head>
 	<body>
 	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+	<!-- <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script> -->
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
 	
@@ -155,7 +156,7 @@
 						<div class="input-field col s8">
 							<i class="material-icons prefix">title</i>
 							<input id="title" name="title" type="text" class="validate" placeholder="관심을 끌수 있는 제목으로 적어주세요">
-							<label for="title" style="font-size: large;">혜택 타이틀</label>
+							<label for="title" style="font-size: large;">제목</label>
 						</div>
 						<div class="input-field col s4">
 							<i class="material-icons prefix">supervisor_account</i>
@@ -169,7 +170,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
 							<textarea id="icon_prefix2" class="materialize-textarea" name="content" placeholder="방문자들이 이해하기 쉽게 설명해주세요"></textarea>
-							<label for="icon_prefix2" style="font-size: large;">혜택 내용 (자세하게 입력해주세요)</label>
+							<label for="icon_prefix2" style="font-size: large;">내용 (자세하게 입력해주세요)</label>
 						</div>
 					</div>
 				</td></tr>

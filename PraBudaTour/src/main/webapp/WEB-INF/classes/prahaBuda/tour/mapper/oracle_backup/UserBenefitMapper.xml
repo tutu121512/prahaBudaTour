@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserBenefit">
+
+<!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
+<resultMap type="boardDTO" id="boardMap">
+	<result column="board_state" property="boardState"/> 
+	<result column="Location" property="location"/>
+	<result column="board_no" property="boardNo"/>
+	<result column="writer" property="writer"/>
+	<result column="title" property="title"/>
+	<result column="content" property="content"/>
+	<result column="password" property="password"/>
+	<result column="board_date" property="boardDate"/>
+	<result column="board_reply" property="boardReply"/>
+	<result column="start_Date" property="startDate"/>
+	<result column="end_Date" property="endDate"/>	
+	<result column="board_img0" property="boardImg0"/>
+	<result column="board_img1" property="boardImg1"/>
+	<result column="board_img2" property="boardImg2"/>
+	<result column="board_img3" property="boardImg3"/>
+	<result column="board_img4" property="boardImg4"/>
+	<result column="board_img5" property="boardImg5"/>
+	<result column="board_img6" property="boardImg6"/>
+	<result column="board_img7" property="boardImg7"/>
+	<result column="board_img8" property="boardImg8"/>
+	<result column="board_img9" property="boardImg9"/>
+</resultMap>
+
+
+	<insert id="benefitInsert" parameterType="boardDTO" >
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
+			board_date,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9) 
+	VALUES('userBenefit','P',userBenefit_sequence.nextVal,#{writer},#{title},#{content},
+			sysdate,#{boardImg0},#{boardImg1},#{boardImg2},#{boardImg3},#{boardImg4},#{boardImg5},#{boardImg6},#{boardImg7},#{boardImg8},#{boardImg9})
+	</insert>
+	
+	<select id="benefitSelect" resultMap="boardMap" parameterType="int" >
+	SELECT
+	board.board_state boardState,
+	board.board_no boardNo,
+	board.writer as writer,
+	board.title as title,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
+	content content,
+	board_img0 boardImg0,
+	board_img1 boardImg1,
+	board_img2 boardImg2,
+	board_img3 boardImg3,
+	board_img4 boardImg4,
+	board_img5 boardImg5,
+	board_img6 boardImg6,
+	board_img7 boardImg7,
+	board_img8 boardImg8,
+	board_img9 boardImg9
+	FROM (SELECT rownum as rnum,board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	from board
+	where board_state='userBenefit' and location='P'
+	order by board_no+0 desc)) board
+	</select>
+	
+	<delete id="benefitDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE BOARD_NO=${boardNo} AND board_state='userBenefit' and location='P'
+	</delete>
+	
+
+</mapper>

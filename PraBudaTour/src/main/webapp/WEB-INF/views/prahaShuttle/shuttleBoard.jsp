@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
 
@@ -15,8 +15,10 @@
 	    <!--Import materialize.css-->
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
 	    <!--Let browser know website is optimized for mobile-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
 	<style>
+
 	body {
     display: flex;
     min-height: 100vh;
@@ -28,8 +30,8 @@
  	 }
 	</style>
 	<!--Import jQuery before materialize.js-->
-   <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
-   <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+   <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
    <script type="text/javascript">
 	  $(function(){
 		 $("tbody tr[name='board']").click(function(){

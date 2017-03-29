@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
@@ -8,7 +8,7 @@
 	List<BoardDTO> review = (List<BoardDTO>)request.getAttribute("reviewList");
 	List<BoardDTO> tourInfo = (List<BoardDTO>)request.getAttribute("tourInfoList");
 %>
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 	<head>
 	<title>♥PRAHA 즐겨찾기에 오신것을 환영합니다.♥</title>
@@ -16,9 +16,20 @@
 	    <link href='<c:url value="http://fonts.googleapis.com/icon?family=Material+Icons"/>' rel="stylesheet">
 	    <!--Import materialize.css-->
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
+		
+
+		<!-- Compiled and minified CSS -->
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"> -->
+
+
+          
+
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
 	<style>
-	body {
+/*@media (min-width:769px){
+	body{ background:#663;}
+}*/
+body {
 	    display: flex;
 	    min-height: 100vh;
 	    flex-direction: column;
@@ -32,7 +43,9 @@
 	<body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<!-- <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script> -->
+	  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	<script>
 	$(document).ready(function(){
 	      $('.carousel').carousel();  

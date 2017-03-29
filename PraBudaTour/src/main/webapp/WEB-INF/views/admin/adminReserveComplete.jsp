@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
 <%@ page import="prahaBuda.tour.dto.*" %>
@@ -11,7 +11,8 @@
 <html>
 	<head>
 	    <!--Import Google Icon Font-->
-	    <link href='<c:url value="http://fonts.googleapis.com/icon?family=Material+Icons"/>' rel="stylesheet">
+	    <!-- <link href='<c:url value="http://fonts.googleapis.com/icon?family=Material+Icons"/>' rel="stylesheet"> -->
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	    <!--Import materialize.css-->
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
@@ -30,7 +31,7 @@
 	<body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
 	
@@ -200,8 +201,8 @@
 					<div class="row">
 						<div class="input-field col s8">
 							<i class="material-icons prefix">card_giftcard</i>
-							<input id="product" name="product" type="text" class="validate" placeholder="프라하만의 혜택 상품들!! 공지사항을 꼭 확인해주세요 - 100자이내">	
-							<label for="product">신청상품(프라하만의 혜택 상품들!! 공지사항을 꼭 확인해주세요) - 100자이내</label>
+							<input id="product" name="product" type="text" class="validate" placeholder="즐겨찾기만의 혜택 상품들!! 공지사항을 꼭 확인해주세요 - 100자이내">	
+							<label for="product">신청상품(즐겨찾기만의 혜택 상품들!! 공지사항을 꼭 확인해주세요) - 100자이내</label>
 						</div>
 						<div class="input-field col s4" style="margin-bottom:-20px">
 							<i class="material-icons prefix">security</i>
@@ -323,11 +324,12 @@
 			    <table>
 			    <tbody id="bodyContent">
 			    <tr>
-			    <td><pre>${completelist.reserveName} 님
-즐겨찾기 게스트하우스에 관심가져 주셔서 감사합니다.
-문의 하신 ${completelist.startDate}~${completelist.endDate} 날짜에 예약확정 되셨습니다.
-예약사항을 확인하시고 변경사항이 있으시면 언제든지 카톡남겨주시기 바랍니다.
-아름다운 프라하에서 즐겨찾기와 함께 행복한 시간이 되기를 바랍니다 ^^
+			    <td>
+                            <pre>${completelist.reserveName} 님
+                            즐겨찾기 게스트하우스에 관심가져 주셔서 감사합니다.
+                            문의 하신 ${completelist.startDate}~${completelist.endDate} 날짜에 예약확정 되셨습니다.
+                            예약사항을 확인하시고 변경사항이 있으시면 언제든지 카톡남겨주시기 바랍니다.
+                            프라하/부다페스트 즐겨찾기와 함께 행복한 시간이 되기를 바랍니다 ^^
 			    </pre>
 			    <img style="padding-left:22%" src="<c:url value='/resources/images/favicon.png'/>">
 			    </td>

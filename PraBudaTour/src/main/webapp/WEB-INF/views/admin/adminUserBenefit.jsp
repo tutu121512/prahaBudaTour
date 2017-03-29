@@ -24,8 +24,9 @@
 	</head>
 	<body>
 	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
+	<!-- <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script> -->
 	<script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
 	
@@ -198,7 +199,7 @@
 			</table>
 		</form>
 	
-		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden;box-shadow:none">  
+		 <ul id="ListandView" class="collapsible" data-collapsible="accordion" style="border-style:hidden; box-shadow:none">  
 		 <li style="margin-bottom:15px">
 			<a href="/controller/admin/adminUserBenefit?location=P" class="waves-effect waves-light btn" style="background-color:blue">프라하 이용혜택</a>
 			<a href="/controller/admin/adminUserBenefit?location=B" class="waves-effect waves-light btn" style="background-color:brown">부다페스트 이용혜택</a>

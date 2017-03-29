@@ -15,7 +15,7 @@
 	    <!--Import materialize.css-->
 	    <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/materialize.css"/>' media="screen,projection"/>
 	    <!--Let browser know website is optimized for mobile-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE9">
 	<style>
 	body {
     display: flex;
@@ -28,7 +28,7 @@
  	 }
 	</style>
 	<!--Import jQuery before materialize.js-->
-   <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.min.js"/>'></script>
+   <script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.4.js"/>'></script>
    <script type="text/javascript" src='<c:url value="/resources/js/materialize.min.js"/>'></script>
    <script type="text/javascript">
 	  $(function(){
@@ -48,7 +48,7 @@
 		<table class="striped centered" id="userManageList" style="margin-top: 20px;">
 	<thead>
 		<tr style="padding:0px;background-color:darksalmon;font-size:18px">
-			<th data-field="num" style="width:8%">글번호</th>
+			<th data-field=num" style="width:8%">글번호</th>
 			<th data-field="email">제목</th>
 			<th data-field="nickName" style="width:13%">작성자</th>
 			<th data-field="phone" style="width:12%">작성일자</th>

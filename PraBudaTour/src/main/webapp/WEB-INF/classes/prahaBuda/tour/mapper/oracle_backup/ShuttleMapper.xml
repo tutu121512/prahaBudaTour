@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Shuttle">
+
+<!-- DB 컬럼명에 userDTO의 값 하나씩 대입 이름이 같으면 resultMap 생성하지 않아도 됨 -->
+<resultMap type="boardDTO" id="boardMap">
+	<result column="board_state" property="boardState"/> 
+	<result column="Location" property="location"/>
+	<result column="board_no" property="boardNo"/>
+	<result column="writer" property="writer"/>
+	<result column="title" property="title"/>
+	<result column="content" property="content"/>
+	<result column="password" property="password"/>
+	<result column="board_date" property="boardDate"/>
+	<result column="board_reply" property="boardReply"/>
+	<result column="start_Date" property="startDate"/>
+	<result column="end_Date" property="endDate"/>	
+	<result column="board_img0" property="boardImg0"/>
+	<result column="board_img1" property="boardImg1"/>
+	<result column="board_img2" property="boardImg2"/>
+	<result column="board_img3" property="boardImg3"/>
+	<result column="board_img4" property="boardImg4"/>
+	<result column="board_img5" property="boardImg5"/>
+	<result column="board_img6" property="boardImg6"/>
+	<result column="board_img7" property="boardImg7"/>
+	<result column="board_img8" property="boardImg8"/>
+	<result column="board_img9" property="boardImg9"/>
+</resultMap>
+
+
+	<insert id="ShuttleInsert" parameterType="boardDTO" >
+	INSERT INTO Board(board_state,Location,board_no,writer,title,content,
+	password,board_date) 
+	VALUES('shuttle','P',shuttle_sequence.nextVal,#{writer},#{title},#{content},
+	#{password},sysdate)
+	</insert>
+	
+	<select id="ShuttleList" resultMap="boardMap" parameterType="int" >
+	SELECT
+	board.board_no boardNo,
+	board.writer as writer,
+	board.title as title,
+	to_char(board.board_date,'YYYY/MM/DD') as boardDate,
+	board.board_reply as boardReply
+	FROM (SELECT rownum as rnum,board_no,writer,title,board_Date,board_reply
+	FROM (SELECT board_no,writer,title,board_Date,board_reply
+	from board
+	where board_state='shuttle' and location='P'
+	order by board_no+0 desc) ) board
+	where rnum  BETWEEN  ((#{curPage}-1)*10)+1  AND #{curPage}*10
+	</select>
+	
+	<select id="ShuttleListCount" resultType="int">
+	select count(board_no)
+	from board
+	where board_state='shuttle' and location='P'
+	</select>
+	
+	<select id="prahaShuttlePasswordCheck" parameterType="boardDTO" resultMap="boardMap">
+	SELECT *
+	FROM BOARD
+	WHERE board_state='shuttle' and location='P' 
+	and board_no=#{boardNo} and password=#{password}
+	</select>
+	
+	<delete id="prahaShuttleDelete" parameterType="boardDTO">
+	DELETE FROM BOARD WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
+	</delete>
+	
+	<update id="prahaShuttleUpdate" parameterType="boardDTO">
+	UPDATE BOARD SET title=#{title},writer=#{writer},content=#{content}, password=#{password} 
+	WHERE BOARD_NO=#{boardNo} AND board_state='shuttle' and location='P'
+	</update>
+</mapper>
