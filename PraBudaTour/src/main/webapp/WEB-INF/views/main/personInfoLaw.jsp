@@ -19,7 +19,7 @@
 	
 	<main>
 		<div class="container">
-		<pre>
+		<pre width="100%">
 
 ::: 개인정보취급방침 ::::
 

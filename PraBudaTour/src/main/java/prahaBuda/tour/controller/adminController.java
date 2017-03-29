@@ -224,8 +224,8 @@ public class adminController {
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+boardDTO.getFile().get(i).getOriginalFilename();
 			if(!imgName.equals(Time)){
-				String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
-				File file = new File(path);
+				String path = request.getSession().getServletContext().getRealPath("resources/upload/");
+				File file = new File(path+"/"+imgName);
 				boardDTO.getFile().get(i).transferTo(file);
 				String db = "/resources/upload/"+ imgName;
 				switch (i) {
@@ -278,8 +278,8 @@ public class adminController {
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+popupDTO.getFile().getOriginalFilename();
-			String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
-			File file = new File(path);
+			String path = request.getSession().getServletContext().getRealPath("resources/upload/");
+			File file = new File(path+"/"+imgName);
 			popupDTO.getFile().transferTo(file);
 			String db = "/resources/upload/"+ imgName;
 			popupDTO.setPopupImg(db);
@@ -297,4 +297,21 @@ public class adminController {
 		return  "redirect:/admin/adminPopup";
 	}
 		
+	@RequestMapping("adminReserveCompleteInsert")
+	public String adminReserveCompleteInsert(String Cpage,Model model) throws Exception{
+		
+		PageDTO CpageDto = new PageDTO();
+		if(Cpage == null){
+			CpageDto.setCurPage(1);				//page값이 null이면 1로 지정
+		}else{
+			int curPage = Integer.parseInt(Cpage); //형변환
+			CpageDto.setCurPage(curPage);			//현제페이지값 set해주기
+		}
+		
+		List<ReserveCompleteDTO> completelist = ReserveCompleteService.reserveCompleteBoard(CpageDto);
+		model.addAttribute("completelist", completelist);
+		model.addAttribute("Cpage",CpageDto);
+		
+	return "admin/adminReserveCompleteInsert";
+	}
 }

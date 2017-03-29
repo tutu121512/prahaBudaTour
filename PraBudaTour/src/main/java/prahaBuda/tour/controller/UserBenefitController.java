@@ -54,8 +54,8 @@ public class UserBenefitController {
 			String Time = dayTime.format(new Date(System.currentTimeMillis()));
 			String imgName = Time+boardDto.getFile().get(i).getOriginalFilename();
 			if(!imgName.equals(Time)){
-				String path = request.getSession().getServletContext().getRealPath("/") + "resources\\upload\\"+imgName;
-				File file = new File(path);
+				String path = request.getSession().getServletContext().getRealPath("resources/upload/");
+				File file = new File(path+"/"+imgName);
 				boardDto.getFile().get(i).transferTo(file);
 				String db = "/resources/upload/"+ imgName;
 				switch (i) {

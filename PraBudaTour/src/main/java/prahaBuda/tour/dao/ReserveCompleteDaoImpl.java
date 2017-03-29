@@ -18,10 +18,12 @@ public class ReserveCompleteDaoImpl implements ReserveCompleteDao {
 	@Override
 	public void reserveCompleteInsert(ReserveCompleteDTO reserveCompleteDTO,String boardNo) throws Exception {
 		 sqlSession.insert("ReserveComplete.resereveCompleteInsert",reserveCompleteDTO);
-		 HashMap map = new HashMap();
-		 map.put("boardNo", boardNo);
-		 map.put("reserveName", reserveCompleteDTO.getReserveName());
-		 sqlSession.update("ReserveQuestion.completeUpdate",map);
+		 if(boardNo!=null){
+			 HashMap map = new HashMap();
+			 map.put("boardNo", boardNo);
+			 map.put("reserveName", reserveCompleteDTO.getReserveName());
+			 sqlSession.update("ReserveQuestion.completeUpdate",map);
+		 }
 	}
 
 	@Override

@@ -21,6 +21,15 @@
             </li>
           </ul>
         </li>
+        
+        <li class="no-padding">
+           <ul class="collapsible collapsible-accordion">
+            <li class="bold">
+            <a href="/controller/admin/adminReserveCompleteInsert" style="font-size:20px;color:white" class="collapsible-header  waves-effect waves-teal">예약 확정(수기)</a>
+            </li>
+          </ul>
+        </li>
+        
 
        <li class="no-padding">
            <ul class="collapsible collapsible-accordion">

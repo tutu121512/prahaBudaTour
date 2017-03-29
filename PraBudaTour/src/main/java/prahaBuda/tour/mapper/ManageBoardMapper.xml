@@ -47,9 +47,10 @@
 	board.board_img7 boardImg7,
 	board.board_img8 boardImg8,
 	board.board_img9 boardImg9,
+	board.board_reply boardReply,
 	DATE_FORMAT(board.board_date, '%Y/%m/%d') as boardDate
-	FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, (select board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
-	FROM (SELECT board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+	FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, (select board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9,board_reply
+	FROM (SELECT board_state,board_no,writer,title,board_Date,content,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9,board_reply
 	from board
 	where location='P' AND (BOARD_STATE='reserveQuestion' OR BOARD_STATE='review' OR BOARD_STATE='shuttle' )
 	order by board_Date desc) a) t ) board 
@@ -63,7 +64,9 @@
 	</select>
 	
 	<select id="ManageSelectBoard" parameterType="hashmap" resultMap="boardMap">
-		SELECT board_state boardState,
+		SELECT 
+		location location,
+		board_state boardState,
 		board_no boardNo,
 		title title,
 		writer writer,
@@ -80,8 +83,8 @@
 		board_img7 boardImg7,
 		board_img8 boardImg8,
 		board_img9 boardImg9
-		FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, ( select board_state,board_no,title,board_date,writer,content,board_reply,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
-		FROM ( select board_state,board_no,title,board_date,writer,content,board_reply,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
+		FROM (SELECT @RNUM:=@RNUM+1 AS rnum , t.* FROM (SELECT @RNUM:=0) R, ( select board_state,board_no,title,board_date,writer,content,board_reply,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9,location
+		FROM ( select location,board_state,board_no,title,board_date,writer,content,board_reply,board_img0,board_img1,board_img2,board_img3,board_img4,board_img5,board_img6,board_img7,board_img8,board_img9
 		FROM board
 		WHERE Location='P'
 		and board_State=#{boardState}

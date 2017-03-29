@@ -72,7 +72,8 @@
 			type : 'post',
 			data : ({
 				boardNo : $(this).attr("id"),
-				boardState : $(this).attr("name")
+				boardState : $(this).attr("name"),
+				location :$(this).attr("value")
 			}),
 			dataType : "text", // html / xml / json / jsonp / text
 			success : function(data) {
@@ -90,8 +91,8 @@
 				$("#submitBtn").empty();
 				$("#submitBtn").append(str);
 			},
-			error : function(data) {
-				console.log("에러발생");
+			error : function(request,status,error) {
+				console.log("code : "+request,status+"\n"+"message : "+request.responseText+"\n"+"error : "+error);
 			}
 		});
 	});	
@@ -258,7 +259,7 @@
 			    <div class="collapsible-header" style="font-size:20px;background-color:coral;border-radius:27px;height:55px;">
 			  	<table>
 			  	<tbody id="collection-item">
-			  	<tr class="reserveNo" id="${list.boardNo}" name="${list.boardState}"><td style="width:10%;padding-bottom:0px;">
+			  	<tr class="reserveNo" id="${list.boardNo}" name="${list.boardState}" value="${list.location}"><td style="width:10%;padding-bottom:0px;">
 			    <img src="<c:url value='/resources/images/logo.jpg'/>" style="max-width:75px;">
 			    </td><td style="width:85%;padding-top:2px">
 			    <div>${list.boardNo}-${list.title} -&nbsp; ${list.writer}</div>

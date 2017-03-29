@@ -19,7 +19,7 @@
 	
 	<main>
 		<div class="container">
-		<pre>
+		<pre width="100%">
 [제1장 총칙]
 
 

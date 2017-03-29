@@ -63,6 +63,7 @@
 	</thead>
 	
 	<tbody>
+	여긴 <%=request.getSession().getServletContext().getRealPath("resources/upload/")%>
 	<c:choose>
 	<c:when test="${empty reserveSelectList}">
 	<tr><td colspan="5">게시글이 없습니다.</td></tr>
